@@ -1,0 +1,35 @@
+Greater Kudu guide: local image files
+======================================
+
+Base URL in the browser (Next.js public folder):
+  /images/species/greater-kudu/
+
+Put your main section photos HERE (same folder as this file):
+  public/images/species/greater-kudu/
+
+Extension is controlled in code: GREATER_KUDU_LOCAL_IMAGE_EXT in GreaterKuduGuide.tsx (currently png).
+
+Required filenames (match the "seed" in code):
+  kuduintro.png              intro column beside opening copy (square crop OK)
+  kudupanorama.png           full-width strip under intro (wide 16:9)
+  kudubullportrait.png       bull / horns / mane block
+  kuducowears.png            cow / ears / stripes block
+  kuduhornssilhouette.png    horn comparison / geometry
+  kuduwaterhole.png          water / blind / drinking
+  kudubrowseacacia.png       browsing / thorns / wide banner
+  kudurutdust.png            rut / posture / dust
+  kudupredatoraware.png      tense / freeze / shade
+  kudustalkridge.png         glassing / binoculars / stalk
+  kudutrophycompare.png      trophy / horn study wide
+  kuduhunterrifle.png        rifle / hands / thicket
+  kudubraai.png              meat / fire / backstrap
+
+Diagrams and prop-style shots (optional; wire in code when you replace placeholders):
+  public/images/species/greater-kudu/diagrams/
+    shot-card-vitals.png       shot placement card / silhouette
+    spectrogram.png            sound / spectrogram placeholder
+    spoor-board.png            track comparison tray
+    anatomical-overlay.png     vitals overlay card
+    biltong-drying.png         hooks / drying room / charcuterie
+
+Until a file is missing, the page falls back to placeholder photos from the network.

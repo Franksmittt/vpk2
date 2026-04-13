@@ -1,0 +1,104 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Suspense } from "react";
+import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import ContactForm from "@/components/forms/ContactForm";
+import ContactIntentForm from "./ContactIntentForm";
+
+export const metadata: Metadata = {
+  title: "Contact | Vaalpenskraal Game Reserve",
+  description:
+    "Contact Vaalpenskraal Game Reserve in the Waterberg, Limpopo: hunt enquiries, lodge stays, international travel, and family visits.",
+};
+
+export default function ContactPage() {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <PageHero
+        eyebrow="Contact"
+        title="Let’s talk before the veld does"
+        compact
+        subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans, trophy export: send the honest version. We reply with the same."
+        imageSeed="contacthero"
+      />
+
+      <section className="border-b border-white/[0.07] py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 md:px-12 lg:grid-cols-5 lg:gap-16">
+          <div className="space-y-10 lg:col-span-2">
+            <div>
+              <h2 className="font-sans text-lg font-semibold text-white/90">Direct lines</h2>
+              <ul className="mt-6 space-y-5 font-sans text-sm text-white/50">
+                <li className="flex gap-3">
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <a href="mailto:info@vaalpenskraal.com" className="text-white/70 transition-colors hover:text-white">
+                    info@vaalpenskraal.com
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <span>
+                    Phone on request after first enquiry{" "}
+                    <span className="text-white/35">(replace with estate line when live)</span>
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <span>
+                    Waterberg Biosphere · Thabazimbi area, Limpopo, South Africa
+                    <br />
+                    <span className="text-white/35">Exact gate directions sent when your booking is confirmed.</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
+              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/55">Response time</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
+                Hunting seasons and weekends fill fast. We aim to answer serious enquiries within one to two business days. If you are travelling internationally, mention your time zone so we can suggest a call window.
+              </p>
+            </div>
+            <Link
+              href="/reserve"
+              className="inline-flex items-center gap-1.5 font-sans text-sm text-white/45 transition-colors hover:text-white"
+            >
+              Read how booking works
+              <ChevronRight className="h-4 w-4 opacity-60" />
+            </Link>
+          </div>
+          <div className="lg:col-span-3">
+            <Suspense fallback={<ContactForm defaultTopic="hunt" />}>
+              <ContactIntentForm />
+            </Suspense>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#050505] py-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+          <h2 className="font-sans text-lg font-semibold text-white/85">Before you arrive</h2>
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            <div>
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Johannesburg</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+                Most international and domestic guests route through O.R. Tambo. From there it is a road transfer north into the Waterberg. We help you think about hire cars versus arranged pickup.
+              </p>
+            </div>
+            <div>
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Paperwork</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+                Temporary firearm import, trophy export, and dangerous-game rules are country-specific. Tell us your passport country early so we do not improvise at the last gate.
+              </p>
+            </div>
+            <div>
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Expectations</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+                Heat, thorns, and silence are real. So is the reward. If someone in your party has mobility limits or dietary needs, say so in the form: the lodge can adapt when we know in advance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep-olive: #2B3D26;
+  --color-canvas-cream: #EFEBD6;
+  --color-burnished-copper: #B87333;
+  --color-signal-orange: #D65A31;
+  --color-espresso: #231F20;
+  --color-charcoal: #231F20;
+  --color-bushveld-soil: #894e34;
+  --color-acacia-bark: #543939;
+  --color-winter-sky: #537285;
+  --color-dried-grass: #9a7e49;
+  --color-sunset-gold: #c98455;
+  --color-clay: #B87333;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-in: fade-in 1s ease-out both;
+  --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-zoom-out: zoom-out 20s ease-out both;
+  --animate-scroll-down: scroll-down 1.5s linear infinite;
+}
+
+@layer utilities {
+  .cinematic-hero {
+    @apply min-h-screen pt-24 relative overflow-hidden;
+  }
+  .luxury-card {
+    @apply bg-espresso/40 backdrop-blur-md border border-white/10 rounded-xl p-6 md:p-8 lg:p-10 transition-all duration-700 ease-out hover:scale-[1.02] hover:border-clay/50;
+  }
+  .broken-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+  .editorial-text {
+    @apply font-sans font-light text-white/80 leading-relaxed tracking-[0.01em];
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .white-space-luxury {
+    @apply py-12 md:py-20;
+  }
+  .no-ui {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12;
+  }
+  .page-container {
+    @apply pt-24 md:pt-32;
+  }
+  .scroll-fade {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  .scroll-fade.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoom-out {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+body {
+  @apply bg-black text-white font-sans antialiased;
+}

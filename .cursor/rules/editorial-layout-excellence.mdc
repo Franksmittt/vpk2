@@ -1,0 +1,32 @@
+---
+description: Editorial and marketing layouts must match agency-grade precision (rhythm, image-to-copy balance, no accidental giants).
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Editorial layout excellence
+
+This site is premium destination marketing. Layout and spacing should withstand scrutiny from strong design and front-end teams.
+
+## Image + copy pairs
+
+- Do **not** default to tall portrait `aspect-[3/4]` or `aspect-[4/5]` beside a text column unless the design intentionally towers over the copy.
+- Prefer **`items-stretch` grids** with the image in a **flex column** that uses **`flex-1` + `min-h-0`**, and **`object-cover`** so the photo **fills the row height** defined by the text column.
+- On small screens, allow a **reasonable `min-h-*`** so stacked images do not collapse to a sliver.
+- Full-bleed **banner** images (wide ratios) stay separate from two-column editorial rows.
+
+## Spacing and type
+
+- Keep a **consistent spacing scale** within a page (e.g. section `py-16 md:py-24`, paired columns `gap-10 lg:gap-16`).
+- **Max-width** long prose (`max-w-3xl` or similar) so line length stays readable on large screens.
+- Use **optical padding**: slight `py-0.5` on dense text blocks next to images when baselines feel tight against the frame.
+
+## Copy rules synergy
+
+- Follow **`no-em-dash.mdc`**: no Unicode em dash in UI strings.
+
+## Check before shipping a page
+
+- [ ] Any 2-col block: does the image column **match** the text column height, or is it arbitrarily taller?
+- [ ] Sticky nav / header overlap: are `scroll-mt-*` and sticky `top-*` consistent with the fixed header?
+- [ ] Do paired figures in a row share **equal** visual weight (`items-stretch` + same layout mode)?

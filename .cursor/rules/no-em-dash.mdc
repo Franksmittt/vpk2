@@ -1,0 +1,30 @@
+---
+description: Do not use em dashes (U+2014) in user-facing copy, comments, or strings; they read as generic AI tone.
+alwaysApply: true
+---
+
+# No em dashes
+
+Do not use the **em dash** character (`—`, Unicode U+2014) anywhere in this project: UI copy, metadata, testimonials, comments, or string literals.
+
+## Use instead
+
+- **Period + new sentence**, or **comma**, for a short break.
+- **Colon** when the second part explains or lists the first.
+- **Parentheses** for a quick aside.
+- **Hyphen-minus** (`-`) only where a hyphen is normal (e.g. `co-op`, `24-hour`).
+
+## Examples
+
+```text
+Bad:  We manage the land—not a menu of animals.
+Good: We manage the land, not a menu of animals.
+
+Bad:  Thick bush—zero margin.
+Good: Thick bush. Zero margin.
+
+Bad:  Caliber—.375 H&H
+Good: Caliber: .375 H&H
+```
+
+Before finishing edits, search the changed files for `—` and remove any matches.
