@@ -1336,3 +1336,127 @@ Description:
 **Ultra-wide panorama** of the **full entrance experience**: **left** **black sliding gate** with **welcome / close gate** sign and kudu icon; **centre** **tan feature wall** with **correct full spelling VAALPENSKRAAL GAME FARM** in **silver letters**, **kudu** logo, **three uplights**; **behind** wall **solar** gear and pole.
 
 **Right**: **chain-link gate** with **“PRIVATE AREA”**-style brown plaque (arrow) and **colour lodge / welcome** board (tree artwork); **multi-strand game fence** on **white posts** continues along the property line. **Red dirt road**, tyre tracks, **tall dry grass** and **green thicket**; **deep blue** sky with **dense cumulus**. Best **single banner** asset tying **main gate + mesh gate + fencing + sky**—non-standard filename **“(237)-Pano”** pairs with **Thabazimbi W (237).jpg** as **rectilinear vs panoramic** coverage of the same node.
+
+
+================================================================================
+April 2026 — edited / composite batch (folder `01\`, deployed to `public\images\lodge\`)
+================================================================================
+Source folder on disk:
+  C:\Users\User1\Downloads\remix_-vaalpenskraal-game-reserve\01
+
+These files are **manually edited or augmented** versions of camp scenes (greener grass, cleaner pool water, catering spreads, people at the boma fire, bar social scenes, gate at dusk, etc.). They **replace** the earlier Thabazimbi-derived JPEGs for the **same logical slots** on the `/lodge` page. Filenames below are the **canonical web paths** (relative to `public/`).
+
+**Not replaced from this batch** (still earlier assets or placeholders):
+  - `brochure-game.jpg` — original dragonfly / bush detail.
+  - `lodge-kitchen.jpg` — kitchen interior (no new file in `01`).
+  - `lodge-waterhole.jpg` — pool-to-veld stand-in for waterhole copy.
+  - Spec placeholders: cold chain, meat & hides, activities, transfers (picsum or missing).
+
+**Spare assets (not wired in page.tsx; use for print, social, or future sections):**
+  - `public/images/lodge/lodge-bathroom-vanity-alt.jpg` — from `Generated Image … 11_22AM.jpg` (double vanity emphasis).
+  - `public/images/lodge/lodge-catering-spread-alt.jpg` — from `Generated Image … 11_48AM.jpg` (chef + slider platters).
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 9_36AM.jpg → night boma / brochure night / boma article
+--------------------------------------------------------------------------------
+Web copies: `brochure-night.jpg`, `lodge-boma.jpg` (same image).
+Description:
+Night scene: guests in Adirondack-style chairs around a **stone fire pit** with a strong wood fire; drinks in hand; **thatched lodge** buildings and warm window light behind; paved patio; trees. Deliberate **evening social** shot for boma strip and pool+boma section.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 9_40AM.jpg → PageHero
+--------------------------------------------------------------------------------
+Web copy: `hero.jpg`.
+Description:
+From under the **lapa / thatch**, view over **rectangular pool** (clear turquoise water), **brick paving**, **very green lawn**, **three thatched chalets** in an arc, bush fence and sky. Establishes **camp hero** for the lodge page.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 9_44AM.jpg → chalets path, overnight spec, vista strip, outlook card, Roan card
+--------------------------------------------------------------------------------
+Web copies: `brochure-vista.jpg`, `spec-overnight.jpg`, `spec-chalets.jpg`, `lodge-outlook.jpg`, `lodge-chalet-roan.jpg`.
+Description:
+**Curved brick path** through **saturated green lawn** toward **round thatched chalets**; big sky; edited for **lush grass**. Ground-level “camp grounds” read (used for outlook card and Roan thumbnail).
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 9_48AM.jpg → pool emphasis, outdoor spec, Gemsbok card, brochure pool
+--------------------------------------------------------------------------------
+Web copies: `brochure-pool.jpg`, `spec-outdoor.jpg`, `lodge-pool.jpg`, `lodge-chalet-gemsbok.jpg`.
+Description:
+Wide lawn with **three chalets**, **pool** in foreground corner, **edited pool clarity** and **green grass**; walkways; fence to bush.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 10_06AM.jpg → overview, Koedoe card
+--------------------------------------------------------------------------------
+Web copies: `lodge-overview.jpg`, `lodge-chalet-koedoe.jpg`.
+Description:
+Under **large trees** and **lapa** edge: **pool**, **brick patio**, **wicker seating**, **chalets** across the lawn; strong **resort layout** overview.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 10_13AM.jpg → media strip / “evening” bar social
+--------------------------------------------------------------------------------
+Web copy: `lodge-evening.jpg`.
+Description:
+**Interior bar**: several men at **wood table** (biltong, nuts, beer) and at **bar stools**; **taxidermy** on walls; **TV** (sport); **thatched ceiling**, chandelier. Social **post-hunt** energy.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_22AM.jpg → vanity detail spec tile + alt asset
+--------------------------------------------------------------------------------
+Web copy: `lodge-bathroom-vanity-alt.jpg` — used on `/lodge` **Property snapshot** grid as the **Vanities** row (paired with **Bathroom** in the same 3-column band).
+Description:
+**Double vanity**, grey wall, mirrors, chrome fittings; shower edge visible. Complements the full-room **Bathroom** tile (`spec-bathroom.jpg`).
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_23AM.jpg → interior, sleeps, beds, climate specs
+--------------------------------------------------------------------------------
+Web copies: `spec-sleeps.jpg`, `spec-beds.jpg`, `spec-climate.jpg`, `lodge-chalet-interior.jpg`.
+Description:
+**Multi-bed chalet room**: carved wood beds, grey linen, **Vaalpenskraal** floor mat, **wall-mounted aircon**, wildlife cushions; shows **capacity and climate** in one frame.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_25AM.jpg → bathroom spec
+--------------------------------------------------------------------------------
+Web copy: `spec-bathroom.jpg`.
+Description:
+Walk-in **glass shower**, **pebble floor**, **double vanities**, navy towel—full **ensuite** story.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_35AM.jpg → bar ribbon, communal spec, lodge bar figure
+--------------------------------------------------------------------------------
+Web copies: `brochure-bar.jpg`, `spec-communal.jpg`, `lodge-bar.jpg`.
+Description:
+Daylit **bar**: biltong/nuts on **octagonal table**, **back bar** glassware, **trophy mounts**, TV with **bush / vehicle** scene; stone floor.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_41AM.jpg → large brochure tile (hero column)
+--------------------------------------------------------------------------------
+Web copy: `brochure-hero.jpg`.
+Description:
+From **lapa**: **wood table** with **fruit bowls**, **plates**, overlooking **pool**, **chairs**, **two chalets** — **catering + pool + accommodation** in one frame.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_44AM.jpg → catering strip, spec catering, main catering figure
+--------------------------------------------------------------------------------
+Web copies: `brochure-food.jpg`, `spec-catering.jpg`, `lodge-catering.jpg`.
+Description:
+**Chef in whites** garnishing a plate on **lapa table**; **spring rolls**, bread, sauces; **pool and chalets** behind — **edited grass and pool**.
+
+--------------------------------------------------------------------------------
+Generated Image April 14, 2026 - 11_48AM.jpg → spare catering spread
+--------------------------------------------------------------------------------
+Web copy: `lodge-catering-spread-alt.jpg` only.
+Description:
+Chef with **slider platters**, sides, condiments; pool and chalets — alternate **full-board** marketing asset.
+
+--------------------------------------------------------------------------------
+WhatsApp Image 2026-04-14 at 13.03.27.jpeg → gate, permit, security specs
+--------------------------------------------------------------------------------
+Web copies: `spec-permit.jpg`, `spec-security.jpg` (same image).
+Description:
+**Dusk gate**: **VAALPEN SKRAAL GAME FARM** wall sign, **kudu logo**, **sliding gate**, figure at keypad; **dramatic sky**; red dirt road — **arrival / compliance** tone.
+
+--------------------------------------------------------------------------------
+WhatsApp Image 2026-04-14 at 13.03.28.jpeg → panoramic strip, Eland chalet card
+--------------------------------------------------------------------------------
+Web copies: `brochure-pano.jpg`, `lodge-chalet-eland.jpg`.
+Description:
+**Wide grounds**: tree branch frame, **green lawn**, **three round chalets**, **pool** glimpse, **tank** foreground right, **bakkie** in distance — **estate scale** (replaces earlier ultra-wide gate pano on the ribbon).

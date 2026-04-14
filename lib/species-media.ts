@@ -15,6 +15,9 @@ export const SPECIES_CARD_IMAGE_BY_ID: Partial<Record<string, string>> = {
   "warthog": "/images/species/cards/warthog.png",
   "gemsbok": "/images/species/cards/gemsbok.png",
   "impala": "/images/species/cards/impala.png",
+  "blesbok": "/images/species/cards/blesbok.png",
+  "bushbuck": "/images/species/cards/bushbuck.png",
+  "cape-buffalo": "/images/species/cards/cape-buffalo.png",
 };
 
 /** Hero + spotlight on `/species` (same file as kudu card). */

@@ -17,9 +17,7 @@ import {
   UsersRound,
   HeartHandshake,
   Fan,
-  Binoculars,
   Truck,
-  Target,
   Award,
   Globe2,
   Mountain,
@@ -145,7 +143,7 @@ const SPECS: SpecRow[] = [
     label: "Taxidermy",
     value: "Outsourced to professional taxidermists you appoint; international shipping & export paperwork sit with you and your taxidermist — the estate does not process client trophy paperwork",
     seed: "vpspec-taxidermy",
-    src: `${LODGE}/spec-taxidermy.jpg`,
+    src: `${LODGE}/spec-taxidermy.png`,
     layout: "full",
     imageTall: true,
   },
@@ -349,9 +347,6 @@ export default function LodgePage() {
                 className="aspect-[4/3] w-full object-cover sm:aspect-[16/10]"
                 priority
               />
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
-                Chalets, pool corner, and paths — the same footprint every guest shares between stalks and meals.
-              </figcaption>
             </figure>
           </div>
         </div>
@@ -410,9 +405,6 @@ export default function LodgePage() {
                 alt="Chalet interior with beds and air conditioning"
                 className="aspect-[16/10] w-full object-cover"
               />
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40 md:px-5">
-                Typical ensuite chalet layout: multiple beds, aircon, and space for gear after a long day in the bush.
-              </figcaption>
             </figure>
           </div>
 
@@ -425,9 +417,6 @@ export default function LodgePage() {
                   alt={`${kraal.name} guest chalet`}
                   className="aspect-[4/3] w-full object-cover"
                 />
-                <figcaption className="border-t border-white/[0.06] bg-black/60 px-2 py-2 text-center font-sans text-[10px] uppercase tracking-wider text-white/35">
-                  {kraal.name}
-                </figcaption>
               </figure>
             ))}
           </div>
@@ -461,9 +450,6 @@ export default function LodgePage() {
                   alt="Communal bar and lounge"
                   className="aspect-[16/10] w-full object-cover"
                 />
-                <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  {COMMUNAL_BAR_KRAAL} — bar, trophies on display, and the social heart of camp.
-                </figcaption>
               </figure>
               <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
                 <Pic
@@ -472,9 +458,6 @@ export default function LodgePage() {
                   alt="Kitchen with gas stove and electric oven"
                   className="aspect-[16/10] w-full object-cover"
                 />
-                <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  Catering kitchen — gas hob, oven, and prep space for full-board service.
-                </figcaption>
               </figure>
             </div>
           </div>
@@ -492,9 +475,6 @@ export default function LodgePage() {
                 alt="Drinks and snacks served by the pool as part of full board"
                 className="aspect-[4/3] w-full object-cover"
               />
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40">
-                Included drinks and poolside hospitality — meals run from the kitchen and bar throughout the day.
-              </figcaption>
             </figure>
             <div className="order-1 lg:order-2">
               <UtensilsCrossed className="h-9 w-9 text-burnished-copper/80" aria-hidden />
@@ -612,18 +592,20 @@ export default function LodgePage() {
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-              <Pic seed="vpclaypigeon" alt="Clay pigeon shooting" className="aspect-[16/10] w-full object-cover" />
-              <figcaption className="flex items-start gap-3 border-t border-white/[0.06] bg-white/[0.02] px-4 py-4 md:px-5">
-                <Target className="mt-0.5 h-5 w-5 shrink-0 text-burnished-copper/80" aria-hidden />
-                <span className="font-sans text-sm leading-relaxed text-white/45">Placeholder: clay pigeon layout / thrower in frame.</span>
-              </figcaption>
+              <Pic
+                seed="vpclaypigeon"
+                src={`${LODGE}/spec-outdoor.jpg`}
+                alt="Clay pigeon and open grounds on the estate"
+                className="aspect-[16/10] w-full object-cover"
+              />
             </figure>
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-              <Pic seed="vpgamedrive" alt="Game drive vehicle in the bush" className="aspect-[16/10] w-full object-cover" />
-              <figcaption className="flex items-start gap-3 border-t border-white/[0.06] bg-white/[0.02] px-4 py-4 md:px-5">
-                <Binoculars className="mt-0.5 h-5 w-5 shrink-0 text-burnished-copper/80" aria-hidden />
-                <span className="font-sans text-sm leading-relaxed text-white/45">Placeholder: game drive vehicle and landscape.</span>
-              </figcaption>
+              <Pic
+                seed="vpgamedrive"
+                src={`${LODGE}/brochure-pano.jpg`}
+                alt="Lodge grounds and bushveld"
+                className="aspect-[16/10] w-full object-cover"
+              />
             </figure>
           </div>
         </div>
@@ -694,13 +676,10 @@ export default function LodgePage() {
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-7">
               <Pic
                 seed="vptaxidermyprep"
-                src={`${LODGE}/lodge-taxidermy.jpg`}
-                alt="Trophy heads on display in the communal bar"
+                src={`${LODGE}/lodge-taxidermy.png`}
+                alt="Taxidermist working on a shoulder mount in a workshop"
                 className="aspect-[16/10] w-full object-cover"
               />
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
-                Decorative mounts in {COMMUNAL_BAR_KRAAL} — not a caping workshop. Field prep and export sit with the professional taxidermist you appoint.
-              </figcaption>
             </figure>
           </div>
         </div>
@@ -724,9 +703,6 @@ export default function LodgePage() {
             <h2 className="mt-5 font-sans text-xl font-semibold sm:text-2xl">Safe camp · Matlabas Protection Service</h2>
             <p className="mt-4 font-sans text-sm leading-relaxed text-white/45 md:text-base">
               The property is <strong className="font-medium text-white/70">gated</strong> from the road and sits under professional security oversight. Vaalpenskraal falls under <strong className="font-medium text-white/70">Matlabas Protection Service</strong>, so guests, vehicles, and equipment sit inside a managed perimeter, not an open roadside stop.
-            </p>
-            <p className="mt-3 font-sans text-xs leading-relaxed text-white/35">
-              Names and service scope can be confirmed on your booking confirmation or when you sit with management.
             </p>
           </div>
         </div>
@@ -783,9 +759,6 @@ export default function LodgePage() {
                 alt="Warm light in the communal bar at camp"
                 className="aspect-[16/10] w-full object-cover"
               />
-              <p className="border-t border-white/[0.06] bg-black/80 px-4 py-3 font-sans text-[11px] text-white/40">
-                Bar and lounge when the day slows — the social end of full-board hospitality.
-              </p>
             </div>
           </div>
         </div>
