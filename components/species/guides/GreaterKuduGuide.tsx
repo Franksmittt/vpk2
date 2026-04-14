@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ChevronLeft,
@@ -15,7 +16,7 @@ import { GuideFigureImg } from "@/components/species/guides/GuideFigureImg";
 
 type FigLayout = "banner" | "tall" | "matchText";
 
-/** Files live in public/images/species/greater-kudu/ — see WHERE-TO-PUT-IMAGES.txt */
+/** Files live in public/images/species/greater-kudu/: see WHERE-TO-PUT-IMAGES.txt */
 export const GREATER_KUDU_LOCAL_IMAGE_BASE = "/images/species/greater-kudu";
 /** Local assets in public/images/species/greater-kudu/ */
 export const GREATER_KUDU_LOCAL_IMAGE_EXT = "png";
@@ -43,7 +44,7 @@ function Fig({
   placeholder?: string;
   /** Static asset under /public, e.g. /images/species/greater-kudu/diagrams/....png */
   diagramSrc?: string;
-  /** e.g. /images/species/greater-kudu — tries /{base}/{seed}.{ext} before remote fallback */
+  /** e.g. /images/species/greater-kudu: tries /{base}/{seed}.{ext} before remote fallback */
   localBase?: string;
   localExt?: string;
 }) {
@@ -55,33 +56,38 @@ function Fig({
   if (layout === "matchText") {
     return (
       <figure className={`flex h-full min-h-0 flex-col ${className}`}>
-        <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[260px] lg:min-h-0">
+        <div className="relative min-h-[min(13.75rem,50dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(16rem,52dvh)] lg:min-h-0">
           {diagramSrc ? (
-            <img
+            <Image
               src={diagramSrc}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              alt={caption ? `Diagram: ${caption}` : "Greater kudu species diagram"}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
             />
           ) : placeholder ? (
-            <div className="flex h-full min-h-[200px] items-center justify-center rounded-2xl border border-dashed border-white/20 bg-gradient-to-br from-white/[0.04] to-transparent px-6 text-center">
-              <span className="font-sans text-xs leading-relaxed text-white/40">{placeholder}</span>
+            <div className="flex h-full min-h-[min(12rem,42dvh)] items-center justify-center rounded-2xl border border-dashed border-white/20 bg-gradient-to-br from-white/[0.04] to-transparent px-6 py-6 text-center">
+              <span className="font-sans text-xs leading-relaxed text-white/65">{placeholder}</span>
             </div>
           ) : localBase ? (
             <GuideFigureImg
               localSrc={`${localBase}/${seed}.${localExt}`}
               fallbackSrc={speciesImageUrl(seed!, matchFallbackW, matchFallbackH)}
               className="absolute inset-0 h-full w-full object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           ) : (
-            <img
+            <Image
               src={speciesImageUrl(seed!, matchFallbackW, matchFallbackH)}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              alt={caption ? `Figure: ${caption}` : "Greater kudu monograph figure"}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
             />
           )}
         </div>
         {caption ? (
-          <figcaption className="mt-3 shrink-0 font-sans text-[11px] leading-snug text-white/38">
+          <figcaption className="mt-3 shrink-0 font-sans text-[11px] leading-snug text-white/65">
             {caption}
           </figcaption>
         ) : null}
@@ -97,33 +103,36 @@ function Fig({
         <div
           className={`flex ${ratio} items-center justify-center rounded-2xl border border-dashed border-white/20 bg-gradient-to-br from-white/[0.04] to-transparent px-6 text-center`}
         >
-          <span className="font-sans text-xs leading-relaxed text-white/40">{placeholder}</span>
+          <span className="font-sans text-xs leading-relaxed text-white/65">{placeholder}</span>
         </div>
         {caption ? (
-          <figcaption className="mt-3 font-sans text-[11px] leading-snug text-white/38">{caption}</figcaption>
+          <figcaption className="mt-3 font-sans text-[11px] leading-snug text-white/65">{caption}</figcaption>
         ) : null}
       </figure>
     );
   }
   return (
     <figure className={className}>
-      <div className={`overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${ratio}`}>
+      <div className={`relative overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${ratio}`}>
         {localBase ? (
           <GuideFigureImg
             localSrc={`${localBase}/${seed}.${localExt}`}
             fallbackSrc={speciesImageUrl(seed!, wideFallbackW, wideFallbackH)}
             className="h-full w-full object-cover"
+            sizes="100vw"
           />
         ) : (
-          <img
+          <Image
             src={speciesImageUrl(seed!, wideFallbackW, wideFallbackH)}
-            alt=""
-            className="h-full w-full object-cover"
+            alt={caption ? `Figure: ${caption}` : "Greater kudu monograph banner"}
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
         )}
       </div>
       {caption ? (
-        <figcaption className="mt-3 font-sans text-[11px] leading-snug text-white/38">{caption}</figcaption>
+        <figcaption className="mt-3 font-sans text-[11px] leading-snug text-white/65">{caption}</figcaption>
       ) : null}
     </figure>
   );
@@ -143,21 +152,21 @@ function NavPill({ href, children }: { href: string; children: React.ReactNode }
   return (
     <a
       href={href}
-      className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-white/55 transition-colors hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90"
+      className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90"
     >
       {children}
     </a>
   );
 }
 
-export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecies }) {
+const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="sticky top-20 z-[90] border-b border-white/[0.08] bg-black/85 backdrop-blur-xl md:top-24">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
           <Link
             href="/species"
-            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/45 transition-colors hover:text-white"
+            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/70 transition-colors hover:text-white"
           >
             <ChevronLeft className="h-4 w-4" />
             Quarry
@@ -179,16 +188,19 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
       {/* Hero */}
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={speciesImageUrl("kuduheroiron", 1920, 1200)}
-            alt=""
-            className="h-full w-full object-cover"
+            alt="Greater kudu bull in iron-stone Waterberg thicket, monograph hero at Vaalpenskraal"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 to-black/30" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_70%_80%,rgba(184,115,51,0.2),transparent_50%)]" />
         </div>
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
-          <div className="mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/50">
+          <div className="mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
             <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />
             Species monograph
           </div>
@@ -198,7 +210,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
           <p className="mt-4 max-w-2xl font-serif text-lg italic text-burnished-copper/90 md:text-xl">
             Greater Kudu · {s.scientific}
           </p>
-          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/55 md:text-lg">
+          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
             Few African animals earn the quiet reverence of a mature kudu bull. Spiral horns, disruptive
             stripes, and a freeze that breaks your nerve: this is the graduate course in bush stillness.
           </p>
@@ -242,7 +254,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             <KuduFig
               seed="kuduintro"
               layout="matchText"
-              className="h-full min-h-[220px]"
+              className="h-full min-h-[min(13.75rem,48dvh)]"
             />
           </div>
         </div>
@@ -288,7 +300,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             >
               <h3 className="font-sans text-sm font-semibold text-white/90">{c.title}</h3>
               <p className="mt-1 font-serif text-xs italic text-burnished-copper/80">{c.sub}</p>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/45">{c.body}</p>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">{c.body}</p>
             </div>
           ))}
         </div>
@@ -303,7 +315,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
               Size, coat, and the spiral
             </h2>
-            <p className="max-w-md font-sans text-sm text-white/40">
+            <p className="max-w-md font-sans text-sm text-white/65">
               Sexual dimorphism here is strategy, not decoration.
             </p>
           </div>
@@ -311,13 +323,13 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
           <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-6 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">The bull</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/50">
+              <p className="font-sans text-base leading-[1.75] text-white/70">
                 Mature bulls are enormous: roughly 140 to 160 cm at the shoulder and commonly 190 to 270
                 kg, with exceptional South African animals past 300 kg. Full body size may take until six
                 years. The neck thickens to carry horn weight and to power horn wrestling, not head
                 smashing like sheep.
               </p>
-              <ul className="space-y-3 font-sans text-sm text-white/48">
+              <ul className="space-y-3 font-sans text-sm text-white/70">
                 <li className="flex gap-3 border-l-2 border-burnished-copper/40 pl-4">
                   Horn length along the spiral often lands near 120 cm. Fifty-four inches is widely
                   discussed as a trophy benchmark; sixty is lifetime-grade; seventy-two-inch records are
@@ -348,13 +360,13 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             </div>
             <div className="order-1 space-y-6 lg:order-2 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">The cow</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/50">
+              <p className="font-sans text-base leading-[1.75] text-white/70">
                 Cows run about 100 to 125 cm at the shoulder and 120 to 210 kg. No horns, less beard,
                 often a softer face. Those ears are not cosmetic: they track the snap that gives a
                 leopard away.
               </p>
               <h3 className="pt-4 font-sans text-lg font-medium text-white/90">Stripes and shadow</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/50">
+              <p className="font-sans text-base leading-[1.75] text-white/70">
                 Six to ten vertical white lines break the outline in dappled thicket. In open sun the
                 pattern looks loud. In broken shade it erases mass. Add cheek spots, a chevron, and an
                 erectile dorsal mane for threat display, and you understand why animals “appear” after
@@ -458,7 +470,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
               <h3 className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/80">
                 Maternal herds
               </h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
                 Cows and young run in stable groups, sharing grooming and watch duty across overlapping
                 home ranges.
               </p>
@@ -468,7 +480,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
               <h3 className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/80">
                 Bachelor herds
               </h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
                 Young bulls peel off around two years, spar in low gear, and sort a pecking order before
                 solitude later in life.
               </p>
@@ -478,7 +490,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
               <h3 className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/80">
                 Solitary patriarchs
               </h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
                 Old bulls vanish into the worst country. They meet cows on their terms, on a short rut
                 clock.
               </p>
@@ -558,7 +570,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
               >
                 <b.icon className="h-7 w-7 text-burnished-copper/85" />
                 <h3 className="mt-4 font-sans text-base font-semibold text-white/90">{b.title}</h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">{b.text}</p>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">{b.text}</p>
               </div>
             ))}
           </div>
@@ -617,13 +629,13 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             <table className="w-full min-w-[520px] text-left text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.03]">
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Class
                   </th>
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Examples
                   </th>
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Notes
                   </th>
                 </tr>
@@ -638,7 +650,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
                   <tr key={a} className="border-b border-white/[0.06]">
                     <td className="px-4 py-3 font-medium text-white/85">{a}</td>
                     <td className="px-4 py-3">{b}</td>
-                    <td className="px-4 py-3 text-white/50">{c}</td>
+                    <td className="px-4 py-3 text-white/70">{c}</td>
                   </tr>
                 ))}
               </tbody>
@@ -646,7 +658,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
           </div>
 
           <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/50 lg:py-0.5">
+            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/70 lg:py-0.5">
               <p>
                 <span className="font-medium text-white/75">Glass:</span> 10x42 is the African default.
                 Buy transmission you trust in shadow, not just magnification on the box.
@@ -695,7 +707,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             <p>
               Backstrap over coals with salt and coriander. Schnitzel from leg cuts for the kids. Neck
               and shin in a slow pot, low heat, with wine, onion, and dried apricot for sweetness against
-              the iron in the meat. Air-dried cured strips from the long muscle groups—ideal travel
+              the iron in the meat. Air-dried cured strips from the long muscle groups: ideal travel
               protein for the drive home.
             </p>
           </div>
@@ -743,7 +755,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
                   ["On Iron Mountain", `${s.terrain} · ${s.caliber} per estate brief`],
                 ].map(([k, v]) => (
                   <tr key={k} className="border-b border-white/[0.06]">
-                    <th className="whitespace-nowrap px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-white/35">
+                    <th className="whitespace-nowrap px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-white/65">
                       {k}
                     </th>
                     <td className="px-4 py-3 text-white/75">{v}</td>
@@ -761,7 +773,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
           <h2 className="font-sans text-3xl font-semibold tracking-[-0.03em] md:text-4xl">
             Ready to hunt the spiral?
           </h2>
-          <p className="mt-5 font-sans text-base leading-relaxed text-white/50">
+          <p className="mt-5 font-sans text-base leading-relaxed text-white/70">
             Bring patience, good glass, and a rifle you can shoot cold. We will match you to the bush as
             it is this season, not as a brochure promised last year.
           </p>
@@ -784,4 +796,6 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
       </section>
     </div>
   );
-}
+};
+
+export default GreaterKuduGuide;

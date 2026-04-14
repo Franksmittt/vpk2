@@ -6,15 +6,15 @@ export const metadata: Metadata = {
   description: "How Vaalpenskraal Game Reserve handles personal information submitted through this website.",
 };
 
-export default function PrivacyPage() {
+const PrivacyPage = () => {
   return (
     <div className="min-h-screen bg-black px-5 pb-24 pt-28 text-white sm:px-8 md:px-12 md:pt-32">
       <article className="mx-auto max-w-3xl">
-        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/35">Legal</p>
+        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/70">Legal</p>
         <h1 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Privacy policy</h1>
-        <p className="mt-4 font-sans text-sm text-white/40">Last updated: April 2026</p>
+        <p className="mt-4 font-sans text-sm text-white/70">Last updated: April 2026</p>
 
-        <div className="mt-12 space-y-10 font-sans text-sm leading-relaxed text-white/50">
+        <div className="mt-12 space-y-10 font-sans text-sm leading-relaxed text-white/70">
           <section>
             <h2 className="text-base font-semibold text-white/85">1. Who we are</h2>
             <p className="mt-3">
@@ -65,12 +65,14 @@ export default function PrivacyPage() {
           </section>
         </div>
 
-        <p className="mt-14 font-sans text-sm text-white/35">
-          <Link href="/" className="text-white/55 hover:text-white">
+        <p className="mt-14 font-sans text-sm text-white/70">
+          <Link href="/" className="text-white/70 hover:text-white">
             ← Back to home
           </Link>
         </p>
       </article>
     </div>
   );
-}
+};
+
+export default PrivacyPage;

@@ -11,9 +11,10 @@ function topicFromIntent(intent: string | null): string {
     family: "family",
     international: "international",
     media: "media",
+    other: "other",
   };
   if (!intent) return "hunt";
-  return map[intent] ?? "hunt";
+  return map[intent] ?? "other";
 }
 
 export default function ContactIntentForm() {

@@ -90,7 +90,7 @@ export default function CalendarRangePicker({ month, onMonthChange, start, end, 
           className="focus-ring-invert rounded-lg p-2 text-white/60 transition-colors hover:bg-white/[0.06] hover:text-white"
           aria-label="Previous month"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-5 w-5" aria-hidden />
         </button>
         <p className="font-sans text-sm font-semibold tabular-nums text-white/90">{label}</p>
         <button
@@ -99,12 +99,12 @@ export default function CalendarRangePicker({ month, onMonthChange, start, end, 
           className="focus-ring-invert rounded-lg p-2 text-white/60 transition-colors hover:bg-white/[0.06] hover:text-white"
           aria-label="Next month"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-5 w-5" aria-hidden />
         </button>
       </div>
       <div className="grid grid-cols-7 gap-1 text-center">
         {WEEKDAYS.map((w) => (
-          <div key={w} className="pb-2 font-sans text-[10px] font-medium uppercase tracking-wider text-white/35">
+          <div key={w} className="pb-2 font-sans text-[10px] font-medium uppercase tracking-wider text-white/65">
             {w}
           </div>
         ))}
@@ -135,7 +135,7 @@ export default function CalendarRangePicker({ month, onMonthChange, start, end, 
           );
         })}
       </div>
-      <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/35">
+      <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/70">
         Tap arrival, then departure. We will confirm nights and availability by email.
       </p>
     </div>

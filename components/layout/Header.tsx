@@ -18,12 +18,12 @@ const navRight = [
 const mobileNavLinks = [...navLeft, ...navRight] as const;
 
 const navLinkClass =
-  "focus-ring-invert shrink-0 whitespace-nowrap rounded-sm font-sans text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/75 transition-colors hover:text-white sm:text-[0.7rem] sm:tracking-[0.18em] md:text-xs";
+  "focus-ring-invert shrink-0 whitespace-nowrap rounded-sm font-sans text-xs font-bold uppercase tracking-[0.14em] text-white/80 transition-colors hover:text-white sm:tracking-[0.18em]";
 
 const mobileOverlayLinkClass =
-  "focus-ring-invert rounded-md py-1 font-sans text-2xl font-bold uppercase tracking-tight text-white/85 transition-colors hover:text-white";
+  "focus-ring-invert rounded-md py-1 font-sans text-2xl font-bold uppercase tracking-tight text-white/90 transition-colors hover:text-white";
 
-export default function Header() {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -50,9 +50,9 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 z-[1000] w-full border-b border-white/10 bg-black/50 backdrop-blur-md transition-all duration-300">
-        <div className="editorial-container flex flex-col gap-0 py-2.5 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-5 md:gap-y-0 lg:gap-x-8 xl:gap-x-10 md:py-0">
+        <div className="editorial-container flex flex-col gap-0 py-2 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-4 md:gap-y-0 lg:gap-x-8 xl:gap-x-10 md:py-0">
           {/* Mobile: hamburger + centered logo */}
-          <div className="grid w-full grid-cols-[2.75rem_1fr_2.75rem] items-center gap-1 md:hidden">
+          <div className="grid w-full grid-cols-[3rem_1fr_3rem] items-center gap-2 md:hidden">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
@@ -71,7 +71,7 @@ export default function Header() {
               <span className="font-sans text-base font-black uppercase tracking-tighter text-white sm:text-lg">
                 VAALPENSKRAAL
               </span>
-              <span className="mt-0.5 font-sans text-[0.38rem] font-bold uppercase tracking-[0.32em] text-white/50">
+              <span className="mt-1 font-sans text-xs font-bold uppercase tracking-[0.32em] text-white/70">
                 Premium Hunting Experience
               </span>
             </Link>
@@ -84,7 +84,7 @@ export default function Header() {
               <span className="font-sans text-lg font-black uppercase tracking-tighter text-white sm:text-xl md:text-2xl lg:text-3xl">
                 VAALPENSKRAAL
               </span>
-              <span className="mt-0.5 font-sans text-[0.4rem] font-bold uppercase tracking-[0.35em] text-white/50 sm:text-[0.45rem] md:mt-1 md:text-[0.5rem] lg:text-[0.65rem]">
+              <span className="mt-1 font-sans text-xs font-bold uppercase tracking-[0.35em] text-white/70 sm:mt-1 md:mt-1 md:text-xs lg:text-xs">
                 Premium Hunting Experience
               </span>
             </Link>
@@ -113,7 +113,7 @@ export default function Header() {
             </nav>
             <Link
               href="/reserve"
-              className="focus-ring-invert whitespace-nowrap rounded-full bg-white px-5 py-2.5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.2em] text-black transition-transform hover:scale-105 lg:px-8 lg:py-3"
+              className="focus-ring-invert whitespace-nowrap rounded-full bg-white px-4 py-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-black transition-transform hover:scale-105 lg:px-8 lg:py-3"
             >
               Book Hunt
             </Link>
@@ -131,7 +131,7 @@ export default function Header() {
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 px-4 sm:h-16 sm:px-6">
+        <div className="flex h-14 shrink-0 items-center gap-4 border-b border-white/10 px-4 sm:h-16 sm:px-6">
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
@@ -144,7 +144,7 @@ export default function Header() {
             Menu
           </span>
         </div>
-        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-8 sm:px-8" aria-label="Main navigation">
+        <nav className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-8 sm:px-8" aria-label="Main navigation">
           {mobileNavLinks.map((link) => (
             <Link
               key={link.href}
@@ -157,7 +157,7 @@ export default function Header() {
           ))}
           <Link
             href="/reserve"
-            className="focus-ring-invert mt-6 inline-flex w-fit items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-bold uppercase tracking-[0.2em] text-black"
+            className="focus-ring-invert mt-6 inline-flex w-fit items-center justify-center rounded-full bg-white px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.2em] text-black"
             onClick={() => setMenuOpen(false)}
           >
             Book Hunt
@@ -166,4 +166,6 @@ export default function Header() {
       </div>
     </>
   );
-}
+};
+
+export default Header;

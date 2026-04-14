@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -11,6 +12,12 @@ import {
   Mountain,
 } from "lucide-react";
 import { QUARRY_SPECIES, type QuarrySpecies } from "@/data/species";
+
+/** Props are resolved on the server where possible so this client island stays data-driven. */
+export type SpeciesPageContentProps = {
+  /** Full quarry roster; defaults to the canonical static list when omitted. */
+  species?: readonly QuarrySpecies[];
+};
 import {
   GREATER_KUDU_QUARRY_PAGE_IMAGE,
   SPECIES_PAGE_HERO_IMAGE,
@@ -54,10 +61,12 @@ function SpecCard({
         }}
         className="relative block aspect-[4/5] overflow-hidden sm:aspect-[3/4] focus:outline-none focus-visible:ring-2 focus-visible:ring-burnished-copper/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
       >
-        <img
+        <Image
           src={quarrySpeciesImageSrc(s, 800, 1000)}
-          alt=""
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          alt={`${s.name} (${s.scientific}) quarry portrait on the Iron Mountain roster`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
@@ -65,12 +74,12 @@ function SpecCard({
             {s.epithet}
           </span>
           {s.dangerous && (
-            <span className="rounded-full border border-red-500/40 bg-red-950/50 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-wider text-red-200/90">
+            <span className="rounded-full border border-red-500/40 bg-red-950/50 px-2 py-1 font-sans text-[10px] font-bold uppercase tracking-wider text-red-200/90">
               DG
             </span>
           )}
           {s.variant && (
-            <span className="rounded-full border border-burnished-copper/35 bg-burnished-copper/15 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-wider text-sunset-gold">
+            <span className="rounded-full border border-burnished-copper/35 bg-burnished-copper/15 px-2 py-1 font-sans text-[10px] font-bold uppercase tracking-wider text-sunset-gold">
               Variant
             </span>
           )}
@@ -82,10 +91,10 @@ function SpecCard({
               e.stopPropagation();
               onToggleCompare();
             }}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/80 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
+            className="focus-ring-invert absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/80 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
             aria-label={comparePick ? "Remove from compare" : "Add to compare"}
           >
-            <GitCompare className={`h-4 w-4 ${comparePick ? "text-burnished-copper" : ""}`} />
+            <GitCompare className={`h-4 w-4 ${comparePick ? "text-burnished-copper" : ""}`} aria-hidden />
           </button>
         )}
       </Link>
@@ -104,24 +113,24 @@ function SpecCard({
           <h2 className="font-sans text-xl font-semibold tracking-[-0.02em] text-white transition-colors group-hover:text-burnished-copper/95 sm:text-2xl">
             {s.name}
           </h2>
-          <p className="mt-1 font-serif text-sm italic text-white/45">{s.scientific}</p>
+          <p className="mt-1 font-serif text-sm italic text-white/70">{s.scientific}</p>
         </Link>
 
         <dl className="mt-5 grid gap-3 text-sm">
           <div className="flex justify-between gap-4 border-b border-white/[0.06] pb-2">
-            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">
+            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/65">
               Caliber
             </dt>
             <dd className="text-right font-sans text-xs font-medium text-white/75">{s.caliber}</dd>
           </div>
           <div className="flex justify-between gap-4 border-b border-white/[0.06] pb-2">
-            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">
+            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/65">
               Rowland Ward
             </dt>
             <dd className="text-right font-sans text-xs font-medium text-white/75">{s.rowlandWard}</dd>
           </div>
           <div className="flex justify-between gap-4 pb-1">
-            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">
+            <dt className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-white/65">
               Terrain
             </dt>
             <dd className="text-right font-sans text-xs font-medium text-white/75">{s.terrain}</dd>
@@ -135,10 +144,10 @@ function SpecCard({
               e.stopPropagation();
               onOpenDetail();
             }}
-            className="inline-flex items-center gap-1 font-sans text-xs font-semibold uppercase tracking-[0.15em] text-white/55 transition-colors hover:text-white"
+            className="focus-ring-invert inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-[0.15em] text-white/70 transition-colors hover:text-white"
           >
             View details
-            <ChevronRight className="h-3.5 w-3.5 opacity-70" />
+            <ChevronRight className="h-4 w-4 opacity-70" aria-hidden />
           </button>
         </div>
       </div>
@@ -163,7 +172,7 @@ function DetailPanel({
     >
       <button
         type="button"
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="focus-ring-invert absolute inset-0 bg-black/70 backdrop-blur-sm"
         aria-label="Close overlay"
         onClick={onClose}
       />
@@ -175,27 +184,32 @@ function DetailPanel({
         className="absolute inset-x-0 bottom-0 max-h-[min(92vh,880px)] overflow-y-auto rounded-t-[1.75rem] border border-white/10 bg-[#0a0a0a] shadow-2xl"
         role="dialog"
         aria-modal="true"
-        aria-labelledby={`species-${s.id}-title`}
+        aria-labelledby={`species-${s.id}-sheet-heading`}
         onClick={(e) => e.stopPropagation()}
       >
       <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/[0.08] bg-[#0a0a0a]/95 px-5 py-4 backdrop-blur-md">
-        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
+        <h2
+          id={`species-${s.id}-sheet-heading`}
+          className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/70"
+        >
           Quarry sheet
-        </p>
+        </h2>
         <button
           type="button"
           onClick={onClose}
-          className="rounded-full border border-white/15 p-2 text-white/70 hover:bg-white/10 hover:text-white"
+          className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10 hover:text-white"
           aria-label="Close"
         >
-          <X className="h-5 w-5" />
+          <X className="h-5 w-5" aria-hidden />
         </button>
       </div>
       <div className="relative h-56 w-full sm:h-72">
-        <img
+        <Image
           src={quarrySpeciesImageSrc(s, 1600, 900)}
-          alt=""
-          className="h-full w-full object-cover"
+          alt={`${s.name} hero sheet: Waterberg quarry reference photography`}
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
       </div>
@@ -203,47 +217,47 @@ function DetailPanel({
         <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-burnished-copper/90">
           {s.epithet}
         </p>
-        <h2
+        <h3
           id={`species-${s.id}-title`}
           className="mt-2 font-sans text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl"
         >
           {s.name}
-        </h2>
-        <p className="mt-2 font-serif text-base italic text-white/45">{s.scientific}</p>
-        <p className="mt-6 font-sans text-sm leading-relaxed text-white/50">
+        </h3>
+        <p className="mt-2 font-serif text-base italic text-white/70">{s.scientific}</p>
+        <p className="mt-6 font-sans text-sm leading-relaxed text-white/70">
           Availability follows our annual ecological census. We do not sell animals off a list. We
           manage carrying capacity, age structure, and stress on the land. Your PH will confirm what
           is ethical and legal for the season you hunt.
         </p>
         <dl className="mt-8 grid gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
           <div>
-            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/35">Caliber</dt>
+            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/65">Caliber</dt>
             <dd className="mt-1 font-sans text-base text-white/85">{s.caliber}</dd>
           </div>
           <div>
-            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/35">
+            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/65">
               Rowland Ward
             </dt>
             <dd className="mt-1 font-sans text-base text-white/85">{s.rowlandWard}</dd>
           </div>
           <div>
-            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/35">Terrain</dt>
+            <dt className="font-sans text-[10px] uppercase tracking-[0.22em] text-white/65">Terrain</dt>
             <dd className="mt-1 font-sans text-base text-white/85">{s.terrain}</dd>
           </div>
         </dl>
         <Link
           href={`/species/${s.id}`}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3 font-sans text-sm font-medium text-white/80 transition-colors hover:border-white/35 hover:bg-white/5 hover:text-white"
+          className="focus-ring-invert mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 py-3 font-sans text-sm font-medium text-white/90 transition-colors hover:border-white/35 hover:bg-white/5 hover:text-white"
         >
           Full species page
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" aria-hidden />
         </Link>
         <Link
           href="/reserve"
-          className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-white py-4 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+          className="focus-ring-invert mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-white py-4 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
         >
           Enquire for this season
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-4 w-4" aria-hidden />
         </Link>
       </div>
     </motion.div>
@@ -275,35 +289,39 @@ function ComparePanel({
       className="fixed inset-0 z-[3000] flex flex-col bg-black/80 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
-      aria-label="Compare species"
+      aria-labelledby="compare-species-heading"
     >
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-        <p className="font-sans text-sm font-medium text-white">Side by side</p>
+        <h2 id="compare-species-heading" className="font-sans text-sm font-medium text-white">
+          Side by side
+        </h2>
         <button
           type="button"
           onClick={onClose}
-          className="rounded-full border border-white/15 p-2 text-white/70 hover:bg-white/10"
+          className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10"
           aria-label="Close compare"
         >
-          <X className="h-5 w-5" />
+          <X className="h-5 w-5" aria-hidden />
         </button>
       </div>
       <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8">
-        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-12">
           {[a, b].map((s) => (
-            <div key={s.id} className="overflow-hidden rounded-2xl ring-1 ring-white/10">
+            <div key={s.id} className="overflow-hidden rounded-2xl ring-1 ring-white/10 lg:col-span-6">
               <div className="relative h-40">
-                <img
+                <Image
                   src={quarrySpeciesImageSrc(s, 800, 500)}
-                  alt=""
-                  className="h-full w-full object-cover"
+                  alt={`${s.name} compare card for side-by-side quarry review`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-3 left-4 right-4">
+                <div className="absolute bottom-4 left-4 right-4">
                   <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-burnished-copper/90">
                     {s.epithet}
                   </p>
-                  <p className="font-sans text-lg font-semibold text-white">{s.name}</p>
+                  <h3 className="font-sans text-lg font-semibold text-white">{s.name}</h3>
                 </div>
               </div>
             </div>
@@ -314,7 +332,7 @@ function ComparePanel({
             <tbody>
               {rows.map((row) => (
                 <tr key={row.key} className="border-b border-white/[0.06] last:border-0">
-                  <th className="w-[28%] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/35">
+                  <th className="w-[28%] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     {row.label}
                   </th>
                   <td className="w-[36%] px-4 py-3 font-sans text-white/80">{a[row.key]}</td>
@@ -329,7 +347,7 @@ function ComparePanel({
   );
 }
 
-export default function SpeciesPageContent() {
+const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProps) => {
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [pickingCompare, setPickingCompare] = useState(false);
   const [compareOpen, setCompareOpen] = useState(false);
@@ -337,9 +355,9 @@ export default function SpeciesPageContent() {
 
   const byId = useMemo(() => {
     const m = new Map<string, QuarrySpecies>();
-    QUARRY_SPECIES.forEach((s) => m.set(s.id, s));
+    species.forEach((s) => m.set(s.id, s));
     return m;
-  }, []);
+  }, [species]);
 
   const detailSpecies = detailId ? byId.get(detailId) : undefined;
   const compareA = compareIds[0] ? byId.get(compareIds[0]) : undefined;
@@ -383,10 +401,13 @@ export default function SpeciesPageContent() {
       {/* Hero */}
       <section className="relative min-h-[min(100svh,920px)] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={SPECIES_PAGE_HERO_IMAGE}
-            alt="Iron Mountain bushveld, hunters stalking at a distance (hero)"
-            className="h-full w-full object-cover"
+            alt="Iron Mountain bushveld with hunters stalking at a distance on the Vaalpenskraal estate"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(184,115,51,0.22),transparent_55%)]" />
@@ -401,8 +422,8 @@ export default function SpeciesPageContent() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/55 backdrop-blur-md">
-              <Mountain className="h-3.5 w-3.5 text-burnished-copper" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/70 backdrop-blur-md">
+              <Mountain className="h-4 w-4 text-burnished-copper" aria-hidden />
               Iron Mountain quarry
             </div>
             <h1 className="hero-readable-title font-sans text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
@@ -417,17 +438,17 @@ export default function SpeciesPageContent() {
               <button
                 type="button"
                 onClick={startComparePick}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90"
+                className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90"
               >
-                <GitCompare className="h-4 w-4" />
+                <GitCompare className="h-4 w-4" aria-hidden />
                 Compare species side by side
               </button>
               <a
                 href="#grid"
-                className="inline-flex items-center justify-center gap-1 font-sans text-sm font-medium text-white/80 transition-colors hover:text-white"
+                className="focus-ring-invert inline-flex items-center justify-center gap-2 font-sans text-sm font-medium text-white/85 transition-colors hover:text-white"
               >
                 <span className="hero-readable-ghost">Browse the quarry</span>
-                <ChevronRight className="hero-readable-ui h-4 w-4" />
+                <ChevronRight className="hero-readable-ui h-4 w-4" aria-hidden />
               </a>
             </div>
           </motion.div>
@@ -444,7 +465,7 @@ export default function SpeciesPageContent() {
             className="sticky top-20 z-[500] border-b border-white/[0.08] bg-black/90 px-4 py-3 backdrop-blur-xl md:top-24"
           >
             <div className="editorial-container flex flex-wrap items-center justify-between gap-3">
-              <p className="font-sans text-xs text-white/50">
+              <p className="font-sans text-xs text-white/70">
                 {pickingCompare
                   ? "Tap two species to compare."
                   : `${compareIds.length} selected · max 2`}
@@ -454,7 +475,7 @@ export default function SpeciesPageContent() {
                   <button
                     type="button"
                     onClick={() => setPickingCompare(false)}
-                    className="rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/70 hover:bg-white/10"
+                    className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
                   >
                     Cancel
                   </button>
@@ -466,7 +487,7 @@ export default function SpeciesPageContent() {
                       setCompareIds([]);
                       setCompareOpen(false);
                     }}
-                    className="rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/70 hover:bg-white/10"
+                    className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
                   >
                     Clear
                   </button>
@@ -475,7 +496,7 @@ export default function SpeciesPageContent() {
                   <button
                     type="button"
                     onClick={() => setCompareOpen(true)}
-                    className="rounded-full bg-burnished-copper px-5 py-2 font-sans text-xs font-semibold text-black hover:bg-burnished-copper/90"
+                    className="focus-ring-invert rounded-full bg-burnished-copper px-5 py-2 font-sans text-xs font-semibold text-black hover:bg-burnished-copper/90"
                   >
                     View comparison
                   </button>
@@ -489,21 +510,21 @@ export default function SpeciesPageContent() {
       <section id="grid" className="editorial-container py-16 md:py-24">
         <div className="mb-12 flex flex-col gap-4 border-b border-white/[0.07] pb-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">
-              {QUARRY_SPECIES.length} species on roster
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">
+              {species.length} species on roster
             </p>
             <h2 className="mt-3 font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
               Pick your exam
             </h2>
           </div>
-          <p className="max-w-md font-sans text-sm text-white/45">
+          <p className="max-w-md font-sans text-sm text-white/70">
             Each row is a living brief: what rifle ethics look like here, what the tape measures,
             where you will likely intersect the animal.
           </p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {QUARRY_SPECIES.map((s, i) => (
+          {species.map((s, i) => (
             <SpecCard
               key={s.id}
               s={s}
@@ -519,10 +540,10 @@ export default function SpeciesPageContent() {
 
       {/* Spotlight: Grey Ghost */}
       <section className="relative border-t border-white/[0.07] bg-[#060606] py-20 md:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 md:grid-cols-2 md:items-center md:gap-16 md:px-12">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 md:grid-cols-2 md:items-center md:gap-16 md:px-12 lg:grid-cols-12 lg:gap-12">
           <Link
             href="/species/greater-kudu"
-            className="block rounded-[1.5rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-burnished-copper/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
+            className="focus-ring-invert block rounded-[1.5rem] lg:col-span-7"
           >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -531,48 +552,50 @@ export default function SpeciesPageContent() {
               transition={{ duration: 0.5 }}
               className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] ring-1 ring-white/[0.08] transition-transform duration-500 hover:scale-[1.01] md:aspect-[3/4]"
             >
-              <img
+              <Image
                 src={GREATER_KUDU_QUARRY_PAGE_IMAGE}
-                alt=""
-                className="h-full w-full object-cover"
+                alt="Greater kudu bull in thick bush, featured Grey Ghost quarry on the Iron Mountain"
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-transparent to-burnished-copper/10" />
-              <Crosshair className="absolute right-6 top-6 h-8 w-8 text-white/25" />
+              <Crosshair className="absolute right-6 top-6 h-8 w-8 text-white/65" aria-hidden />
             </motion.div>
           </Link>
-          <div>
+          <div className="lg:col-span-5">
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
               Featured quarry
             </p>
             <Link
               href="/species/greater-kudu"
-              className="group mt-4 block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-burnished-copper/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
+              className="focus-ring-invert group mt-4 block rounded-lg"
             >
               <h2 className="font-sans text-3xl font-semibold leading-tight tracking-[-0.035em] transition-colors group-hover:text-burnished-copper/95 md:text-4xl lg:text-[2.5rem]">
                 Greater kudu bull
               </h2>
-              <p className="mt-2 font-sans text-xl text-white/50 transition-colors group-hover:text-white/65">
+              <p className="mt-2 font-sans text-xl text-white/70 transition-colors group-hover:text-white/80">
                 The Grey Ghost
               </p>
             </Link>
-            <p className="mt-6 font-sans text-base leading-relaxed text-white/48">
+            <p className="mt-6 font-sans text-base leading-relaxed text-white/70">
               Stripes in shade. Horns that pick up last light. A bull can hold motionless until you
               doubt your own eyes, then cover ground in three bounds. On the Iron Mountain, kudu are
               not a consolation prize. They are the graduate course in stillness.
             </p>
             <Link
               href="/reserve"
-              className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10"
+              className="focus-ring-invert mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10"
             >
               Talk to us about kudu dates
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
         </div>
       </section>
 
       <footer className="border-t border-white/[0.07] py-12 text-center">
-        <Link href="/" className="font-sans text-sm text-white/40 hover:text-white">
+        <Link href="/" className="focus-ring-invert font-sans text-sm text-white/65 hover:text-white">
           Back to home
         </Link>
       </footer>
@@ -597,4 +620,6 @@ export default function SpeciesPageContent() {
       </AnimatePresence>
     </div>
   );
-}
+};
+
+export default SpeciesPageContent;

@@ -12,10 +12,11 @@ export const metadata: Metadata = {
     "Contact Vaalpenskraal Game Reserve in the Waterberg, Limpopo: hunt enquiries, lodge stays, international travel, and family visits.",
 };
 
-export default function ContactPage() {
+const ContactPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <PageHero
+        heroTitleId="contact-hero-title"
         eyebrow="Contact"
         title="Let’s talk before you land in the bush"
         compact
@@ -28,42 +29,42 @@ export default function ContactPage() {
           <div className="space-y-10 lg:col-span-2">
             <div>
               <h2 className="font-sans text-lg font-semibold text-white/90">Direct lines</h2>
-              <ul className="mt-6 space-y-5 font-sans text-sm text-white/50">
+              <ul className="mt-6 space-y-5 font-sans text-sm text-white/70">
                 <li className="flex gap-3">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <Mail className="mt-1 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
                   <a href="mailto:info@vaalpenskraal.com" className="text-white/70 transition-colors hover:text-white">
                     info@vaalpenskraal.com
                   </a>
                 </li>
                 <li className="flex gap-3">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <Phone className="mt-1 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
                   <span>
                     Phone on request after first enquiry{" "}
-                    <span className="text-white/35">(replace with estate line when live)</span>
+                    <span className="text-white/65">(replace with estate line when live)</span>
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
+                  <MapPin className="mt-1 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
                   <span>
                     Waterberg Biosphere · Thabazimbi area, Limpopo, South Africa
                     <br />
-                    <span className="text-white/35">Exact gate directions sent when your booking is confirmed.</span>
+                    <span className="text-white/65">Exact gate directions sent when your booking is confirmed.</span>
                   </span>
                 </li>
               </ul>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
               <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-white/55">Response time</h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
                 Hunting seasons and weekends fill fast. We aim to answer serious enquiries within one to two business days. If you are travelling internationally, mention your time zone so we can suggest a call window.
               </p>
             </div>
             <Link
               href="/reserve"
-              className="inline-flex items-center gap-1.5 font-sans text-sm text-white/45 transition-colors hover:text-white"
+              className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/70 transition-colors hover:text-white"
             >
               Read how booking works
-              <ChevronRight className="h-4 w-4 opacity-60" />
+              <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
             </Link>
           </div>
           <div className="lg:col-span-3">
@@ -79,20 +80,20 @@ export default function ContactPage() {
           <h2 className="font-sans text-lg font-semibold text-white/85">Before you arrive</h2>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             <div>
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Johannesburg</p>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/70">Johannesburg</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
                 Most international and domestic guests route through O.R. Tambo. From there it is a road transfer north into the Waterberg. Plan hire cars, shuttle, or pickup with your own arrangements or what we confirm at booking (we do not handle import or export paperwork).
               </p>
             </div>
             <div>
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Licences &amp; trophies</p>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/70">Licences &amp; trophies</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
                 Vaalpenskraal does not complete firearm, permit, or trophy export paperwork for clients. You arrange temporary import, export, and your home-country import with your own dip and pack agent, lawyer, or authorities. Ask them early so nothing waits on the estate office.
               </p>
             </div>
             <div>
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Expectations</p>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/70">Expectations</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
                 Heat, thorns, and silence are real. So is the reward. If someone in your party has mobility limits or dietary needs, say so in the form: the lodge can adapt when we know in advance.
               </p>
             </div>
@@ -101,4 +102,6 @@ export default function ContactPage() {
       </section>
     </div>
   );
-}
+};
+
+export default ContactPage;

@@ -1,0 +1,36 @@
+# Vaalpenskraal Game Reserve: Cursor rules (Next.js App Router + Tailwind v4)
+
+Load **AGENTS.md** and **CLAUDE.md** for structural mandates. This file adds **SEO/GEO**, **semantic HTML**, **media**, **schema**, and **a11y** enforcement.
+
+## Metadata API (no client head)
+
+- **Never** inject `<head>`, `<title>`, or `<meta>` from client components for route-level SEO.
+- **Every route** must expose metadata through the **Metadata API** only: static **`export const metadata: Metadata`** or async **`generateMetadata`** on `page.tsx` (and layout-level metadata only where appropriate).
+- **`metadataBase`** must remain defined on the **root** `app/layout.tsx` (absolute URL for the production site). Child routes use relative `openGraph` / `alternates` paths only when resolved against that base.
+
+## Semantic HTML and heading discipline
+
+- Exactly **one `<h1>`** per **logical route view** (the primary page content). Navigation, modals, and asides must not introduce competing H1s.
+- Heading levels must **not skip**: **H1 → H2 → H3** in document order for main content. Decorative labels may use `<p>` with utility classes, not fake headings.
+- Prefer **landmarks**: `<main>`, `<nav>`, `<header>`, `<footer>`, `<section>` with visible or `aria-labelledby` headings where it helps assistive tech.
+
+## Images (`next/image` when used)
+
+- **`next/image`** (or the App Router image pipeline) **requires** a non-empty, **`alt` string that describes subject, context, and species** when the image depicts quarry or habitat (e.g. species common name, variant or morph if relevant, "Waterberg bushveld at Vaalpenskraal", time of day if material).
+- Decorative images: **`alt=""`** and **`role="presentation"`** only when truly decorative; otherwise write a meaningful sentence.
+
+## JSON-LD (Schema.org)
+
+- **`/species/[slug]`** routes must emit **valid JSON-LD** describing a **multi-typed entity** where appropriate, for example **`Taxon`** (or `TaxonName` / biological type) **plus** **`Product`** or **`Service`**-shaped fields only when factually defensible (hunting as managed estate offering). Validate with Google Rich Results / Schema.org validator before release.
+- **Booking / enquiry forms** (e.g. reserve hunt flow) must include **`ReserveAction`** (or equivalent **`Action`** subtype) JSON-LD where the action is **enquiry / reservation request**, aligned with visible copy (mailto or future API). Keep `@id` and `url` consistent with `metadataBase`.
+
+## Accessibility
+
+- **lucide-react** (and similar decorative SVGs): pass **`aria-hidden="true"`** when adjacent text already conveys meaning; pair with **`aria-label`** on the **interactive parent** if the icon is the only control label.
+- **Interactive elements**: visible text **or** `aria-label` / `aria-labelledby` so control purpose is clear in screen readers.
+- **Keyboard**: use **`focus-ring`** or **`focus-ring-invert`** utility classes from `app/globals.css` on buttons, links styled as buttons, and custom controls; do not remove focus outlines without a compliant replacement.
+
+## Tone and product integrity
+
+- No **em dash** (U+2014) in user-facing copy, metadata strings, or comments added to this repo (house style).
+- Prefer **honest** hunting and conservation language aligned with estate policy.

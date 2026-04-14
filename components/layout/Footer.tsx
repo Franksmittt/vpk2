@@ -12,7 +12,7 @@ export default function Footer() {
               <li><Link href="/reserve" className="focus-ring rounded-sm transition-colors hover:text-white">Book Your Hunt</Link></li>
               <li><Link href="/species" className="focus-ring rounded-sm transition-colors hover:text-white">Quarry Species</Link></li>
               <li><Link href="/lodge" className="focus-ring rounded-sm transition-colors hover:text-white">The Lodge</Link></li>
-              <li><Link href="/contact" className="focus-ring rounded-sm transition-colors hover:text-white">Contact</Link></li>
+              <li><Link href="/contact?intent=general" className="focus-ring rounded-sm transition-colors hover:text-white">Contact</Link></li>
             </ul>
           </div>
           <div>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-sans text-xs text-white/40 uppercase tracking-widest font-bold">
+          <p className="font-sans text-xs text-white/65 uppercase tracking-widest font-bold">
             &copy; {new Date().getFullYear()} Vaalpenskraal Game Reserve. All rights reserved.
           </p>
           <div className="font-sans font-black text-xl text-white/20 uppercase tracking-tighter">Iron Mountain</div>

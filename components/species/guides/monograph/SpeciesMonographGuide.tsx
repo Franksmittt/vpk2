@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ChevronLeft,
@@ -29,20 +30,20 @@ function NavPill({ href, children }: { href: string; children: React.ReactNode }
   return (
     <a
       href={href}
-      className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-white/55 transition-colors hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90"
+      className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90"
     >
       {children}
     </a>
   );
 }
 
-export default function SpeciesMonographGuide({
+const SpeciesMonographGuide = ({
   species: s,
   content: c,
 }: {
   species: QuarrySpecies;
   content: MonographDefinition;
-}) {
+}) => {
   const showTrophy = c.showTrophySection !== false;
   const huntEyebrow = c.huntSectionEyebrow ?? c.huntTitle;
 
@@ -52,7 +53,7 @@ export default function SpeciesMonographGuide({
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
           <Link
             href="/species"
-            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/45 transition-colors hover:text-white"
+            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/70 transition-colors hover:text-white"
           >
             <ChevronLeft className="h-4 w-4" />
             Quarry
@@ -73,16 +74,19 @@ export default function SpeciesMonographGuide({
 
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={speciesImageUrl(c.imageSeeds.hero, 1920, 1200)}
-            alt=""
-            className="h-full w-full object-cover"
+            alt={`${s.name} monograph hero: Waterberg quarry photography on the Iron Mountain`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 to-black/30" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_70%_80%,rgba(184,115,51,0.2),transparent_50%)]" />
         </div>
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
-          <div className="mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/50">
+          <div className="mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
             <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />
             Species monograph
           </div>
@@ -92,7 +96,7 @@ export default function SpeciesMonographGuide({
           <p className="mt-4 max-w-2xl font-serif text-lg italic text-burnished-copper/90 md:text-xl">
             {s.name} · {s.scientific}
           </p>
-          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/55 md:text-lg">{c.heroLead}</p>
+          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">{c.heroLead}</p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/reserve"
@@ -130,7 +134,7 @@ export default function SpeciesMonographGuide({
               seed={c.imageSeeds.intro}
               useCardImage={c.imageSeeds.useIntroCardImage}
               layout="matchText"
-              className="h-full min-h-[220px]"
+              className="h-full min-h-[min(13.75rem,48dvh)]"
             />
           </div>
         </div>
@@ -152,7 +156,7 @@ export default function SpeciesMonographGuide({
             >
               <h3 className="font-sans text-sm font-semibold text-white/90">{card.title}</h3>
               <p className="mt-1 font-serif text-xs italic text-burnished-copper/80">{card.sub}</p>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/45">{card.body}</p>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">{card.body}</p>
             </div>
           ))}
         </div>
@@ -164,14 +168,14 @@ export default function SpeciesMonographGuide({
         <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.formTitle}</h2>
-            <p className="max-w-md font-sans text-sm text-white/40">{c.formEyebrow}</p>
+            <p className="max-w-md font-sans text-sm text-white/65">{c.formEyebrow}</p>
           </div>
 
           <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-6 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">{c.formPrimaryTitle}</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/50">{c.formPrimaryBody}</p>
-              <ul className="space-y-3 font-sans text-sm text-white/48">
+              <p className="font-sans text-base leading-[1.75] text-white/70">{c.formPrimaryBody}</p>
+              <ul className="space-y-3 font-sans text-sm text-white/70">
                 {c.formPrimaryBullets.map((li, i) => (
                   <li
                     key={i}
@@ -193,7 +197,7 @@ export default function SpeciesMonographGuide({
             </div>
             <div className="order-1 space-y-6 lg:order-2 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">{c.formSecondaryTitle}</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/50">{c.formSecondaryBody}</p>
+              <p className="font-sans text-base leading-[1.75] text-white/70">{c.formSecondaryBody}</p>
             </div>
           </div>
 
@@ -255,7 +259,7 @@ export default function SpeciesMonographGuide({
                   <h3 className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/80">
                     {card.title}
                   </h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">{card.body}</p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">{card.body}</p>
                 </div>
               );
             })}
@@ -294,7 +298,7 @@ export default function SpeciesMonographGuide({
                 >
                   <Icon className="h-7 w-7 text-burnished-copper/85" />
                   <h3 className="mt-4 font-sans text-base font-semibold text-white/90">{b.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/45">{b.text}</p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">{b.text}</p>
                 </div>
               );
             })}
@@ -333,13 +337,13 @@ export default function SpeciesMonographGuide({
             <table className="w-full min-w-[520px] text-left text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.03]">
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Class
                   </th>
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Examples
                   </th>
-                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/40">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     Notes
                   </th>
                 </tr>
@@ -349,7 +353,7 @@ export default function SpeciesMonographGuide({
                   <tr key={a} className="border-b border-white/[0.06]">
                     <td className="px-4 py-3 font-medium text-white/85">{a}</td>
                     <td className="px-4 py-3">{b}</td>
-                    <td className="px-4 py-3 text-white/50">{row}</td>
+                    <td className="px-4 py-3 text-white/70">{row}</td>
                   </tr>
                 ))}
               </tbody>
@@ -357,7 +361,7 @@ export default function SpeciesMonographGuide({
           </div>
 
           <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/50 lg:py-0.5">
+            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/70 lg:py-0.5">
               {c.rifleTips.map((t) => (
                 <p key={t.label}>
                   <span className="font-medium text-white/75">{t.label}</span> {t.body}
@@ -418,7 +422,7 @@ export default function SpeciesMonographGuide({
                   ["On Iron Mountain", `${s.terrain} · quota and age rules follow the annual census`],
                 ].map(([k, v]) => (
                   <tr key={k} className="border-b border-white/[0.06]">
-                    <th className="whitespace-nowrap px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-white/35">
+                    <th className="whitespace-nowrap px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-white/65">
                       {k}
                     </th>
                     <td className="px-4 py-3 text-white/75">{v}</td>
@@ -433,7 +437,7 @@ export default function SpeciesMonographGuide({
       <section className="border-t border-white/[0.07] py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8 md:px-12">
           <h2 className="font-sans text-3xl font-semibold tracking-[-0.03em] md:text-4xl">{c.closingTitle}</h2>
-          <p className="mt-5 font-sans text-base leading-relaxed text-white/50">{c.closingBody}</p>
+          <p className="mt-5 font-sans text-base leading-relaxed text-white/70">{c.closingBody}</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/reserve"
@@ -453,4 +457,6 @@ export default function SpeciesMonographGuide({
       </section>
     </div>
   );
-}
+};
+
+export default SpeciesMonographGuide;
