@@ -11,7 +11,11 @@ import {
   Mountain,
 } from "lucide-react";
 import { QUARRY_SPECIES, type QuarrySpecies } from "@/data/species";
-import { GREATER_KUDU_QUARRY_PAGE_IMAGE, quarrySpeciesImageSrc } from "@/lib/species-media";
+import {
+  GREATER_KUDU_QUARRY_PAGE_IMAGE,
+  SPECIES_PAGE_HERO_IMAGE,
+  quarrySpeciesImageSrc,
+} from "@/lib/species-media";
 
 function SpecCard({
   s,
@@ -380,8 +384,8 @@ export default function SpeciesPageContent() {
       <section className="relative min-h-[min(100svh,920px)] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={GREATER_KUDU_QUARRY_PAGE_IMAGE}
-            alt="Waterberg bushveld and quarry habitat (hero)"
+            src={SPECIES_PAGE_HERO_IMAGE}
+            alt="Iron Mountain bushveld, hunters stalking at a distance (hero)"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
