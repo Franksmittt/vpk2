@@ -381,14 +381,16 @@ export default function SpeciesPageContent() {
         <div className="absolute inset-0">
           <img
             src={GREATER_KUDU_QUARRY_PAGE_IMAGE}
-            alt=""
+            alt="Waterberg bushveld and quarry habitat (hero)"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(184,115,51,0.22),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_45%,rgb(0_0_0/0.1)_0%,rgb(0_0_0/0.4)_55%,rgb(0_0_0/0.7)_100%)]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[28%] bg-gradient-to-b from-transparent via-black/35 to-black/78" />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[min(100svh,920px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 md:px-12 md:pb-24">
+        <div className="editorial-container relative z-10 flex min-h-[min(100svh,920px)] flex-col justify-end pb-16 pt-28 md:pb-24 md:pt-32">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -399,12 +401,12 @@ export default function SpeciesPageContent() {
               <Mountain className="h-3.5 w-3.5 text-burnished-copper" />
               Iron Mountain quarry
             </div>
-            <h1 className="font-sans text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+            <h1 className="hero-readable-title font-sans text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               Primary species of the Iron Mountain
             </h1>
-            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55 md:text-lg">
+            <p className="hero-readable-body mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
               We do not sell animals. We manage an ecosystem. The availability of specific quarry is
-              dictated strictly by our annual ecological census, weather, and what the veld can carry
+              dictated strictly by our annual ecological census, weather, and what the land can carry
               without flinching.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -418,10 +420,10 @@ export default function SpeciesPageContent() {
               </button>
               <a
                 href="#grid"
-                className="inline-flex items-center justify-center gap-1 font-sans text-sm font-medium text-white/50 transition-colors hover:text-white"
+                className="inline-flex items-center justify-center gap-1 font-sans text-sm font-medium text-white/80 transition-colors hover:text-white"
               >
-                Browse the quarry
-                <ChevronRight className="h-4 w-4" />
+                <span className="hero-readable-ghost">Browse the quarry</span>
+                <ChevronRight className="hero-readable-ui h-4 w-4" />
               </a>
             </div>
           </motion.div>
@@ -437,7 +439,7 @@ export default function SpeciesPageContent() {
             exit={{ y: 80, opacity: 0 }}
             className="sticky top-20 z-[500] border-b border-white/[0.08] bg-black/90 px-4 py-3 backdrop-blur-xl md:top-24"
           >
-            <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+            <div className="editorial-container flex flex-wrap items-center justify-between gap-3">
               <p className="font-sans text-xs text-white/50">
                 {pickingCompare
                   ? "Tap two species to compare."
@@ -480,7 +482,7 @@ export default function SpeciesPageContent() {
         )}
       </AnimatePresence>
 
-      <section id="grid" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
+      <section id="grid" className="editorial-container py-16 md:py-24">
         <div className="mb-12 flex flex-col gap-4 border-b border-white/[0.07] pb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">

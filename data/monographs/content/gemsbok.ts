@@ -9,8 +9,8 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       "Gemsbok are oryx built for heat, distance, and argument. Both sexes carry horns that can kill a careless hunter. They are the animal that makes you respect open ground again.",
     bookCta: "Book a gemsbok hunt",
     introParagraphs: [
-      "South Africa’s gemsbok story is tied to red sand, thornveld introductions, and serious plains-game culture. They are not shy background animals. They are large antelope with desert plumbing: nasal cooling, urine concentration, and a willingness to walk away from water longer than your patience.",
-      "This monograph covers taxonomy within Oryx, horn truth in both sexes, grazing and browsing in hard country, herd behaviour, predators that still try, hunting craft on open scrub, rifles that match mass, trophy judgement where cows sometimes beat bulls, and meat that loves the biltong hook.",
+      "South Africa’s gemsbok story is tied to red sand, thorn-scrub introductions, and serious plains-game culture. They are not shy background animals. They are large antelope with desert plumbing: nasal cooling, urine concentration, and a willingness to walk away from water longer than your patience.",
+      "This monograph covers taxonomy within Oryx, horn truth in both sexes, grazing and browsing in hard country, herd behaviour, predators that still try, hunting craft on open scrub, rifles that match mass, trophy judgement where cows sometimes beat bulls, and meat that loves the curing hook.",
     ],
     taxonomyTitle: "Taxonomy and the oryx clan",
     taxonomyIntro:
@@ -54,7 +54,7 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     feedSectionTitle: "Grazing pressure and farm carrying capacity",
     feedBody:
-      "Gemsbok can look pristine while the veld underneath is not. Track grass height, basal cover, and lambing or calf ratios. If cows are cycling poorly, you are seeing nutrition truth before the accountant does.",
+      "Gemsbok can look pristine while the range underneath is not. Track grass height, basal cover, and lambing or calf ratios. If cows are cycling poorly, you are seeing nutrition truth before the accountant does.",
     fieldNoteTitle: "Field note",
     fieldNoteBody:
       "If gemsbok walk into wind while feeding, your stalk plan starts downwind even when the map says you already are.",
@@ -123,9 +123,9 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       { label: "Follow-up:", body: "Approach a downed gemsbok from behind horn line. PH leads." },
       { label: "Optics:", body: "High magnification helps until it shakes. Practice sticks." },
     ],
-    meatTitle: "Meat, biltong, and lean honesty",
+    meatTitle: "Meat, air-dried curing, and lean honesty",
     meatLeft: [
-      "Gemsbok meat is dark, fine, and famously lean. It dries into biltong that tourists smuggle in dreams. Treat it gently in the kitchen: rare to medium for steaks, low heat for roast.",
+      "Gemsbok meat is dark, fine, and famously lean. It dries into cured strips that visitors dream of taking home. Treat it gently in the kitchen: rare to medium for steaks, low heat for roast.",
       "Trim silver skin with care. Impatience there makes chew where flavour should be.",
     ],
     meatRight: [
@@ -137,7 +137,7 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       "Bring real bullets and real range practice. Gemsbok forgive fantasy archers and fantasy calibres equally poorly.",
     quickFactExtraRows: [
       ["Horns", "Both sexes; cows often longer, bulls often heavier at base"],
-      ["Mass", "Commonly 100 to 240 kg depending on sex and veld"],
+      ["Mass", "Commonly 100 to 240 kg depending on sex and range condition"],
       ["Range in SA", "Native arid belt plus widespread introductions"],
     ],
     imageSeeds: monoSeeds(s, true),

@@ -591,7 +591,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
         <p className="mt-4 max-w-3xl font-sans text-base leading-[1.75] text-white/52">
           Ethical hunting here is age and condition, not panic over inches. Old bulls show dark facial
           masks, heavy dewlaps, sway in the topline, and hips that tell stories. Young bulls look clean
-          and athletic. Your PH carries the final say against the quota and the condition of the veld.
+          and athletic. Your PH carries the final say against the quota and the condition of the habitat.
         </p>
         <KuduFig
           seed="kudutrophycompare"
@@ -610,7 +610,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
           <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">
             Kudu are big but not buffalo-thick. What you need is controlled expansion and enough shank
             to punch a shoulder if a twig lies. Premium bonded or partition types have paid for a lot of
-            bushveld diesel. Monolithics work if you keep speed honest.
+            thicket-country reliability. Monolithics work if you keep speed honest.
           </p>
 
           <div className="mt-10 overflow-x-auto rounded-2xl border border-white/[0.08]">
@@ -631,7 +631,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
               <tbody className="text-white/65">
                 {[
                   ["Minimum", ".270 Win, 7mm-08", "Open ground, perfect placement, premium bullets."],
-                  ["Standard", ".308 Win, .30-06", "180 gr class is a bushveld workhorse."],
+                  ["Standard", ".308 Win, .30-06", "180 gr class is a proven all-rounder in thick bush."],
                   ["Magnum", ".300 Win Mag, 7mm Rem Mag", "Cross-valley confidence and flatter arcs."],
                   ["Thicket", "9.3x62, .375 H&H", "Heavy slow bullets forgive light brush."],
                 ].map(([a, b, c]) => (
@@ -694,9 +694,9 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             </p>
             <p>
               Backstrap over coals with salt and coriander. Schnitzel from leg cuts for the kids. Neck
-              and shin in a potjie low and slow with wine, onion, and dried apricot for sweetness against
-              the iron in the meat. Biltong strips from the long muscle groups: South Africa’s favorite
-              road fuel.
+              and shin in a slow pot, low heat, with wine, onion, and dried apricot for sweetness against
+              the iron in the meat. Air-dried cured strips from the long muscle groups—ideal travel
+              protein for the drive home.
             </p>
           </div>
           <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
@@ -710,7 +710,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
         </div>
         <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
           <KuduFig
-            seed="kudubraai"
+            seed="kudugrillfire"
             layout="matchText"
             className="h-full"
           />
@@ -739,7 +739,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
                   ["Bull mass", "190 to 270 kg typical; exceptional animals heavier"],
                   ["Cow mass", "120 to 210 kg; hornless"],
                   ["Water", "~9 L / day; dry-season concentration near perennial sources"],
-                  ["Veld staples", "Acacia, combretum, sickle bush, seasonal fruit, spekboom"],
+                  ["Browse staples", "Acacia, combretum, sickle bush, seasonal fruit, spekboom"],
                   ["On Iron Mountain", `${s.terrain} · ${s.caliber} per estate brief`],
                 ].map(([k, v]) => (
                   <tr key={k} className="border-b border-white/[0.06]">
@@ -762,7 +762,7 @@ export default function GreaterKuduGuide({ species: s }: { species: QuarrySpecie
             Ready to hunt the spiral?
           </h2>
           <p className="mt-5 font-sans text-base leading-relaxed text-white/50">
-            Bring patience, good glass, and a rifle you can shoot cold. We will match you to the veld as
+            Bring patience, good glass, and a rifle you can shoot cold. We will match you to the bush as
             it is this season, not as a brochure promised last year.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -10,7 +10,7 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
     bookCta: "Book a blesbok hunt",
     introParagraphs: [
       "Damaliscus pygargus phillipsi is the blesbok subspecies of the shared bontebok lineage. They are alcelaphine grazers: high shoulders, long faces, horns that rise in lyrate curves. On the Iron Mountain they are a keystone of honest grassland management because they show carrying capacity faster than spreadsheets.",
-      "This page covers taxonomy and hybrid risk with bontebok, morphology in ram and ewe, seasonal grazing, herd behaviour, predation, open-veld hunting craft, rifles, trophy judgement, meat culture, and the conservation rebound that should make every South African proud.",
+      "This page covers taxonomy and hybrid risk with bontebok, morphology in ram and ewe, seasonal grazing, herd behaviour, predation, open-ground hunting craft, rifles, trophy judgement, meat culture, and the conservation rebound that should make every South African proud.",
     ],
     taxonomyTitle: "Taxonomy and the bles / bontebok split",
     taxonomyIntro:
@@ -36,7 +36,7 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Proud head, honest grass eater",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
-      "Rams stand near mid-nineties centimetres at the shoulder in many field references, with mass around 70 kg and up depending on veld. Horns sweep up and in with strong rings. The blaze catches light like a flag. In rut the neck thickens and posture stiffens.",
+      "Rams stand near mid-nineties centimetres at the shoulder in many field references, with mass around 70 kg and up depending on range condition. Horns sweep up and in with strong rings. The blaze catches light like a flag. In rut the neck thickens and posture stiffens.",
     formPrimaryBullets: [
       "Trophy quality mixes horn length, mass, and age. Young rams can look tall before they are done.",
       "Blesbok eyes are placed for open-country vigilance. They will pick movement on skylines.",
@@ -60,7 +60,7 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
       "Glass blaze before horn. In strong side light the body can look darker than it is and hide condition loss.",
     socialTitle: "Herds, hierarchy, and open-ground nerves",
     socialIntro:
-      "Herds bunch and string on open veld. Dominance uses horn threats more than marathon chases. Calves hide briefly then join the group wave.",
+      "Herds bunch and string on open ground. Dominance uses horn threats more than marathon chases. Calves hide briefly then join the group wave.",
     socialCards: [
       {
         title: "Breeding herds",
@@ -114,7 +114,7 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
     rifleTable: [
       ["Minimum", ".243 Win", "Perfect shot, younger animals."],
       ["Standard", ".308 Win", "Works across most ethical ranges on estate."],
-      ["Open veld", ".270 Win, .30-06", "Flat paths for wind and distance."],
+      ["Open ground", ".270 Win, .30-06", "Flat paths for wind and distance."],
       ["Magnum", "7mm Rem Mag", "If you hunt the same week as larger plains game."],
     ],
     rifleTips: [
@@ -123,9 +123,9 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
       { label: "Ewes:", body: "Confirm sex and quota with PH before closing bolt." },
       { label: "Colour morphs:", body: "Disclose genetics when selling hunts or breeding stock." },
     ],
-    meatTitle: "Meat, biltong, and Highveld tables",
+    meatTitle: "Meat, air-dried curing, and Highveld tables",
     meatLeft: [
-      "Blesbok venison is fine-grained and mild when chilled clean. It is a biltong favourite for a reason.",
+      "Blesbok venison is fine-grained and mild when chilled clean. It is a favourite for air-dried curing for a reason.",
       "Steaks reward medium-rare discipline. Stews forgive the shank.",
     ],
     meatRight: [

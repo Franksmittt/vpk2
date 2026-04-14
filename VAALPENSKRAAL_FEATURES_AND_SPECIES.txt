@@ -1,0 +1,131 @@
+================================================================================
+VAALPENSKRAAL GAME RESERVE — FEATURES, BENEFITS & QUARRY SPECIES
+================================================================================
+Reference document generated from the project marketing / data layer. Update
+this file when offerings or species lists change. Verify permits, quotas, and
+legal minima with management before external use.
+
+--------------------------------------------------------------------------------
+LOCATION & POSITIONING
+--------------------------------------------------------------------------------
+• Waterberg Biosphere, Limpopo, South Africa — bushveld hunting and lodge stay.
+• Suited to international and South African hunters; estate copy emphasises
+  fair chase, ethical harvest, and honest fieldcraft in thick bush and open
+  moments.
+• Firearm temporary import, trophy export, and home-country import rules remain
+  the client’s responsibility with their own agents; the estate does not
+  process client paperwork on their behalf.
+
+--------------------------------------------------------------------------------
+HUNTING & ESTATE — FEATURES & BENEFITS
+--------------------------------------------------------------------------------
+• Plains game and dangerous game (where applicable) under professional hunting
+  oversight; species aligned with census, ethics, and carrying capacity.
+• Waterberg thicket and mixed terrain — technical stalking, wind discipline,
+  and real bush conditions rather than a “brochure circuit” experience.
+• Optional clay pigeon shooting and game drives for rest days or non-hunters.
+• Professional meat handling narrative on site: slaughtering, salting of hides,
+  carcass weighing; cold room for proper meat chain after the shot.
+• On-site safe facilities for valuables (documents, cash, small electronics).
+• P3 Exemption Permit called out in marketing — confirm current certificates
+  and scope with management when booking.
+• Taxidermy: outsourced to professionals the client appoints; international
+  shipping and export documentation sit with the client and their taxidermist /
+  authorities — not processed by the estate as client agent.
+
+--------------------------------------------------------------------------------
+LODGING & CAMP — FEATURES & BENEFITS
+--------------------------------------------------------------------------------
+OVERNIGHT MODEL
+• Four guest chalets only — no separate main residence for hunters on camp;
+  communal areas are for day and evening use. Up to ~20 guests camp-wide when
+  chalets are full (4–5 guests per chalet).
+
+NAMED CHALETS (identical layout inside)
+• Roan Kraal
+• Eland Kraal
+• Gemsbok Kraal
+• Koedoe Kraal
+
+Each chalet: four single beds + one double, air conditioning, full bathroom
+(showers, two basins, toilet).
+
+COMMUNAL HUB
+• Bar name on camp: Vark Kraal — communal bar, kitchen, and lounge / dining.
+• Gas stove and electric oven for real catering workflow.
+• Fully catered: snacks, lunch, supper; food, soft drinks, and alcohol included
+  under responsible service guidelines (not metered like a hotel bar).
+
+OUTDOOR & VIEWING
+• Swimming pool.
+• Boma under trees with canopy — evening fire and social space.
+• Outlook point — elevated game viewing and sundowner-friendly.
+• Waterhole — passive game viewing; low impact, ethical viewing rhythm.
+
+LOGISTICS & SECURITY
+• Gated access; Matlabas Protection Service referenced in site copy.
+• Optional shuttle — enquire when booking (e.g. Johannesburg / Pretoria timing).
+
+--------------------------------------------------------------------------------
+GUEST OUTCOMES (BENEFITS SUMMARY)
+--------------------------------------------------------------------------------
+• One base camp: sleep in named kraals, share Vark Kraal and facilities — clear
+  expectations for groups, families, and international parties.
+• Full board reduces friction: focus on the hunt and the bush, not invoices
+  at every meal.
+• Infrastructure for serious hunters: cold chain, safes, meat and hide services,
+  outlook / waterhole downtime without leaving the property narrative.
+• Transparent stance on paperwork: clients use their own agents for rifles
+  and trophies across borders.
+
+================================================================================
+QUARRY SPECIES AVAILABLE (AS PER data/species.ts)
+================================================================================
+Listed in site order. “Variant” = colour / pattern morph on estate model.
+“Dangerous” = flagged for dangerous-game minimums where applicable.
+
+#   Common name              Scientific / note                         Site tag
+--------------------------------------------------------------------------------
+1   Greater Kudu             Tragelaphus strepsiceros                 greater-kudu
+2   Blue Wildebeest          Connochaetes taurinus                    blue-wildebeest
+3   Impala                   Aepyceros melampus                       impala
+4   Gemsbok (Oryx)           Oryx gazella                             gemsbok
+5   Warthog                  Phacochoerus africanus                   warthog
+6   Blesbok                  Damaliscus pygargus phillipsi            blesbok
+7   Bushbuck                 Tragelaphus sylvaticus                   bushbuck
+8   Cape Buffalo             Syncerus caffer                          cape-buffalo
+    (Dangerous game; bulls & cows — epithet on site: Dangerous · Bulls & cows)
+
+9   Dapple Impala            Aepyceros melampus [Variant]             dapple-impala
+10  Golden Wildebeest        Connochaetes taurinus [Variant]          golden-wildebeest
+11  Springbok                Antidorcas marsupialis                   springbok
+12  Red Hartebeest           Alcelaphus buselaphus caama              red-hartebeest
+13  Lechwe                   Kobus leche                              lechwe
+14  Livingstone Eland        Taurotragus oryx livingstonei            livingstone-eland
+15  Black Impala             Aepyceros melampus [Variant]             black-impala
+16  White Blesbok            Damaliscus pygargus phillipsi [Variant]  white-blesbok
+17  Waterbuck                Kobus ellipsiprymnus                     waterbuck
+18  Nyala                    Tragelaphus angasii                      nyala
+19  Plains Zebra             Equus quagga burchellii (Burchell’s)     plains-zebra
+20  Giraffe                  Giraffa camelopardalis giraffa           giraffe
+21  Sable Antelope           Hippotragus niger                        sable-antelope
+22  Roan Antelope            Hippotragus equinus                      roan-antelope
+23  Common Eland             Taurotragus oryx                         common-eland
+
+--------------------------------------------------------------------------------
+COUNT
+--------------------------------------------------------------------------------
+Total entries in QUARRY_SPECIES: 23
+
+--------------------------------------------------------------------------------
+NOTES FOR SALES / AGENTS
+--------------------------------------------------------------------------------
+• Rowland Ward minima and recommended calibres shown on the website are
+  reference lines — PH and estate brief always override for a given hunt.
+• Variant species: disclose genetics and management honestly to guests.
+• Giraffe / zebra / export products: confirm permit and import rules per
+  destination before promising deliverables.
+
+================================================================================
+END OF DOCUMENT
+================================================================================

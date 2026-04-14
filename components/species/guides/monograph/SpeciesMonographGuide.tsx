@@ -396,7 +396,7 @@ export default function SpeciesMonographGuide({
           <MonographFig
             layout="matchText"
             className="h-full"
-            placeholder="Biltong chamber, droëwors, or charcuterie board. Lodge kitchen photography."
+            placeholder="Curing chamber, dried sausage, or charcuterie board. Lodge kitchen photography."
           />
         </div>
       </section>

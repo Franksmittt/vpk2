@@ -6,7 +6,7 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
   return {
     heroTitle: "Pronking punctuation on the open sheet",
     heroLead:
-      "Springbok are Antidorcas marsupialis, the gazelle that named a nation and a rugby jersey. On the Iron Mountain they read like a weather gauge: when they relax, the veld feels honest. When they lift into those stiff-legged bounds, something already decided the day.",
+      "Springbok are Antidorcas marsupialis, the gazelle that named a nation and a rugby jersey. On the Iron Mountain they read like a weather gauge: when they relax, the range feels honest. When they lift into those stiff-legged bounds, something already decided the day.",
     bookCta: "Book a springbok hunt",
     introParagraphs: [
       "Springbok are not impala with a different paint job. They are arid-country specialists with a white face flash, a dorsal stripe, and a pocket of folded skin on the back that flags during display. They graze and browse with a seasonal brain that chases protein and moisture the way accountants chase margin.",
@@ -36,7 +36,7 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Small bodies, big signal",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
-      "Rams carry lyrate horns with strong annuli, often quoted well past 30 cm for good trophies with mass that matters as much as length. Shoulder height is modest, commonly near 75 to 88 cm with mass from mid-twenties to mid-thirties kilograms in lean veld. The white face and rump flash are not vanity. They are semaphore for herds running at speed.",
+      "Rams carry lyrate horns with strong annuli, often quoted well past 30 cm for good trophies with mass that matters as much as length. Shoulder height is modest, commonly near 75 to 88 cm with mass from mid-twenties to mid-thirties kilograms in lean range conditions. The white face and rump flash are not vanity. They are semaphore for herds running at speed.",
     formPrimaryBullets: [
       "Horn bases tell age alongside body depth. Thin polish on young horns lies less than ego.",
       "Dark lateral stripe reads sharp at distance when sun is low. Use it for sexing before you trust silhouette alone.",
@@ -82,7 +82,7 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
       "Rut timing follows rain and latitude. Expect male tension, horn fencing, and ewes that test patience. Leopards read rut calendars better than most clients.",
     predationTitle: "Cheetah, wild dogs, and the open lie",
     predationBody:
-      "Cheetah converts speed into meat on springbok ground. Wild dogs run heat into collapse. Jackal and caracal pick lambs. Human hunters who shoot on the sprint teach the veld panic. Hold for calm presentations.",
+      "Cheetah converts speed into meat on springbok ground. Wild dogs run heat into collapse. Jackal and caracal pick lambs. Human hunters who shoot on the sprint teach the herd panic. Hold for calm presentations.",
     huntTitle: "Hunting the white flash",
     huntIntro:
       "Springbok reward glass, wind discipline, and rifles you can actually hold steady on sticks. Magnification without tripod thinking is how open ground humbles people.",
@@ -123,21 +123,21 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
       { label: "Running:", body: "Default no unless the PH calls it and you have practiced." },
       { label: "Light:", body: "Dawn glare on pale flanks hides brush. Check lanes twice." },
     ],
-    meatTitle: "Meat, biltong, and national flavour",
+    meatTitle: "Meat, curing tradition, and national flavour",
     meatLeft: [
-      "Springbok venison is fine-grained and mild when handled cold-clean. It is the animal behind countless family biltong recipes.",
-      "Backstrap rewards quick heat. Shoulder wants slow potjie honesty.",
+      "Springbok venison is fine-grained and mild when handled cold-clean. It is the animal behind countless family air-dried venison recipes.",
+      "Backstrap rewards quick heat. Shoulder wants slow-pot honesty.",
     ],
     meatRight: [
       "Trim and cooling matter more than calibre. Gut fast, chill fast, keep hair out of the meat.",
-      "Droëwors from springbok trim is how South Africa says the trip was worth it.",
+      "Dried sausage from springbok trim is how many families say the trip was worth it.",
     ],
     closingTitle: "Ready for the open sheet?",
     closingBody:
       "Bring a modest rifle and serious wind sense. Springbok forgive vanity even less than they forgive scent. We match animals to census and season, not to an old photo on a phone.",
     quickFactExtraRows: [
       ["Shoulder (ram)", "Often near 75 to 88 cm depending on soil and rainfall"],
-      ["Mass (ram)", "Commonly mid-twenties to mid-thirties kg in lean Karoo-type veld"],
+      ["Mass (ram)", "Commonly mid-twenties to mid-thirties kg in lean Karoo-type rangeland"],
       ["Horns", "Both sexes horned; trophy focus usually on mature rams"],
     ],
     imageSeeds: monoSeeds(s, false),

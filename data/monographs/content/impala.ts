@@ -6,7 +6,7 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
   return {
     heroTitle: "The rooibok rhythm at the waterline",
     heroLead:
-      "Impala are the metronome of southern African bushveld. They are everywhere until they are not, and that flip from common to absent is often your first clue that a leopard has switched the room to silent mode.",
+      "Impala are the metronome of southern African savanna bush. They are everywhere until they are not, and that flip from common to absent is often your first clue that a leopard has switched the room to silent mode.",
     bookCta: "Book an impala hunt",
     introParagraphs: [
       "No animal better teaches edge habitat than impala. They want grass green enough to graze, browse low enough to strip, and cover close enough to vanish. On the Iron Mountain they are not filler animals. They are the species that proves your water points, your thicket corridors, and your predator load are in balance.",
@@ -82,7 +82,7 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
       "Rut peaks vary by rainfall and latitude. Expect roaring contests, parallel walks, and sudden violence. Leopards and wild dogs time impala rut like accountants.",
     predationTitle: "Leopards, dogs, and the stotting question",
     predationBody:
-      "Impala signal with leaps that may confuse pursuit, advertise fitness, or simply blow off tension. Lions ambush edges. Cheetah targets young. Wild dogs convert panic into heat. Human hunters who shoot running animals teach the veld bad habits. Hold for still broadsides.",
+      "Impala signal with leaps that may confuse pursuit, advertise fitness, or simply blow off tension. Lions ambush edges. Cheetah targets young. Wild dogs convert panic into heat. Human hunters who shoot running animals teach bad field habits. Hold for still broadsides.",
     huntTitle: "Hunting the edge runner",
     huntIntro:
       "Impala reward quiet feet and good wind more than magnum rifles. Most shots are inside comfortable stalk ranges if you stop rushing.",
@@ -129,14 +129,14 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
       "Backstrap in a pan with butter and rosemary is honest. Mince stretches into meatballs that do not need hiding under sauce.",
     ],
     meatRight: [
-      "Biltong and droëwors built South Africa’s road culture on animals like this. Coriander, vinegar, salt, and patience beat gimmick rubs.",
-      "Field care matters more than calibre. Gut fast, chill fast, and never let a warm carcass sit in a closed bakkie in the sun.",
+      "Air-dried venison and dried sausage built South Africa’s road culture on animals like this. Coriander, vinegar, salt, and patience beat gimmick rubs.",
+      "Field care matters more than calibre. Gut fast, chill fast, and never let a warm carcass sit in a closed pickup in the sun.",
     ],
     closingTitle: "Ready to hunt the edge?",
     closingBody:
       "Bring modest rifles and modest footsteps. Impala forgive little and teach a lot. We match animals to the census and the season, not to a wish list from three years ago.",
     quickFactExtraRows: [
-      ["Shoulder (ram)", "Roughly 75 to 92 cm in most bushveld populations"],
+      ["Shoulder (ram)", "Roughly 75 to 92 cm in most savanna populations"],
       ["Mass (ram)", "Often 53 to 76 kg in good condition"],
       ["Horns", "Lyrate, strongly ridged, length varies sharply by age and soil"],
     ],

@@ -129,7 +129,7 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
       "Slow cook with red wine and mushroom respects the shank.",
     ],
     meatRight: [
-      "Field care matters double in heat. Get skin off and meat cooling before the braai stories start.",
+      "Field care matters double in heat. Get skin off and meat cooling before the barbecue stories start.",
     ],
     closingTitle: "Ready for the thicket?",
     closingBody:

@@ -2,63 +2,118 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Globe, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+const navLeft = [
+  { name: "Experience", href: "/experience" },
+  { name: "The Hunt", href: "/reserve" },
+  { name: "Species", href: "/species" },
+] as const;
+
+const navRight = [
+  { name: "The Lodge", href: "/lodge" },
+  { name: "Contact", href: "/contact" },
+] as const;
+
+const mobileNavLinks = [...navLeft, ...navRight] as const;
+
+const navLinkClass =
+  "focus-ring-invert shrink-0 whitespace-nowrap rounded-sm font-sans text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/75 transition-colors hover:text-white sm:text-[0.7rem] sm:tracking-[0.18em] md:text-xs";
+
+const mobileOverlayLinkClass =
+  "focus-ring-invert rounded-md py-1 font-sans text-2xl font-bold uppercase tracking-tight text-white/85 transition-colors hover:text-white";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "";
     };
-  }, [isMenuOpen]);
+  }, [menuOpen]);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Experience", href: "/experience" },
-    { name: "The Hunt", href: "/reserve" },
-    { name: "Species", href: "/species" },
-    { name: "The Lodge", href: "/lodge" },
-    { name: "Contact", href: "/contact" },
-  ];
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setMenuOpen(false);
+    }
+    if (menuOpen) {
+      window.addEventListener("keydown", onKeyDown);
+      return () => window.removeEventListener("keydown", onKeyDown);
+    }
+  }, [menuOpen]);
 
   return (
     <>
-      <header className="fixed top-0 w-full z-[1000] bg-black/50 backdrop-blur-md h-20 md:h-24 border-b border-white/10 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-full flex items-center justify-between">
-          {/* Left: Menu */}
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setIsMenuOpen(true)}
-              className="p-2 hover:bg-white/10 rounded-full transition-colors"
-              aria-label="Open Menu"
+      <header className="fixed top-0 z-[1000] w-full border-b border-white/10 bg-black/50 backdrop-blur-md transition-all duration-300">
+        <div className="editorial-container flex flex-col gap-0 py-2.5 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-5 md:gap-y-0 lg:gap-x-8 xl:gap-x-10 md:py-0">
+          {/* Mobile: hamburger + centered logo */}
+          <div className="grid w-full grid-cols-[2.75rem_1fr_2.75rem] items-center gap-1 md:hidden">
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              className="focus-ring-invert flex justify-center rounded-lg p-2 text-white"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav-overlay"
             >
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="h-6 w-6" aria-hidden />
             </button>
-            <span className="hidden md:block font-sans text-xs font-bold uppercase tracking-[0.2em] text-white/80">Menu</span>
+            <Link
+              href="/"
+              className="focus-ring-invert flex min-w-0 flex-col items-center justify-self-center text-center"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="font-sans text-base font-black uppercase tracking-tighter text-white sm:text-lg">
+                VAALPENSKRAAL
+              </span>
+              <span className="mt-0.5 font-sans text-[0.38rem] font-bold uppercase tracking-[0.32em] text-white/50">
+                Premium Hunting Experience
+              </span>
+            </Link>
+            <div className="w-10 shrink-0" aria-hidden />
           </div>
 
-          {/* Center: Logo */}
-          <Link href="/" className="flex flex-col items-center relative z-[1001]">
-            <span className="font-sans font-black text-xl sm:text-2xl md:text-3xl tracking-tighter text-white uppercase">VAALPENSKRAAL</span>
-            <span className="font-sans font-bold text-[0.45rem] sm:text-[0.5rem] md:text-[0.65rem] uppercase tracking-[0.4em] text-white/50 mt-1">Premium Hunting Experience</span>
-          </Link>
+          {/* Desktop: logo center column */}
+          <div className="hidden shrink-0 md:col-start-2 md:row-start-1 md:flex md:justify-center">
+            <Link href="/" className="focus-ring-invert flex flex-col items-center rounded-md">
+              <span className="font-sans text-lg font-black uppercase tracking-tighter text-white sm:text-xl md:text-2xl lg:text-3xl">
+                VAALPENSKRAAL
+              </span>
+              <span className="mt-0.5 font-sans text-[0.4rem] font-bold uppercase tracking-[0.35em] text-white/50 sm:text-[0.45rem] md:mt-1 md:text-[0.5rem] lg:text-[0.65rem]">
+                Premium Hunting Experience
+              </span>
+            </Link>
+          </div>
 
-          {/* Right: Language + CTA */}
-          <div className="flex items-center gap-4 md:gap-6">
-            <button className="hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-              <Globe className="w-4 h-4" />
-              <span className="font-sans font-bold text-xs uppercase tracking-widest">EN</span>
-            </button>
-            <Link 
-              href="/reserve" 
-              className="hidden sm:flex bg-white text-black font-sans font-bold text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full hover:scale-105 transition-transform whitespace-nowrap"
+          {/* Desktop: left of logo */}
+          <nav
+            className="hidden items-center justify-end gap-x-4 pr-2 md:col-start-1 md:row-start-1 md:flex md:pr-6 lg:gap-x-6 lg:pr-8 xl:pr-10"
+            aria-label="Hunt and species"
+          >
+            {navLeft.map((link) => (
+              <Link key={link.href} href={link.href} className={navLinkClass}>
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop: right of logo + Book Hunt */}
+          <div className="hidden items-center justify-start gap-x-4 pl-2 md:col-start-3 md:row-start-1 md:flex md:pl-6 lg:gap-x-6 lg:pl-8 xl:pl-10">
+            <nav className="flex items-center gap-x-4 lg:gap-x-6" aria-label="Lodge and contact">
+              {navRight.map((link) => (
+                <Link key={link.href} href={link.href} className={navLinkClass}>
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+            <Link
+              href="/reserve"
+              className="focus-ring-invert whitespace-nowrap rounded-full bg-white px-5 py-2.5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.2em] text-black transition-transform hover:scale-105 lg:px-8 lg:py-3"
             >
               Book Hunt
             </Link>
@@ -66,59 +121,48 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Full Screen Menu Overlay */}
-      <div 
-        className={`fixed inset-0 z-[2000] bg-black transition-all duration-500 ease-in-out flex flex-col ${
-          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      {/* Mobile full-screen menu */}
+      <div
+        id="mobile-nav-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site menu"
+        className={`fixed inset-0 z-[2000] flex flex-col bg-black transition-opacity duration-300 md:hidden ${
+          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        {/* Menu Header */}
-        <div className="h-20 md:h-24 flex items-center justify-between px-4 sm:px-6 md:px-12 border-b border-white/10">
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="p-2 hover:bg-white/10 rounded-full transition-colors"
-              aria-label="Close Menu"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
-            <span className="hidden md:block font-sans text-xs font-bold uppercase tracking-[0.2em] text-white/80">Close</span>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            <span className="font-sans font-black text-xl sm:text-2xl md:text-3xl tracking-tighter text-white uppercase">VAALPENSKRAAL</span>
-          </div>
-
-          <div className="w-10 md:w-24" /> {/* Spacer for centering */}
+        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-white/10 px-4 sm:h-16 sm:px-6">
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="focus-ring-invert rounded-lg p-2 text-white"
+            aria-label="Close menu"
+          >
+            <X className="h-6 w-6" aria-hidden />
+          </button>
+          <span className="font-sans text-sm font-black uppercase tracking-tight text-white/90">
+            Menu
+          </span>
         </div>
-
-        {/* Menu Links */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-8 p-8 overflow-y-auto">
-          {navLinks.map((link, i) => (
-            <Link 
-              key={i} 
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-8 sm:px-8" aria-label="Main navigation">
+          {mobileNavLinks.map((link) => (
+            <Link
+              key={link.href}
               href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="font-sans text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter text-white/70 hover:text-white transition-colors"
+              className={mobileOverlayLinkClass}
+              onClick={() => setMenuOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-          
-          <div className="mt-12 flex flex-col items-center gap-6">
-            <Link 
-              href="/reserve" 
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-white text-black font-sans font-bold text-sm uppercase tracking-[0.2em] px-12 py-4 rounded-full hover:scale-105 transition-transform"
-            >
-              Book Your Hunt
-            </Link>
-            <button className="flex items-center gap-2 text-white/50 hover:text-white transition-colors mt-4">
-              <Globe className="w-5 h-5" />
-              <span className="font-sans font-bold text-sm uppercase tracking-widest">English</span>
-            </button>
-          </div>
-        </div>
+          <Link
+            href="/reserve"
+            className="focus-ring-invert mt-6 inline-flex w-fit items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-bold uppercase tracking-[0.2em] text-black"
+            onClick={() => setMenuOpen(false)}
+          >
+            Book Hunt
+          </Link>
+        </nav>
       </div>
     </>
   );

@@ -10,7 +10,7 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
     bookCta: "Book a warthog hunt",
     introParagraphs: [
       "Phacochoerus africanus is the common warthog of savanna and open woodland across southern Africa. They are diurnal, water-loving when it is hot, and surprisingly fast when dogs or lions apply pressure. On game farms they are opportunity animals with real tusk trophies and excellent meat if you respect the carcass.",
-      "You will read taxonomy notes, tusk mechanics, sounder structure, burrow strategy, predation from big cats and dogs, hunting approaches from still-hunting to blinds, rifles from 7×57 class up, shot placement that respects the compact body, and kitchen uses from braai to slow potjie.",
+      "You will read taxonomy notes, tusk mechanics, sounder structure, burrow strategy, predation from big cats and dogs, hunting approaches from still-hunting to blinds, rifles from 7×57 class up, shot placement that respects the compact body, and kitchen uses from the grill to a slow pot.",
     ],
     taxonomyTitle: "Taxonomy and the Suidae edge",
     taxonomyIntro:
@@ -57,7 +57,7 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
       "Warthogs are primarily plant eaters but field guides document occasional protein grabs. More practically on farms they eat bone fragments and soil for minerals. Provide ethical licks rather than letting them raid rubbish pits.",
     fieldNoteTitle: "Field note",
     fieldNoteBody:
-      "If you hear grass tearing in short veld, look low. Warthogs feed at a height humans forget to scan.",
+      "If you hear grass tearing in short sward, look low. Warthogs feed at a height humans forget to scan.",
     socialTitle: "Sounders, bachelors, and lone boars",
     socialIntro:
       "Sounders are female-led family groups. Bachelor males cluster. Big boars cruise alone with chipped tusks and opinions. Social scent marking around beds and water is constant.",
@@ -123,13 +123,13 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
       { label: "Follow-up:", body: "Assume the boar is alive until the PH says otherwise." },
       { label: "Dogs:", body: "If bay dogs are used, human safety lines change. Listen." },
     ],
-    meatTitle: "Pork of the veld, fire, and potjie",
+    meatTitle: "Pork from the bush, fire, and slow pot",
     meatLeft: [
       "Warthog meat is pale, lean, and honest. It takes smoke and spice like domestic pork wishes it could. Shoulder wants low heat. Loin wants quick heat.",
       "Remove glands carefully during skinning. Taint is a handling story, not a species story.",
     ],
     meatRight: [
-      "Afrikaans kitchen culture already wrote the cookbook. Roosterkoek, chutney, and warthog stew are national comfort.",
+      "South African kitchen culture already wrote the cookbook. Fire bread, chutney, and warthog stew are national comfort.",
       "Export and donation rules still apply. Poaching is not this page. Lawful hunting is.",
     ],
     closingTitle: "Ready for vlakvark?",
@@ -137,7 +137,7 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
       "Bring close-range skill and respect for holes. Warthogs reward humility.",
     quickFactExtraRows: [
       ["Tusks", "Uppers curve; lowers hone like blades"],
-      ["Mass", "Roughly 45 to 150 kg depending on sex and veld"],
+      ["Mass", "Roughly 45 to 150 kg depending on sex and range condition"],
       ["Burrows", "Often aardvark origin, warthog modified"],
     ],
     imageSeeds: monoSeeds(s, true),

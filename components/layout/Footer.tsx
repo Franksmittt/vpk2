@@ -2,22 +2,23 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/10 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+    <footer className="border-t border-white/10 bg-black pb-10 pt-16 md:pt-20">
+      <div className="editorial-container">
+        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:mb-16 lg:grid-cols-5 lg:gap-12">
           <div>
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Explore</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li><Link href="/experience" className="hover:text-white transition-colors">The Experience</Link></li>
-              <li><Link href="/reserve" className="hover:text-white transition-colors">Book Your Hunt</Link></li>
-              <li><Link href="/species" className="hover:text-white transition-colors">Quarry Species</Link></li>
-              <li><Link href="/lodge" className="hover:text-white transition-colors">The Lodge</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/experience" className="focus-ring rounded-sm transition-colors hover:text-white">The Experience</Link></li>
+              <li><Link href="/reserve" className="focus-ring rounded-sm transition-colors hover:text-white">Book Your Hunt</Link></li>
+              <li><Link href="/species" className="focus-ring rounded-sm transition-colors hover:text-white">Quarry Species</Link></li>
+              <li><Link href="/lodge" className="focus-ring rounded-sm transition-colors hover:text-white">The Lodge</Link></li>
+              <li><Link href="/contact" className="focus-ring rounded-sm transition-colors hover:text-white">Contact</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Certifications</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
+              <li>P3 Exemption Permit (confirm current documentation with the estate)</li>
               <li>Professional Hunters' Association</li>
               <li>Wildlife Ranching SA (WRSA)</li>
               <li>Waterberg Biosphere Reserve</li>
@@ -27,9 +28,9 @@ export default function Footer() {
           <div>
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Legal</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
+              <li><Link href="/privacy" className="focus-ring rounded-sm transition-colors hover:text-white">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="focus-ring rounded-sm transition-colors hover:text-white">Terms of Service</Link></li>
+              <li><Link href="/cookies" className="focus-ring rounded-sm transition-colors hover:text-white">Cookie Policy</Link></li>
             </ul>
           </div>
           <div>
@@ -38,13 +39,13 @@ export default function Footer() {
               <li>Waterberg Biosphere</li>
               <li>Thabazimbi, Limpopo</li>
               <li>South Africa</li>
-              <li className="pt-2"><a href="mailto:info@vaalpenskraal.com" className="hover:text-white transition-colors">info@vaalpenskraal.com</a></li>
+              <li className="pt-2"><a href="mailto:info@vaalpenskraal.com" className="focus-ring rounded-sm transition-colors hover:text-white">info@vaalpenskraal.com</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Advisory</h4>
             <p className="font-sans text-sm text-white/60 leading-relaxed font-medium">
-              Please consult with your local authorities regarding the import of your trophies. We handle all export documentation.
+              Firearm temporary import, trophy export, and home-country import rules are your responsibility with your own authorities and agents. Vaalpenskraal does not process client paperwork on your behalf.
             </p>
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function ContactForm({
             autoComplete="name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-            className="w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
+            className="focus-ring w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
             placeholder="Your name"
           />
         </label>
@@ -62,7 +62,7 @@ export default function ContactForm({
             autoComplete="email"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-            className="w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
+            className="focus-ring w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
             placeholder="you@example.com"
           />
         </label>
@@ -77,7 +77,7 @@ export default function ContactForm({
             autoComplete="tel"
             value={form.phone}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
-            className="w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
+            className="focus-ring w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
             placeholder="+27 …"
           />
         </label>
@@ -88,7 +88,7 @@ export default function ContactForm({
           <select
             value={form.topic}
             onChange={(e) => setForm((f) => ({ ...f, topic: e.target.value }))}
-            className="w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white outline-none transition-colors focus:border-burnished-copper/50 focus:bg-white/[0.06]"
+            className="focus-ring w-full rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm text-white transition-colors focus:border-burnished-copper/50 focus:bg-white/[0.06]"
           >
             <option value="hunt">Booking a hunt</option>
             <option value="lodge">Lodge &amp; accommodation</option>
@@ -109,7 +109,7 @@ export default function ContactForm({
           rows={5}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-          className="w-full resize-y rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm leading-relaxed text-white outline-none transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
+          className="focus-ring w-full resize-y rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-3 font-sans text-sm leading-relaxed text-white transition-colors placeholder:text-white/25 focus:border-burnished-copper/50 focus:bg-white/[0.06]"
           placeholder="Dates, species, group size, experience level, any questions…"
         />
       </label>
@@ -118,7 +118,7 @@ export default function ContactForm({
       </p>
       <button
         type="submit"
-        className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+        className="focus-ring-invert inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
       >
         {submitted ? "Open email again" : "Send enquiry"}
       </button>

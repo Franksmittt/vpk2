@@ -8,9 +8,15 @@ type PageHeroProps = {
 };
 
 export default function PageHero({ eyebrow, title, subtitle, imageSeed, compact }: PageHeroProps) {
-  const minH = compact ? "min-h-[38vh] sm:min-h-[42vh]" : "min-h-[48vh] sm:min-h-[52vh]";
+  /** Editorial: ~16:9 hero band with minimum height for text clearance under fixed header */
+  const minH = compact
+    ? "min-h-[min(42vh,520px)] sm:min-h-[min(46vh,560px)]"
+    : "min-h-[min(52vh,640px)] sm:min-h-[min(56vh,720px)]";
   return (
-    <section className={`relative ${minH} flex flex-col justify-end overflow-hidden border-b border-white/[0.08]`}>
+    <section
+      className={`relative ${minH} flex flex-col justify-end overflow-hidden border-b border-white/[0.08]`}
+      aria-labelledby="page-hero-title"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -18,13 +24,29 @@ export default function PageHero({ eyebrow, title, subtitle, imageSeed, compact 
         }}
         aria-hidden
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/35" aria-hidden />
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-14 pt-32 sm:px-8 md:px-12 md:pb-20 md:pt-36">
-        <p className="font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">{eyebrow}</p>
-        <h1 className="mt-4 font-sans text-[clamp(2.25rem,6vw,3.75rem)] font-semibold tracking-[-0.035em] leading-[1.05] text-white text-balance">
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/50"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_75%_at_50%_38%,rgb(0_0_0/0.12)_0%,rgb(0_0_0/0.42)_50%,rgb(0_0_0/0.68)_100%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-[25%] bg-gradient-to-b from-transparent via-black/35 to-black/75"
+        aria-hidden
+      />
+      <div className="editorial-container relative z-10 pb-12 pt-28 sm:pb-16 sm:pt-32 md:pb-20 md:pt-36">
+        <p className="eyebrow hero-readable-eyebrow text-white/70">{eyebrow}</p>
+        <h1
+          id="page-hero-title"
+          className="hero-readable-title mt-4 max-w-[min(100%,42rem)] text-balance font-sans text-[clamp(2.25rem,6vw,3.75rem)] font-semibold leading-[1.06] tracking-[-0.035em] text-white"
+        >
           {title}
         </h1>
-        <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55 md:text-lg">{subtitle}</p>
+        <p className="hero-readable-body mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
+          {subtitle}
+        </p>
       </div>
     </section>
   );

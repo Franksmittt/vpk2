@@ -2,21 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL } from "@/data/camp-kraals";
 import { ChevronRight, Crosshair, Users, Flame, Map, Shield, Leaf, Target, ChevronLeft } from "lucide-react";
 
 const HERO_SLIDES = [
   {
-    image: "https://picsum.photos/seed/hunting/1920/1080",
+    image: "/images/hero/hero-legacy.png",
     title: "The\nPursuit.",
-    subtitle: "14+ Species. Unforgiving Terrain. Zero Compromise.",
+    subtitle: "23 quarry species. Unforgiving terrain. Zero compromise.",
   },
   {
-    image: "https://picsum.photos/seed/buffalo/1920/1080",
+    image: "/images/hero/hero-encounter.png",
     title: "The\nEncounter.",
     subtitle: "Face the Black Death in the dense Waterberg bush.",
   },
   {
-    image: "https://picsum.photos/seed/campfire/1920/1080",
+    image: "/images/hero/wide-hunt-story.png",
     title: "The\nLegacy.",
     subtitle: "Forge bonds that last a lifetime around the fire.",
   }
@@ -37,11 +38,11 @@ const TESTIMONIALS = [
   {
     id: "piet-modimolle",
     quote:
-      "Die Waterberg het tande. Hier leer jy dit respekteer. Kudu in digte bos, buffels wat jou laat stilstaan, en 'n boma waar die stories langer brand as die hout.",
-    emphasis: "respekteer",
+      "The Waterberg has teeth—you learn to respect them here. Kudu in thick bush, buffalo that stop you in your tracks, and a boma where the stories outlast the wood on the fire.",
+    emphasis: "respect them",
     name: "Pieter v.d. Merwe",
     location: "Modimolle, Limpopo",
-    locale: "af" as const,
+    locale: "en" as const,
     local: true,
     imgSeed: "safarihunter1",
   },
@@ -59,11 +60,11 @@ const TESTIMONIALS = [
   {
     id: "sarie-polokwane",
     quote:
-      "Ons kom al jare terug. Dis moeilik om te verduidelik, maar dis asof die grond self jou uitdaag om beter te jag: meer geduld, meer respek, minder geraas.",
-    emphasis: "beter te jag",
+      "We've been coming back for years. It's hard to put into words, but it feels as if the ground itself asks you to hunt better: more patience, more respect, less noise.",
+    emphasis: "hunt better",
     name: "Sarie B.",
     location: "Polokwane, Limpopo",
-    locale: "af" as const,
+    locale: "en" as const,
     local: true,
     imgSeed: "safarihunter3",
   },
@@ -81,11 +82,11 @@ const TESTIMONIALS = [
   {
     id: "johan-hoedspruit",
     quote:
-      "Eersteklas gemak, maar nêrens weg van die werklike jag af nie. Presies hoe ons dit graag het: 'n kamp wat werk, en wild wat jou nog steeds laat sweet.",
-    emphasis: "werklike jag",
+      "First-class comfort, with nothing cushioned away from real hunting. Exactly what we want: a camp that works, and game that still makes you sweat.",
+    emphasis: "real hunting",
     name: "Johan K.",
     location: "Hoedspruit, Limpopo",
-    locale: "af" as const,
+    locale: "en" as const,
     local: true,
     imgSeed: "safarihunter5",
   },
@@ -158,34 +159,48 @@ export default function Home() {
               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10000ms] ease-out ${
                 index === currentSlide ? "scale-105" : "scale-100"
               }`}
-              style={{ backgroundImage: `url('${slide.image}')`, opacity: 0.5 }}
+              style={{ backgroundImage: `url('${slide.image}')`, opacity: 0.62 }}
             />
-            {/* Gradients for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/90" />
-            
-            <div className="relative z-20 h-full min-h-0 flex flex-col pt-20 md:pt-24 pb-[4.5rem] sm:pb-20 box-border">
-              <div className="flex-1 min-h-0 w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-2 sm:gap-3 md:gap-4 py-2 sm:py-3">
-                <p className="font-sans text-[0.65rem] sm:text-xs md:text-sm font-bold tracking-[0.2em] sm:tracking-[0.28em] text-white/80 uppercase text-center shrink-0">
-                  Vaalpenskraal Game Reserve
-                </p>
+            {/* Global + localized scrims — lighter so photography reads; text shadows still carry contrast */}
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-black/32 via-black/18 to-black/72"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_75%_at_22%_42%,rgb(0_0_0/0.08)_0%,rgb(0_0_0/0.28)_50%,rgb(0_0_0/0.48)_100%)]"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/28 via-black/8 to-transparent"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 top-[18%] bg-gradient-to-b from-transparent via-black/22 to-black/58 sm:top-[22%]"
+              aria-hidden
+            />
 
-                <h1 className="font-sans text-[clamp(2.25rem,8vw,4.25rem)] sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] font-black tracking-tighter text-white uppercase text-center drop-shadow-2xl whitespace-pre-line max-w-[min(100%,42rem)] shrink-0">
+            <div className="relative z-20 box-border flex h-full min-h-0 flex-col pb-[4.5rem] pt-20 sm:pb-20 md:pt-24">
+              <div className="editorial-container flex min-h-0 flex-1 flex-col items-start justify-center gap-3 py-2 sm:gap-4 sm:py-4">
+                <h1 className="hero-readable-title max-w-[min(100%,42rem)] shrink-0 whitespace-pre-line text-left font-sans text-[clamp(2.25rem,8vw,4.25rem)] font-black uppercase leading-[0.95] tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
                   {slide.title}
                 </h1>
 
-                <div className="w-10 sm:w-14 h-px bg-white/50 shrink-0" />
+                <div className="hero-readable-ui h-px w-10 shrink-0 bg-white/55 shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:w-14" />
 
-                <p className="font-sans text-sm sm:text-base md:text-lg text-white/90 max-w-md sm:max-w-xl text-center font-medium tracking-tight px-1 sm:px-2 leading-snug shrink-0">
+                <p className="hero-readable-body max-w-md shrink-0 text-left font-sans text-sm font-medium leading-snug tracking-tight text-white sm:max-w-xl sm:text-base md:text-lg">
                   {slide.subtitle}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full max-w-md sm:max-w-none sm:w-auto justify-center shrink-0 mt-1">
-                  <Link href="/reserve" className="group relative flex items-center justify-center bg-white text-black font-sans font-bold text-[0.65rem] sm:text-xs uppercase tracking-widest px-6 sm:px-8 py-2.5 sm:py-3 rounded-full overflow-hidden transition-transform hover:scale-105">
+                <div className="mt-1 flex w-full max-w-md shrink-0 flex-col items-start gap-2.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-3">
+                  <Link href="/reserve" className="group relative inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 font-sans text-[0.65rem] font-bold uppercase tracking-widest text-black transition-transform hover:scale-105 sm:px-8 sm:py-3 sm:text-xs">
                     <span className="relative z-10">Book Your Hunt</span>
-                    <div className="absolute inset-0 bg-neutral-200 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                    <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
                   </Link>
-                  <Link href="/species" className="group flex items-center justify-center bg-black/20 backdrop-blur-md border border-white/30 text-white font-sans font-bold text-[0.65rem] sm:text-xs uppercase tracking-widest px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:bg-white/10 transition-colors duration-300">
-                    Explore Species
+                  <Link
+                    href="/species"
+                    className="group inline-flex items-center justify-center rounded-full border border-white/35 bg-black/35 px-6 py-2.5 font-sans text-[0.65rem] font-bold uppercase tracking-widest text-white backdrop-blur-md transition-colors duration-300 hover:bg-black/50 sm:px-8 sm:py-3 sm:text-xs"
+                  >
+                    <span className="hero-readable-ghost">Explore Species</span>
                   </Link>
                 </div>
               </div>
@@ -196,18 +211,30 @@ export default function Home() {
         {/* Slider + scroll hint: single bottom row, inside hero chrome */}
         <div className="absolute z-30 bottom-3 sm:bottom-4 left-0 right-0 px-4 sm:px-8 flex items-end justify-between gap-3 pointer-events-none">
           <div className="flex gap-1.5 pointer-events-auto">
-            <button type="button" onClick={prevSlide} className="p-2 rounded-full border border-white/20 bg-black/30 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer" aria-label="Previous slide">
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="cursor-pointer rounded-full border border-white/25 bg-black/45 p-2 backdrop-blur-md transition-colors hover:bg-black/60"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="hero-readable-ui h-4 w-4 text-white sm:h-5 sm:w-5" />
             </button>
-            <button type="button" onClick={nextSlide} className="p-2 rounded-full border border-white/20 bg-black/30 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer" aria-label="Next slide">
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="cursor-pointer rounded-full border border-white/25 bg-black/45 p-2 backdrop-blur-md transition-colors hover:bg-black/60"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="hero-readable-ui h-4 w-4 text-white sm:h-5 sm:w-5" />
             </button>
           </div>
 
-          <div className="hidden sm:flex flex-col items-center gap-1 pointer-events-none pb-0.5">
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.25em] text-white/50">Scroll</span>
-            <div className="w-px h-8 bg-white/20 overflow-hidden">
-              <div className="w-full h-full bg-white animate-scroll-down" />
+          <div className="pointer-events-none hidden flex-col items-center gap-1 pb-0.5 sm:flex">
+            <span className="hero-readable-eyebrow font-sans text-[0.6rem] uppercase tracking-[0.25em] text-white/70">
+              Scroll
+            </span>
+            <div className="hero-readable-ui h-8 w-px overflow-hidden bg-white/35">
+              <div className="h-full w-full animate-scroll-down bg-white" />
             </div>
           </div>
 
@@ -217,7 +244,7 @@ export default function Home() {
                 key={idx}
                 type="button"
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-1 transition-all duration-500 rounded-full cursor-pointer ${idx === currentSlide ? "w-6 sm:w-8 bg-white" : "w-1.5 sm:w-2 bg-white/30"}`}
+                className={`h-1 cursor-pointer rounded-full transition-all duration-500 ${idx === currentSlide ? "w-6 bg-white shadow-[0_1px_4px_rgb(0_0_0/0.95),0_2px_12px_rgb(0_0_0/0.6)] sm:w-8" : "w-1.5 bg-white/45 shadow-[0_1px_3px_rgb(0_0_0/0.85)] sm:w-2"}`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -226,8 +253,8 @@ export default function Home() {
       </section>
 
       {/* NEW COMPONENT 1: The Code (Ethics & Values) */}
-      <section className="py-20 md:py-32 bg-neutral-950 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <section className="section-y border-b border-white/5 bg-neutral-950">
+        <div className="editorial-container">
           <div className="text-center mb-16 md:mb-20">
             <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase">The Hunter's Code</h2>
             <p className="font-sans text-lg text-white/60 max-w-2xl mx-auto font-medium">
@@ -268,8 +295,9 @@ export default function Home() {
       </section>
 
       {/* Bento Grid: The Experience */}
-      <section className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-20 md:py-32">
-        <div className="text-center mb-12 md:mb-20">
+      <section className="section-y relative z-30">
+        <div className="editorial-container">
+        <div className="mb-12 text-center md:mb-20">
           <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 uppercase">Designed for the pursuit.</h2>
           <p className="font-sans text-lg sm:text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-medium">
             Whether you walk alone or stand with your brotherhood, Vaalpenskraal delivers the ultimate bush experience.
@@ -283,7 +311,7 @@ export default function Home() {
             aria-label="Book a hunt: the solitary tracker"
             className="md:col-span-2 relative block min-h-[350px] md:min-h-[450px] rounded-[2rem] overflow-hidden group bg-neutral-900"
           >
-            <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/solohunter/1200/800')] bg-cover bg-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-[url('/images/home/solitary-tracker.png')] bg-cover bg-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-6 sm:p-8 md:p-10">
               <Crosshair className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" />
@@ -294,17 +322,17 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Card 2: 14+ Species */}
+          {/* Card 2: quarry species index */}
           <Link
             href="/species"
             aria-label="Explore quarry species"
             className="relative flex min-h-[350px] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-6 sm:p-8 md:min-h-[450px] md:p-10 group"
           >
-            <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/kuduhorn/600/800')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-[url('/images/home/species-bento.png')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="relative z-10">
               <Map className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" />
-              <h3 className="font-sans text-3xl sm:text-4xl font-black tracking-tighter mb-3 md:mb-4 uppercase">14+ Species</h3>
+              <h3 className="font-sans text-3xl sm:text-4xl font-black tracking-tighter mb-3 md:mb-4 uppercase">23 species</h3>
               <p className="font-sans text-base sm:text-lg text-white/70 font-medium">
                 From the Grey Ghost to the Black Death. Unmatched biodiversity.
               </p>
@@ -317,7 +345,7 @@ export default function Home() {
             aria-label="The lodge: groups and fireside"
             className="relative flex min-h-[350px] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-6 sm:p-8 md:min-h-[450px] md:p-10 group"
           >
-            <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/campfire/600/800')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-[url('/images/home/brotherhood-bento.png')] bg-cover bg-center opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="relative z-10">
               <Users className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" />
@@ -334,7 +362,7 @@ export default function Home() {
             aria-label="The Vaalpenskraal experience"
             className="md:col-span-2 relative block min-h-[350px] md:min-h-[450px] rounded-[2rem] overflow-hidden group bg-neutral-900"
           >
-            <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/huntingculture/1200/800')] bg-cover bg-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-1000" />
+            <div className="absolute inset-0 bg-[url('/images/home/culture-bento.png')] bg-cover bg-center opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
             <div className="absolute bottom-0 left-0 p-6 sm:p-8 md:p-10">
               <Flame className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" />
@@ -345,11 +373,12 @@ export default function Home() {
             </div>
           </Link>
         </div>
+        </div>
       </section>
 
       {/* Basecamp - split canvas: image + stacked amenity rails */}
-      <section className="bg-[#070707] text-white border-t border-white/[0.06]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-12 md:pb-16">
+      <section className="border-t border-white/[0.06] bg-[#070707] text-white">
+        <div className="editorial-container pb-12 pt-16 md:pb-16 md:pt-24 lg:pt-28">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
             <div className="max-w-xl">
               <p className="font-sans text-[11px] font-medium tracking-[0.3em] uppercase text-white/38 mb-5">
@@ -368,7 +397,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-12 pb-20 md:pb-32">
+        <div className="editorial-container pb-16 md:pb-24 lg:pb-32">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-4 md:items-stretch">
             <div className="md:col-span-3 relative min-h-[min(52vh,420px)] md:min-h-[520px] rounded-[1.35rem] md:rounded-[1.75rem] overflow-hidden bg-neutral-900 ring-1 ring-white/[0.07]">
               <div
@@ -377,8 +406,8 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/55 via-transparent to-black/25 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between gap-4">
-                <p className="font-sans text-xs md:text-sm text-white/55 max-w-[14rem] leading-snug">
-                  Main house, four chalets, pool &amp; boma. One camp in the Waterberg.
+                <p className="font-sans text-xs md:text-sm text-white/55 max-w-[18rem] leading-snug">
+                  {CHALET_KRAALS_LINE} — overnight guests only. {COMMUNAL_BAR_KRAAL}, kitchen, pool, boma, outlook &amp; waterhole. Full board in the Waterberg.
                 </p>
                 <Link
                   href="/lodge"
@@ -392,11 +421,28 @@ export default function Home() {
 
             <div className="md:col-span-2 flex flex-col gap-3 md:gap-3.5">
               {[
-                { tag: "01", title: "Four identical chalets", note: "Up to 5 each · 20 guests total · en-suite" },
-                { tag: "02", title: "Main house hub", note: "Bar, kitchen & kuier under one roof" },
-                { tag: "03", title: "Pool, lapa & boma", note: "Lapa by the pool · boma under the trees" },
-                { tag: "04", title: "Gated access", note: "Main entrance off the road" },
-                { tag: "05", title: "Wild game cuisine", note: "Honest plates · camp-to-table" },
+                {
+                  tag: "01",
+                  title: "Four kraals",
+                  note: `${CHALET_KRAALS_LINE} · 4–5 sleep · 4 singles + double · aircon · full bath`,
+                },
+                {
+                  tag: "02",
+                  title: `${COMMUNAL_BAR_KRAAL} & kitchen`,
+                  note: "Gas stove · electric oven · lounge & dining space",
+                },
+                { tag: "03", title: "Fully catered", note: "Snacks, lunch, supper · drinks & alcohol included" },
+                {
+                  tag: "04",
+                  title: "Pool, boma & viewing",
+                  note: "Swim · canopy boma · outlook point & waterhole · sundowners",
+                },
+                {
+                  tag: "05",
+                  title: "Field services",
+                  note: "Safes · cold room · slaughter & hides · carcass weighing · P3 permit",
+                },
+                { tag: "06", title: "Safe & gated", note: "Matlabas Protection · optional shuttle · taxidermy via your contractors" },
               ].map((row) => (
                 <div
                   key={row.tag}
@@ -431,7 +477,7 @@ export default function Home() {
       </section>
 
       {/* Manifesto - iron / copper editorial */}
-      <section className="relative isolate overflow-hidden border-y border-white/[0.07] bg-black py-24 md:py-36 lg:py-44">
+      <section className="section-y relative isolate overflow-hidden border-y border-white/[0.07] bg-black">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.55]"
           aria-hidden
@@ -441,8 +487,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(184,115,51,0.12),transparent_55%)]" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <p className="font-sans text-[11px] font-medium tracking-[0.32em] uppercase text-white/36 mb-10 md:mb-14">
+        <div className="editorial-container">
+          <p className="mb-10 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/36 md:mb-14">
             The Waterberg · not a brochure trip
           </p>
 
@@ -463,7 +509,7 @@ export default function Home() {
 
             <div className="lg:col-span-7 space-y-8 md:space-y-10">
               <p className="font-sans text-lg md:text-xl lg:text-[1.35rem] leading-[1.55] text-white/52 font-normal first-line:font-medium first-line:text-white/78">
-                We reject the staged safari circuit. Vaalpenskraal is a return to the bushveld as it is: oxidized iron under your boots, burnished copper light on the ridgeline, and terrain that does not perform for a camera.
+                We reject the staged safari circuit. Vaalpenskraal is a return to the Waterberg bush as it is: oxidized iron under your boots, burnished copper light on the ridgeline, and terrain that does not perform for a camera.
               </p>
               <p className="relative font-sans text-base md:text-lg leading-relaxed text-white/44 pl-6 md:pl-7">
                 <span
@@ -479,7 +525,7 @@ export default function Home() {
 
       {/* The Quarry - editorial zigzag + index */}
       <section className="relative border-t border-white/[0.07] bg-[#050505] text-white">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12 pt-20 md:pt-28 pb-16 md:pb-20">
+        <div className="editorial-container pb-16 pt-16 md:pb-20 md:pt-24 lg:pt-28">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-16">
             <div className="max-w-2xl">
               <p className="font-sans text-[11px] font-medium tracking-[0.32em] uppercase text-white/36 mb-5">
@@ -498,7 +544,7 @@ export default function Home() {
               href="/species"
               className="inline-flex shrink-0 items-center justify-center gap-2 self-start lg:self-auto rounded-full bg-white px-7 py-3.5 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
             >
-              All 14+ species
+              Full quarry list
               <ChevronRight className="h-4 w-4 opacity-60" />
             </Link>
           </div>
@@ -510,7 +556,7 @@ export default function Home() {
               code: "01",
               nickname: "The Black Death",
               name: "Cape Buffalo",
-              img: "buffalo",
+              imageUrl: "/images/home/quarry-buffalo.png",
               href: "/species/cape-buffalo",
               blurb: "Thick bush. Zero margin. The Waterberg’s most serious conversation.",
             },
@@ -518,7 +564,7 @@ export default function Home() {
               code: "02",
               nickname: "The Grey Ghost",
               name: "Greater Kudu",
-              img: "kudu",
+              imageUrl: "/images/home/quarry-kudu.png",
               href: "/species/greater-kudu",
               blurb: "Height, patience, and a silhouette that vanishes between thorns.",
             },
@@ -526,7 +572,7 @@ export default function Home() {
               code: "03",
               nickname: "The Desert Lord",
               name: "Livingstone Eland",
-              img: "eland",
+              imageUrl: "/images/home/quarry-eland.png",
               href: "/species/livingstone-eland",
               blurb: "Mass at distance. Power that looks calm until it isn't.",
             },
@@ -544,7 +590,7 @@ export default function Home() {
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
                   style={{
-                    backgroundImage: `url('https://picsum.photos/seed/${row.img}/1400/1100')`,
+                    backgroundImage: `url('${row.imageUrl}')`,
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/15 to-transparent md:from-black/50" />
@@ -554,7 +600,7 @@ export default function Home() {
               </div>
 
               <div
-                className={`flex flex-col justify-center px-6 py-12 sm:px-10 md:px-14 md:py-16 lg:px-16 ${
+                className={`flex flex-col justify-center px-4 py-12 sm:px-6 md:px-12 md:py-16 ${
                   i % 2 === 1 ? "md:order-1" : ""
                 }`}
               >
@@ -577,9 +623,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Legacy - editorial testimonials (EN + AF, local & international) */}
+      {/* Editorial testimonials — local & international guests */}
       <section
-        className="relative isolate overflow-hidden border-t border-white/[0.07] bg-black py-24 md:py-36 lg:py-40"
+        className="section-y relative isolate overflow-hidden border-t border-white/[0.07] bg-black"
         aria-labelledby="legacy-heading"
       >
         <div
@@ -589,7 +635,7 @@ export default function Home() {
           <div className="absolute left-[-20%] top-1/2 h-[min(90vw,560px)] w-[min(90vw,560px)] -translate-y-1/2 rounded-full bg-burnished-copper/20 blur-[110px]" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container relative">
           <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between md:mb-16">
             <div>
               <p
@@ -599,7 +645,7 @@ export default function Home() {
                 In their words
               </p>
               <p className="font-sans mt-3 text-sm text-white/40">
-                Hunters from the Waterberg, across South Africa, and abroad.
+                Guests from across South Africa and overseas—many of our hunters fly in from abroad.
               </p>
             </div>
             <div className="flex gap-2 self-start sm:self-auto">
@@ -659,11 +705,6 @@ export default function Home() {
                   <p className="font-sans text-lg font-medium tracking-[-0.02em] text-white/92">
                     {activeT.name}
                   </p>
-                  {activeT.locale === "af" && (
-                    <span className="rounded-full border border-white/15 bg-white/[0.04] px-2 py-0.5 font-sans text-[10px] font-medium uppercase tracking-wider text-white/50">
-                      Afrikaans
-                    </span>
-                  )}
                   {activeT.local && (
                     <span className="rounded-full border border-burnished-copper/25 bg-burnished-copper/10 px-2 py-0.5 font-sans text-[10px] font-medium uppercase tracking-wider text-burnished-copper/90">
                       Local
@@ -700,7 +741,6 @@ export default function Home() {
                 </span>
                 <span className="mt-0.5 block font-sans text-[10px] uppercase tracking-wider text-white/35">
                   {item.location}
-                  {item.locale === "af" ? " · AF" : ""}
                 </span>
               </button>
             ))}
@@ -709,23 +749,32 @@ export default function Home() {
       </section>
 
       {/* Begin Your Journey CTA */}
-      <section className="relative py-32 md:py-48 overflow-hidden">
+      <section className="section-y relative overflow-hidden">
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: "url('https://picsum.photos/seed/huntingcamp/1920/1080')" }}
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/home/cta-bush-calling.png')" }}
         />
-        <div className="absolute inset-0 z-10 bg-black/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 z-10 bg-black/60 backdrop-blur-[2px]" />
         
-        <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
-          <h2 className="font-sans text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white mb-6 md:mb-8 uppercase leading-none">The bush<br/>is calling.</h2>
-          <p className="font-sans text-lg sm:text-xl md:text-2xl text-white/70 mb-10 md:mb-16 max-w-2xl mx-auto font-medium tracking-tight">
-            Secure your place in the legacy of the Waterberg.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-            <Link href="/reserve" className="group relative flex items-center justify-center bg-white text-black font-sans font-bold text-sm uppercase tracking-widest px-12 sm:px-16 py-5 sm:py-6 rounded-full overflow-hidden transition-transform hover:scale-105 w-full sm:w-auto">
-              <span className="relative z-10">Book Your Hunt</span>
-              <div className="absolute inset-0 bg-neutral-200 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-            </Link>
+        <div className="editorial-container relative z-20 text-center">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-sans text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white mb-6 md:mb-8 uppercase leading-none">
+              The bush
+              <br />
+              is calling.
+            </h2>
+            <p className="font-sans text-lg sm:text-xl md:text-2xl text-white/70 mb-10 md:mb-16 max-w-2xl mx-auto font-medium tracking-tight">
+              Secure your place in the legacy of the Waterberg.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Link
+                href="/reserve"
+                className="group relative flex items-center justify-center bg-white text-black font-sans font-bold text-sm uppercase tracking-widest px-12 sm:px-16 py-5 sm:py-6 rounded-full overflow-hidden transition-transform hover:scale-105 w-full sm:w-auto"
+              >
+                <span className="relative z-10">Book Your Hunt</span>
+                <div className="absolute inset-0 bg-neutral-200 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

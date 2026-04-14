@@ -4,13 +4,13 @@ import { monoSeeds } from "../seeds";
 
 export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
   return {
-    heroTitle: "The brindled engine of the open veld",
+    heroTitle: "The brindled engine of the open range",
     heroLead:
       "Blue wildebeest are not background extras. They are bulk grazers that sync with rain, fence lines, and predator pressure. On the Iron Mountain they tell you when the grass is short enough, when water is drawing animals, and when the wind has already betrayed you.",
     bookCta: "Book a blue wildebeest hunt",
     introParagraphs: [
       "Across southern Africa the blue wildebeest is the gnu that built the safari economy alongside zebra and lion. They look ungainly until you watch them run: front-heavy, bearded, unstoppable in a herd pulse. For ecologists they are a grassland dial. For hunters they are a serious plains-game animal with heavy bone and a stride that eats distance.",
-      "This page walks taxonomy, the wildebeest body plan, grazing ecology, herd behaviour, predation responses, fieldcraft on open ground, rifles and bullets, trophy sense on horn width and mass, meat in the biltong room, and the hybridisation story that every serious rancher should understand.",
+      "This page walks taxonomy, the wildebeest body plan, grazing ecology, herd behaviour, predation responses, fieldcraft on open ground, rifles and bullets, trophy sense on horn width and mass, meat in the curing room, and the hybridisation story that every serious rancher should understand.",
     ],
     taxonomyTitle: "Taxonomy and the wildebeest tribe",
     taxonomyIntro:
@@ -28,7 +28,7 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
       },
       {
         title: "Ranch economics",
-        sub: "Meat, trophy, veld",
+        sub: "Meat, trophy, range",
         body: "Wildebeest convert rough grass into protein and revenue. They also compete with cattle where carrying capacity is tight. Your management plan should say how many mouths the land actually holds.",
       },
     ],
@@ -36,7 +36,7 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Sexual signals in a running animal",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
-      "Mature bulls are slab-sided and front-heavy, often running near 250 kg in good veld with shoulder height around 120 to 150 cm depending on nutrition. The beard is not decoration. It frames scent and status. Horns spread sideways from a heavy boss-like base and curve inward. Trophy talk often centres on width and mass, not only length, because the animal presents horns like handlebars in the field.",
+      "Mature bulls are slab-sided and front-heavy, often running near 250 kg in good range condition with shoulder height around 120 to 150 cm depending on nutrition. The beard is not decoration. It frames scent and status. Horns spread sideways from a heavy boss-like base and curve inward. Trophy talk often centres on width and mass, not only length, because the animal presents horns like handlebars in the field.",
     formPrimaryBullets: [
       "Horns: think width, circumference, and age rings. A young bull can look tall in the scope but still be hollow in the base.",
       "Gait: wildebeest often trot with a rocking motion, then explode. Heavy animals leave deep prints in soft ground after rain.",
@@ -54,7 +54,7 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     feedSectionTitle: "Grazing and the wildebeest lawn",
     feedBody:
-      "Wildebeest clip grass low when they can, competing directly with zebra in many systems. They also re-graze favourite lawns until the veld looks mown. That habit can help managers read carrying capacity: if lawns are scalped and ribs start to show on cows, you are past polite conversation about quota.",
+      "Wildebeest clip grass low when they can, competing directly with zebra in many systems. They also re-graze favourite lawns until the sward looks mown. That habit can help managers read carrying capacity: if lawns are scalped and ribs start to show on cows, you are past polite conversation about quota.",
     fieldNoteTitle: "Field note",
     fieldNoteBody:
       "If you watch a mixed herd of zebra and wildebeest, let the zebra set the tension. When zebra ears lock forward, wildebeest often twitch a split second later. Use that lag to adjust your freeze.",
@@ -106,7 +106,7 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     trophyTitle: "Trophy sense on the hoof",
     trophyParagraphs: [
       "Wildebeest trophies live in width, mass, and age. A young bull with flashy spread can still be structurally immature. Old bulls carry facial wear, scar tissue, and a certain slump that says miles. Compare multiple animals if the ranch allows. Your PH is filtering age, genetics, and quota in real time.",
-      "Rowland Ward minimums on your quarry sheet are a floor, not the brief. Ethical hunting here is condition of the animal and condition of the veld, not panic over tape.",
+      "Rowland Ward minimums on your quarry sheet are a floor, not the brief. Ethical hunting here is condition of the animal and condition of the range, not panic over tape.",
     ],
     rifleTitle: "Rifles, bullets, and open-ground truth",
     rifleIntro:
@@ -114,7 +114,7 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     rifleTable: [
       ["Minimum", ".270 Win, 7mm-08", "Young animal, perfect broadside, premium bonded bullet."],
       ["Standard", ".308 Win, .30-06", "150 to 180 gr class with partition or bonded construction."],
-      ["Magnum", ".300 Win Mag, 7mm Rem Mag", "Open veld and windy days where you need punch and flat path."],
+      ["Magnum", ".300 Win Mag, 7mm Rem Mag", "Open ground and windy days where you need punch and flat path."],
       ["Heavy plains", ".375 H&H, 9.3x62", "Matches estate brief for large-bodied bulls and client confidence."],
     ],
     rifleTips: [
@@ -123,20 +123,20 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
       { label: "Broadside:", body: "Mid-shoulder line into heart-lung. Avoid chasing the empty paunch." },
       { label: "Follow-up:", body: "If the herd runs, mark land, breathe, and let the PH own the next move." },
     ],
-    meatTitle: "Meat, biltong, and honest trim",
+    meatTitle: "Meat, air-dried curing, and honest trim",
     meatLeft: [
       "Wildebeest venison is dark and honest. It carries more iron note than impala and takes smoke well. Treat it like serious meat: clean chill, fast bleed, and no lazy hair-on skinning in dust.",
-      "Steaks from the hindquarter reward rare to medium. Shoulder and neck want slow heat. Mince stretches the animal into boerewors that tastes like the farm, not the supermarket.",
+      "Steaks from the hindquarter reward rare to medium. Shoulder and neck want slow heat. Mince stretches the animal into coarse farm sausage that tastes like the property, not the supermarket.",
     ],
     meatRight: [
-      "Biltong culture loves wildebeest because the muscle strips long and the salt-vinegar cure sings against the lean profile. Droëwors from trim is how South Africa says thank you to a good animal.",
+      "Air-dried curing culture loves wildebeest because the muscle strips long and the salt-vinegar cure sings against the lean profile. Dried sausage from trim is how many South African families say thank you to a good animal.",
       "Hybrids with black wildebeest are not a meat story. They are a genetics story. Keep subspecies and colour lines clean if your brand promises integrity.",
     ],
-    closingTitle: "Ready for the open veld?",
+    closingTitle: "Ready for the open range?",
     closingBody:
       "Bring a rifle you can actually shoot from sticks in wind. Bring patience for herds that refuse to stand still for your ego. We will match you to animals that fit the census, not yesterday’s brochure.",
     quickFactExtraRows: [
-      ["Typical bull mass", "Roughly 230 to 270 kg in well-fed Lowveld / bushveld systems"],
+      ["Typical bull mass", "Roughly 230 to 270 kg in well-fed Lowveld / open bush systems"],
       ["Horns", "Width and mass often matter as much as length"],
       ["Hybrid risk", "Keep blue and black wildebeest apart where fertile crosses are illegal or bad marketing"],
     ],

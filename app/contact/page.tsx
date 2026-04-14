@@ -17,14 +17,14 @@ export default function ContactPage() {
     <div className="min-h-screen bg-black text-white">
       <PageHero
         eyebrow="Contact"
-        title="Let’s talk before the veld does"
+        title="Let’s talk before you land in the bush"
         compact
-        subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans, trophy export: send the honest version. We reply with the same."
+        subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans: send the honest version. We reply with the same."
         imageSeed="contacthero"
       />
 
       <section className="border-b border-white/[0.07] py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 md:px-12 lg:grid-cols-5 lg:gap-16">
+        <div className="editorial-container grid gap-12 lg:grid-cols-5 lg:gap-16">
           <div className="space-y-10 lg:col-span-2">
             <div>
               <h2 className="font-sans text-lg font-semibold text-white/90">Direct lines</h2>
@@ -75,19 +75,19 @@ export default function ContactPage() {
       </section>
 
       <section className="bg-[#050505] py-14 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <h2 className="font-sans text-lg font-semibold text-white/85">Before you arrive</h2>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             <div>
               <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Johannesburg</p>
               <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
-                Most international and domestic guests route through O.R. Tambo. From there it is a road transfer north into the Waterberg. We help you think about hire cars versus arranged pickup.
+                Most international and domestic guests route through O.R. Tambo. From there it is a road transfer north into the Waterberg. Plan hire cars, shuttle, or pickup with your own arrangements or what we confirm at booking (we do not handle import or export paperwork).
               </p>
             </div>
             <div>
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Paperwork</p>
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/35">Licences &amp; trophies</p>
               <p className="mt-2 font-sans text-sm leading-relaxed text-white/45">
-                Temporary firearm import, trophy export, and dangerous-game rules are country-specific. Tell us your passport country early so we do not improvise at the last gate.
+                Vaalpenskraal does not complete firearm, permit, or trophy export paperwork for clients. You arrange temporary import, export, and your home-country import with your own dip and pack agent, lawyer, or authorities. Ask them early so nothing waits on the estate office.
               </p>
             </div>
             <div>

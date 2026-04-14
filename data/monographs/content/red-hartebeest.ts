@@ -10,7 +10,7 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
     bookCta: "Book a red hartebeest hunt",
     introParagraphs: [
       "Hartebeest look awkward until you watch them eat. The elongated face is a grazing tool that reaches quality leaf lower than short-necked competitors. They are bulk grazers in the same tribe as wildebeest and tsessebe, tuned to grass height, fire, and the politics of water.",
-      "This page covers taxonomy, horn architecture and sexual dimorphism, grazing ecology on sweet and sour veld, herd behaviour, predation from lions to dogs, hunting craft on open ground, rifles and bullets for a runner’s body, trophy sense on horn length and hooks, and meat that carries honest iron note.",
+      "This page covers taxonomy, horn architecture and sexual dimorphism, grazing ecology on sweet and sour grassland, herd behaviour, predation from lions to dogs, hunting craft on open ground, rifles and bullets for a runner’s body, trophy sense on horn length and hooks, and meat that carries honest iron note.",
     ],
     taxonomyTitle: "Taxonomy and the hartebeest map",
     taxonomyIntro:
@@ -36,7 +36,7 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Sexual honesty in profile",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
-      "Mature bulls carry heavily ridged horns that rise, then hook forward with character that tape measures alone miss. Shoulder height commonly lands near 120 to 140 cm with mass often quoted from about 120 to 160 kg depending on veld. The withers peak above the rump: that silhouette is your rangefinder trap.",
+      "Mature bulls carry heavily ridged horns that rise, then hook forward with character that tape measures alone miss. Shoulder height commonly lands near 120 to 140 cm with mass often quoted from about 120 to 160 kg depending on range condition. The withers peak above the rump: that silhouette is your rangefinder trap.",
     formPrimaryBullets: [
       "Horn bases and pedicle scars tell age alongside neck thickness. Young bulls can look tall and hollow.",
       "Gait is efficient at trot and terrifying at gallop. Heavy animals plough wet soil after rain.",
@@ -85,7 +85,7 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
       "Lions ambush water and lawn edges. Wild dogs convert panic into heat. Cheetah is less central on heavy adults but not absent. Human hunters who shoot running animals add selection for paranoia.",
     huntTitle: "Hunting the long face",
     huntIntro:
-      "Most hartebeest hunts are glass, wind, and honest distance. Tripods and bipods earn their keep on open veld.",
+      "Most hartebeest hunts are glass, wind, and honest distance. Tripods and bipods earn their keep on open ground.",
     huntMethods: [
       {
         title: "Spot and stalk",
@@ -106,7 +106,7 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
     trophyTitle: "Horns, hooks, and age",
     trophyParagraphs: [
       "Trophy talk centres on horn length, mass, and the forward hook. Compare animals when the ranch allows. Rowland Ward minima are a reference, not the sermon.",
-      "Body condition and veld health belong in the same sentence as horn tape.",
+      "Body condition and range health belong in the same sentence as horn tape.",
     ],
     rifleTitle: "Rifles, bullets, and plains truth",
     rifleIntro:
@@ -129,7 +129,7 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
       "Steaks from the strip and hindquarter reward rare to medium if you respect the grain.",
     ],
     meatRight: [
-      "Biltong strips long if you chill and slice with discipline.",
+      "Air-dried strips run long if you chill and slice with discipline.",
       "Field care beats calibre. Dust and hair in the meat insult the animal.",
     ],
     closingTitle: "Ready for the red line?",

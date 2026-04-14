@@ -3,9 +3,9 @@ import Link from "next/link";
 import {
   ChevronRight,
   Home,
-  Building2,
   Users,
   Bath,
+  BedDouble,
   Waves,
   Trees,
   Flame,
@@ -16,13 +16,25 @@ import {
   User,
   UsersRound,
   HeartHandshake,
+  Fan,
+  Binoculars,
+  Truck,
+  Target,
+  Award,
+  Globe2,
+  Mountain,
+  Droplets,
+  Snowflake,
+  Scale,
+  Vault,
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import { CHALET_KRAALS, CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL } from "@/data/camp-kraals";
 
 export const metadata: Metadata = {
   title: "The Lodge & Stay | Vaalpenskraal Game Reserve",
   description:
-    "Vaalpenskraal: main house, four identical en-suite chalets (20 guests), pool and lapa, boma under the trees, indoor bar and kitchen, gated Waterberg reserve.",
+    "Vaalpenskraal: four named chalets (Roan, Eland, Gemsbok, Koedoe Kraal), Vark Kraal bar & kitchen, full board, pool, boma, outlook & waterhole, P3 permit, safes, cold room, meat services, taxidermy via your contractors, Matlabas Protection Service.",
 };
 
 function Pic({ seed, alt, className, priority }: { seed: string; alt: string; className?: string; priority?: boolean }) {
@@ -39,13 +51,69 @@ function Pic({ seed, alt, className, priority }: { seed: string; alt: string; cl
   );
 }
 
-const SPECS = [
-  { label: "Chalets", value: "4 identical units, same design & layout" },
-  { label: "Sleeping capacity", value: "Up to 5 guests per chalet · 20 guests total" },
-  { label: "Bathrooms", value: "En-suite in every chalet" },
-  { label: "Main house", value: "Central living, bar, kitchen & social hub" },
-  { label: "Outdoor", value: "Swimming pool, lapa beside pool, boma under trees" },
-  { label: "Access", value: "Gated entrance from the road" },
+type SpecLayout = "full" | "wide" | "default";
+
+type SpecRow = {
+  label: string;
+  value: string;
+  seed: string;
+  layout?: SpecLayout;
+  imageTall?: boolean;
+};
+
+const SPECS: SpecRow[] = [
+  {
+    label: "Overnight",
+    value: "Four chalets only — the only guest sleeping quarters on the hunting camp; no separate guest residence",
+    seed: "vpspec-overnight",
+    layout: "full",
+    imageTall: true,
+  },
+  {
+    label: "Chalets",
+    value: `${CHALET_KRAALS_LINE} · identical layout · 4–5 guests each`,
+    seed: "vpspec-chalets",
+  },
+  { label: "Sleeps", value: "4 to 5 guests per chalet · up to ~20 guests camp-wide", seed: "vpspec-sleeps" },
+  { label: "Beds", value: "4 single beds + 1 double bed per chalet", seed: "vpspec-beds" },
+  { label: "Climate", value: "Air conditioning in all chalets", seed: "vpspec-climate" },
+  { label: "Bathroom", value: "Showers · 2 basins · toilet (per chalet)", seed: "vpspec-bathroom" },
+  {
+    label: "Catering",
+    value: "Fully catered: snacks, lunch, supper · all food & drinks including alcohol",
+    seed: "vpspec-catering",
+    layout: "wide",
+  },
+  {
+    label: "Communal",
+    value: `${COMMUNAL_BAR_KRAAL} (bar) · kitchen & chill · gas stove · electric oven`,
+    seed: "vpspec-communal",
+  },
+  {
+    label: "Outdoor",
+    value: "Swimming pool · canopy boma · outlook point & waterhole for game viewing and sundowners",
+    seed: "vpspec-outdoor",
+    layout: "wide",
+  },
+  { label: "Activities", value: "Clay pigeon shooting · game drives", seed: "vpspec-activities" },
+  { label: "Permit", value: "P3 Exemption Permit — confirm current certificates with management when booking", seed: "vpspec-permit" },
+  { label: "Valuables", value: "On-site safe facilities for storing jewellery, cash, and documents", seed: "vpspec-valuables" },
+  { label: "Cold chain", value: "Cold room facilities for meat and perishables", seed: "vpspec-cold" },
+  {
+    label: "Meat & hides",
+    value: "Professional slaughtering · salting of hides · carcass weighing (coordinate with camp when planning your hunt)",
+    seed: "vpspec-meat",
+    layout: "wide",
+  },
+  {
+    label: "Taxidermy",
+    value: "Outsourced to professional taxidermists you appoint; international shipping & export paperwork sit with you and your taxidermist — the estate does not process client trophy paperwork",
+    seed: "vpspec-taxidermy",
+    layout: "full",
+    imageTall: true,
+  },
+  { label: "Transfers", value: "Optional shuttle service (enquire when booking)", seed: "vpspec-transfers" },
+  { label: "Security", value: "Gated access · falls under Matlabas Protection Service", seed: "vpspec-security" },
 ];
 
 export default function LodgePage() {
@@ -53,122 +121,216 @@ export default function LodgePage() {
     <div className="min-h-screen bg-black text-white">
       <PageHero
         eyebrow="The Lodge"
-        title="Main house, four chalets, and the Waterberg at your doorstep"
-        subtitle="Vaalpenskraal is built like a serious bush camp should be: a central house for gathering, four matching chalets for privacy, a pool and lapa for heat-of-day relief, and a boma under the trees where the day actually ends. Below is what is on the property today, written so guests, agents, and owners can all scan the same facts."
+        title="Four chalets, shared basecamp, full board in the bush"
+        subtitle={`Overnight accommodation is four matching air-conditioned chalets—${CHALET_KRAALS_LINE}—the only guest sleeping quarters on the hunting camp. The communal bar is ${COMMUNAL_BAR_KRAAL}. Everyone shares the kitchen, pool, canopy boma, outlook point, and waterhole for relaxed evenings and game viewing. Full board includes meals, snacks, and drinks. Add clay pigeon or a game drive when the schedule allows. The snapshot below is what we put in front of guests, agents, and management when facts need to match reality.`}
         imageSeed="lodgethero"
       />
 
-      {/* Quick specs strip (estate-agent clarity) */}
-      <section className="border-b border-white/[0.07] bg-[#0a0a0a] py-12 md:py-14">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-burnished-copper/85">On the brochure</p>
-              <h2 className="mt-2 font-sans text-xl font-semibold tracking-tight text-white/90 sm:text-2xl">
-                Property snapshot
-              </h2>
-              <p className="mt-2 max-w-xl font-sans text-sm text-white/42">
-                Numbers you can put in an email to a client or a cousin. Swap photography when you sit with the owner.
-              </p>
-            </div>
-            <Link
-              href="/contact?intent=lodge"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-wider text-white/80 transition-colors hover:border-white/35 hover:bg-white/[0.04]"
-            >
-              Enquire dates
-              <ChevronRight className="h-3.5 w-3.5 opacity-60" />
-            </Link>
-          </div>
-          <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {SPECS.map((row) => (
-              <div
-                key={row.label}
-                className="rounded-xl border border-white/[0.08] bg-white/[0.02] px-4 py-4 md:px-5 md:py-4"
-              >
-                <dt className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white/38">{row.label}</dt>
-                <dd className="mt-2 font-sans text-sm font-medium leading-snug text-white/78">{row.value}</dd>
+      <section className="relative overflow-hidden border-b border-white/[0.07] bg-[#030303]">
+        <div className="pointer-events-none absolute -right-[15%] top-[-20%] h-[min(90vw,560px)] w-[min(90vw,560px)] rounded-full bg-burnished-copper/[0.06] blur-[120px]" aria-hidden />
+        <div className="pointer-events-none absolute bottom-[-30%] left-[-20%] h-[min(70vw,440px)] w-[min(70vw,440px)] rounded-full bg-bushveld-soil/[0.12] blur-[100px]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,transparent_28%,transparent_72%,rgba(0,0,0,0.45)_100%)]" aria-hidden />
+
+        <div className="editorial-container-wide relative pb-20 pt-14 md:pb-28 md:pt-20">
+          {/* Editorial image ribbon — replace with Vaalpenskraal photography */}
+          <div className="flex flex-col gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:min-h-[min(52vh,460px)] lg:grid-cols-6 lg:grid-rows-2 lg:gap-3">
+              <div className="group relative col-span-2 aspect-[4/5] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:row-span-2 lg:aspect-auto lg:min-h-0">
+                <img
+                  src="https://picsum.photos/seed/vpbrochure-hero/1400/1200"
+                  alt="Brochure placeholder — camp or chalet hero"
+                  width={1400}
+                  height={1200}
+                  className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/30" aria-hidden />
+                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
               </div>
-            ))}
+              <div className="group relative aspect-[16/11] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:min-h-0">
+                <img
+                  src="https://picsum.photos/seed/vpbrochure-bar/1200/800"
+                  alt="Brochure placeholder — bar or communal"
+                  width={1200}
+                  height={800}
+                  className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" aria-hidden />
+                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
+              </div>
+              <div className="group relative aspect-[16/11] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:min-h-0">
+                <img
+                  src="https://picsum.photos/seed/vpbrochure-pool/1200/800"
+                  alt="Brochure placeholder — pool or boma"
+                  width={1200}
+                  height={800}
+                  className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" aria-hidden />
+                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+              {(
+                [
+                  ["vpbrochure-vista", "Brochure placeholder — bush vista"],
+                  ["vpbrochure-game", "Brochure placeholder — game or waterhole"],
+                  ["vpbrochure-food", "Brochure placeholder — dining"],
+                  ["vpbrochure-night", "Brochure placeholder — camp at night"],
+                ] as const
+              ).map(([seed, alt], i) => (
+                <div
+                  key={seed}
+                  className="group relative aspect-[5/4] overflow-hidden rounded-[1.1rem] ring-1 ring-white/[0.09] sm:rounded-xl lg:aspect-[4/3]"
+                >
+                  <img
+                    src={`https://picsum.photos/seed/${seed}/900/700`}
+                    alt={alt}
+                    width={900}
+                    height={700}
+                    className="h-full w-full object-cover transition duration-[1.1s] ease-out group-hover:scale-[1.05]"
+                    loading={i < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" aria-hidden />
+                  <span className="absolute bottom-2.5 left-2.5 font-sans text-[8px] font-semibold uppercase tracking-[0.26em] text-white/35">
+                    Placeholder
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="group relative aspect-[21/10] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:aspect-[3/1]">
+              <img
+                src="https://picsum.photos/seed/vpbrochure-pan/1600/550"
+                alt="Brochure placeholder — panoramic landscape"
+                width={1600}
+                height={550}
+                className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/40" aria-hidden />
+              <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
+            </div>
+          </div>
+
+          {/* Masthead */}
+          <header className="mt-14 border-t border-white/[0.09] pt-10 md:mt-20 md:pt-14">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-burnished-copper">On the brochure</p>
+                <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                  <h2 className="font-serif text-3xl font-normal tracking-[-0.02em] text-white sm:text-4xl md:text-[2.65rem] md:leading-[1.1]">
+                    Property snapshot
+                  </h2>
+                  <span className="hidden h-px w-12 bg-burnished-copper/50 sm:block md:w-16" aria-hidden />
+                  <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-white/30">Facts sheet</span>
+                </div>
+                <p className="mt-5 max-w-xl font-sans text-sm leading-relaxed text-white/45 md:text-base">
+                  Copy-paste clarity for agents and guests. Each tile below carries its own placeholder frame — drop in Vaalpenskraal photography when your shoot wraps.
+                </p>
+              </div>
+              <Link
+                href="/contact?intent=lodge"
+                className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-black transition hover:bg-white/90 lg:self-end"
+              >
+                Enquire dates
+                <ChevronRight className="h-3.5 w-3.5 opacity-60" />
+              </Link>
+            </div>
+          </header>
+
+          {/* Bento spec grid — image + fact per row */}
+          <dl className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3 xl:gap-4">
+            {SPECS.map((row) => {
+              const spanClass =
+                row.layout === "full"
+                  ? "sm:col-span-2 xl:col-span-3"
+                  : row.layout === "wide"
+                    ? "sm:col-span-2 xl:col-span-2"
+                    : "";
+              const imgAspect = row.imageTall ? "aspect-[16/9] sm:aspect-[2/1]" : "aspect-[2/1] sm:aspect-[21/9]";
+              return (
+                <div
+                  key={row.label}
+                  className={`group flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0a0a0a] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] transition duration-500 hover:border-burnished-copper/35 hover:shadow-[0_28px_90px_-28px_rgba(184,115,51,0.22)] ${spanClass}`}
+                >
+                  <div className={`relative w-full overflow-hidden ${imgAspect}`}>
+                    <img
+                      src={`https://picsum.photos/seed/${row.seed}/1000/480`}
+                      alt={`Placeholder — ${row.label}`}
+                      width={1000}
+                      height={480}
+                      className="h-full w-full object-cover transition duration-[1.1s] ease-out group-hover:scale-[1.05]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/25 to-black/30" />
+                    <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-1 font-sans text-[8px] font-semibold uppercase tracking-[0.22em] text-white/45 ring-1 ring-white/10 backdrop-blur-sm">
+                      Image slot
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col border-t border-white/[0.06] p-5 md:p-6">
+                    <dt className="font-sans text-[10px] font-bold uppercase tracking-[0.26em] text-burnished-copper/90">{row.label}</dt>
+                    <dd className="mt-3 font-sans text-sm font-medium leading-relaxed tracking-[-0.01em] text-white/78 md:text-[0.95rem]">
+                      {row.value}
+                    </dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
         </div>
       </section>
 
-      {/* Visitor lens intro + wide image */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-5">
               <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Through a guest&apos;s eyes</p>
-              <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">You are not checking into a hotel wing</h2>
+              <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Chalets for sleeping. Communal space for living loud.</h2>
               <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/48">
                 <p>
-                  You arrive through a <strong className="font-medium text-white/75">gated entrance</strong>: the first quiet moment that says the city is behind you. Then you see how the camp is laid out: a <strong className="font-medium text-white/75">main house</strong> where everyone can gather, and <strong className="font-medium text-white/75">four identical chalets</strong> spaced so you still get your own door, your own shower, and your own silence when the day has wrung you out.
+                  You check in through a <strong className="font-medium text-white/75">gated entrance</strong>, then split the week into two ideas: your <strong className="font-medium text-white/75">chalet</strong> is where you crash, cool down, and reset with aircon after a day in the bush. The <strong className="font-medium text-white/75">communal bar, kitchen, and chill area</strong> is where the group becomes a camp: long meals, fireside talk, and the honesty that only happens when nobody is rushing to an invoice.
                 </p>
                 <p>
-                  If you hunt, you want hot water and a bed that does not apologize. If you do not hunt, you want a pool within reach, a lapa chair in the shade, and a boma that smells like woodsmoke before anyone says a word. That is the rhythm here.
+                  <strong className="font-medium text-white/75">Fully catered</strong> means snacks, lunch, and supper land without you playing project manager. <strong className="font-medium text-white/75">Drinks and alcohol are included</strong> under the camp&apos;s responsible service guidelines, so the bar is part of the hospitality, not a separate meter.
                 </p>
               </div>
             </div>
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-7">
               <Pic
                 seed="vplodgeoverview"
-                alt="Overview of lodge buildings and bushveld setting"
+                alt="Overview of Vaalpenskraal chalets, pool, and communal area"
                 className="aspect-[4/3] w-full object-cover sm:aspect-[16/10]"
                 priority
               />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
-                Placeholder: aerial or wide shot of main house, chalets, and pool area (replace with Vaalpenskraal photography).
+                Placeholder: camp overview (four chalets, pool, communal lapa, outlook / waterhole if in frame). Replace with Vaalpenskraal photography.
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      {/* Main house */}
+      {/* Four chalets */}
       <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
-              <Pic
-                seed="vpmainhouse"
-                alt="Main house living and social spaces"
-                className="aspect-[4/3] w-full object-cover"
-              />
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40 md:px-5">
-                Placeholder: main house interior or facade.
-              </figcaption>
-            </figure>
-            <div className="order-1 lg:order-2">
-              <Building2 className="h-9 w-9 text-burnished-copper/80" aria-hidden />
-              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Main house</p>
-              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">The hub where the group becomes a camp</h2>
-              <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/48">
-                <p>
-                  The main house is the spine of the stay: where coffee appears before the stars fade, where plans for the day get spoken in low voices, and where everyone lands again when the sun has taken its toll. For an owner, it is the room that carries the personality of the place. For an agent, it is the sell that ties the accommodation story together.
-                </p>
-                <p>
-                  It anchors the <strong className="font-medium text-white/75">indoor bar and social area</strong>, a proper <span className="text-white/65">“kroeg &amp; kuier”</span> space: somewhere to pour a drink, debrief a stalk, or sit with family who spent the day by the pool instead of in the bush.
-                </p>
-                <p>
-                  The <strong className="font-medium text-white/75">kitchen sits adjacent to the bar</strong>, which matters more than it sounds. Service flows. Braai prep does not fight the conversation. Catering for a group or a hunt party stays practical instead of chaotic.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Four chalets - deep dive */}
-      <section className="border-b border-white/[0.07] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="mx-auto max-w-3xl text-center">
             <Home className="mx-auto h-9 w-9 text-burnished-copper/80" aria-hidden />
             <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Accommodation</p>
             <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.35rem]">
-              Four identical chalets. Same layout. No favourites.
+              Four kraals · Roan, Eland, Gemsbok &amp; Koedoe
             </h2>
             <p className="mt-5 font-sans text-base leading-relaxed text-white/45">
-              Every unit matches the next: uniform design, predictable flow, and the fairness that groups appreciate when nobody wants the “bad” room. Each chalet sleeps up to <strong className="font-medium text-white/70">five guests</strong>, which means the camp holds up to <strong className="font-medium text-white/70">twenty people</strong> across all four when fully utilised.
+              Each chalet carries a camp name—<strong className="font-medium text-white/70">{CHALET_KRAALS_LINE}</strong>—with the same footprint inside so nobody draws the short straw. There is{" "}
+              <strong className="font-medium text-white/70">no separate main residence or guest house</strong> for hunters on camp: these four units are the full overnight inventory. Sleep <strong className="font-medium text-white/70">four or five</strong> guests using{" "}
+              <strong className="font-medium text-white/70">four single beds and one double bed</strong>. <strong className="font-medium text-white/70">Air conditioning</strong> takes the edge off Limpopo heat when you need real sleep before dawn.
             </p>
           </div>
 
@@ -177,47 +339,49 @@ export default function LodgePage() {
               <div className="flex items-start gap-3">
                 <Bath className="mt-0.5 h-6 w-6 shrink-0 text-burnished-copper/75" aria-hidden />
                 <div>
-                  <h3 className="font-sans text-lg font-semibold text-white/90">En-suite bathrooms</h3>
+                  <h3 className="font-sans text-lg font-semibold text-white/90">Bathroom</h3>
                   <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
-                    All four chalets include en-suite bathrooms. After dust, sweat, and thorns, private ablutions are not a luxury detail. They are what lets a hunter sleep, and what lets a non-hunter feel at home in the bush.
+                    Showers, <strong className="font-medium text-white/55">two basins</strong>, and <strong className="font-medium text-white/55">toilet</strong> per chalet. Enough elbow room for two people getting ready while a third still packs a daypack.
                   </p>
                 </div>
               </div>
               <div className="mt-8 flex items-start gap-3 border-t border-white/[0.08] pt-8">
-                <Users className="mt-0.5 h-6 w-6 shrink-0 text-burnished-copper/75" aria-hidden />
+                <Fan className="mt-0.5 h-6 w-6 shrink-0 text-burnished-copper/75" aria-hidden />
                 <div>
-                  <h3 className="font-sans text-lg font-semibold text-white/90">Who the maths works for</h3>
-                  <ul className="mt-3 space-y-2 font-sans text-sm leading-relaxed text-white/42">
-                    <li>
-                      <strong className="font-medium text-white/60">Solo or pair:</strong> one chalet, space to spread gear, no crowding.
-                    </li>
-                    <li>
-                      <strong className="font-medium text-white/60">Hunting group:</strong> allocate chalets by team, snoring tolerance, or PH proximity.
-                    </li>
-                    <li>
-                      <strong className="font-medium text-white/60">Family getaway:</strong> one unit for parents and kids, still room for a grandparent or friend.
-                    </li>
-                    <li>
-                      <strong className="font-medium text-white/60">Friends weekend:</strong> book two to four chalets and own the main house in between.
-                    </li>
-                  </ul>
+                  <h3 className="font-sans text-lg font-semibold text-white/90">Aircons</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                    Climate control in the chalets so midday rest and night recovery are predictable. The bush is wild; your room temperature does not have to be.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-8 flex items-start gap-3 border-t border-white/[0.08] pt-8">
+                <BedDouble className="mt-0.5 h-6 w-6 shrink-0 text-burnished-copper/75" aria-hidden />
+                <div>
+                  <h3 className="font-sans text-lg font-semibold text-white/90">Bed maths</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                    Four singles plus one double fits hunting pairs, family combos, or a small group that still wants separate beds. Plan rooming when you enquire so we match chalets to your roster.
+                  </p>
                 </div>
               </div>
             </div>
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-8">
-              <Pic seed="vpchaletinterior" alt="Chalet interior bedroom and living space" className="aspect-[16/10] w-full object-cover" />
+              <Pic seed="vpchaletinterior" alt="Chalet interior with beds and air conditioning" className="aspect-[16/10] w-full object-cover" />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40 md:px-5">
-                Placeholder: chalet interior (same look across all four when you shoot).
+                Placeholder: chalet interior showing bed layout when you have marketing shots.
               </figcaption>
             </figure>
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {["vpchaletA", "vpchaletB", "vpchaletC", "vpchaletD"].map((seed, i) => (
-              <figure key={seed} className="overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
-                <Pic seed={seed} alt={`Chalet exterior or veranda view ${i + 1}`} className="aspect-[4/3] w-full object-cover" />
+            {CHALET_KRAALS.map((kraal) => (
+              <figure key={kraal.key} className="overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
+                <Pic
+                  seed={`vpchalet-${kraal.key}`}
+                  alt={`${kraal.name} guest chalet`}
+                  className="aspect-[4/3] w-full object-cover"
+                />
                 <figcaption className="border-t border-white/[0.06] bg-black/60 px-2 py-2 text-center font-sans text-[10px] uppercase tracking-wider text-white/35">
-                  Unit {i + 1} (placeholder)
+                  {kraal.name} (placeholder)
                 </figcaption>
               </figure>
             ))}
@@ -225,78 +389,36 @@ export default function LodgePage() {
         </div>
       </section>
 
-      {/* Pool + lapa + boma */}
-      <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Leisure &amp; outdoor</p>
-          <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Water, shade, and fire in the right order</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/45">
-            Limpopo heat is honest. A swimming pool is not resort fluff here: it is where kids become bearable again, where non-hunters wait out the midday, and where hunters cool blood pressure before the evening walk. The <strong className="font-medium text-white/65">lapa sits next to the pool</strong> by design, towels on shoulders, drinks within reach. The <strong className="font-medium text-white/65">boma lives under the trees</strong>, away from chlorine, closer to stars and woodsmoke.
-          </p>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vppoolarea" alt="Swimming pool and deck area" className="aspect-[4/3] w-full object-cover" />
-              <div className="p-5 md:p-6">
-                <Waves className="h-7 w-7 text-burnished-copper/80" aria-hidden />
-                <h3 className="mt-4 font-sans text-lg font-semibold">Swimming pool</h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
-                  Dedicated pool area for guests. The kind of blue that looks wrong on a hunt brochure until you have spent three hours in thorn scrub and would trade a horn for a float.
-                </p>
-              </div>
-            </article>
-            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vplapa" alt="Lapa next to swimming pool" className="aspect-[4/3] w-full object-cover" />
-              <div className="p-5 md:p-6">
-                <Trees className="h-7 w-7 text-burnished-copper/80" aria-hidden />
-                <h3 className="mt-4 font-sans text-lg font-semibold">Lapa by the pool</h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
-                  Covered outdoor space right beside the water: shade, wind relief, and a natural pause between morning and afternoon. Estate agents call it lifestyle. Guests call it “where we lived all Tuesday.”
-                </p>
-              </div>
-            </article>
-            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vpbomatrees" alt="Boma fire area under trees" className="aspect-[4/3] w-full object-cover" />
-              <div className="p-5 md:p-6">
-                <Flame className="h-7 w-7 text-burnished-copper/80" aria-hidden />
-                <h3 className="mt-4 font-sans text-lg font-semibold">Boma under the trees</h3>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
-                  Outdoor fire pit and social circle where the day actually ends. Not a gas flame for show: real coals, real stories, real quiet between sentences.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Bar + kitchen */}
+      {/* Communal bar / kitchen */}
       <section className="border-b border-white/[0.07] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
               <Wine className="h-9 w-9 text-burnished-copper/80" aria-hidden />
-              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Social &amp; catering</p>
-              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Bar, kitchen, and the art of not rushing</h2>
+              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Communal space</p>
+              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
+                {COMMUNAL_BAR_KRAAL} — bar, kitchen, and the slow art of the fireside
+              </h2>
               <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/48">
                 <p>
-                  The <strong className="font-medium text-white/75">indoor bar and social area</strong> is built for the South African tradition of <span className="text-white/65">kroeg &amp; kuier</span>: a corner that turns into the whole evening. For groups, it is where bonds tighten. For families, it is where teenagers learn that adults can laugh loudly without a screen.
+                  This is the shared basecamp: a proper <strong className="font-medium text-white/75">bar</strong>, a <strong className="font-medium text-white/75">kitchen</strong> that works for catering, and room to sprawl after a walk in thorns. It is not a hotel lobby. It is where rifles get cleaned on a towel, where someone tells a story badly on purpose, and where the fire team plates food without shouting.
                 </p>
                 <p>
-                  The <strong className="font-medium text-white/75">kitchen is next to the bar</strong>, which keeps catering logical: platters to the counter, potjie coordination, breakfast before the PH knocks. Owners care about workflow. Guests only notice that food feels effortless.
+                  Cooking hardware is real-world: <strong className="font-medium text-white/75">gas stove</strong> and <strong className="font-medium text-white/75">electric oven</strong> so chefs (or your hosts) can run breakfast, grill sides, and slow roasts the way bush kitchens should.
                 </p>
               </div>
             </div>
             <div className="grid gap-4">
               <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                <Pic seed="vpbarkroeg" alt="Indoor bar and social lounge" className="aspect-[16/10] w-full object-cover" />
+                <Pic seed="vpbarkroeg" alt="Communal bar and lounge" className="aspect-[16/10] w-full object-cover" />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  Placeholder: bar &amp; kuier area.
+                  Placeholder: communal bar &amp; chill.
                 </figcaption>
               </figure>
               <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                <Pic seed="vpkitchen" alt="Kitchen adjacent to bar" className="aspect-[16/10] w-full object-cover" />
+                <Pic seed="vpkitchen" alt="Kitchen with gas stove and electric oven" className="aspect-[16/10] w-full object-cover" />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  Placeholder: kitchen (show adjacency to bar if possible).
+                  Placeholder: kitchen (gas + oven visible if possible).
                 </figcaption>
               </figure>
             </div>
@@ -304,24 +426,222 @@ export default function LodgePage() {
         </div>
       </section>
 
-      {/* Gated access */}
-      <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 md:px-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
-            <Pic seed="vpgateentrance" alt="Gated entrance to the reserve" className="aspect-[4/3] w-full object-cover" />
-            <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40">
-              Placeholder: main gate / access from road.
-            </figcaption>
-          </figure>
-          <div className="order-1 lg:order-2">
-            <div className="flex items-center gap-3">
-              <KeyRound className="h-8 w-8 text-burnished-copper/80" aria-hidden />
-              <Shield className="h-8 w-8 text-white/25" aria-hidden />
+      {/* Fully catered */}
+      <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-28">
+        <div className="editorial-container">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
+              <Pic seed="vpcateringtable" alt="Catered lunch or dinner in the bush" className="aspect-[4/3] w-full object-cover" />
+              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40">
+                Placeholder: table spread / barbecue / plated meal.
+              </figcaption>
+            </figure>
+            <div className="order-1 lg:order-2">
+              <UtensilsCrossed className="h-9 w-9 text-burnished-copper/80" aria-hidden />
+              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Fully catered</p>
+              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Snacks, lunch, supper, and the bar stays open</h2>
+              <p className="mt-5 font-sans text-base leading-relaxed text-white/48">
+                <strong className="font-medium text-white/75">Snacks, lunch, and supper</strong> are included. So are <strong className="font-medium text-white/75">food, soft drinks, and alcohol</strong> served on the estate as part of the package. We still run a responsible camp: pace yourself, respect firearms rules, and let the PH own the early morning.
+              </p>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-white/40">
+                If a guest has medical or religious dietary needs, mention them when you book so the kitchen can plan without last-minute drama.
+              </p>
             </div>
-            <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Property &amp; access</p>
-            <h2 className="mt-3 font-sans text-2xl font-semibold tracking-tight sm:text-3xl">Gated entrance from the road</h2>
-            <p className="mt-5 font-sans text-base leading-relaxed text-white/48">
-              The reserve is reached through a <strong className="font-medium text-white/75">main entrance gate</strong> off the road. For visitors, that is peace of mind: children, vehicles, and gear sit inside a controlled perimeter. For an owner, it is non-negotiable estate logic. For an agent, it is a line on the fact sheet that answers the first security question before it is asked.
+          </div>
+        </div>
+      </section>
+
+      {/* Pool + Boma */}
+      <section className="border-b border-white/[0.07] py-20 md:py-32">
+        <div className="editorial-container">
+          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Outdoor living</p>
+          <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Swimming pool and a boma under the canopy</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/45">
+            Midday heat meets water. Evening meets fire under <strong className="font-medium text-white/65">trees</strong> with a <strong className="font-medium text-white/65">canopy</strong> over the <strong className="font-medium text-white/65">boma</strong>: embers, stars, and the kind of circle that does not need a ceiling fan.
+          </p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
+              <Pic seed="vppoolarea" alt="Swimming pool" className="aspect-[4/3] w-full object-cover" />
+              <div className="p-5 md:p-6">
+                <Waves className="h-7 w-7 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-4 font-sans text-lg font-semibold">Swimming pool</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                  A dedicated pool area for guests. Recovery after a stalk, entertainment for kids, and honest relief when the thermometer wins.
+                </p>
+              </div>
+            </article>
+            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
+              <Pic seed="vpbomatrees" alt="Boma fire under trees with canopy" className="aspect-[4/3] w-full object-cover" />
+              <div className="p-5 md:p-6">
+                <div className="flex items-center gap-2">
+                  <Trees className="h-7 w-7 text-burnished-copper/80" aria-hidden />
+                  <Flame className="h-6 w-6 text-burnished-copper/70" aria-hidden />
+                </div>
+                <h3 className="mt-4 font-sans text-lg font-semibold">Boma area</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                  Outdoor fire and social space <strong className="font-medium text-white/55">under the trees</strong>, with <strong className="font-medium text-white/55">canopy</strong> cover. This is the chapter guests photograph least and remember longest.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Outlook & waterhole */}
+      <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
+        <div className="editorial-container">
+          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Slow hours</p>
+          <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Outlook point &amp; waterhole</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/45">
+            Between stalks and stories, the estate gives you places to <strong className="font-medium text-white/65">watch game</strong> without a rifle in hand. The{" "}
+            <strong className="font-medium text-white/65">outlook point</strong> lifts the view; the <strong className="font-medium text-white/65">waterhole</strong> pulls animals in on their schedule. Bring binoculars, a jacket for the breeze, and time for{" "}
+            <strong className="font-medium text-white/65">sundowners</strong> when the light turns copper — the kind of evening that does not need a filter.
+          </p>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
+              <Pic seed="vpoutlookpoint" alt="Outlook point over the bush" className="aspect-[4/3] w-full object-cover" />
+              <div className="p-5 md:p-6">
+                <Mountain className="h-7 w-7 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-4 font-sans text-lg font-semibold">Outlook point</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                  Elevated perspective over valleys and thicket lines: ideal for scanning movement, glassing at last light, and letting non-hunters feel the scale of the Waterberg without a vehicle bouncing under them.
+                </p>
+              </div>
+            </article>
+            <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
+              <Pic seed="vpwaterhole" alt="Waterhole with game" className="aspect-[4/3] w-full object-cover" />
+              <div className="p-5 md:p-6">
+                <Droplets className="h-7 w-7 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-4 font-sans text-lg font-semibold">Waterhole</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/42">
+                  A natural focal point for game viewing: patience beats horsepower here. We keep voices low and respect the animals&apos; rhythm — sundowners taste better when kudu or zebra step in on their own time.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Activities */}
+      <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-28">
+        <div className="editorial-container">
+          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">On the estate</p>
+          <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Clay pigeon and game drives</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/45">
+            Beyond the hunt itself, we run experiences that keep hands busy and binoculars up: <strong className="font-medium text-white/65">clay pigeon shooting</strong> for shotgunning rhythm, and <strong className="font-medium text-white/65">game drives</strong> for guests who want the bush without a rifle.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
+              <Pic seed="vpclaypigeon" alt="Clay pigeon shooting" className="aspect-[16/10] w-full object-cover" />
+              <figcaption className="flex items-start gap-3 border-t border-white/[0.06] bg-white/[0.02] px-4 py-4 md:px-5">
+                <Target className="mt-0.5 h-5 w-5 shrink-0 text-burnished-copper/80" aria-hidden />
+                <span className="font-sans text-sm leading-relaxed text-white/45">Placeholder: clay pigeon layout / thrower in frame.</span>
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
+              <Pic seed="vpgamedrive" alt="Game drive vehicle in the bush" className="aspect-[16/10] w-full object-cover" />
+              <figcaption className="flex items-start gap-3 border-t border-white/[0.06] bg-white/[0.02] px-4 py-4 md:px-5">
+                <Binoculars className="mt-0.5 h-5 w-5 shrink-0 text-burnished-copper/80" aria-hidden />
+                <span className="font-sans text-sm leading-relaxed text-white/45">Placeholder: game drive vehicle and landscape.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* P3, safes, cold room, meat */}
+      <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-28">
+        <div className="editorial-container">
+          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Compliance &amp; camp infrastructure</p>
+          <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Permit, safes, cold room, and meat handling</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/45">
+            Trophy hunters and international groups often need more than a bed: secure storage, cold chain, and professional field support. The lines below are the services we highlight on camp; numbers and permit references are confirmed on your booking pack.
+          </p>
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-burnished-copper/30 bg-burnished-copper/[0.06] px-5 py-5 md:px-8 md:py-6">
+            <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:items-start sm:text-left">
+              <Award className="h-9 w-9 shrink-0 text-burnished-copper" aria-hidden />
+              <div>
+                <h3 className="font-sans text-lg font-semibold text-white/90">P3 Exemption Permit</h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/50">
+                  Vaalpenskraal operates under the <strong className="font-medium text-white/70">P3 Exemption Permit</strong> framework relevant to our activities. Request the current certificate and scope from management or your booking agent so your paperwork trail matches what authorities expect.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-7">
+              <Vault className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-4 font-sans text-lg font-semibold">Safe facilities</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
+                On-site safes are available for <strong className="font-medium text-white/55">valuables</strong> — cash, documents, watches, and small electronics you do not want loose in a chalet when the whole group is in and out of vehicles.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-7">
+              <Snowflake className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-4 font-sans text-lg font-semibold">Cold room</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
+                <strong className="font-medium text-white/55">Cold room facilities</strong> support proper meat handling after the shot: hang time, hygiene, and handover to your butcher or export chain without improvising ice in a cooler box.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-7">
+              <Scale className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-4 font-sans text-lg font-semibold">Slaughter, hides &amp; weighing</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
+                <strong className="font-medium text-white/55">Professional slaughtering</strong>, <strong className="font-medium text-white/55">salting of hides</strong>, and <strong className="font-medium text-white/55">carcass weighing</strong> keep the harvest disciplined. Discuss timing and species with camp when you build your hunt plan so crews and equipment are lined up.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Taxidermy & international */}
+      <section className="border-b border-white/[0.07] py-20 md:py-28">
+        <div className="editorial-container">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <div className="lg:col-span-5">
+              <Globe2 className="h-9 w-9 text-burnished-copper/80" aria-hidden />
+              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">International &amp; trophy hunters</p>
+              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Taxidermy partners and shipping home</h2>
+              <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/48">
+                <p>
+                  Many guests appoint a <strong className="font-medium text-white/75">professional taxidermist</strong> they already trust. We facilitate handover on the ground — caping, documentation handoffs, and coordination with <em className="text-white/60">your</em> contractor — rather than acting as the taxidermy shop ourselves.
+                </p>
+                <p>
+                  For clients who need trophies moved <strong className="font-medium text-white/75">outside South Africa</strong>, the export path, permits, and courier paperwork are handled between <strong className="font-medium text-white/75">you, your taxidermist, and the relevant authorities</strong>. Vaalpenskraal does not process client import/export paperwork; we keep the hunt and camp services honest so your agents can do their job without mixed signals.
+                </p>
+              </div>
+            </div>
+            <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-7">
+              <Pic seed="vptaxidermyprep" alt="Trophy preparation and handoff" className="aspect-[16/10] w-full object-cover" />
+              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
+                Placeholder: caping / trophy prep handoff. Your taxidermist remains your contractor for shipping and international compliance.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* Shuttle + Security */}
+      <section className="border-b border-white/[0.07] py-20 md:py-28">
+        <div className="editorial-container grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
+            <Truck className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+            <h2 className="mt-5 font-sans text-xl font-semibold sm:text-2xl">Optional shuttle service</h2>
+            <p className="mt-4 font-sans text-sm leading-relaxed text-white/45 md:text-base">
+              Flying into Johannesburg or driving from Pretoria? Ask about an <strong className="font-medium text-white/70">optional shuttle</strong> when you book. We line up timing with gate access and check-in so you are not solving gravel roads in the dark on three hours of sleep.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
+            <div className="flex items-center gap-3">
+              <Shield className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+              <KeyRound className="h-7 w-7 text-white/25" aria-hidden />
+            </div>
+            <h2 className="mt-5 font-sans text-xl font-semibold sm:text-2xl">Safe camp · Matlabas Protection Service</h2>
+            <p className="mt-4 font-sans text-sm leading-relaxed text-white/45 md:text-base">
+              The property is <strong className="font-medium text-white/70">gated</strong> from the road and sits under professional security oversight. Vaalpenskraal falls under <strong className="font-medium text-white/70">Matlabas Protection Service</strong>, so guests, vehicles, and equipment sit inside a managed perimeter, not an open roadside stop.
+            </p>
+            <p className="mt-3 font-sans text-xs leading-relaxed text-white/35">
+              Names and service scope can be confirmed on your booking confirmation or when you sit with management.
             </p>
           </div>
         </div>
@@ -329,58 +649,52 @@ export default function LodgePage() {
 
       {/* Three lenses */}
       <section className="py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Same roof, three ways of reading it</p>
-          <h2 className="mt-3 text-center font-sans text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">Solo, squad, or family: the layout still works</h2>
+        <div className="editorial-container">
+          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Same camp, different trips</p>
+          <h2 className="mt-3 text-center font-sans text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">Solo hunters, squads, and families</h2>
           <div className="mt-14 grid gap-8 md:grid-cols-3 md:gap-6">
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
               <User className="h-7 w-7 text-burnished-copper/75" aria-hidden />
-              <h3 className="mt-5 font-sans text-lg font-semibold">Solo hunter</h3>
+              <h3 className="mt-5 font-sans text-lg font-semibold">Solo or pair</h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
-                One chalet, five beds worth of space for one person: room for rifle case, boots, and the mental clutter that thicket hunting unpacks. The main house stays social when you want company; the chalet stays yours when you do not.
+                One chalet, multiple beds, room for gear. You join the communal meals and bar when you want company, then retreat to aircon and a real shower when a long day in the bush has emptied you out.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
               <UsersRound className="h-7 w-7 text-burnished-copper/75" aria-hidden />
-              <h3 className="mt-5 font-sans text-lg font-semibold">Group hunt</h3>
+              <h3 className="mt-5 font-sans text-lg font-semibold">Hunting group</h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
-                Spread across identical units so nobody argues over floor plans. Debrief at the bar, compare notes at the boma, and keep PH logistics sane because the camp has obvious meeting points and predictable rooming.
+                Spread across four matching units, debrief at the communal bar, and let fully catered meals keep the schedule simple. Clay pigeon and game drives fill rest days without inventing entertainment.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
               <HeartHandshake className="h-7 w-7 text-burnished-copper/75" aria-hidden />
               <h3 className="mt-5 font-sans text-lg font-semibold">Family &amp; friends</h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/42">
-                Pool and lapa carry the midday for kids. The boma carries the memory. Parents still get en-suite privacy. Friends can book multiple chalets and treat the main house as shared living without stepping on bedtime routines.
+                Kids live at the pool. Adults trade off game drives and long evenings at the bar. The double bed plus singles lets you mix couples and singles without awkward sofa wars. Security and gates matter more when you bring everyone you love.
               </p>
             </div>
           </div>
           <blockquote className="mx-auto mt-14 max-w-3xl border-l-2 border-burnished-copper/55 py-1 pl-6 font-serif text-lg leading-relaxed text-white/65 md:text-xl">
-            If you are the owner sitting with your developer: this page is your inventory in plain language. When your photography lands, swap the placeholders and the words can stay. Good estates are specific. Great ones are specific and warm.
+            When management tweaks this page, the spine stays: four chalets only for sleeping, shared bar and kitchen, full board including the bar, pool, canopy boma, outlook and waterhole, clay and drives, P3 permit callout, safes and cold room, professional meat and hide handling, taxidermy via your contractors, and Matlabas on the perimeter. Swap photos and booking fine print — not the facts.
           </blockquote>
         </div>
       </section>
 
-      {/* Practical */}
       <section className="border-t border-white/[0.07] bg-neutral-950 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
-              <UtensilsCrossed className="h-8 w-8 text-burnished-copper/80" aria-hidden />
-              <h2 className="mt-4 font-sans text-xl font-semibold sm:text-2xl">Media &amp; practicals</h2>
+              <Users className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+              <h2 className="mt-4 font-sans text-xl font-semibold sm:text-2xl">Media &amp; crews</h2>
               <p className="mt-4 font-sans text-sm leading-relaxed text-white/42">
-                Film and editorial crews: mention crew size and gear in your enquiry so we can plan vehicle access and quiet hours around the pool, boma, and main house without surprising other guests.
+                Film and editorial teams: share crew size, vehicle needs, and whether you are shooting clay pigeon or game drives. We keep other guests comfortable while you get your frames.
               </p>
-              <ul className="mt-6 space-y-2 font-sans text-sm leading-relaxed text-white/38">
-                <li>Limpopo: cool dawns, strong midday sun, jacket at the boma.</li>
-                <li>Soft bags beat rigid cases in camp transfers.</li>
-                <li>Power for CPAP or cameras: tell us before arrival.</li>
-              </ul>
             </div>
             <div className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
               <Pic seed="vplodgeevening" alt="Lodge at dusk" className="aspect-[16/10] w-full object-cover" />
               <p className="border-t border-white/[0.06] bg-black/80 px-4 py-3 font-sans text-[11px] text-white/40">
-                Placeholder: golden-hour lodge mood shot for marketing.
+                Placeholder: golden-hour camp mood.
               </p>
             </div>
           </div>
@@ -388,11 +702,11 @@ export default function LodgePage() {
       </section>
 
       <section className="border-t border-white/[0.07] py-16 md:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-5 sm:flex-row sm:items-center sm:px-8 md:px-12">
+        <div className="editorial-container flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-sans text-xl font-semibold sm:text-2xl">Hold your dates</h2>
             <p className="mt-2 max-w-lg font-sans text-sm text-white/45">
-              Chalet count and capacity are fixed at four units and twenty guests. Enquire with group size and we map rooming to the actual layout.
+              Four chalets only for overnight guests, full catering, pool, boma, outlook and waterhole, field services, and optional shuttle. Enquire with group size and we map beds to chalets.
             </p>
           </div>
           <Link

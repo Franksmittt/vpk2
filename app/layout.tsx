@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Vaalpenskraal",
   },
   description:
-    "Premium fair-chase hunting and lodge stays in the Waterberg Biosphere, Limpopo: plains game, dangerous game, international safaris, and fireside bushveld hospitality.",
+    "Premium fair-chase hunting and Waterberg stays: four guest chalets on camp, full-board bush hospitality, plains and dangerous game, and international safari support.",
 };
 
 export default function RootLayout({
@@ -25,8 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable}`}>
       <body className="bg-espresso text-canvas-cream font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[3000] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-sans focus:text-sm focus:font-semibold focus:text-espresso focus:ring-2 focus:ring-burnished-copper"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

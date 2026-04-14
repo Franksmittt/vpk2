@@ -106,7 +106,7 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
     trophyTitle: "Spirals, mass, and age",
     trophyParagraphs: [
       "Trophy eland marry horn length with basal mass and spiral integrity. Compare animals when the ranch allows. Rowland Ward minima are a floor, not the brief.",
-      "Body condition and veld health belong in the same sentence as horn tape.",
+      "Body condition and range health belong in the same sentence as horn tape.",
     ],
     rifleTitle: "Rifles, bullets, and heavy-antelope respect",
     rifleIntro:

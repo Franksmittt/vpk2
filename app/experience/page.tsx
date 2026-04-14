@@ -51,9 +51,9 @@ const AUDIENCE = [
     seed: "expsolo",
     title: "Solo hunters",
     icon: Footprints,
-    body: "Silence becomes a companion, not an empty room. You set the pace of your thoughts. The PH walks with you, but the weight of the decision at the shot is yours. Many guests say they came for a species and left with a quieter mind: the veld does that when nobody is performing for a group chat.",
+    body: "Silence becomes a companion, not an empty room. You set the pace of your thoughts. The PH walks with you, but the weight of the decision at the shot is yours. Many guests say they came for a species and left with a quieter mind: the bush does that when nobody is performing for a group chat.",
     extra:
-      "If you travel alone from overseas, we build in check-ins so logistics never feel lonely: airport timing, rifle paperwork, and a clear plan for the first night so you sleep instead of spiralling.",
+      "If you travel alone from overseas, we keep camp logistics clear: arrival timing, first-night rhythm, and who to meet at the gate. Your firearm and trophy paperwork stays between you and your own agents; the estate does not file it for you.",
   },
   {
     seed: "expfamily",
@@ -67,9 +67,9 @@ const AUDIENCE = [
     seed: "expglobal",
     title: "Local & international",
     icon: MapPin,
-    body: "From Modimolle to Melbourne, the last hour of the drive feels the same: smaller roads, more cattle grids, air that smells like dust and grass. Locals bring boerewors jokes and realistic expectations. Internationals bring jet lag and big questions. Both get honest answers.",
+    body: "From Modimolle to Melbourne, the last hour of the drive feels the same: smaller roads, more cattle grids, air that smells like dust and grass. South African guests bring local humour and realistic expectations. International guests bring jet lag and big questions. Everyone gets honest answers.",
     extra:
-      "We help overseas hunters with the unglamorous chapters: temporary rifle import, trophy export, and the day you should not hunt because you are still in another time zone. The hunt deserves a sharp mind.",
+      "Overseas hunters still sort temporary rifle import and trophy export themselves (or through their own outfitter agent). We stay out of that stack. We do care that you are rested: the day you should not hunt because you are still in another time zone is real, and the PH will say so.",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function ExperiencePage() {
         <div className="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden bg-neutral-950 sm:min-h-[280px] md:min-h-[340px]">
           <Pic
             seed="expwaterbergpan"
-            alt="Wide view over Waterberg bushveld at dawn"
+            alt="Wide view over the Waterberg bush at dawn"
             className="h-full w-full object-cover"
             priority
           />
@@ -126,7 +126,7 @@ export default function ExperiencePage() {
 
       {/* Through your eyes: split + image */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-start">
             <div className="lg:col-span-5">
               <Sparkles className="h-9 w-9 text-burnished-copper/80" aria-hidden />
@@ -135,7 +135,7 @@ export default function ExperiencePage() {
               <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:hidden">
                 <Pic
                   seed="expthicketwalk"
-                  alt="Hunter and guide walking in thick bushveld"
+                  alt="Hunter and guide walking in thick Waterberg bush"
                   className="aspect-[4/3] w-full object-cover"
                 />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40">
@@ -154,17 +154,17 @@ export default function ExperiencePage() {
                 If you are unsure about game farms, ask hard questions. We welcome them. Ethical stocking, fair chase, meat use, and how revenue flows back into habitat are not marketing garnish. They are the reason places like this exist next to cities that keep growing.
               </p>
               <blockquote className="relative border-l-2 border-burnished-copper/60 py-1 pl-6 font-serif text-lg leading-snug text-white/70 md:text-xl">
-                The best guests arrive curious and leave quieter. Not smaller. Quieter. As if the veld turned down the volume on everything that did not matter.
+                The best guests arrive curious and leave quieter. Not smaller. Quieter. As if the bush turned down the volume on everything that did not matter.
               </blockquote>
               <p>
                 Non-hunters still get the documentary pace: light changing by the minute, jackals calling like broken hinges, and the small shock of seeing a kudu bull step out as if the bush had been holding its breath.
               </p>
             </div>
           </div>
-          <figure className="mx-auto mt-16 hidden max-w-6xl overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:block">
+          <figure className="editorial-container mx-auto mt-16 hidden overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:block">
             <Pic
               seed="expthicketwalk"
-              alt="Hunter and guide walking in thick bushveld"
+              alt="Hunter and guide walking in thick Waterberg bush"
               className="aspect-[21/9] w-full object-cover"
             />
             <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-5 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-8">
@@ -176,14 +176,14 @@ export default function ExperiencePage() {
 
       {/* Audience: three image-forward cards */}
       <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Who you arrive as</p>
             <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.35rem]">
               The same mountain, different shoes
             </h2>
             <p className="mt-5 font-sans text-base leading-relaxed text-white/45">
-              We have watched every archetype step out of a bakkie: the nervous first-timer, the PH on holiday, the father who wants one clean week with his son, the writer hunting adjectives, the corporate group pretending they are not competing. The bush reads you faster than you read it.
+              We have watched every archetype step out of a pickup: the nervous first-timer, the PH on holiday, the father who wants one clean week with his son, the writer hunting adjectives, the corporate group pretending they are not competing. The bush reads you faster than you read it.
             </p>
           </div>
 
@@ -215,7 +215,7 @@ export default function ExperiencePage() {
 
       {/* Day rhythm + side image */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
               <div className="sticky top-28">
@@ -254,7 +254,7 @@ export default function ExperiencePage() {
 
       {/* First-timer / seasoned / skeptics */}
       <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Straight talk</p>
           <h2 className="mt-4 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Three conversations we have every season</h2>
           <div className="mt-14 grid gap-8 md:grid-cols-3 md:gap-6">
@@ -285,13 +285,13 @@ export default function ExperiencePage() {
 
       {/* Senses row */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
             <div>
               <Ear className="mx-auto h-8 w-8 text-burnished-copper/80 md:mx-0" aria-hidden />
               <h2 className="mt-4 font-sans text-2xl font-semibold tracking-tight sm:text-3xl">The parts cameras miss</h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/45 md:mx-0 md:text-base">
-                Documentary crews love light. Hunters love the other senses: woodsmoke in your jersey, the metallic taste of adrenaline, thorns catching your sleeve like the veld checking if you are paying attention.
+                Documentary crews love light. Hunters love the other senses: woodsmoke in your sweater, the metallic taste of adrenaline, thorns catching your sleeve like the bush checking if you are paying attention.
               </p>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function ExperiencePage() {
 
       {/* Guides / media zigzag */}
       <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
+        <div className="editorial-container">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
               <Pic
@@ -367,12 +367,13 @@ export default function ExperiencePage() {
         <div className="absolute inset-0">
           <Pic
             seed="expclosingboma"
-            alt=""
+            alt="Evening boma and camp atmosphere (placeholder image)"
             className="h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/88 to-black/70" />
         </div>
-        <div className="relative z-10 mx-auto max-w-3xl px-5 text-center sm:px-8 md:px-12">
+        <div className="editorial-container relative z-10 text-center">
+          <div className="mx-auto max-w-3xl">
           <h2 className="font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.5rem]">
             The fire is already waiting in the story you tell yourself
           </h2>
@@ -401,6 +402,7 @@ export default function ExperiencePage() {
               Ask a question
               <ChevronRight className="h-4 w-4 opacity-60" />
             </Link>
+          </div>
           </div>
         </div>
       </section>

@@ -77,7 +77,7 @@ export function goldenWildebeestMonograph(s: QuarrySpecies): MonographDefinition
     meatRight: base.meatRight,
     closingTitle: "Ready for the golden line?",
     closingBody:
-      "Bring plains-game rifles and plains-game patience. We match animals to census and veld condition, and we expect the story you tell to match the genetics on paper.",
+      "Bring plains-game rifles and plains-game patience. We match animals to census and range condition, and we expect the story you tell to match the genetics on paper.",
     quickFactExtraRows: [
       ["Morph", "Colour variant of blue wildebeest"],
       ["Species", "Connochaetes taurinus"],
