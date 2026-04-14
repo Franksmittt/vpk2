@@ -15,6 +15,7 @@ import {
   Compass,
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import { EXPERIENCE_IMAGES } from "@/lib/experience-media";
 
 export const metadata: Metadata = {
   title: "The Experience | Vaalpenskraal Game Reserve",
@@ -22,23 +23,31 @@ export const metadata: Metadata = {
     "What it feels like to hunt and stay at Vaalpenskraal: dawn on the Iron Mountain, boma fire, first-time hunters, seasoned Waterberg thicket, families, international travel, and the bush through every sense.",
 };
 
-function Pic({
+/** Local `src` wins; otherwise picsum by `seed` (placeholder until you add an asset). */
+function ExperienceImg({
+  src,
   seed,
   alt,
   className,
   priority,
+  width = 1600,
+  height = 1000,
 }: {
+  src?: string;
   seed: string;
   alt: string;
   className?: string;
   priority?: boolean;
+  width?: number;
+  height?: number;
 }) {
+  const url = src ?? `https://picsum.photos/seed/${seed}/${width}/${height}`;
   return (
     <img
-      src={`https://picsum.photos/seed/${seed}/1600/1000`}
+      src={url}
       alt={alt}
-      width={1600}
-      height={1000}
+      width={width}
+      height={height}
       className={className}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
@@ -46,9 +55,19 @@ function Pic({
   );
 }
 
-const AUDIENCE = [
+const AUDIENCE: {
+  key: string;
+  seed: string;
+  src?: string;
+  title: string;
+  icon: typeof Footprints;
+  body: string;
+  extra: string;
+}[] = [
   {
+    key: "solo",
     seed: "expsolo",
+    src: EXPERIENCE_IMAGES.audience.solo,
     title: "Solo hunters",
     icon: Footprints,
     body: "Silence becomes a companion, not an empty room. You set the pace of your thoughts. The PH walks with you, but the weight of the decision at the shot is yours. Many guests say they came for a species and left with a quieter mind: the bush does that when nobody is performing for a group chat.",
@@ -56,7 +75,9 @@ const AUDIENCE = [
       "If you travel alone from overseas, we keep camp logistics clear: arrival timing, first-night rhythm, and who to meet at the gate. Your firearm and trophy paperwork stays between you and your own agents; the estate does not file it for you.",
   },
   {
+    key: "family",
     seed: "expfamily",
+    src: EXPERIENCE_IMAGES.audience.family,
     title: "Friends, family, children",
     icon: Heart,
     body: "Shared discomfort on a stalk turns into shared laughter at the fire. Kids learn that adults can be still. Partners who do not hunt still get dawn light on the porch, nyala at the fence line, and the sound of stories that start with 'you should have seen his face when…'",
@@ -64,7 +85,9 @@ const AUDIENCE = [
       "We are direct about safety: wild animals, vehicles, and open water are real. With clear boundaries, families often say the trip rewired how their children listen. That is not brochure poetry. It is what parents tell us when they rebook.",
   },
   {
+    key: "global",
     seed: "expglobal",
+    src: EXPERIENCE_IMAGES.audience.global,
     title: "Local & international",
     icon: MapPin,
     body: "From Modimolle to Melbourne, the last hour of the drive feels the same: smaller roads, more cattle grids, air that smells like dust and grass. South African guests bring local humour and realistic expectations. International guests bring jet lag and big questions. Everyone gets honest answers.",
@@ -96,6 +119,29 @@ const HOURS = [
   },
 ];
 
+const SENSE_TILES = [
+  {
+    seed: "expsensefire",
+    cap: "Smoke and boma embers",
+    src: "/images/experience/senses-boma-embers.png",
+  },
+  {
+    seed: "expsenserain",
+    cap: "Petrichor before a storm",
+    src: "/images/experience/senses-petrichor.png",
+  },
+  {
+    seed: "expsensegrass",
+    cap: "Dry grass against your legs",
+    src: "/images/experience/senses-dry-grass.png",
+  },
+  {
+    seed: "expsensenight",
+    cap: "Night sky over the camp",
+    src: "/images/experience/senses-night-sky.png",
+  },
+] as const;
+
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -104,12 +150,14 @@ export default function ExperiencePage() {
         title="The bush is not a backdrop. It is the main character."
         subtitle="Smell the dust when the tyres slow. Hear the cape turtle dove. Feel the cold sneak into your sleeves at last light. This page is for everyone who wants to understand the trip before they book: hunters, families, writers, and guests who will never shoulder a rifle."
         imageSeed="experiencehero"
+        imageSrc={EXPERIENCE_IMAGES.hero}
       />
 
       {/* Full-bleed panorama */}
       <section className="relative border-b border-white/[0.07]">
         <div className="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden bg-neutral-950 sm:min-h-[280px] md:min-h-[340px]">
-          <Pic
+          <ExperienceImg
+            src={EXPERIENCE_IMAGES.panorama}
             seed="expwaterbergpan"
             alt="Wide view over the Waterberg bush at dawn"
             className="h-full w-full object-cover"
@@ -124,24 +172,14 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Through your eyes: split + image */}
+      {/* Through your eyes */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-start">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
             <div className="lg:col-span-5">
               <Sparkles className="h-9 w-9 text-burnished-copper/80" aria-hidden />
               <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Field note</p>
               <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Through your eyes</h2>
-              <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:hidden">
-                <Pic
-                  seed="expthicketwalk"
-                  alt="Hunter and guide walking in thick Waterberg bush"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-                <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40">
-                  Placeholder: replace with Vaalpenskraal stalk photography when available.
-                </figcaption>
-              </figure>
             </div>
             <div className="space-y-6 font-sans text-base leading-relaxed text-white/50 lg:col-span-7">
               <p>
@@ -161,20 +199,22 @@ export default function ExperiencePage() {
               </p>
             </div>
           </div>
-          <figure className="editorial-container mx-auto mt-16 hidden overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:block">
-            <Pic
+
+          <figure className="mt-12 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:mt-16">
+            <ExperienceImg
+              src={EXPERIENCE_IMAGES.thicketWalk}
               seed="expthicketwalk"
-              alt="Hunter and guide walking in thick Waterberg bush"
-              className="aspect-[21/9] w-full object-cover"
+              alt="Thick bush on the estate, hunters at a distance"
+              className="aspect-[4/3] w-full object-cover lg:aspect-[21/9]"
             />
-            <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-5 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-8">
-              Placeholder image: swap for on-estate stalk and PH photography.
+            <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-8">
+              On-estate stalk: thicket and distance, same rhythm as the quarry page hero.
             </figcaption>
           </figure>
         </div>
       </section>
 
-      {/* Audience: three image-forward cards */}
+      {/* Audience */}
       <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-32">
         <div className="editorial-container">
           <div className="mx-auto max-w-3xl text-center">
@@ -190,11 +230,12 @@ export default function ExperiencePage() {
           <div className="mt-16 grid gap-6 md:gap-8">
             {AUDIENCE.map((a) => (
               <article
-                key={a.title}
+                key={a.key}
                 className="grid overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-950 ring-1 ring-white/[0.05] md:grid-cols-2"
               >
-                <div className="relative min-h-[240px] md:min-h-[320px]">
-                  <Pic
+                <div className="relative aspect-[4/3] min-h-[200px] md:aspect-auto md:min-h-[min(100%,320px)]">
+                  <ExperienceImg
+                    src={a.src}
                     seed={a.seed}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover"
@@ -213,12 +254,12 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Day rhythm + side image */}
+      {/* Day rhythm */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
             <div className="lg:col-span-5">
-              <div className="sticky top-28">
+              <div className="lg:sticky lg:top-28">
                 <Sunrise className="h-9 w-9 text-burnished-copper/80" aria-hidden />
                 <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Rhythm</p>
                 <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">A day in the skin of the hunt</h2>
@@ -226,13 +267,16 @@ export default function ExperiencePage() {
                   No two days clone each other. Weather, wind, and animal mood rewrite the script. Still, most weeks move to a beat you begin to feel in your bones by day three.
                 </p>
                 <figure className="mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                  <Pic
+                  <ExperienceImg
+                    src={EXPERIENCE_IMAGES.dawnOutlook}
                     seed="expdawncoffee"
-                    alt="Steam rising from mug at dawn in the bush"
+                    alt="View from the lodge: bush and morning light"
                     className="aspect-[4/5] w-full object-cover"
+                    width={1200}
+                    height={1500}
                   />
                   <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40">
-                    Placeholder: lodge dawn / coffee on the deck.
+                    Lodge outlook and morning light (estate photography).
                   </figcaption>
                 </figure>
               </div>
@@ -252,7 +296,7 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* First-timer / seasoned / skeptics */}
+      {/* Straight talk */}
       <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-32">
         <div className="editorial-container">
           <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/35">Straight talk</p>
@@ -283,7 +327,7 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Senses row */}
+      {/* Senses */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
           <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
@@ -296,48 +340,17 @@ export default function ExperiencePage() {
             </div>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {(
-              [
-                {
-                  seed: "expsensefire",
-                  cap: "Smoke and boma embers",
-                  src: "/images/experience/senses-boma-embers.png",
-                },
-                {
-                  seed: "expsenserain",
-                  cap: "Petrichor before a storm",
-                  src: "/images/experience/senses-petrichor.png",
-                },
-                {
-                  seed: "expsensegrass",
-                  cap: "Dry grass against your legs",
-                  src: "/images/experience/senses-dry-grass.png",
-                },
-                {
-                  seed: "expsensenight",
-                  cap: "Night sky over the camp",
-                  src: "/images/experience/senses-night-sky.png",
-                },
-              ] as const
-            ).map((s) => (
+            {SENSE_TILES.map((s) => (
               <figure key={s.seed} className="group overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
-                {"src" in s && s.src ? (
-                  <img
-                    src={s.src}
-                    alt={s.cap}
-                    width={1080}
-                    height={1080}
-                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <Pic
-                    seed={s.seed}
-                    alt=""
-                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                  />
-                )}
+                <img
+                  src={s.src}
+                  alt={s.cap}
+                  width={1080}
+                  height={1080}
+                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.03] px-3 py-2.5 font-sans text-[10px] uppercase tracking-[0.12em] text-white/45 md:text-[11px]">
                   {s.cap}
                 </figcaption>
@@ -347,18 +360,19 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Guides / media zigzag */}
+      {/* Guides / media */}
       <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
         <div className="editorial-container">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
-              <Pic
+              <ExperienceImg
+                src={EXPERIENCE_IMAGES.guidesEncounter}
                 seed="expguideglass"
-                alt="Professional hunter glassing at sunrise"
+                alt="Hunter and guide in the bush at first light"
                 className="aspect-[4/3] w-full object-cover lg:aspect-[5/4]"
               />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40 md:px-6">
-                Placeholder: PH / guiding photography on the estate.
+                Field encounter: estate hunt photography (replace if you want a dedicated “glassing” shot).
               </figcaption>
             </figure>
             <div className="order-1 lg:order-2">
@@ -392,47 +406,48 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Closing CTA band */}
+      {/* Closing CTA */}
       <section className="relative flex min-h-[min(72vh,820px)] items-center justify-center py-20 md:py-28">
         <div className="absolute inset-0">
-          <Pic
+          <ExperienceImg
+            src={EXPERIENCE_IMAGES.closingBoma}
             seed="expclosingboma"
-            alt="Evening boma and camp atmosphere (placeholder image)"
+            alt="Evening boma and camp at Vaalpenskraal"
             className="h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/88 to-black/70" />
         </div>
         <div className="editorial-container relative z-10 text-center">
           <div className="mx-auto max-w-3xl">
-          <h2 className="font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.5rem]">
-            The fire is already waiting in the story you tell yourself
-          </h2>
-          <p className="mt-5 font-sans text-base leading-relaxed text-white/50 md:text-lg">
-            Walk it once with boots on iron soil. Then tell us if we were wrong about the silence.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/lodge"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
-            >
-              See the lodge
-              <ChevronRight className="h-4 w-4 opacity-60" />
-            </Link>
-            <Link
-              href="/species"
-              className="inline-flex items-center gap-2 font-sans text-sm text-white/55 transition-colors hover:text-white"
-            >
-              Quarry species
-              <ChevronRight className="h-4 w-4 opacity-60" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 font-sans text-sm text-white/55 transition-colors hover:text-white"
-            >
-              Ask a question
-              <ChevronRight className="h-4 w-4 opacity-60" />
-            </Link>
-          </div>
+            <h2 className="font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.5rem]">
+              The fire is already waiting in the story you tell yourself
+            </h2>
+            <p className="mt-5 font-sans text-base leading-relaxed text-white/50 md:text-lg">
+              Walk it once with boots on iron soil. Then tell us if we were wrong about the silence.
+            </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/lodge"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
+              >
+                See the lodge
+                <ChevronRight className="h-4 w-4 opacity-60" />
+              </Link>
+              <Link
+                href="/species"
+                className="inline-flex items-center gap-2 font-sans text-sm text-white/55 transition-colors hover:text-white"
+              >
+                Quarry species
+                <ChevronRight className="h-4 w-4 opacity-60" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 font-sans text-sm text-white/55 transition-colors hover:text-white"
+              >
+                Ask a question
+                <ChevronRight className="h-4 w-4 opacity-60" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Compass, Globe, Target, Users, Sun } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import HuntBookingPanel from "@/components/reserve/HuntBookingPanel";
 
 export const metadata: Metadata = {
   title: "Book Your Hunt | Vaalpenskraal Game Reserve",
@@ -40,9 +41,16 @@ export default function ReservePage() {
         title="Reserve your place in the Waterberg"
         subtitle="This is where the brochure ends and the bush begins. Tell us your story, your dates, and the animals you dream about. We answer with honesty, quota, and a plan that respects the land."
         imageSeed="reservehero"
+        imageSrc="/images/hero/wide-hunt-story.png"
       />
 
-      <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-28">
+      <section id="book-hunt" className="scroll-mt-24 border-b border-white/[0.07] bg-[#050505] py-16 md:py-24">
+        <div className="editorial-container">
+          <HuntBookingPanel />
+        </div>
+      </section>
+
+      <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
           <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
@@ -57,7 +65,7 @@ export default function ReservePage() {
                 <strong className="font-medium text-white/80">Seasoned on four continents?</strong> Good. The Waterberg thicket will still humiliate a rushed stalk. We trade ego for wind, and distance for a clean angle. You get technical fieldcraft, not a parade lap.
               </p>
               <p>
-                <strong className="font-medium text-white/80">South African hunters?</strong> You already know how weekends in Limpopo feel. We match that with straight talk on quota, venison, and realistic pacing—same rigour we give international guests flying in for a once-in-a-lifetime trip.
+                <strong className="font-medium text-white/80">South African hunters?</strong> You already know how weekends in Limpopo feel. We match that with straight talk on quota, venison, and realistic pacing, same rigour we give international guests flying in for a once-in-a-lifetime trip.
               </p>
               <p>
                 <strong className="font-medium text-white/80">Flying in from abroad?</strong> Plan flights to Johannesburg, road time into the Waterberg, estate rifle hire or your own firearm (you handle temp import and export with your agent), and the jet-lag day nobody posts on Instagram. We focus on the hunt and camp, not your government forms.
@@ -75,7 +83,7 @@ export default function ReservePage() {
             {STEPS.map((s) => (
               <div
                 key={s.n}
-                className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8 transition-colors hover:border-white/[0.12]"
+                className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors hover:border-white/[0.12] md:p-8"
               >
                 <span className="font-sans text-[11px] font-medium tabular-nums tracking-[0.25em] text-burnished-copper/85">{s.n}</span>
                 <h3 className="mt-4 font-sans text-lg font-semibold text-white/92">{s.title}</h3>
@@ -156,10 +164,10 @@ export default function ReservePage() {
                 <li>Your own trophy export / dip-and-pack agent if applicable (the estate does not process that paperwork)</li>
               </ul>
               <Link
-                href="/contact?intent=hunt"
+                href="/reserve#book-hunt"
                 className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
               >
-                Start your enquiry
+                Open the booking form
                 <ChevronRight className="h-4 w-4 opacity-60" />
               </Link>
             </div>
@@ -170,17 +178,17 @@ export default function ReservePage() {
       <section className="border-t border-white/[0.07] bg-[#070707] py-20 md:py-28">
         <div className="editorial-container text-center">
           <div className="mx-auto max-w-3xl">
-          <h2 className="font-sans text-2xl font-semibold tracking-tight sm:text-3xl">The mountain does not read your itinerary</h2>
-          <p className="mt-5 font-sans text-base leading-relaxed text-white/45">
-            We control preparation, ethics, and effort. We do not control weather, animal mood, or the lesson the bush chooses to teach. That honesty is why hunters come back.
-          </p>
-          <Link
-            href="/species"
-            className="mt-10 inline-flex items-center gap-1.5 font-sans text-sm text-white/50 transition-colors hover:text-white"
-          >
-            Browse quarry species
-            <ChevronRight className="h-4 w-4 opacity-60" />
-          </Link>
+            <h2 className="font-sans text-2xl font-semibold tracking-tight sm:text-3xl">The mountain does not read your itinerary</h2>
+            <p className="mt-5 font-sans text-base leading-relaxed text-white/45">
+              We control preparation, ethics, and effort. We do not control weather, animal mood, or the lesson the bush chooses to teach. That honesty is why hunters come back.
+            </p>
+            <Link
+              href="/species"
+              className="mt-10 inline-flex items-center gap-1.5 font-sans text-sm text-white/50 transition-colors hover:text-white"
+            >
+              Browse quarry species
+              <ChevronRight className="h-4 w-4 opacity-60" />
+            </Link>
           </div>
         </div>
       </section>
