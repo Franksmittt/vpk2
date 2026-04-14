@@ -8,3 +8,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Master shoot JPEGs stay local; curated copies ship under public/images/
+Vaalpenskraal/*.jpg

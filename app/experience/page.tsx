@@ -296,18 +296,48 @@ export default function ExperiencePage() {
             </div>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {[
-              { seed: "expsensefire", cap: "Smoke and boma embers" },
-              { seed: "expsenserain", cap: "Petrichor before a storm" },
-              { seed: "expsensegrass", cap: "Dry grass against your legs" },
-              { seed: "expsensenight", cap: "Night sky over the camp" },
-            ].map((s) => (
+            {(
+              [
+                {
+                  seed: "expsensefire",
+                  cap: "Smoke and boma embers",
+                  src: "/images/experience/senses-boma-embers.png",
+                },
+                {
+                  seed: "expsenserain",
+                  cap: "Petrichor before a storm",
+                  src: "/images/experience/senses-petrichor.png",
+                },
+                {
+                  seed: "expsensegrass",
+                  cap: "Dry grass against your legs",
+                  src: "/images/experience/senses-dry-grass.png",
+                },
+                {
+                  seed: "expsensenight",
+                  cap: "Night sky over the camp",
+                  src: "/images/experience/senses-night-sky.png",
+                },
+              ] as const
+            ).map((s) => (
               <figure key={s.seed} className="group overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
-                <Pic
-                  seed={s.seed}
-                  alt=""
-                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                />
+                {"src" in s && s.src ? (
+                  <img
+                    src={s.src}
+                    alt={s.cap}
+                    width={1080}
+                    height={1080}
+                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <Pic
+                    seed={s.seed}
+                    alt=""
+                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                )}
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.03] px-3 py-2.5 font-sans text-[10px] uppercase tracking-[0.12em] text-white/45 md:text-[11px]">
                   {s.cap}
                 </figcaption>

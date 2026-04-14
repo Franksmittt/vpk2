@@ -3,11 +3,13 @@ type PageHeroProps = {
   title: string;
   subtitle: string;
   imageSeed: string;
+  /** Local image under `public/` (e.g. `/images/lodge/hero.jpg`). When set, overrides picsum. */
+  imageSrc?: string;
   /** Slightly shorter hero for dense pages */
   compact?: boolean;
 };
 
-export default function PageHero({ eyebrow, title, subtitle, imageSeed, compact }: PageHeroProps) {
+export default function PageHero({ eyebrow, title, subtitle, imageSeed, imageSrc, compact }: PageHeroProps) {
   /** Editorial: ~16:9 hero band with minimum height for text clearance under fixed header */
   const minH = compact
     ? "min-h-[min(42vh,520px)] sm:min-h-[min(46vh,560px)]"
@@ -20,7 +22,7 @@ export default function PageHero({ eyebrow, title, subtitle, imageSeed, compact 
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('https://picsum.photos/seed/${imageSeed}/1920/1080')`,
+          backgroundImage: `url('${imageSrc ?? `https://picsum.photos/seed/${imageSeed}/1920/1080`}')`,
         }}
         aria-hidden
       />

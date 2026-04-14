@@ -37,10 +37,24 @@ export const metadata: Metadata = {
     "Vaalpenskraal: four named chalets (Roan, Eland, Gemsbok, Koedoe Kraal), Vark Kraal bar & kitchen, full board, pool, boma, outlook & waterhole, P3 permit, safes, cold room, meat services, taxidermy via your contractors, Matlabas Protection Service.",
 };
 
-function Pic({ seed, alt, className, priority }: { seed: string; alt: string; className?: string; priority?: boolean }) {
+const LODGE = "/images/lodge";
+
+function Pic({
+  seed,
+  src,
+  alt,
+  className,
+  priority,
+}: {
+  seed: string;
+  src?: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+}) {
   return (
     <img
-      src={`https://picsum.photos/seed/${seed}/1600/1050`}
+      src={src ?? `https://picsum.photos/seed/${seed}/1600/1050`}
       alt={alt}
       width={1600}
       height={1050}
@@ -57,6 +71,8 @@ type SpecRow = {
   label: string;
   value: string;
   seed: string;
+  /** On-site photo under `public/images/lodge/` when available */
+  src?: string;
   layout?: SpecLayout;
   imageTall?: boolean;
 };
@@ -66,6 +82,7 @@ const SPECS: SpecRow[] = [
     label: "Overnight",
     value: "Four chalets only — the only guest sleeping quarters on the hunting camp; no separate guest residence",
     seed: "vpspec-overnight",
+    src: `${LODGE}/spec-overnight.jpg`,
     layout: "full",
     imageTall: true,
   },
@@ -73,31 +90,50 @@ const SPECS: SpecRow[] = [
     label: "Chalets",
     value: `${CHALET_KRAALS_LINE} · identical layout · 4–5 guests each`,
     seed: "vpspec-chalets",
+    src: `${LODGE}/spec-chalets.jpg`,
   },
-  { label: "Sleeps", value: "4 to 5 guests per chalet · up to ~20 guests camp-wide", seed: "vpspec-sleeps" },
-  { label: "Beds", value: "4 single beds + 1 double bed per chalet", seed: "vpspec-beds" },
-  { label: "Climate", value: "Air conditioning in all chalets", seed: "vpspec-climate" },
-  { label: "Bathroom", value: "Showers · 2 basins · toilet (per chalet)", seed: "vpspec-bathroom" },
+  {
+    label: "Sleeps",
+    value: "4 to 5 guests per chalet · up to ~20 guests camp-wide",
+    seed: "vpspec-sleeps",
+    src: `${LODGE}/spec-sleeps.jpg`,
+  },
+  { label: "Beds", value: "4 single beds + 1 double bed per chalet", seed: "vpspec-beds", src: `${LODGE}/spec-beds.jpg` },
+  { label: "Climate", value: "Air conditioning in all chalets", seed: "vpspec-climate", src: `${LODGE}/spec-climate.jpg` },
+  { label: "Bathroom", value: "Showers · 2 basins · toilet (per chalet)", seed: "vpspec-bathroom", src: `${LODGE}/spec-bathroom.jpg` },
   {
     label: "Catering",
     value: "Fully catered: snacks, lunch, supper · all food & drinks including alcohol",
     seed: "vpspec-catering",
+    src: `${LODGE}/spec-catering.jpg`,
     layout: "wide",
   },
   {
     label: "Communal",
     value: `${COMMUNAL_BAR_KRAAL} (bar) · kitchen & chill · gas stove · electric oven`,
     seed: "vpspec-communal",
+    src: `${LODGE}/spec-communal.jpg`,
   },
   {
     label: "Outdoor",
     value: "Swimming pool · canopy boma · outlook point & waterhole for game viewing and sundowners",
     seed: "vpspec-outdoor",
+    src: `${LODGE}/spec-outdoor.jpg`,
     layout: "wide",
   },
   { label: "Activities", value: "Clay pigeon shooting · game drives", seed: "vpspec-activities" },
-  { label: "Permit", value: "P3 Exemption Permit — confirm current certificates with management when booking", seed: "vpspec-permit" },
-  { label: "Valuables", value: "On-site safe facilities for storing jewellery, cash, and documents", seed: "vpspec-valuables" },
+  {
+    label: "Permit",
+    value: "P3 Exemption Permit — confirm current certificates with management when booking",
+    seed: "vpspec-permit",
+    src: `${LODGE}/spec-permit.jpg`,
+  },
+  {
+    label: "Valuables",
+    value: "On-site safe facilities for storing jewellery, cash, and documents",
+    seed: "vpspec-valuables",
+    src: `${LODGE}/spec-valuables.jpg`,
+  },
   { label: "Cold chain", value: "Cold room facilities for meat and perishables", seed: "vpspec-cold" },
   {
     label: "Meat & hides",
@@ -109,11 +145,17 @@ const SPECS: SpecRow[] = [
     label: "Taxidermy",
     value: "Outsourced to professional taxidermists you appoint; international shipping & export paperwork sit with you and your taxidermist — the estate does not process client trophy paperwork",
     seed: "vpspec-taxidermy",
+    src: `${LODGE}/spec-taxidermy.jpg`,
     layout: "full",
     imageTall: true,
   },
   { label: "Transfers", value: "Optional shuttle service (enquire when booking)", seed: "vpspec-transfers" },
-  { label: "Security", value: "Gated access · falls under Matlabas Protection Service", seed: "vpspec-security" },
+  {
+    label: "Security",
+    value: "Gated access · falls under Matlabas Protection Service",
+    seed: "vpspec-security",
+    src: `${LODGE}/spec-security.jpg`,
+  },
 ];
 
 export default function LodgePage() {
@@ -124,6 +166,7 @@ export default function LodgePage() {
         title="Four chalets, shared basecamp, full board in the bush"
         subtitle={`Overnight accommodation is four matching air-conditioned chalets—${CHALET_KRAALS_LINE}—the only guest sleeping quarters on the hunting camp. The communal bar is ${COMMUNAL_BAR_KRAAL}. Everyone shares the kitchen, pool, canopy boma, outlook point, and waterhole for relaxed evenings and game viewing. Full board includes meals, snacks, and drinks. Add clay pigeon or a game drive when the schedule allows. The snapshot below is what we put in front of guests, agents, and management when facts need to match reality.`}
         imageSeed="lodgethero"
+        imageSrc={`${LODGE}/hero.jpg`}
       />
 
       <section className="relative overflow-hidden border-b border-white/[0.07] bg-[#030303]">
@@ -132,13 +175,13 @@ export default function LodgePage() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,transparent_28%,transparent_72%,rgba(0,0,0,0.45)_100%)]" aria-hidden />
 
         <div className="editorial-container-wide relative pb-20 pt-14 md:pb-28 md:pt-20">
-          {/* Editorial image ribbon — replace with Vaalpenskraal photography */}
+          {/* Editorial image ribbon — on-site Vaalpenskraal photography */}
           <div className="flex flex-col gap-2 sm:gap-3">
             <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:min-h-[min(52vh,460px)] lg:grid-cols-6 lg:grid-rows-2 lg:gap-3">
               <div className="group relative col-span-2 aspect-[4/5] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:row-span-2 lg:aspect-auto lg:min-h-0">
                 <img
-                  src="https://picsum.photos/seed/vpbrochure-hero/1400/1200"
-                  alt="Brochure placeholder — camp or chalet hero"
+                  src={`${LODGE}/brochure-hero.jpg`}
+                  alt="Vaalpenskraal chalets and camp buildings from the approach"
                   width={1400}
                   height={1200}
                   className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
@@ -146,12 +189,11 @@ export default function LodgePage() {
                   decoding="async"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/30" aria-hidden />
-                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
               </div>
               <div className="group relative aspect-[16/11] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:min-h-0">
                 <img
-                  src="https://picsum.photos/seed/vpbrochure-bar/1200/800"
-                  alt="Brochure placeholder — bar or communal"
+                  src={`${LODGE}/brochure-bar.jpg`}
+                  alt={`${COMMUNAL_BAR_KRAAL} — communal bar and lounge`}
                   width={1200}
                   height={800}
                   className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
@@ -159,12 +201,11 @@ export default function LodgePage() {
                   decoding="async"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" aria-hidden />
-                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
               </div>
               <div className="group relative aspect-[16/11] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:col-span-3 lg:min-h-0">
                 <img
-                  src="https://picsum.photos/seed/vpbrochure-pool/1200/800"
-                  alt="Brochure placeholder — pool or boma"
+                  src={`${LODGE}/brochure-pool.jpg`}
+                  alt="Swimming pool with chalets and lapa in the background"
                   width={1200}
                   height={800}
                   className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.04]"
@@ -172,24 +213,23 @@ export default function LodgePage() {
                   decoding="async"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" aria-hidden />
-                <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
               {(
                 [
-                  ["vpbrochure-vista", "Brochure placeholder — bush vista"],
-                  ["vpbrochure-game", "Brochure placeholder — game or waterhole"],
-                  ["vpbrochure-food", "Brochure placeholder — dining"],
-                  ["vpbrochure-night", "Brochure placeholder — camp at night"],
+                  [`${LODGE}/brochure-vista.jpg`, "Lapa, pool, and chalets across the camp"],
+                  [`${LODGE}/brochure-game.jpg`, "Bush detail — dragonfly on a twig"],
+                  [`${LODGE}/brochure-food.jpg`, "Drinks and snacks by the pool"],
+                  [`${LODGE}/brochure-night.jpg`, "Boma and lapa gathering space under the trees"],
                 ] as const
-              ).map(([seed, alt], i) => (
+              ).map(([src, alt], i) => (
                 <div
-                  key={seed}
+                  key={src}
                   className="group relative aspect-[5/4] overflow-hidden rounded-[1.1rem] ring-1 ring-white/[0.09] sm:rounded-xl lg:aspect-[4/3]"
                 >
                   <img
-                    src={`https://picsum.photos/seed/${seed}/900/700`}
+                    src={src}
                     alt={alt}
                     width={900}
                     height={700}
@@ -198,16 +238,13 @@ export default function LodgePage() {
                     decoding="async"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" aria-hidden />
-                  <span className="absolute bottom-2.5 left-2.5 font-sans text-[8px] font-semibold uppercase tracking-[0.26em] text-white/35">
-                    Placeholder
-                  </span>
                 </div>
               ))}
             </div>
             <div className="group relative aspect-[21/10] overflow-hidden rounded-[1.25rem] ring-1 ring-white/[0.1] sm:rounded-2xl lg:aspect-[3/1]">
               <img
-                src="https://picsum.photos/seed/vpbrochure-pan/1600/550"
-                alt="Brochure placeholder — panoramic landscape"
+                src={`${LODGE}/brochure-pano.jpg`}
+                alt="Panoramic view of Vaalpenskraal gate and bushveld"
                 width={1600}
                 height={550}
                 className="h-full w-full object-cover transition duration-[1.25s] ease-out group-hover:scale-[1.03]"
@@ -215,7 +252,6 @@ export default function LodgePage() {
                 decoding="async"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/40" aria-hidden />
-              <span className="absolute bottom-3 left-3 font-sans text-[9px] font-semibold uppercase tracking-[0.28em] text-white/40">Placeholder</span>
             </div>
           </div>
 
@@ -232,7 +268,7 @@ export default function LodgePage() {
                   <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-white/30">Facts sheet</span>
                 </div>
                 <p className="mt-5 max-w-xl font-sans text-sm leading-relaxed text-white/45 md:text-base">
-                  Copy-paste clarity for agents and guests. Each tile below carries its own placeholder frame — drop in Vaalpenskraal photography when your shoot wraps.
+                  Copy-paste clarity for agents and guests. Photography on this grid is from camp; a few spec tiles below still use placeholders until dedicated shots exist (activities, cold chain, meat handling, transfers).
                 </p>
               </div>
               <Link
@@ -262,8 +298,8 @@ export default function LodgePage() {
                 >
                   <div className={`relative w-full overflow-hidden ${imgAspect}`}>
                     <img
-                      src={`https://picsum.photos/seed/${row.seed}/1000/480`}
-                      alt={`Placeholder — ${row.label}`}
+                      src={row.src ?? `https://picsum.photos/seed/${row.seed}/1000/480`}
+                      alt={row.src ? `Vaalpenskraal — ${row.label}` : `Placeholder — ${row.label}`}
                       width={1000}
                       height={480}
                       className="h-full w-full object-cover transition duration-[1.1s] ease-out group-hover:scale-[1.05]"
@@ -271,9 +307,11 @@ export default function LodgePage() {
                       decoding="async"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/25 to-black/30" />
-                    <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-1 font-sans text-[8px] font-semibold uppercase tracking-[0.22em] text-white/45 ring-1 ring-white/10 backdrop-blur-sm">
-                      Image slot
-                    </span>
+                    {!row.src ? (
+                      <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-1 font-sans text-[8px] font-semibold uppercase tracking-[0.22em] text-white/45 ring-1 ring-white/10 backdrop-blur-sm">
+                        Image slot
+                      </span>
+                    ) : null}
                   </div>
                   <div className="flex flex-1 flex-col border-t border-white/[0.06] p-5 md:p-6">
                     <dt className="font-sans text-[10px] font-bold uppercase tracking-[0.26em] text-burnished-copper/90">{row.label}</dt>
@@ -306,12 +344,13 @@ export default function LodgePage() {
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-7">
               <Pic
                 seed="vplodgeoverview"
+                src={`${LODGE}/lodge-overview.jpg`}
                 alt="Overview of Vaalpenskraal chalets, pool, and communal area"
                 className="aspect-[4/3] w-full object-cover sm:aspect-[16/10]"
                 priority
               />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
-                Placeholder: camp overview (four chalets, pool, communal lapa, outlook / waterhole if in frame). Replace with Vaalpenskraal photography.
+                Chalets, pool corner, and paths — the same footprint every guest shares between stalks and meals.
               </figcaption>
             </figure>
           </div>
@@ -365,9 +404,14 @@ export default function LodgePage() {
               </div>
             </div>
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-8">
-              <Pic seed="vpchaletinterior" alt="Chalet interior with beds and air conditioning" className="aspect-[16/10] w-full object-cover" />
+              <Pic
+                seed="vpchaletinterior"
+                src={`${LODGE}/lodge-chalet-interior.jpg`}
+                alt="Chalet interior with beds and air conditioning"
+                className="aspect-[16/10] w-full object-cover"
+              />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40 md:px-5">
-                Placeholder: chalet interior showing bed layout when you have marketing shots.
+                Typical ensuite chalet layout: multiple beds, aircon, and space for gear after a long day in the bush.
               </figcaption>
             </figure>
           </div>
@@ -377,11 +421,12 @@ export default function LodgePage() {
               <figure key={kraal.key} className="overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
                 <Pic
                   seed={`vpchalet-${kraal.key}`}
+                  src={`${LODGE}/lodge-chalet-${kraal.key}.jpg`}
                   alt={`${kraal.name} guest chalet`}
                   className="aspect-[4/3] w-full object-cover"
                 />
                 <figcaption className="border-t border-white/[0.06] bg-black/60 px-2 py-2 text-center font-sans text-[10px] uppercase tracking-wider text-white/35">
-                  {kraal.name} (placeholder)
+                  {kraal.name}
                 </figcaption>
               </figure>
             ))}
@@ -410,15 +455,25 @@ export default function LodgePage() {
             </div>
             <div className="grid gap-4">
               <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                <Pic seed="vpbarkroeg" alt="Communal bar and lounge" className="aspect-[16/10] w-full object-cover" />
+                <Pic
+                  seed="vpbarkroeg"
+                  src={`${LODGE}/lodge-bar.jpg`}
+                  alt="Communal bar and lounge"
+                  className="aspect-[16/10] w-full object-cover"
+                />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  Placeholder: communal bar &amp; chill.
+                  {COMMUNAL_BAR_KRAAL} — bar, trophies on display, and the social heart of camp.
                 </figcaption>
               </figure>
               <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                <Pic seed="vpkitchen" alt="Kitchen with gas stove and electric oven" className="aspect-[16/10] w-full object-cover" />
+                <Pic
+                  seed="vpkitchen"
+                  src={`${LODGE}/lodge-kitchen.jpg`}
+                  alt="Kitchen with gas stove and electric oven"
+                  className="aspect-[16/10] w-full object-cover"
+                />
                 <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5 font-sans text-[11px] text-white/40">
-                  Placeholder: kitchen (gas + oven visible if possible).
+                  Catering kitchen — gas hob, oven, and prep space for full-board service.
                 </figcaption>
               </figure>
             </div>
@@ -431,9 +486,14 @@ export default function LodgePage() {
         <div className="editorial-container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <figure className="order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1">
-              <Pic seed="vpcateringtable" alt="Catered lunch or dinner in the bush" className="aspect-[4/3] w-full object-cover" />
+              <Pic
+                seed="vpcateringtable"
+                src={`${LODGE}/lodge-catering.jpg`}
+                alt="Drinks and snacks served by the pool as part of full board"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/40">
-                Placeholder: table spread / barbecue / plated meal.
+                Included drinks and poolside hospitality — meals run from the kitchen and bar throughout the day.
               </figcaption>
             </figure>
             <div className="order-1 lg:order-2">
@@ -461,7 +521,12 @@ export default function LodgePage() {
           </p>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vppoolarea" alt="Swimming pool" className="aspect-[4/3] w-full object-cover" />
+              <Pic
+                seed="vppoolarea"
+                src={`${LODGE}/lodge-pool.jpg`}
+                alt="Swimming pool"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <div className="p-5 md:p-6">
                 <Waves className="h-7 w-7 text-burnished-copper/80" aria-hidden />
                 <h3 className="mt-4 font-sans text-lg font-semibold">Swimming pool</h3>
@@ -471,7 +536,12 @@ export default function LodgePage() {
               </div>
             </article>
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vpbomatrees" alt="Boma fire under trees with canopy" className="aspect-[4/3] w-full object-cover" />
+              <Pic
+                seed="vpbomatrees"
+                src={`${LODGE}/lodge-boma.jpg`}
+                alt="Boma fire under trees with canopy"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <div className="p-5 md:p-6">
                 <div className="flex items-center gap-2">
                   <Trees className="h-7 w-7 text-burnished-copper/80" aria-hidden />
@@ -499,7 +569,12 @@ export default function LodgePage() {
           </p>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vpoutlookpoint" alt="Outlook point over the bush" className="aspect-[4/3] w-full object-cover" />
+              <Pic
+                seed="vpoutlookpoint"
+                src={`${LODGE}/lodge-outlook.jpg`}
+                alt="Camp and chalets from an elevated outlook over the bush"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <div className="p-5 md:p-6">
                 <Mountain className="h-7 w-7 text-burnished-copper/80" aria-hidden />
                 <h3 className="mt-4 font-sans text-lg font-semibold">Outlook point</h3>
@@ -509,7 +584,12 @@ export default function LodgePage() {
               </div>
             </article>
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
-              <Pic seed="vpwaterhole" alt="Waterhole with game" className="aspect-[4/3] w-full object-cover" />
+              <Pic
+                seed="vpwaterhole"
+                src={`${LODGE}/lodge-waterhole.jpg`}
+                alt="Pool edge and bushveld opening toward game country"
+                className="aspect-[4/3] w-full object-cover"
+              />
               <div className="p-5 md:p-6">
                 <Droplets className="h-7 w-7 text-burnished-copper/80" aria-hidden />
                 <h3 className="mt-4 font-sans text-lg font-semibold">Waterhole</h3>
@@ -604,7 +684,7 @@ export default function LodgePage() {
               <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Taxidermy partners and shipping home</h2>
               <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/48">
                 <p>
-                  Many guests appoint a <strong className="font-medium text-white/75">professional taxidermist</strong> they already trust. We facilitate handover on the ground — caping, documentation handoffs, and coordination with <em className="text-white/60">your</em> contractor — rather than acting as the taxidermy shop ourselves.
+                  Many guests appoint a <strong className="font-medium text-white/75">professional taxidermist</strong> they already trust. On camp we help with practical handover and timing with <em className="text-white/60">your</em> contractor — the estate is not the taxidermy shop; field prep, dipping, and paperwork follow your taxidermist&apos;s scope.
                 </p>
                 <p>
                   For clients who need trophies moved <strong className="font-medium text-white/75">outside South Africa</strong>, the export path, permits, and courier paperwork are handled between <strong className="font-medium text-white/75">you, your taxidermist, and the relevant authorities</strong>. Vaalpenskraal does not process client import/export paperwork; we keep the hunt and camp services honest so your agents can do their job without mixed signals.
@@ -612,9 +692,14 @@ export default function LodgePage() {
               </div>
             </div>
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:col-span-7">
-              <Pic seed="vptaxidermyprep" alt="Trophy preparation and handoff" className="aspect-[16/10] w-full object-cover" />
+              <Pic
+                seed="vptaxidermyprep"
+                src={`${LODGE}/lodge-taxidermy.jpg`}
+                alt="Trophy heads on display in the communal bar"
+                className="aspect-[16/10] w-full object-cover"
+              />
               <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/40 md:px-5">
-                Placeholder: caping / trophy prep handoff. Your taxidermist remains your contractor for shipping and international compliance.
+                Decorative mounts in {COMMUNAL_BAR_KRAAL} — not a caping workshop. Field prep and export sit with the professional taxidermist you appoint.
               </figcaption>
             </figure>
           </div>
@@ -692,9 +777,14 @@ export default function LodgePage() {
               </p>
             </div>
             <div className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-              <Pic seed="vplodgeevening" alt="Lodge at dusk" className="aspect-[16/10] w-full object-cover" />
+              <Pic
+                seed="vplodgeevening"
+                src={`${LODGE}/lodge-evening.jpg`}
+                alt="Warm light in the communal bar at camp"
+                className="aspect-[16/10] w-full object-cover"
+              />
               <p className="border-t border-white/[0.06] bg-black/80 px-4 py-3 font-sans text-[11px] text-white/40">
-                Placeholder: golden-hour camp mood.
+                Bar and lounge when the day slows — the social end of full-board hospitality.
               </p>
             </div>
           </div>
