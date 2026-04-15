@@ -2,12 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
-/** Logical frames mapped to scroll progress (0 .. FRAME_COUNT - 1). */
-const FRAME_COUNT = 48;
-
-/** Scroll runway height. 500vh felt endless: sticky hero stayed pinned while little visible change (fallback frames repeat). ~2.2 screens is enough for the sequence. */
-const RUNWAY_VH = 220;
-
 const FALLBACK_FRAMES = [
   "/images/hero/hero-legacy.png",
   "/images/hero/hero-encounter.png",
@@ -29,8 +23,6 @@ function drawCover(
   const ch = canvas.height / dpr;
   const ir = img.naturalWidth / img.naturalHeight;
   const cr = cw / ch;
-  let dw = cw;
-  let dh = ch;
   let sx = 0;
   let sy = 0;
   let sw = img.naturalWidth;
@@ -51,18 +43,13 @@ type Props = {
 };
 
 /**
- * Tall scroll runway with a pinned viewport and a canvas painted from a frame sequence.
- * Tries `/public/images/hero-sequence/frame-0001.jpg` … first; falls back to rotating on-estate hero stills.
+ * Full-viewport hero with a single canvas frame (first JPEG in the sequence when present,
+ * otherwise first fallback still). No scroll runway: wheel and trackpad scroll the page normally.
  */
 export default function HeroCanvasScrollSection({ children }: Props) {
-  const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const frameImagesRef = useRef<(HTMLImageElement | null)[]>([]);
-  const targetFrameRef = useRef(0);
-  const lastDrawnFrameRef = useRef(-1);
-  const rafRef = useRef(0);
+  const heroImageRef = useRef<HTMLImageElement | null>(null);
   const [ready, setReady] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
 
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -78,14 +65,6 @@ export default function HeroCanvasScrollSection({ children }: Props) {
   }, []);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(mq.matches);
-    const onMq = () => setReduceMotion(mq.matches);
-    mq.addEventListener("change", onMq);
-    return () => mq.removeEventListener("change", onMq);
-  }, []);
-
-  useEffect(() => {
     let cancelled = false;
 
     const load = (src: string) =>
@@ -98,32 +77,22 @@ export default function HeroCanvasScrollSection({ children }: Props) {
       });
 
     (async () => {
-      let useSequence = true;
+      let img: HTMLImageElement | null = null;
       try {
-        await load(sequenceFramePath(0));
+        img = await load(sequenceFramePath(0));
       } catch {
-        useSequence = false;
-      }
-      if (cancelled) return;
-
-      const list: (HTMLImageElement | null)[] = new Array(FRAME_COUNT).fill(null);
-      if (useSequence) {
-        for (let i = 0; i < FRAME_COUNT; i++) {
+        for (const src of FALLBACK_FRAMES) {
           if (cancelled) return;
           try {
-            list[i] = await load(sequenceFramePath(i));
+            img = await load(src);
+            break;
           } catch {
-            list[i] = await load(FALLBACK_FRAMES[i % FALLBACK_FRAMES.length]);
+            /* try next */
           }
         }
-      } else {
-        const base = await Promise.all(FALLBACK_FRAMES.map((s) => load(s)));
-        for (let i = 0; i < FRAME_COUNT; i++) {
-          list[i] = base[i % base.length] ?? null;
-        }
       }
-      if (cancelled) return;
-      frameImagesRef.current = list;
+      if (cancelled || !img) return;
+      heroImageRef.current = img;
       setReady(true);
     })();
 
@@ -134,78 +103,37 @@ export default function HeroCanvasScrollSection({ children }: Props) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ro = new ResizeObserver(() => {
+    const img = heroImageRef.current;
+    if (!canvas || !ready || !img) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const paint = () => {
       resizeCanvas();
-      lastDrawnFrameRef.current = -1;
-    });
+      if (img.complete && img.naturalWidth) {
+        drawCover(ctx, canvas, img);
+      }
+    };
+
+    const ro = new ResizeObserver(() => paint());
     ro.observe(canvas);
-    resizeCanvas();
-    return () => ro.disconnect();
-  }, [resizeCanvas]);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const updateTargetFrame = () => {
-      const rect = section.getBoundingClientRect();
-      const scrollable = section.offsetHeight - window.innerHeight;
-      if (scrollable <= 0) {
-        targetFrameRef.current = 0;
-        return;
-      }
-      const scrolled = -rect.top;
-      const rawT = Math.min(1, Math.max(0, scrolled / scrollable));
-      // Ease-out so frames advance earlier in the runway (fallback stills look identical for long stretches).
-      const t = 1 - (1 - rawT) * (1 - rawT);
-      const maxIndex = FRAME_COUNT - 1;
-      targetFrameRef.current = reduceMotion ? Math.round(t * maxIndex) : Math.min(maxIndex, Math.floor(t * (maxIndex + 1)));
-    };
-
-    const onScroll = () => {
-      updateTargetFrame();
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", updateTargetFrame, { passive: true });
-    updateTargetFrame();
-
-    const tick = () => {
-      updateTargetFrame();
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      const idx = targetFrameRef.current;
-      if (ctx && canvas && ready && idx !== lastDrawnFrameRef.current) {
-        const img = frameImagesRef.current[idx];
-        if (img?.complete && img.naturalWidth) {
-          resizeCanvas();
-          drawCover(ctx, canvas, img);
-          lastDrawnFrameRef.current = idx;
-        }
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-
+    paint();
+    window.addEventListener("resize", paint, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", updateTargetFrame);
-      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+      window.removeEventListener("resize", paint);
     };
-  }, [ready, resizeCanvas, reduceMotion]);
+  }, [ready, resizeCanvas]);
 
   return (
     <section
-      ref={sectionRef}
-      className="relative w-full shrink-0 bg-black"
-      style={{ height: `${RUNWAY_VH}vh` }}
-      aria-label="Hero sequence, scroll to advance"
+      className="relative w-full shrink-0 bg-black min-h-[min(100svh,100dvh)]"
+      aria-label="Hero"
     >
-      <div className="sticky top-0 flex h-[100svh] max-h-[100dvh] w-full flex-col overflow-hidden">
+      <div className="relative flex min-h-[min(100svh,100dvh)] w-full flex-col overflow-hidden">
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 h-full w-full touch-pan-y"
+          className="absolute inset-0 h-full w-full"
           aria-hidden
         />
         <div
@@ -225,17 +153,8 @@ export default function HeroCanvasScrollSection({ children }: Props) {
           aria-hidden
         />
 
-        <div className="relative z-20 box-border flex min-h-0 flex-1 flex-col pb-20 pt-20 sm:pb-20 md:pt-24">
+        <div className="relative z-20 box-border flex min-h-[min(100svh,100dvh)] flex-col pb-20 pt-20 sm:pb-20 md:pt-24">
           {children}
-        </div>
-
-        <div className="pointer-events-none absolute bottom-4 left-0 right-0 z-30 hidden flex-col items-center gap-2 pb-1 sm:flex">
-          <span className="hero-readable-eyebrow font-sans text-xs uppercase tracking-[0.25em] text-white/80">
-            Scroll
-          </span>
-          <div className="hero-readable-ui h-8 w-px overflow-hidden bg-white/35">
-            <div className="h-full w-full animate-scroll-down bg-white" />
-          </div>
         </div>
       </div>
     </section>

@@ -9,9 +9,9 @@ building block, and every quarry row aligned with data/species.ts.
 Update when routes, components, or QUARRY_SPECIES change. Verify permits,
 quotas, and legal minima with management before external use.
 
-Last aligned with codebase: April 2026 (includes final-phase home canvas hero,
-scroll-driven typography, Earnest Ally copy pass on key routes, WCAG-oriented
-layout tweaks on species media shells).
+Last aligned with codebase: April 2026 (includes home canvas hero as a single
+full-viewport frame, scroll-driven typography on inner pages, Earnest Ally copy,
+WCAG-oriented layout tweaks on species media shells).
 
 --------------------------------------------------------------------------------
 HOW TO READ THIS DOCUMENT
@@ -243,12 +243,11 @@ LAYOUT UTILITIES (globals.css, @layer utilities)
   classes; not every page uses all of them.
 
 MOTION, SCROLL, AND FINAL-PHASE POLISH
-• Home hero: components/home/HeroCanvasScrollSection.tsx (client). Tall runway
-  (~500vh), sticky viewport, HTML5 canvas draws a 48-frame sequence from
-  /images/hero-sequence/frame-0001.jpg … frame-0048.jpg when present; if the
-  first frame fails to load, falls back to cycling three stills under
-  /images/hero/. Scroll maps to frame index with Math.floor; requestAnimationFrame
-  paints when the index changes; prefers-reduced-motion uses stepped indices.
+• Home hero: components/home/HeroCanvasScrollSection.tsx (client). One viewport
+  tall (min 100svh / 100dvh), no scroll runway: wheel and trackpad move the page
+  normally. HTML5 canvas draws a single cover frame from
+  /images/hero-sequence/frame-0001.jpg when present; otherwise the first
+  successful still under /images/hero/. ResizeObserver repaints on layout resize.
   See public/images/hero-sequence/README.txt for asset naming.
 • Home body: components/home/HomePageClient.tsx wraps the hero in
   HeroCanvasScrollSection; bento and downstream sections use Motion and fluid
@@ -292,7 +291,7 @@ listed in the SEO section above where they differ from this narrative.
 
 /  (app/page.tsx): HOME
 • Client island: components/home/HomePageClient.tsx.
-• Hero: HeroCanvasScrollSection (canvas frame sequence + scrims + scroll cue),
+• Hero: HeroCanvasScrollSection (single canvas frame + scrims),
   Earnest-style headline, CTAs, hunter's code strip, bento links toward
   Experience, Lodge, Species, Reserve, Contact. Motion on lower sections.
 • Photography from public/images/home and public/images/hero (and optional
@@ -378,7 +377,8 @@ components/layout/PageHero.tsx
   classes (see globals.css).
 
 components/home/HeroCanvasScrollSection.tsx (client)
-• Canvas scrollytelling hero: preload frames, rAF draw, reduced-motion handling.
+• Full-viewport canvas hero: one image, preload, draw on load and resize (no
+  scroll-linked frame scrubbing).
 
 components/home/HomePageClient.tsx (client)
 • Full home page: canvas hero section, testimonials carousel, bento, motion

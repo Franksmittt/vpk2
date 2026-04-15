@@ -1,10 +1,11 @@
-Hero scroll sequence (optional)
+Hero image (optional)
 
-Add JPEG frames named:
+The home hero uses a single full-bleed canvas frame. It loads:
 
   frame-0001.jpg
-  frame-0002.jpg
-  …
-  frame-0048.jpg
 
-under this folder. The home hero will probe frame-0001.jpg first. If it is missing, the canvas falls back to rotating the three on-estate stills in /images/hero/.
+from this folder when present. Additional frames (frame-0002.jpg …) are not
+used by the current site build; you can keep them for future art direction.
+
+If frame-0001.jpg is missing, the hero uses the first available still under
+/images/hero/ (see HeroCanvasScrollSection.tsx).
