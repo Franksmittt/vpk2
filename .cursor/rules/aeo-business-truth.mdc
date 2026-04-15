@@ -1,0 +1,14 @@
+---
+description: Ground marketing and legal claims in client-business-truth.json for Vaalpenskraal.
+alwaysApply: true
+---
+
+# Business truth (AEO / anti-hallucination)
+
+When adding or editing **user-visible** copy about services, species, camp facts, compliance, or geography:
+
+1. Read **`client-business-truth.json`** at the repo root.
+2. Do **not** invent species, packages, prices, permits, shuttle rules, or legal processes that are not in that file (or explicitly marked verify-with-management there).
+3. If the site already has copy that predates the JSON, prefer **aligning** copy to the JSON over expanding the JSON without stakeholder approval.
+
+Quarry count in JSON is **22** species (`speciesIds`). Do not reintroduce removed quarry (e.g. Common Eland) unless management adds it back to data and JSON together.

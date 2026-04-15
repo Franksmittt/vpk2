@@ -9,20 +9,21 @@ export default function Footer() {
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Explore</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
               <li><Link href="/experience" className="focus-ring rounded-sm transition-colors hover:text-white">The Experience</Link></li>
+              <li><Link href="/the-hunt" className="focus-ring rounded-sm transition-colors hover:text-white">The Hunt</Link></li>
               <li><Link href="/reserve" className="focus-ring rounded-sm transition-colors hover:text-white">Book Your Hunt</Link></li>
               <li><Link href="/species" className="focus-ring rounded-sm transition-colors hover:text-white">Quarry Species</Link></li>
+              <li><Link href="/activities" className="focus-ring rounded-sm transition-colors hover:text-white">Activities</Link></li>
+              <li><Link href="/gallery" className="focus-ring rounded-sm transition-colors hover:text-white">Gallery</Link></li>
               <li><Link href="/lodge" className="focus-ring rounded-sm transition-colors hover:text-white">The Lodge</Link></li>
               <li><Link href="/contact?intent=general" className="focus-ring rounded-sm transition-colors hover:text-white">Contact</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Certifications</h4>
+            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Compliance and place</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li>P3 Exemption Permit (confirm current documentation with the estate)</li>
-              <li>Professional Hunters' Association</li>
-              <li>Wildlife Ranching SA (WRSA)</li>
+              <li>P3 Exemption Permit (confirm current certificate and scope with management)</li>
               <li>Waterberg Biosphere Reserve</li>
-              <li>Fair Chase Certified</li>
+              <li>Matlabas Protection Service (gated access referenced in estate materials)</li>
             </ul>
           </div>
           <div>
@@ -37,7 +38,7 @@ export default function Footer() {
             <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Location</h4>
             <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
               <li>Waterberg Biosphere</li>
-              <li>Thabazimbi, Limpopo</li>
+              <li>Thabazimbi area, Limpopo</li>
               <li>South Africa</li>
               <li className="pt-2"><a href="mailto:info@vaalpenskraal.com" className="focus-ring rounded-sm transition-colors hover:text-white">info@vaalpenskraal.com</a></li>
             </ul>

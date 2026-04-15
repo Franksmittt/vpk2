@@ -68,7 +68,6 @@ function SpecCard({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           <span className="rounded-full bg-black/50 px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
             {s.epithet}
@@ -187,21 +186,27 @@ function DetailPanel({
         aria-labelledby={`species-${s.id}-sheet-heading`}
         onClick={(e) => e.stopPropagation()}
       >
-      <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/[0.08] bg-[#0a0a0a]/95 px-5 py-4 backdrop-blur-md">
-        <h2
-          id={`species-${s.id}-sheet-heading`}
-          className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/70"
-        >
-          Quarry sheet
-        </h2>
-        <button
-          type="button"
-          onClick={onClose}
-          className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10 hover:text-white"
-          aria-label="Close"
-        >
-          <X className="h-5 w-5" aria-hidden />
-        </button>
+      <div className="sticky top-0 relative z-10 overflow-hidden border-b border-white/[0.08] px-5 py-4 backdrop-blur-md">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/92 via-black/85 to-black/78"
+          aria-hidden
+        />
+        <div className="relative z-10 flex items-center justify-between">
+          <h2
+            id={`species-${s.id}-sheet-heading`}
+            className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-white/80"
+          >
+            Quarry sheet
+          </h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10 hover:text-white"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" aria-hidden />
+          </button>
+        </div>
       </div>
       <div className="relative h-56 w-full sm:h-72">
         <Image
@@ -211,7 +216,6 @@ function DetailPanel({
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
       </div>
       <div className="px-5 pb-10 pt-2 sm:px-8">
         <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-burnished-copper/90">
@@ -314,10 +318,9 @@ function ComparePanel({
                   alt={`${s.name} compare card for side-by-side quarry review`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
+            className="object-cover"
+          />
+                <div className="absolute bottom-4 left-4 right-4 drop-shadow-[0_2px_12px_rgb(0_0_0/0.85)]">
                   <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-burnished-copper/90">
                     {s.epithet}
                   </p>
@@ -409,10 +412,6 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(184,115,51,0.22),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_45%,rgb(0_0_0/0.1)_0%,rgb(0_0_0/0.4)_55%,rgb(0_0_0/0.7)_100%)]" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[28%] bg-gradient-to-b from-transparent via-black/35 to-black/78" />
         </div>
 
         <div className="editorial-container relative z-10 flex min-h-[min(100svh,920px)] flex-col justify-end pb-16 pt-28 md:pb-24 md:pt-32">
@@ -422,7 +421,7 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/70 backdrop-blur-md">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-gradient-to-r from-black/85 via-black/75 to-black/80 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/85 backdrop-blur-md ring-1 ring-black/40">
               <Mountain className="h-4 w-4 text-burnished-copper" aria-hidden />
               Iron Mountain quarry
             </div>
@@ -462,9 +461,13 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
-            className="sticky top-20 z-[500] border-b border-white/[0.08] bg-black/90 px-4 py-3 backdrop-blur-xl md:top-24"
+            className="sticky top-20 z-[500] relative overflow-hidden border-b border-white/[0.08] px-4 py-3 backdrop-blur-xl md:top-24"
           >
-            <div className="editorial-container flex flex-wrap items-center justify-between gap-3">
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
+              aria-hidden
+            />
+            <div className="editorial-container relative z-10 flex flex-wrap items-center justify-between gap-3">
               <p className="font-sans text-xs text-white/70">
                 {pickingCompare
                   ? "Tap two species to compare."
@@ -559,8 +562,7 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
                 sizes="(max-width: 768px) 100vw, 45vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-transparent to-burnished-copper/10" />
-              <Crosshair className="absolute right-6 top-6 h-8 w-8 text-white/65" aria-hidden />
+              <Crosshair className="absolute right-6 top-6 h-8 w-8 text-white drop-shadow-md" aria-hidden />
             </motion.div>
           </Link>
           <div className="lg:col-span-5">

@@ -1,0 +1,24 @@
+---
+description: WCAG-oriented UX, Core Web Vitals, and media discipline.
+globs:
+  - "app/**/*.tsx"
+  - "components/**/*.tsx"
+  - "app/globals.css"
+---
+
+# Accessibility and performance
+
+**A11y**
+
+- Preserve **one main landmark** and a single clear **h1** per view where the design expects it.
+- Interactive controls need **visible focus** (use existing `focus-ring` / `focus-ring-invert` utilities).
+- Do not lock **text** inside fixed `h-[…px]` heights that clip at 200% text scale; prefer `min-h`, fluid `min()`, or let content grow.
+- Meaningful **images** need descriptive `alt`; decorative layers stay `aria-hidden`.
+
+**Performance**
+
+- Keep above-the-fold payloads lean; large galleries defer work with lazy loading where Next allows.
+- Avoid infinite `requestAnimationFrame` loops unless justified; prefer scroll/resize listeners with passive options when tied to scroll.
+- Hero and species grids: respect image `sizes` so mobile does not download desktop-width assets.
+
+Align with research targets: total page weight discipline, CLS avoided with reserved space for media.

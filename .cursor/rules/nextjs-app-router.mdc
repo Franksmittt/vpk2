@@ -1,0 +1,16 @@
+---
+description: App Router, RSC, and async request APIs for this Next.js codebase.
+globs:
+  - "app/**/*.{tsx,ts}"
+  - "components/**/*.{tsx,ts}"
+---
+
+# Next.js App Router (repo: Next 16)
+
+- **Server components default**: only add `"use client"` when you need hooks, browser APIs, or event handlers.
+- **Async dynamic APIs**: In server pages/layouts, use `await params`, `await searchParams`, `await cookies()`, `await headers()` where applicable. Do not use deprecated sync `params` on server.
+- **Internal navigation**: Use `next/link` `<Link>` for in-site routes so prefetch and client transitions stay enabled.
+- **Images**: Prefer `next/image` with `sizes` (and `priority` only for true LCP heroes). Allow remote images only via configured patterns in `next.config`.
+- **Metadata**: Set `metadata` or `generateMetadata` per route; keep `metadataBase` consistent with `lib/site.ts` for absolute OG URLs.
+
+Research PDFs refer to "Next.js 15"; this project runs **Next 16**. Apply the same patterns unless release notes say otherwise.

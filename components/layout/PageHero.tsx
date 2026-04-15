@@ -35,7 +35,7 @@ const PageHero = ({
   const heroSrc = imageSrc ?? `https://picsum.photos/seed/${imageSeed}/1920/1080`;
   const heroAlt = imageSrc
     ? `Full-bleed hero: ${title} at Vaalpenskraal Game Reserve`
-    : `Atmospheric Waterberg bush hero placeholder (seed ${imageSeed}) for ${title}`;
+    : `Atmospheric Waterberg bush imagery for ${title} (representative hero, seed ${imageSeed})`;
 
   return (
     <section

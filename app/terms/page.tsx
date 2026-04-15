@@ -42,7 +42,7 @@ const TermsPage = () => {
           <section>
             <h2 className="text-base font-semibold text-white/85">5. Intellectual property</h2>
             <p className="mt-3">
-              Text, layout, logos, and photography supplied by Vaalpenskraal may not be copied for commercial use without permission. Stock or placeholder images may appear during development and may be replaced.
+              Text, layout, logos, and photography supplied by Vaalpenskraal may not be copied for commercial use without permission. Where representative stock imagery is used, it is labelled in alt text and may be swapped for on-estate photography over time.
             </p>
           </section>
           <section>

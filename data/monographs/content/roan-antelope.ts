@@ -9,7 +9,7 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
       "Roan are Hippotragus equinus: massive hippotragines with clown-mask faces and horns that curve back like scimitars carved long. They love open woodland and grassland mosaics, run in herds that look calm until they are not, and punish weak bullets.",
     bookCta: "Book a roan hunt",
     introParagraphs: [
-      "Roan graze tough grasses other antelope skip, carrying bulk that changes stalking math. Cows carry horns; bulls carry mass, scars, and attitude. On estates they are often high-value animals—quota and genetics ride in every conversation.",
+      "Roan graze tough grasses other antelope skip, carrying bulk that changes stalking math. Cows carry horns; bulls carry mass, scars, and attitude. On estates they are often high-value animals: quota and genetics ride in every conversation.",
       "This page walks taxonomy with sable, horn shape in both sexes, herd behaviour, lion predation on calves, fieldcraft on open ground and timber rims, rifles from .300 magnums upward with premium construction, trophy judgement on length and thickness, and meat that is dark, lean, and honest.",
     ],
     taxonomyTitle: "Taxonomy beside the sable crown",
@@ -39,11 +39,11 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
       "Mature bulls often exceed 250 kg with shoulder height near 130 to 140 cm class. Horns are long, strongly ridged, and curve backward with tips that sharpen in fights. Facial stripes and mane read age alongside horn bases.",
     formPrimaryBullets: [
       "Fighting scars on neck and flanks tell stories tape misses.",
-      "Approach downed animals from behind PH direction—horns swing wide.",
+      "Approach downed animals from behind PH direction; horns swing wide.",
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows carry horns and mass enough to gore. Sex ID uses body depth and horn thickness—never guess at last light.",
+      "Cows carry horns and mass enough to gore. Sex ID uses body depth and horn thickness. Never guess at last light.",
     formBlockquote:
       "Open ground lies about distance; roan lie about how fast they cover it when wounded.",
     ecologyTitle: "Coarse grass, open timber, water honesty",
@@ -64,12 +64,12 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     socialCards: [
       {
         title: "Breeding herds",
-        body: "Calves low in grass—identify before bolt.",
+        body: "Calves low in grass: identify before bolt.",
         icon: "mountain",
       },
       {
         title: "Bachelors",
-        body: "Sparring on open ground—good horn school.",
+        body: "Sparring on open ground: good horn school.",
         icon: "binoculars",
       },
       {
@@ -125,7 +125,7 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     meatTitle: "Meat, dark and serious",
     meatLeft: [
-      "Roan venison is lean and iron-forward—rare steaks or slow shanks; no lazy chill room.",
+      "Roan venison is lean and iron-forward. Rare steaks or slow shanks; no lazy chill room.",
     ],
     meatRight: [
       "Hide and horn often dominate export talk; confirm your agent’s stack early.",

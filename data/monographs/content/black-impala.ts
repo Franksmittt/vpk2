@@ -13,7 +13,7 @@ export function blackImpalaMonograph(s: QuarrySpecies): MonographDefinition {
     variantCallout:
       "Melanistic animals are a ranch product. Marketing should state genetics and origin clearly. Your PH still judges age, horn, and wind the same way as on any rooibok.",
     introParagraphs: [
-      "Every paragraph in the impala monograph about mixed feeding, water loyalty, edge habitat, alarm barks, and leopard silence still applies. Black coats absorb heat differently and can read as a flat silhouette in certain light—use glass on horn lines and gait, not only body gloss.",
+      "Every paragraph in the impala monograph about mixed feeding, water loyalty, edge habitat, alarm barks, and leopard silence still applies. Black coats absorb heat differently and can read as a flat silhouette in certain light. Use glass on horn lines and gait, not only body gloss.",
       "This page keeps full impala depth while foregrounding morph ethics: parentage records, why colour sells, and why fair-chase rules do not relax because the hide is unusual.",
     ],
     taxonomyTitle: base.taxonomyTitle,
@@ -80,7 +80,7 @@ export function blackImpalaMonograph(s: QuarrySpecies): MonographDefinition {
       "Bring impala discipline and transparent storytelling. We align harvest with census and season; your story home should match the skinning rack.",
     quickFactExtraRows: [
       ["Morph", "Melanistic colour line of Aepyceros melampus"],
-      ["Species", "Impala — same rifles, same shot placement"],
+      ["Species", "Impala: same rifles, same shot placement"],
       ["Ethics", "Disclose selection history like any other variant"],
     ],
     imageSeeds: base.imageSeeds,

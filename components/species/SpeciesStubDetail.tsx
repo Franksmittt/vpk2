@@ -7,11 +7,15 @@ import { speciesImageUrl } from "@/lib/species-media";
 const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="border-b border-white/[0.08] bg-black/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-4 sm:px-8 md:px-12">
+      <div className="relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto flex max-w-6xl items-center gap-4 px-5 py-4 sm:px-8 md:px-12">
           <Link
             href="/species"
-            className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/70 transition-colors hover:text-white"
+            className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/80 transition-colors hover:text-white"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden />
             All species
@@ -27,15 +31,14 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black" />
         </div>
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:px-12 md:py-28">
-          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
+          <p className="hero-readable-eyebrow font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
             {s.epithet}
           </p>
-          <h1 className="mt-4 font-sans text-4xl font-semibold tracking-[-0.04em] md:text-5xl lg:text-6xl">
+          <h1 className="hero-readable-title mt-4 font-sans text-4xl font-semibold tracking-[-0.04em] md:text-5xl lg:text-6xl">
             {s.name}
           </h1>
           <p className="mt-3 font-serif text-lg italic text-white/70">{s.scientific}</p>

@@ -12,7 +12,7 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat
 
 const defaultTitle = "Vaalpenskraal Game Reserve | Waterberg Hunting";
 const defaultDescription =
-  "Premium fair-chase hunting and Waterberg stays: four guest chalets on camp, full-board bush hospitality, plains and dangerous game, and international safari support.";
+  "Premium fair-chase hunting in the Waterberg, Limpopo: four guest chalets on camp, fully catered hospitality at Vark Kraal, PH-led plains and dangerous game where law and ethics allow, census-driven quarry (not a static menu).";
 
 export const metadata: Metadata = {
   metadataBase: siteMetadataBase,

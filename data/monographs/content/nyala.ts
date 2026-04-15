@@ -9,12 +9,12 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       "Nyala are Tragelaphus angasii, the striped spiral-horned bridge between bushbuck density and kudu height. Rams carry yellow legs, manes, and horns that hook outward; ewes wear rusty coats with crisp stripes and no horns. They haunt ecotones where browse meets cover.",
     bookCta: "Book a nyala hunt",
     introParagraphs: [
-      "Nyala want edges: riverine strips, thicket rims, acacia understory. They browse more than they graze, picking leaves, fruit, and flowers with seasonal shifts. Leopards love their habitat, which means nyala freeze hard and bolt late—still-hunting craft matters more than magnum fever.",
+      "Nyala want edges: riverine strips, thicket rims, acacia understory. They browse more than they graze, picking leaves, fruit, and flowers with seasonal shifts. Leopards love their habitat, which means nyala freeze hard and bolt late. Still-hunting craft matters more than magnum fever.",
       "You will read taxonomy placement in Tragelaphini, ram and ewe dimorphism, herd behaviour, predation from leopard to wild dog, stalking craft inside 100 metres more often than 300, rifles from .308 upward with premium bullets, trophy talk on horn flare and age, and meat darker than impala with honest character.",
     ],
     taxonomyTitle: "Taxonomy and the angasii line",
     taxonomyIntro:
-      "Nyala sit with kudu, bushbuck, and eland in the spiral-horned tribe. They are not small kudu—body plan, striping, and social style differ. Marketing should use the right name; export paperwork should match the animal on the hook.",
+      "Nyala sit with kudu, bushbuck, and eland in the spiral-horned tribe. They are not small kudu. Body plan, striping, and social style differ. Marketing should use the right name; export paperwork should match the animal on the hook.",
     taxonomyCards: [
       {
         title: "Nyala",
@@ -38,18 +38,18 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
     formPrimaryBody:
       "Mature rams carry horns that flare outward then inward with length often quoted past 60 cm in excellent animals. Shoulder height near 110 cm class with mass commonly 90 to 125 kg depending on soil. The dorsal mane and yellow stockings are honest age cues alongside horn mass.",
     formPrimaryBullets: [
-      "Young rams can look like large ewes until horns declare themselves—never rush sex ID in bad light.",
+      "Young rams can look like large ewes until horns declare themselves. Never rush sex ID in bad light.",
       "Rut brings ground tracking, erect mane, and rude spacing between males.",
     ],
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
-      "Ewes are hornless with orange-brown coats and vertical white stripes—one of Africa’s most beautiful pelages. Nursery herds move like smoke through thicket; identify before the safety moves.",
+      "Ewes are hornless with orange-brown coats and vertical white stripes: one of Africa’s most beautiful pelages. Nursery herds move like smoke through thicket; identify before the safety moves.",
     formBlockquote:
       "If you see the whole nyala, it likely catalogued you first.",
     ecologyTitle: "Edges, fruit, and the leopard clock",
     ecologyParagraphs: [
       "Nyala rotate browse with rainfall: fresh leaves after rain, pods and fruit when seasons turn. Water dependence is real but not as extreme as lechwe.",
-      "Leopards hunt them in their bedroom. That pressure rewards freeze behaviour—still-hunt slowly or you push only ears.",
+      "Leopards hunt them in their bedroom. That pressure rewards freeze behaviour. Still-hunt slowly or you push only ears.",
       "Stacked density with bushbuck on small farms changes behaviour; shy animals become nocturnal or break fences.",
     ],
     feedSectionTitle: "Browse arcs and garden risk",
@@ -57,14 +57,14 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       "Ornamental plantings pull nyala into human edges. Electric fences and dogs create wounds. Hunting is one population tool where conflict rises.",
     fieldNoteTitle: "Field note",
     fieldNoteBody:
-      "Listen for the sharp dog bark alarm. Freeze until the sound passes, then adjust on feet—not on knees that flash.",
+      "Listen for the sharp dog bark alarm. Freeze until the sound passes, then adjust on feet, not on knees that flash.",
     socialTitle: "Female herds, bachelor shy, rut theatre",
     socialIntro:
       "Ewes and young form loose groups. Rams appear and vanish like shadows until rut gathers tension.",
     socialCards: [
       {
         title: "Nursery herds",
-        body: "Striped bodies in dappled light—glass for calves before shots.",
+        body: "Striped bodies in dappled light: glass for calves before shots.",
         icon: "mountain",
       },
       {
@@ -74,7 +74,7 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
       {
         title: "Rut fights",
-        body: "Horn clashes at close range—do not insert yourself as audience.",
+        body: "Horn clashes at close range. Do not insert yourself as audience.",
         icon: "crosshair",
       },
     ],
@@ -94,7 +94,7 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
       {
         title: "Ambush",
-        text: "Fruit, water seeps, and garden conflict zones—patience wins.",
+        text: "Fruit, water seeps, and garden conflict zones. Patience wins.",
         icon: "target",
       },
       {
@@ -125,7 +125,7 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     meatTitle: "Meat with honest colour",
     meatLeft: [
-      "Nyala venison is darker and more aromatic than impala—marinade honesty helps picky palates.",
+      "Nyala venison is darker and more aromatic than impala. Marinade honesty helps picky palates.",
       "Shank and neck forgive slow pots; backstrap rewards rare discipline.",
     ],
     meatRight: [

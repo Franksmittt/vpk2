@@ -334,7 +334,7 @@ const HomePageClient = () => {
               <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out hover:scale-[1.02]">
                 <Image
                   src="https://picsum.photos/seed/luxurylodge/1600/2000"
-                  alt="Luxury bush lodge interior and deck placeholder until dedicated Vaalpenskraal photography is added"
+                  alt="Bush lodge interior and deck: representative luxury lodge imagery for the stay section"
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover object-center"
@@ -343,7 +343,7 @@ const HomePageClient = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-black/55 via-transparent to-black/25 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between gap-4">
                 <p className="font-sans text-xs md:text-sm text-white/55 max-w-[18rem] leading-snug">
-                  {CHALET_KRAALS_LINE} - overnight guests only. {COMMUNAL_BAR_KRAAL}, kitchen, pool, boma, outlook &amp; waterhole. Full board in the Waterberg.
+                  {CHALET_KRAALS_LINE} · overnight guests only. {COMMUNAL_BAR_KRAAL}, kitchen, pool, boma, outlook &amp; waterhole. Full board in the Waterberg.
                 </p>
                 <Link
                   href="/lodge"
@@ -638,7 +638,7 @@ const HomePageClient = () => {
               >
                 <Image
                   src={`https://picsum.photos/seed/${activeT.imgSeed}/200/200`}
-                  alt={`Portrait-style placeholder for testimonial from ${activeT.name}`}
+                  alt={`Guest portrait for ${activeT.name} (representative imagery)`}
                   width={200}
                   height={200}
                   sizes="64px"

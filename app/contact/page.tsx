@@ -9,7 +9,7 @@ import ContactIntentForm from "./ContactIntentForm";
 export const metadata: Metadata = {
   title: "Contact | Vaalpenskraal Game Reserve",
   description:
-    "Contact Vaalpenskraal Game Reserve in the Waterberg, Limpopo: hunt enquiries, lodge stays, international travel, and family visits.",
+    "Contact Vaalpenskraal in the Waterberg, Limpopo: hunt and lodge enquiries by email. Children on camp and minors need prior agreement with management.",
 };
 
 const ContactPage = () => {
@@ -18,7 +18,7 @@ const ContactPage = () => {
       <PageHero
         heroTitleId="contact-hero-title"
         eyebrow="Contact"
-        title="Let’s talk before you land in the bush"
+        title="Let's talk before you land in the bush"
         compact
         subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans: send the honest version. We reply with the same."
         imageSeed="contacthero"
@@ -39,8 +39,8 @@ const ContactPage = () => {
                 <li className="flex gap-3">
                   <Phone className="mt-1 h-4 w-4 shrink-0 text-burnished-copper/80" aria-hidden />
                   <span>
-                    Phone on request after first enquiry{" "}
-                    <span className="text-white/65">(replace with estate line when live)</span>
+                    A direct camp line can be shared after we have opened your enquiry by email, so your dates and party
+                    size are on record.
                   </span>
                 </li>
                 <li className="flex gap-3">

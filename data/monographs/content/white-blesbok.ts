@@ -13,7 +13,7 @@ export function whiteBlesbokMonograph(s: QuarrySpecies): MonographDefinition {
     variantCallout:
       "Colour morphs belong in honest marketing. Disclose breeding, hybrid vigilance with bontebok lines, and how the estate maintains purity.",
     introParagraphs: [
-      "Everything in the blesbok monograph about hybrid risk, alcelaphine grazing, herd bunching on short grass, and wind-aware shooting still applies. Pale coats can flare in midday sun and disappear in frost—plan glassing angles accordingly.",
+      "Everything in the blesbok monograph about hybrid risk, alcelaphine grazing, herd bunching on short grass, and wind-aware shooting still applies. Pale coats can flare in midday sun and disappear in frost. Plan glassing angles accordingly.",
       "We keep full blesbok biology here while stressing integrity: why white animals exist on ranches, how they fit carrying capacity, and why trophy talk still centres on horn and age.",
     ],
     taxonomyTitle: base.taxonomyTitle,
@@ -40,7 +40,7 @@ export function whiteBlesbokMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: base.formEyebrow,
     formPrimaryTitle: base.formPrimaryTitle,
     formPrimaryBody:
-      "Rams carry lyrate horns with strong rings; ewes carry lighter horns. White pelage can wash out shoulder definition in photos—judge mass and belly depth through the scope, not through phone zoom after the fact.",
+      "Rams carry lyrate horns with strong rings; ewes carry lighter horns. White pelage can wash out shoulder definition in photos. Judge mass and belly depth through the scope, not through phone zoom after the fact.",
     formPrimaryBullets: base.formPrimaryBullets,
     formSecondaryTitle: base.formSecondaryTitle,
     formSecondaryBody: base.formSecondaryBody,
@@ -52,7 +52,7 @@ export function whiteBlesbokMonograph(s: QuarrySpecies): MonographDefinition {
     feedBody: base.feedBody,
     fieldNoteTitle: base.fieldNoteTitle,
     fieldNoteBody:
-      "Frost and dew make pale animals glow. Midday glare can erase outline—use background contrast when you pick your shot window.",
+      "Frost and dew make pale animals glow. Midday glare can erase outline. Use background contrast when you pick your shot window.",
     socialTitle: base.socialTitle,
     socialIntro: base.socialIntro,
     socialCards: base.socialCards,

@@ -9,12 +9,12 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       "Giraffe are Giraffa camelopardalis giraffa in much of South Africa: the tallest ruminant on Earth, browsing above competition, seeing your mistake before you finish it. Hunts are regulated, specialised, and never casual. Shot placement is not deer geometry copied tall.",
     bookCta: "Book a giraffe hunt",
     introParagraphs: [
-      "Giraffe eat canopy that kudu cannot reach, shaping woodland structure. Bulls clash in slow, heavy fights that sound like distant thunder. Calves vanish in nursery groups while cows run collective vigilance. On estates, harvest is usually selective—old bulls, problem animals, or quota lines your PH explains in plain language.",
+      "Giraffe eat canopy that kudu cannot reach, shaping woodland structure. Bulls clash in slow, heavy fights that sound like distant thunder. Calves vanish in nursery groups while cows run collective vigilance. On estates, harvest is usually selective: old bulls, problem animals, or quota lines your PH explains in plain language.",
       "You will read taxonomy notes within Giraffa, bull versus cow mass and skin cues, browse ecology, lion and hyena risk to calves, fieldcraft that respects their horizon, rifles in .375 H&H class and upward with solid or controlled bullets per PH brief, welfare-first shot angles, meat as niche where used, and the paperwork stack international guests must own with their agents.",
     ],
     taxonomyTitle: "Taxonomy and the long-necked lineage",
     taxonomyIntro:
-      "Giraffe taxonomy has been revised; use the name your permit carries. For marketing, clarity beats Latin flex—state subspecies or regional form as your outfitter requires.",
+      "Giraffe taxonomy has been revised; use the name your permit carries. For marketing, clarity beats Latin flex. State subspecies or regional form as your outfitter requires.",
     taxonomyCards: [
       {
         title: "Southern giraffe",
@@ -36,7 +36,7 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Mass at height",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
-      "Mature bulls carry heavy ossicones often bald on top from combat, thick necks, and masses that can exceed a ton in big animals. Cows are lighter with finer tufted ossicones. Sexing at distance uses silhouette and behaviour—never guess from neck alone in bad light.",
+      "Mature bulls carry heavy ossicones often bald on top from combat, thick necks, and masses that can exceed a ton in big animals. Cows are lighter with finer tufted ossicones. Sexing at distance uses silhouette and behaviour. Never guess from neck alone in bad light.",
     formPrimaryBullets: [
       "Fighting wounds on neck and body read like ledgers.",
       "Kicks have range; never stand under a nervous giraffe.",
@@ -48,7 +48,7 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       "If you treat height like a gimmick, the first shot will teach you otherwise.",
     ecologyTitle: "Canopy, thorns, and the water paradox",
     ecologyParagraphs: [
-      "Giraffe spread browse pressure vertically, pruning trees other animals cannot reach. Water is drunk awkwardly and exposes animals—lions occasionally exploit that vulnerability.",
+      "Giraffe spread browse pressure vertically, pruning trees other animals cannot reach. Water is drunk awkwardly and exposes animals. Lions occasionally exploit that vulnerability.",
       "Fence lines force repeated paths; ethical hunting avoids turning those into siege lines.",
       "Heat pushes shade loafing; mornings see movement to fresh browse.",
     ],
@@ -64,7 +64,7 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
     socialCards: [
       {
         title: "Nursery herds",
-        body: "Cows and young—extra care before any shot.",
+        body: "Cows and young: extra care before any shot.",
         icon: "mountain",
       },
       {
@@ -94,7 +94,7 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       },
       {
         title: "Rest discipline",
-        text: "Tripods, sticks, or vehicle rests per estate rules—no macho off-hand.",
+        text: "Tripods, sticks, or vehicle rests per estate rules. No macho off-hand.",
         icon: "target",
       },
       {
@@ -115,7 +115,7 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       ["Standard", ".375 H&H", "Controlled-expanding premium; common estate baseline."],
       ["Heavy", ".416 Rigby, .458 Win Mag", "Where brief or animal size demands."],
       ["Not here", ".243 / .270", "Under-giraffe for ethical first shots."],
-      ["Note", "PH sign-off", "Always—placement matters more than brand flex."],
+      ["Note", "PH sign-off", "Always: placement matters more than brand flex."],
     ],
     rifleTips: [
       { label: "Angle:", body: "PH will describe chest line in your scope language." },

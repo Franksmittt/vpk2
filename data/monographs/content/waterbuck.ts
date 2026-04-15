@@ -6,10 +6,10 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
   return {
     heroTitle: "The white ring and the water oath",
     heroLead:
-      "Waterbuck are Kobus ellipsiprymnus: heavy-shouldered grazers that advertise water dependence with a pale rump halo. They are not marsh trivia. On the Iron Mountain they are a serious kob—thick coat, strong bone, and enough mass to punish soft bullets.",
+      "Waterbuck are Kobus ellipsiprymnus: heavy-shouldered grazers that advertise water dependence with a pale rump halo. They are not marsh trivia. On the Iron Mountain they are a serious kob: thick coat, strong bone, and enough mass to punish soft bullets.",
     bookCta: "Book a waterbuck hunt",
     introParagraphs: [
-      "Ellipsiprymnus names the white ring on the rump—your rangefinder cue in reeds. Rams carry lyrate horns with bold ridges; ewes are hornless. They graze lawns, crop edges, and floodplain grasses, but they seldom stray far from reliable drink for long. That habit makes them predictable on ethical ambushes and dangerous when drought stacks animals on one pan.",
+      "Ellipsiprymnus names the white ring on the rump: your rangefinder cue in reeds. Rams carry lyrate horns with bold ridges; ewes are hornless. They graze lawns, crop edges, and floodplain grasses, but they seldom stray far from reliable drink for long. That habit makes them predictable on ethical ambushes and dangerous when drought stacks animals on one pan.",
       "This monograph walks taxonomy within Kobus, sexual dimorphism, grazing ecology, herd behaviour, lion and crocodile risk, fieldcraft from glassing reeds to tracking wet ground, rifles from .270 class upward with premium construction, trophy talk on horn length and mass, and venison that needs cold-room respect.",
     ],
     taxonomyTitle: "Taxonomy and the kob circle",
@@ -36,7 +36,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Mass is the message",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
-      "Mature rams commonly run from roughly 230 kg upward in good range with shoulder height near 120 to 135 cm class depending on nutrition. Horns sweep forward and up with strong annuli; length and basal mass matter more than height alone. The neck hump thickens with age. Coat greases in rain—do not mistake shine for condition.",
+      "Mature rams commonly run from roughly 230 kg upward in good range with shoulder height near 120 to 135 cm class depending on nutrition. Horns sweep forward and up with strong annuli; length and basal mass matter more than height alone. The neck hump thickens with age. Coat greases in rain. Do not mistake shine for condition.",
     formPrimaryBullets: [
       "Combat chips and horn tip wear tell stories tape alone misses.",
       "Rams hold ground near cover when pressured; expect short explosive flight to thicket.",
@@ -50,7 +50,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     ecologyParagraphs: [
       "Waterbuck clip green bite on lawns and floodplain regrowth. They tolerate coarse grass better than picky specialists but still rotate toward protein when seasons turn.",
       "Dry months stack animals on perennial water. That concentration feeds lions and crocs and tests fence corners. Ethical hunting avoids turning drink into a siege.",
-      "Midday heat pushes shade loafing along river lines—still-hunting margins can intersect animals returning from water.",
+      "Midday heat pushes shade loafing along river lines. Still-hunting margins can intersect animals returning from water.",
     ],
     feedSectionTitle: "Grazing lawns and the dry-season knot",
     feedBody:
@@ -60,7 +60,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
       "Reed shimmer lies about distance. Range before you talk yourself into a hollow paunch shot.",
     socialTitle: "Herd strings, bachelor bands, rut bluntness",
     socialIntro:
-      "Loose herds string along cover. Bachelor males rehearse pushing matches. Rut brings neck swelling and blunt chasing—distance still matters.",
+      "Loose herds string along cover. Bachelor males rehearse pushing matches. Rut brings neck swelling and blunt chasing. Distance still matters.",
     socialCards: [
       {
         title: "Nursery herds",
@@ -69,7 +69,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
       },
       {
         title: "Bachelor bands",
-        body: "Young males in open grass—good horn school before trophy fees.",
+        body: "Young males in open grass: good horn school before trophy fees.",
         icon: "binoculars",
       },
       {
@@ -110,7 +110,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     rifleTitle: "Rifles, construction, and wet-day penetration",
     rifleIntro:
-      "Waterbuck are not buffalo, but they are dense. Use controlled-expanding premium bullets in .30 calibre class or larger when in doubt. Angled reeds lie—choose a path that still punches the forward shoulder.",
+      "Waterbuck are not buffalo, but they are dense. Use controlled-expanding premium bullets in .30 calibre class or larger when in doubt. Angled reeds lie. Choose a path that still punches the forward shoulder.",
     rifleTable: [
       ["Minimum", ".270 Win", "Perfect broadside, premium bonded, close cover discipline."],
       ["Standard", ".30-06, .308 Win", "150–180 gr premium for most ethical ranges."],
@@ -120,7 +120,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     rifleTips: [
       { label: "Glass:", body: "Tripod mindset for shimmer and heat." },
       { label: "Broadside:", body: "Mid-shoulder line through heart-lung; avoid paunch-only." },
-      { label: "Reeds:", body: "Assume a twig will lie—pick a window, not a wish." },
+      { label: "Reeds:", body: "Assume a twig will lie. Pick a window, not a wish." },
       { label: "Follow-up:", body: "Mark splash, breathe, let PH own the next move." },
     ],
     meatTitle: "Meat, iron, and cold-room honesty",
@@ -129,7 +129,7 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
       "Shank and neck reward slow heat; backstrap rewards discipline on the pan.",
     ],
     meatRight: [
-      "Gut fast in heat, chill fast, and keep hair out of the meat—wet hides punish lazy skinning.",
+      "Gut fast in heat, chill fast, and keep hair out of the meat. Wet hides punish lazy skinning.",
     ],
     closingTitle: "Ready for the ring?",
     closingBody:

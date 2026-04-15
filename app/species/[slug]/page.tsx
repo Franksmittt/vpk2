@@ -64,7 +64,10 @@ const SpeciesSlugPage = async ({ params }: Props) => {
   if (!s) notFound();
 
   const description = speciesPageDescription(slug, s);
-  const jsonLd = buildSpeciesJsonLd(slug, s, description);
+  const cardPath = SPECIES_CARD_IMAGE_BY_ID[s.id];
+  const jsonLd = buildSpeciesJsonLd(slug, s, description, {
+    primaryImagePath: cardPath,
+  });
 
   let body: ReactNode;
   if (slug === "greater-kudu") {

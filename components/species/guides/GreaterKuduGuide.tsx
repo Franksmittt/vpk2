@@ -162,11 +162,15 @@ function NavPill({ href, children }: { href: string; children: React.ReactNode }
 const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="sticky top-20 z-[90] border-b border-white/[0.08] bg-black/85 backdrop-blur-xl md:top-24">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
+      <div className="sticky top-20 z-[90] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
           <Link
             href="/species"
-            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/70 transition-colors hover:text-white"
+            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
           >
             <ChevronLeft className="h-4 w-4" />
             Quarry
@@ -196,21 +200,19 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 to-black/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_70%_80%,rgba(184,115,51,0.2),transparent_50%)]" />
         </div>
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
-          <div className="mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
+          <div className="hero-readable-eyebrow mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
             <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />
             Species monograph
           </div>
-          <h1 className="max-w-4xl font-sans text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
+          <h1 className="hero-readable-title max-w-4xl font-sans text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             The Grey Ghost of the thickets
           </h1>
           <p className="mt-4 max-w-2xl font-serif text-lg italic text-burnished-copper/90 md:text-xl">
             Greater Kudu · {s.scientific}
           </p>
-          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="hero-readable-body mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
             Few African animals earn the quiet reverence of a mature kudu bull. Spiral horns, disruptive
             stripes, and a freeze that breaks your nerve: this is the graduate course in bush stillness.
           </p>

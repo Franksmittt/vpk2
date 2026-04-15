@@ -9,12 +9,12 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
       "Plains zebra are Equus quagga burchellii: social equids that turn grass into vigilance networks. They are not props behind a lion documentary. On hunting estates they are heavy animals with surprising stamina, sharp ears, and a herd brain that punishes sloppy wind.",
     bookCta: "Book a plains zebra hunt",
     introParagraphs: [
-      "Zebras clip grass low, compete with wildebeest where ranges overlap, and drink on schedules lions learn faster than some clients. Trophy judgement mixes hide quality, body condition, and management goals—some properties emphasise population control; others market stallion hides.",
+      "Zebras clip grass low, compete with wildebeest where ranges overlap, and drink on schedules lions learn faster than some clients. Trophy judgement mixes hide quality, body condition, and management goals. Some properties emphasise population control; others market stallion hides.",
       "This page covers equid taxonomy within modern quagga grouping, stallion politics, predation responses, fieldcraft on open ground and at water, rifles that match sternum depth, shot placement forward of mid-body myths, meat culture where legal and cultural rules allow, and export paperwork reality for international guests.",
     ],
     taxonomyTitle: "Taxonomy and the quagga revival",
     taxonomyIntro:
-      "Molecular work folded quagga into plains zebra narrative. Burchell’s zebra is the common hunting form across much of southern Africa. Use the scientific name your outfitter places on permits—paperwork beats bar debate.",
+      "Molecular work folded quagga into plains zebra narrative. Burchell’s zebra is the common hunting form across much of southern Africa. Use the scientific name your outfitter places on permits. Paperwork beats bar debate.",
     taxonomyCards: [
       {
         title: "Burchell’s zebra",
@@ -36,7 +36,7 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     formEyebrow: "Equid truth",
     formPrimaryTitle: "The stallion",
     formPrimaryBody:
-      "Mature plains zebra commonly run 300 kg class and upward with shoulder height near 120 to 140 cm depending on region. Neck crest, scars, and teeth tell age better than stripe width. Kicks kill—never treat a down animal casually.",
+      "Mature plains zebra commonly run 300 kg class and upward with shoulder height near 120 to 140 cm depending on region. Neck crest, scars, and teeth tell age better than stripe width. Kicks kill. Never treat a down animal casually.",
     formPrimaryBullets: [
       "Bachelor fights slash necks and haunches; scars read like ledgers.",
       "Stripes break outline at speed; judge body line, not pattern dazzle.",
@@ -54,7 +54,7 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     feedSectionTitle: "Grazing lawns and fence psychology",
     feedBody:
-      "Short grass after fire or mowing pulls zebras early. When pans shrink, strings form to drink—read carrying capacity in ribs, not only in horn tallies.",
+      "Short grass after fire or mowing pulls zebras early. When pans shrink, strings form to drink. Read carrying capacity in ribs, not only in horn tallies.",
     fieldNoteTitle: "Field note",
     fieldNoteBody:
       "When one zebra’s ears lock, the ripple travels faster than you can whisper ‘freeze.’",
@@ -105,12 +105,12 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     trophyTitle: "Trophy sense: hide, age, management",
     trophyParagraphs: [
-      "Stallion hides, body mass, and scar character matter alongside striping. Some estates prioritise numbers; others market specific animals—ask before you fixate.",
+      "Stallion hides, body mass, and scar character matter alongside striping. Some estates prioritise numbers; others market specific animals. Ask before you fixate.",
       "Export and import rules for zebra products vary by country; your agent owns that stack, not the estate kitchen.",
     ],
     rifleTitle: "Rifles, bullets, and forward heart",
     rifleIntro:
-      "Zebra are dense. Use premium controlled bullets in .270 class minimum for adults; .30 calibres are common sense. Shot placement is forward heart-lung—mid-body deer habits lie on equids.",
+      "Zebra are dense. Use premium controlled bullets in .270 class minimum for adults; .30 calibres are common sense. Shot placement is forward heart-lung. Mid-body deer habits lie on equids.",
     rifleTable: [
       ["Minimum", ".270 Win", "Perfect angle, premium bonded, mature animal caution."],
       ["Standard", ".30-06, .308 Win", "150–180 gr controlled expansion."],
@@ -120,12 +120,12 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     rifleTips: [
       { label: "Placement:", body: "Forward shoulder line; avoid paunch-only." },
       { label: "Follow-up:", body: "Assume a wounded zebra runs straight at horizon." },
-      { label: "Safety:", body: "Hooves kill at close range—approach with PH discipline." },
+      { label: "Safety:", body: "Hooves kill at close range. Approach with PH discipline." },
       { label: "Herd:", body: "Pick one animal; never spray into moving stripes." },
     ],
     meatTitle: "Meat culture where law allows",
     meatLeft: [
-      "Zebra meat is lean and dark where legal harvest for the table is welcomed—treat like horse or eland discipline: rare to medium, sharp knives, fast chill.",
+      "Zebra meat is lean and dark where legal harvest for the table is welcomed. Treat like horse or eland discipline: rare to medium, sharp knives, fast chill.",
     ],
     meatRight: [
       "Many international clients focus on hide and skull; confirm import rules before promising salami stories.",

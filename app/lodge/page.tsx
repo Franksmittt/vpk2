@@ -103,7 +103,8 @@ const SPECS: SpecRow[] = [
   { label: "Bathroom", value: "Showers · 2 basins · toilet (per chalet)", seed: "vpspec-bathroom", src: `${LODGE}/spec-bathroom.jpg` },
   {
     label: "Catering",
-    value: "Fully catered: snacks, lunch, supper · all food & drinks including alcohol",
+    value:
+      "Fully catered: snacks, lunch, supper, food, soft drinks, alcohol on estate under responsible service guidelines",
     seed: "vpspec-catering",
     src: `${LODGE}/spec-catering.jpg`,
     layout: "wide",
@@ -263,7 +264,8 @@ const LodgePage = () => {
                   <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-white/65">Facts sheet</span>
                 </div>
                 <p className="vp-scroll-root-line mt-5 max-w-xl font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                  On-camp photography. Spec tiles still show placeholders where we are waiting on dedicated shots: activities, cold chain, meat handling, transfers.
+                  Facts below are drawn from how the camp actually runs. A few tiles use representative imagery until
+                  dedicated estate photos are available for that topic.
                 </p>
               </div>
               <Link
@@ -294,7 +296,11 @@ const LodgePage = () => {
                   <div className={`relative w-full overflow-hidden ${imgAspect}`}>
                     <Image
                       src={row.src ?? `https://picsum.photos/seed/${row.seed}/1000/480`}
-                      alt={row.src ? `Vaalpenskraal lodge and camp: ${row.label}` : `Placeholder image for ${row.label}`}
+                      alt={
+                        row.src
+                          ? `Vaalpenskraal lodge and camp: ${row.label}`
+                          : `Vaalpenskraal lodge and camp: ${row.label} (representative imagery)`
+                      }
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       className="object-cover transition duration-[1.1s] ease-out group-hover:scale-[1.05]"
@@ -302,7 +308,7 @@ const LodgePage = () => {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/25 to-black/30" />
                     {!row.src ? (
                       <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2 py-1 font-sans text-[8px] font-semibold uppercase tracking-[0.22em] text-white/70 ring-1 ring-white/10 backdrop-blur-sm">
-                        Image slot
+                        Representative
                       </span>
                     ) : null}
                   </div>

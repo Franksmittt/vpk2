@@ -1,0 +1,162 @@
+{
+  "document": "client-business-truth",
+  "version": "1.0.0",
+  "lastReviewed": "2026-04-15",
+  "sources": [
+    "critters/SEO & AEO Strategy_ South African Game Reserve.txt",
+    "data/species.ts",
+    "data/camp-kraals.ts",
+    "lib/site.ts"
+  ],
+  "organization": {
+    "legalName": "Vaalpenskraal Game Reserve",
+    "brandNames": ["Vaalpenskraal", "Vaalpenskraal Game Reserve", "Iron Mountain"],
+    "alternateSearchTerms": ["vaal pens kraal"],
+    "canonicalSiteUrl": "https://www.vaalpenskraal.com",
+    "positioning": "Premium fair-chase hunting estate in the Waterberg, Limpopo, South Africa. PH-led plains and dangerous game where legally and ethically offered. Census-driven quarry roster, not a guaranteed species menu."
+  },
+  "geography": {
+    "region": "Waterberg",
+    "province": "Limpopo",
+    "countryCode": "ZA",
+    "biosphereLabel": "Waterberg Biosphere",
+    "publicLocationLine": "Waterberg Biosphere · Thabazimbi area, Limpopo, South Africa",
+    "gateDirectionsPolicy": "Exact gate coordinates and directions are supplied when a booking is confirmed.",
+    "entityAnchors": [
+      "Waterberg thicket and mixed bushveld",
+      "Crocodile River basin (regional context)",
+      "Matlabas River basin (regional context)"
+    ],
+    "travelNote": "International hunters typically route via Johannesburg (OR Tambo). Drive times and shuttle details must stay verify-with-management."
+  },
+  "accommodation": {
+    "model": "Four guest chalets only on the hunting camp. No separate main guest residence for hunters on camp.",
+    "chalets": [
+      { "id": "roan", "name": "Roan Kraal" },
+      { "id": "eland", "name": "Eland Kraal" },
+      { "id": "gemsbok", "name": "Gemsbok Kraal" },
+      { "id": "koedoe", "name": "Koedoe Kraal" }
+    ],
+    "capacityPerChalet": "4 to 5 guests",
+    "campWideCapacityApprox": "Up to about 20 guests when all chalets are full",
+    "bedding": "Four single beds and one double bed per chalet",
+    "climateControl": "Air conditioning in all chalets",
+    "bathroom": "Showers, two basins, toilet per chalet"
+  },
+  "communalHub": {
+    "name": "Vark Kraal",
+    "role": "Communal bar, kitchen, lounge and dining",
+    "cookingHardware": ["Gas stove", "Electric oven"]
+  },
+  "catering": {
+    "board": "Fully catered",
+    "includes": ["Snacks", "Lunch", "Supper", "Food", "Soft drinks", "Alcohol on estate under responsible service guidelines"],
+    "excludes": "Metered hotel-style bar billing for included package scope"
+  },
+  "campFacilities": [
+    "Swimming pool",
+    "Canopy boma under trees",
+    "Outlook point for viewing and sundowners",
+    "Waterhole for passive game viewing"
+  ],
+  "onEstateActivities": {
+    "items": ["Clay pigeon shooting", "Game drives"],
+    "scheduling": "When the schedule allows; not guaranteed every day without enquiry"
+  },
+  "huntingServices": {
+    "primary": "Fair-chase hunting under professional hunter (PH) field standards",
+    "quarryPolicy": "Census-driven roster and quota. Availability is ecology-driven, not a static menu guarantee.",
+    "dangerousGame": "Offered only where legally and ethically appropriate and under PH guidance",
+    "speciesCount": 22,
+    "speciesIds": [
+      "greater-kudu",
+      "blue-wildebeest",
+      "impala",
+      "gemsbok",
+      "warthog",
+      "blesbok",
+      "bushbuck",
+      "cape-buffalo",
+      "dapple-impala",
+      "golden-wildebeest",
+      "springbok",
+      "red-hartebeest",
+      "lechwe",
+      "livingstone-eland",
+      "black-impala",
+      "white-blesbok",
+      "waterbuck",
+      "nyala",
+      "plains-zebra",
+      "giraffe",
+      "sable-antelope",
+      "roan-antelope"
+    ]
+  },
+  "fieldAndLogistics": {
+    "meatAndHides": [
+      "Professional slaughtering",
+      "Salting of hides",
+      "Carcass weighing",
+      "Cold room for meat and perishables"
+    ],
+    "valuables": "On-site safe facilities for documents, cash, small electronics",
+    "shuttle": "Optional shuttle service; enquire when booking",
+    "rifleHire": "Verify availability and terms with management",
+    "firearmImport": "Temporary import (e.g. SAPS 520) and licences are the client's responsibility with their own agents"
+  },
+  "complianceAndTrust": {
+    "p3ExemptionPermit": "Estate references P3 Exemption Permit framework; confirm current certificate and scope with management before any legal or marketing claim",
+    "taxidermyAndExport": "Estate does not process client import, export, or taxidermy paperwork. Client appoints taxidermist and agents; estate supports practical field handover timing",
+    "security": "Gated access; property referenced under Matlabas Protection Service in site copy"
+  },
+  "policiesRequiringManagementVerification": [
+    "Bow hunting",
+    "Children or minors on camp",
+    "Cancellation terms",
+    "Laundry cadence",
+    "WiFi detail",
+    "Medical emergency SOP",
+    "Disabled hunter access",
+    "Exact drive time to Kruger or side trips"
+  ],
+  "disallowedClaimsWithoutProof": [
+    "Guaranteed harvest or kill",
+    "Static public price list that overrides season and census",
+    "Zero boundary fencing (most SA estates use perimeter fencing)",
+    "Estate files SAPS or trophy export paperwork on behalf of clients",
+    "Self-catering unless management explicitly authorizes",
+    "Common Eland as offered quarry (removed from roster)"
+  ],
+  "contact": {
+    "primaryEmail": "info@vaalpenskraal.com",
+    "enquiryMechanism": "mailto prefilled body from on-site forms; no server-side booking API in current build"
+  },
+  "seoKeywordClusters": {
+    "pillar1_hunt": [
+      "fair chase hunting South Africa",
+      "Waterberg hunting terrain",
+      "plains game hunting South Africa",
+      "dangerous game hunt South Africa"
+    ],
+    "pillar2_lodge": [
+      "private hunting lodge Limpopo",
+      "Vark Kraal hunting camp",
+      "hunting lodge with pool South Africa"
+    ],
+    "pillar3_planning": [
+      "OR Tambo to Waterberg hunting",
+      "SAPS 520 temporary firearm import",
+      "rifle hire South Africa hunt"
+    ],
+    "pillar4_compliance": [
+      "P3 exemption permit South Africa",
+      "dip and pack South Africa",
+      "meat handling hunting camp South Africa"
+    ],
+    "pillar5_trust": [
+      "Matlabas Protection Service",
+      "malaria Waterberg"
+    ]
+  }
+}
