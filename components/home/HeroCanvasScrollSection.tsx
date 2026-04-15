@@ -5,6 +5,9 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 /** Logical frames mapped to scroll progress (0 .. FRAME_COUNT - 1). */
 const FRAME_COUNT = 48;
 
+/** Scroll runway height. 500vh felt endless: sticky hero stayed pinned while little visible change (fallback frames repeat). ~2.2 screens is enough for the sequence. */
+const RUNWAY_VH = 220;
+
 const FALLBACK_FRAMES = [
   "/images/hero/hero-legacy.png",
   "/images/hero/hero-encounter.png",
@@ -153,9 +156,11 @@ export default function HeroCanvasScrollSection({ children }: Props) {
         return;
       }
       const scrolled = -rect.top;
-      const t = Math.min(1, Math.max(0, scrolled / scrollable));
+      const rawT = Math.min(1, Math.max(0, scrolled / scrollable));
+      // Ease-out so frames advance earlier in the runway (fallback stills look identical for long stretches).
+      const t = 1 - (1 - rawT) * (1 - rawT);
       const maxIndex = FRAME_COUNT - 1;
-      targetFrameRef.current = reduceMotion ? Math.round(t * maxIndex) : Math.floor(t * maxIndex);
+      targetFrameRef.current = reduceMotion ? Math.round(t * maxIndex) : Math.min(maxIndex, Math.floor(t * (maxIndex + 1)));
     };
 
     const onScroll = () => {
@@ -167,6 +172,7 @@ export default function HeroCanvasScrollSection({ children }: Props) {
     updateTargetFrame();
 
     const tick = () => {
+      updateTargetFrame();
       const canvas = canvasRef.current;
       const ctx = canvas?.getContext("2d");
       const idx = targetFrameRef.current;
@@ -192,7 +198,8 @@ export default function HeroCanvasScrollSection({ children }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full shrink-0 bg-black [height:500vh]"
+      className="relative w-full shrink-0 bg-black"
+      style={{ height: `${RUNWAY_VH}vh` }}
       aria-label="Hero sequence, scroll to advance"
     >
       <div className="sticky top-0 flex h-[100svh] max-h-[100dvh] w-full flex-col overflow-hidden">
