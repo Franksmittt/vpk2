@@ -18,4 +18,19 @@ export const EXPERIENCE_IMAGES = {
   guidesEncounter: "/images/hero/hero-encounter.png",
   /** Closing CTA band. */
   closingBoma: "/images/lodge/lodge-boma.jpg",
+  /** Stalk timeline beats (documentary stills, estate or representative). */
+  stalk: {
+    prep: "/images/lodge/lodge-kitchen.jpg",
+    thicket: "/images/hero/wide-hunt-story.png",
+    pause: "/images/hero/hero-encounter.png",
+    weight: "/images/lodge/spec-outdoor.jpg",
+    fire: "/images/lodge/lodge-outlook.jpg",
+  },
+  /** Zigzag gallery rows. */
+  zigzag: {
+    encounter: "/images/hero/hero-encounter.png",
+    waterhole: "/images/lodge/lodge-waterhole.jpg",
+    boma: "/images/lodge/lodge-boma.jpg",
+    catering: "/images/lodge/brochure-food.jpg",
+  },
 } as const;

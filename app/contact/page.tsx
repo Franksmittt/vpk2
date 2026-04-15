@@ -19,7 +19,6 @@ const ContactPage = () => {
         heroTitleId="contact-hero-title"
         eyebrow="Contact"
         title="Let's talk before you land in the bush"
-        compact
         subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans. Send the honest version. We reply with the same."
         imageSeed="contacthero"
       />

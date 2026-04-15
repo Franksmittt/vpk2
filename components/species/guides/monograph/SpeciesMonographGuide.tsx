@@ -13,6 +13,7 @@ import type { QuarrySpecies } from "@/data/species";
 import type { MonographDefinition } from "@/data/monographs/types";
 import { speciesImageUrl } from "@/lib/species-media";
 import { MonographFig, MonographSpeciesFig } from "./MonographMedia";
+import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 const socialIconMap = {
   mountain: Mountain,
@@ -50,9 +51,9 @@ const SpeciesMonographGuide = ({
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="sticky top-20 z-[90] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
-          aria-hidden
+        <StickyBreadcrumbImageBackdrop
+          src={speciesImageUrl(c.imageSeeds.hero, 960, 400)}
+          alt={`Waterberg bush strip behind ${s.name} monograph navigation`}
         />
         <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
           <Link
@@ -87,9 +88,9 @@ const SpeciesMonographGuide = ({
             className="object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-black/22" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/[0.78] to-black/45"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/32 to-black/18"
           aria-hidden
         />
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
@@ -106,17 +107,17 @@ const SpeciesMonographGuide = ({
           <p className="hero-readable-body mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
             {c.heroLead}
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row">
             <Link
               href="/reserve"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
             >
               {c.bookCta}
               <ChevronRight className="h-4 w-4" />
             </Link>
             <a
               href="#hunt"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
             >
               Fieldcraft
             </a>
@@ -447,17 +448,17 @@ const SpeciesMonographGuide = ({
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-8 md:px-12">
           <h2 className="font-sans text-3xl font-semibold tracking-[-0.03em] md:text-4xl">{c.closingTitle}</h2>
           <p className="mt-5 font-sans text-base leading-relaxed text-white/70">{c.closingBody}</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-10 flex min-w-0 flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href="/reserve"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
             >
               Enquire for Vaalpenskraal
               <ChevronRight className="h-4 w-4" />
             </Link>
             <Link
               href="/species"
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-8 py-4 font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
+              className="inline-flex w-full min-w-0 items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto sm:px-8 sm:py-4"
             >
               Back to full quarry list
             </Link>

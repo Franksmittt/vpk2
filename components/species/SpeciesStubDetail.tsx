@@ -3,14 +3,15 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { QuarrySpecies } from "@/data/species";
 import { speciesImageUrl } from "@/lib/species-media";
+import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl">
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
-          aria-hidden
+        <StickyBreadcrumbImageBackdrop
+          src={speciesImageUrl(s.imageSeed, 960, 400)}
+          alt={`Strip portrait behind navigation to ${s.name} species stub`}
         />
         <div className="relative z-10 mx-auto flex max-w-6xl items-center gap-4 px-5 py-4 sm:px-8 md:px-12">
           <Link
@@ -34,9 +35,9 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
             className="object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-black/42" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-black/22" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/[0.9] via-black/50 to-black/40"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/62 via-black/28 to-black/16"
           aria-hidden
         />
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:px-12 md:py-28">
@@ -73,17 +74,17 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
           and camp culture. The Greater Kudu guide is live now. This species page will expand with the
           same depth soon.
         </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-10 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href="/species/greater-kudu"
-            className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-white/10"
+            className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-center font-sans text-sm font-medium text-white transition-colors hover:bg-white/10 sm:w-auto"
           >
             Read the kudu guide
             <ChevronRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
             href="/reserve"
-            className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+            className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
           >
             Enquire to hunt {s.name}
           </Link>

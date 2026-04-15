@@ -2,26 +2,32 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ChevronRight,
-  Footprints,
-  Heart,
-  MapPin,
-  Sunrise,
-  Flame,
-  Ear,
   Binoculars,
-  Camera,
-  BookOpen,
-  Compass,
+  ChevronRight,
+  Clock,
+  Ear,
+  Flame,
+  Globe2,
+  Home,
+  Users,
+  UtensilsCrossed,
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { EXPERIENCE_IMAGES } from "@/lib/experience-media";
+import truth from "@/client-business-truth.json";
 
 export const metadata: Metadata = {
   title: "The Experience | Vaalpenskraal Game Reserve",
   description:
-    "Dawn on the Iron Mountain. Boma embers. Thicket that teaches patience. First hunt or fiftieth, the Waterberg asks for honesty, not bravado.",
+    "Dawn on the Iron Mountain. Thicket, wind, and honest fieldcraft. First light on the escarpment, camp rhythm at Vark Kraal, and the straight talk you need before you book.",
 };
+
+const meatLines = truth.fieldAndLogistics.meatAndHides as readonly string[];
+const p3Line = truth.complianceAndTrust.p3ExemptionPermit;
+const communalName = truth.communalHub.name;
+const communalRole = truth.communalHub.role;
+const chaletCount = truth.accommodation.chalets.length;
+const campCapacity = truth.accommodation.campWideCapacityApprox;
 
 /** Local `src` wins; otherwise picsum by `seed` (placeholder until you add an asset). */
 function ExperienceImg({
@@ -74,94 +80,176 @@ function ExperienceImg({
   );
 }
 
-const AUDIENCE: {
-  key: string;
-  seed: string;
-  src?: string;
-  title: string;
-  icon: typeof Footprints;
-  body: string;
-  extra: string;
-}[] = [
+const STALK_BEATS = [
   {
-    key: "solo",
-    seed: "expsolo",
-    src: EXPERIENCE_IMAGES.audience.solo,
-    title: "Solo hunters",
-    icon: Footprints,
-    body: "Elite silence on the stalk. Your pace. The PH beside you, but the shot stays yours. Plenty arrive for horns and leave with a quieter skull.",
-    extra:
-      "Flying in alone, we spell gate time, first-night rhythm, who meets you. Rifle and trophy paperwork stay with your agent, not our desk.",
+    time: "04:30",
+    title: "The prep",
+    paragraphs: [
+      "Pre-dawn coffee and rifle checks at Vark Kraal. Blade-cold air, wet finger to wind, city noise gone.",
+      "Magazines, slings, and small kit get settled without theatre. The arguments you end now stay out of the thicket later.",
+      "The PH sketches the day in three lines: wind, heat, what we will refuse to chase. You nod because you want the same blunt honesty you will demand at the shot.",
+    ],
+    src: EXPERIENCE_IMAGES.stalk.prep,
+    seed: "expstalkprep",
+    alt: "Vaalpenskraal camp kitchen and early-morning prep before a stalk",
   },
   {
-    key: "family",
-    seed: "expfamily",
-    src: EXPERIENCE_IMAGES.audience.family,
-    title: "Friends, family, children",
-    icon: Heart,
-    body: "Shared discomfort on the walk. Shared laughter at coals. Kids watch adults go still. Non-hunters still get copper dawn on the stoep, nyala at the wire, stories that start mid-sentence.",
-    extra:
-      "Safety is blunt. Animals, cars, and water are real. Clear lines. Parents tell us the week rewired listening. They rebook. We believe them.",
+    time: "06:00",
+    title: "The thicket",
+    paragraphs: [
+      "Wind discipline, silent boots, crushed bushveld herbs in mixed terrain. The Waterberg asks you to listen before you move.",
+      "Sound carries in thorn corridors. One lazy sleeve or a boot placed wrong can cost thirty metres you do not have.",
+      "You start reading negative space: a gap in shadow that might be ribs, or might be nothing worth a trigger. Either answer is information.",
+    ],
+    src: EXPERIENCE_IMAGES.stalk.thicket,
+    seed: "expstalkthicket",
+    alt: "Thick Waterberg bush on the estate with hunters at a distance",
   },
   {
-    key: "global",
-    seed: "expglobal",
-    src: EXPERIENCE_IMAGES.audience.global,
-    title: "Local & international",
-    icon: MapPin,
-    body: "Modimolle or Melbourne. Last hour narrows to dust, grass, cattle grids. Locals bring humour and honest expectations. Internationals bring jet lag and sharp questions. Same answers.",
-    extra:
-      "Import, export, and temp rifle sit with your stack or your outfitter. We stay out. We do care if you are still on another time zone, and the PH will bench a reckless first morning.",
+    time: "09:15",
+    title: "The pause",
+    paragraphs: [
+      "That heartbeat stillness before the shot. No theatre. Just you, glass, and the line the PH will not let you lie to.",
+      "Time stretches wrong. Your mouth goes dry. The ring on the optic feels hotter than it should.",
+      "If the honest call is to swallow pride and back out, the best PHs say it plain. That refusal is part of the shot, not a footnote.",
+    ],
+    src: EXPERIENCE_IMAGES.stalk.pause,
+    seed: "expstalkpause",
+    alt: "Hunter and PH glassing in the bush at first light on the estate",
   },
-];
+  {
+    time: "11:30",
+    title: "The weight",
+    paragraphs: [
+      "Recovery, skinning, and the heavy truth of the carcass. On camp we run professional slaughtering, salting of hides, carcass weighing, and a cold room for meat and perishables.",
+      "Hands tire in ways office work never taught. Blood under nails is not romance. It is consequence you signed for when you squeezed.",
+      "Then cold chain takes over. The estate owes the animal a clean thread from field to cold room, and the crew treats that like craft, not hurry.",
+    ],
+    src: EXPERIENCE_IMAGES.stalk.weight,
+    seed: "expstalkweight",
+    alt: "Outdoor camp and field areas used between hunt sessions at Vaalpenskraal",
+  },
+  {
+    time: "18:00",
+    title: "The fire",
+    paragraphs: [
+      "Sundowners at the elevated outlook, then boma embers and braai smoke under the canopy. The day lands where words get honest.",
+      "Plates land when they land. Someone tells a story that would sound thin in a city lounge but carries here because everyone is tired enough to listen.",
+      "You sleep with smoke in your hair and a week that already feels longer than the calendar says. That is the bush doing its quiet accounting.",
+    ],
+    src: EXPERIENCE_IMAGES.stalk.fire,
+    seed: "expstalkfire",
+    alt: "Outlook over the Vaalpenskraal bushveld at last light before boma evening",
+  },
+] as const;
 
-const HOURS = [
+const SENSE_HUD_TILES = [
   {
-    t: "Before first light",
-    text: "Coffee while the air is blade-cold. Wet finger wind. City noise gone.",
+    key: "sight",
+    label: "Sight",
+    cap: "Golden hour on horns and red soil",
+    src: "/images/lodge/brochure-game.jpg",
+    alt: "Game viewing light on the Vaalpenskraal estate",
   },
   {
-    t: "First light",
-    text: "Sky lifts from ink to grey velvet. The brief lands without theatre. You quit clock-watching and start listening.",
+    key: "sound",
+    label: "Sound",
+    cap: "Francolin alarm, warthog grunt, silence, then a twig",
+    src: "/images/lodge/lodge-waterhole.jpg",
+    alt: "Waterhole edge at Vaalpenskraal for quiet bush soundscape",
   },
   {
-    t: "Golden hour",
-    text: "Glass up. Tracks as sentences. The PH murmurs a line your boots accept before your head does.",
-  },
-  {
-    t: "Midday",
-    text: "Heat herds game to shade. You eat slow. Legs earned the salt.",
-  },
-  {
-    t: "Late afternoon",
-    text: "Honest light. Long shadows. Thicket stops forgiving lazy wind.",
-  },
-  {
-    t: "After dark",
-    text: "Boma smoke in your hair. Stars close enough to taste. Stories that only worked there.",
-  },
-];
-
-const SENSE_TILES = [
-  {
-    seed: "expsensefire",
-    cap: "Smoke and boma embers",
+    key: "smell",
+    label: "Smell",
+    cap: "Dust after rain, acacia smoke, warm hide",
     src: "/images/experience/senses-boma-embers.png",
+    alt: "Boma embers sensory moment on the Vaalpenskraal estate",
   },
   {
-    seed: "expsenserain",
-    cap: "Petrichor before a storm",
-    src: "/images/experience/senses-petrichor.png",
-  },
-  {
-    seed: "expsensegrass",
-    cap: "Dry grass against your legs",
+    key: "touch",
+    label: "Touch",
+    cap: "Stock warm from sun, sweat on your back, evening chill",
     src: "/images/experience/senses-dry-grass.png",
+    alt: "Dry grass against legs on the Vaalpenskraal estate",
   },
   {
-    seed: "expsensenight",
-    cap: "Night sky over the camp",
+    key: "taste",
+    label: "Taste",
+    cap: "Cold beer after a stalk, kudu backstrap off the coals",
+    src: "/images/lodge/brochure-food.jpg",
+    alt: "Camp catering and meal spread at Vaalpenskraal",
+  },
+  {
+    key: "sky",
+    label: "Sky",
+    cap: "Night sky pressed close over camp",
     src: "/images/experience/senses-night-sky.png",
+    alt: "Night sky over the Vaalpenskraal camp",
+  },
+  {
+    key: "petrichor",
+    label: "Petrichor",
+    cap: "Iron soil breathing after rain",
+    src: "/images/experience/senses-petrichor.png",
+    alt: "Petrichor and storm air over the Waterberg estate",
+  },
+  {
+    key: "ember",
+    label: "Ember",
+    cap: "Coals and wool after the boma",
+    src: "/images/lodge/brochure-night.jpg",
+    alt: "Evening camp light at Vaalpenskraal",
+  },
+] as const;
+
+const ZIGZAG_ROWS = [
+  {
+    key: "encounter",
+    title: "Field stills, not catalogue poses",
+    paragraphs: [
+      "Real hunters, real dust, real wait. We reserve the right to refuse staged stress on animals or crowd noise in a stalk. The veld is not a rental studio.",
+      "Bring a small crew if you must, but noise and distance still answer to ethics first. The archive we care about is memory, not click rate.",
+      "When light is wrong, we wait. When wind lies, we reposition. The shutter can wait too. The animal never signed up to be a prop.",
+    ],
+    src: EXPERIENCE_IMAGES.zigzag.encounter,
+    seed: "expzzencounter",
+    alt: "Hunter and guide glassing during a stalk on the Vaalpenskraal estate",
+  },
+  {
+    key: "waterhole",
+    title: "Waterhole at dusk",
+    paragraphs: [
+      "Passive viewing, low impact. Game comes on its own clock. You learn patience without a scope in your face.",
+      "Zebras strip the margin. Nyala step like they owe money. Sometimes nothing shows and the seat still earns its sweat.",
+      "Binoculars, hat, sun cream again. The discipline is boredom handled well, because the one animal you miss always drank while you checked your phone.",
+    ],
+    src: EXPERIENCE_IMAGES.zigzag.waterhole,
+    seed: "expzzwater",
+    alt: "Waterhole for passive game viewing at Vaalpenskraal camp",
+  },
+  {
+    key: "boma",
+    title: "Boma under the canopy",
+    paragraphs: [
+      "Evening fire, communal tables, honest fatigue. Fully catered on camp at Vark Kraal so you are not hunting calories on the side.",
+      "Someone passes a bowl that took real care. Someone else tells a joke that only lands because everyone is tired enough to be kind.",
+      "Kids get shorter answers about horn and death, age-appropriate, blunt. Adults get the same honesty, just with bigger words and no performance.",
+    ],
+    src: EXPERIENCE_IMAGES.zigzag.boma,
+    seed: "expzzboma",
+    alt: "Canopy boma fire and evening gathering at Vaalpenskraal",
+  },
+  {
+    key: "catering",
+    title: "Kitchen rhythm",
+    paragraphs: [
+      "Snacks, lunch, supper. Gas stove and electric oven when the schedule needs real cooking, not props.",
+      "Soft drinks and alcohol sit inside the estate's fully catered lane under responsible service, not a metered raid on your wallet at midnight.",
+      "If you have dietary edges or faith edges around meat, say so in your first mail so the week can be planned without surprises at the table.",
+    ],
+    src: EXPERIENCE_IMAGES.zigzag.catering,
+    seed: "expzzfood",
+    alt: "Camp kitchen and meal service at Vaalpenskraal",
   },
 ] as const;
 
@@ -171,98 +259,75 @@ const ExperiencePage = () => {
       <PageHero
         heroTitleId="experience-hero-title"
         scrollLinkedTypography
-        eyebrow="The Experience"
-        title="The bush is the lead role."
-        subtitle="Dust when the tyres slow. Turtle dove at noon. Cold air under your cuffs at last light. Read this before you book. Hunters, families, writers, guests who never carry a rifle get the same respect."
+        eyebrow="The Waterberg thicket"
+        title="This is not a brochure hunt."
+        subtitle="Thick bush, wind in your face, heart in your throat. The honest satisfaction of a clean, ethical shot after hours of real fieldcraft. First light on the escarpment, mist in the valleys, a PH on glass on the ridge. No waxy brochure gloss, just grit you can stand in."
         imageSeed="experiencehero"
         imageSrc={EXPERIENCE_IMAGES.hero}
+        heroActions={
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch">
+            <Link
+              href="/reserve#book-hunt"
+              className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
+            >
+              Live the experience, book your hunt
+              <ChevronRight className="h-4 w-4 shrink-0 opacity-80" aria-hidden />
+            </Link>
+            <Link
+              href="/species"
+              className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 py-3.5 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:text-white sm:w-auto sm:px-2 sm:py-4"
+            >
+              <span className="hero-readable-ghost">See the species</span>
+              <ChevronRight className="hero-readable-ui h-4 w-4 shrink-0 opacity-70" aria-hidden />
+            </Link>
+          </div>
+        }
       />
 
-      {/* Through your eyes */}
+      {/* 2. Through your eyes (the stalk) */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16">
-            <div className="flex min-h-0 flex-col [perspective:1400px]">
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Field note</p>
-              <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
-                Through your eyes
-              </h2>
-              <div className="mt-6 space-y-5 font-sans text-base leading-relaxed text-white/70 md:mt-8 md:space-y-6">
-                <p>
-                  New to hunting? The arc is slower than a trophy photo. Wind on your neck. Impala alarm that outruns thought. Then the PH goes quiet because the thicket changed the rules.
-                </p>
-                <p>
-                  Seasoned elsewhere? The Waterberg still gives you a new paper. Open glades, then thicket that eats distance. Sometimes the right shot is the one you do not take.
-                </p>
-                <p>
-                  Skeptical of fenced estates? Ask blunt questions. We answer. Habitat, harvest, where money flows back into the veld. That is the spine, not garnish.
-                </p>
-              </div>
-            </div>
-            <div className="flex min-h-0 flex-col space-y-6 font-sans text-base leading-relaxed text-white/70">
-              <blockquote className="relative border-l-2 border-burnished-copper/60 py-1 pl-6 font-serif text-lg leading-snug text-white/70 md:text-xl">
-                Curious guests leave quieter. Not smaller. Quieter.
-              </blockquote>
-              <p>Non-hunters get the same light clock. Jackals like rusted hinges, kudu stepping out as if the bush had been holding its breath.</p>
-              <p>
-                Camp brings a different register. Vark Kraal fills with plates, soft laughter, and honest fatigue. The outlook and waterhole still wait if you want sky without glass. Meals are fully catered on camp, so you are not hunting calories on the side.
-              </p>
-              <p>
-                Game drives and clay pigeons ride the real schedule. If you need them anchored in your week, say so in your first mail so we can answer honestly.
-              </p>
-            </div>
-          </div>
-
-          <div className="relative mt-12 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:mt-16">
-            <div className="relative aspect-[4/3] w-full lg:aspect-[21/9]">
-              <ExperienceImg
-                fill
-                src={EXPERIENCE_IMAGES.thicketWalk}
-                seed="expthicketwalk"
-                alt="Thick Waterberg bush on the estate with hunters at a distance"
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 70vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Audience */}
-      <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-32">
-        <div className="editorial-container">
-          <div className="mx-auto max-w-3xl text-center [perspective:1400px]">
-            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Who you arrive as</p>
-            <h2 className="vp-scroll-reveal-type mt-4 font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.35rem]">
-              Same mountain, different shoes
+          <div className="max-w-3xl [perspective:1400px]">
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">The stalk</p>
+            <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
+              Through your eyes
             </h2>
-            <p className="vp-scroll-root-line mt-5 font-sans text-base leading-relaxed text-white/70">
-              First-timer, PH on leave, father and son, writer after adjectives, corporate crew still pretending they are not scoring. The veld reads you first.
+            <p className="vp-scroll-root-line mt-5 font-sans text-base leading-relaxed text-white/70 md:text-lg">
+              A step-by-daybreak timeline. Same editorial container and spacing as the rest of the site, with one beat per row so nothing feels like a template dump.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:gap-8">
-            {AUDIENCE.map((a) => (
+          <div className="mt-14 space-y-14 md:mt-16 md:space-y-16 lg:space-y-20">
+            {STALK_BEATS.map((b, i) => (
               <article
-                key={a.key}
-                className="grid overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-950 ring-1 ring-white/[0.05] md:grid-cols-2"
+                key={b.time}
+                className="grid gap-8 md:grid-cols-2 md:items-center md:gap-12 lg:gap-16"
               >
-                <div className="relative aspect-[4/3] min-h-[200px] md:aspect-auto md:min-h-[min(100%,320px)]">
+                <div
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${i % 2 === 1 ? "md:order-2" : ""}`}
+                >
                   <ExperienceImg
                     fill
-                    src={a.src}
-                    seed={a.seed}
-                    alt={`${a.title}, Waterberg hunting and lodge context at Vaalpenskraal`}
+                    src={b.src}
+                    seed={b.seed}
+                    alt={b.alt}
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 45vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-gradient-to-r md:from-transparent md:via-black/20 md:to-black/75" />
-                  <a.icon className="absolute left-5 top-5 h-9 w-9 text-white/90 drop-shadow-md md:left-6 md:top-6" aria-hidden />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15" aria-hidden />
                 </div>
-                <div className="flex flex-col justify-center p-6 md:p-10 lg:p-12">
-                  <h3 className="font-sans text-xl font-semibold tracking-tight text-white/95 md:text-2xl">{a.title}</h3>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-white/70 md:text-base">{a.body}</p>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-white/65 md:text-[0.95rem]">{a.extra}</p>
+                <div className={`min-w-0 ${i % 2 === 1 ? "md:order-1" : ""}`}>
+                  <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-burnished-copper/90 md:text-sm">
+                    {b.time}
+                  </p>
+                  <h3 className="mt-2 font-sans text-xl font-semibold tracking-tight text-white/95 md:text-2xl">
+                    {b.title}
+                  </h3>
+                  <div className="mt-4 space-y-4 font-sans text-base leading-relaxed text-white/70 md:text-lg">
+                    {b.paragraphs.map((para, pi) => (
+                      <p key={pi}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
@@ -270,105 +335,38 @@ const ExperiencePage = () => {
         </div>
       </section>
 
-      {/* Day rhythm */}
-      <section className="border-b border-white/[0.07] py-20 md:py-28">
+      {/* 3. Senses grid (HUD) */}
+      <section className="border-b border-white/[0.07] bg-[#070707] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16">
-            <div className="lg:col-span-5">
-              <div className="lg:sticky lg:top-28 [perspective:1400px]">
-                <Sunrise className="h-9 w-9 text-burnished-copper/80" aria-hidden />
-                <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Rhythm</p>
-                <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">A day inside the hunt</h2>
-                <p className="vp-scroll-root-line mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                  No twin days. Wind and animal mood rewrites. By day three the beat sits in your ribs anyway.
-                </p>
-                <div className="relative mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
-                  <div className="relative aspect-[4/5] w-full">
-                    <ExperienceImg
-                      fill
-                      src={EXPERIENCE_IMAGES.dawnOutlook}
-                      seed="expdawncoffee"
-                      alt="View from the Vaalpenskraal lodge outlook over bushveld at morning light"
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 38vw"
-                      width={1200}
-                      height={1500}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col lg:col-span-7 lg:h-full lg:min-h-0">
-              {HOURS.map((h, i) => (
-                <div
-                  key={h.t}
-                  className={`border-t border-white/[0.08] py-8 first:border-t-0 first:pt-0 md:py-10 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:justify-center lg:py-4 ${i === HOURS.length - 1 ? "lg:pb-0" : ""}`}
-                >
-                  <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-burnished-copper/85">{h.t}</p>
-                  <p className="mt-3 font-sans text-base leading-relaxed text-white/70 md:text-lg">{h.text}</p>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-2xl">
+            <Ear className="h-8 w-8 text-burnished-copper/80" aria-hidden />
+            <h2 className="mt-4 font-sans text-2xl font-semibold tracking-tight sm:text-3xl md:text-[2rem]">
+              Senses grid
+            </h2>
+            <p className="mt-3 font-sans text-sm leading-relaxed text-white/70 md:text-base">
+              Compact HUD tiles. Local photography and experience PNGs. Hover lifts the frame slightly, no springy motion.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Straight talk */}
-      <section className="border-b border-white/[0.07] bg-neutral-950 py-20 md:py-32">
-        <div className="editorial-container">
-          <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Straight talk</p>
-          <h2 className="mt-4 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Three talks we have every season</h2>
-          <div className="mt-14 grid gap-8 md:grid-cols-3 md:gap-6">
-            <div className="rounded-2xl border border-white/[0.08] bg-black/40 p-6 md:p-8">
-              <Compass className="h-7 w-7 text-burnished-copper/75" aria-hidden />
-              <h3 className="mt-5 font-sans text-lg font-semibold">“I have never hunted. Will I embarrass myself?”</h3>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">
-                Every first stalk has a loud sleeve or a dumb question. The PH shortens the curve without shaming you. Not an audition. Older than a feed scroll.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-black/40 p-6 md:p-8">
-              <Binoculars className="h-7 w-7 text-burnished-copper/75" aria-hidden />
-              <h3 className="mt-5 font-sans text-lg font-semibold">“I have done Namibia, Zambia, the lot. Surprise me.”</h3>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">
-                Then we drill thicket IQ, small openings, negative space, refusing the scope lie. Waterberg is a technical paper. Arrogance costs inches. Patience pays.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-black/40 p-6 md:p-8">
-              <Flame className="h-7 w-7 text-burnished-copper/75" aria-hidden />
-              <h3 className="mt-5 font-sans text-lg font-semibold">“I do not trust fenced hunting.”</h3>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">
-                Fair. Ask carrying capacity, movement, selective harvest. Transparent ground. If we do not earn your trust, book where you already trust the fence line.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Senses */}
-      <section className="border-b border-white/[0.07] py-20 md:py-28">
-        <div className="editorial-container">
-          <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
-            <div>
-              <Ear className="mx-auto h-8 w-8 text-burnished-copper/80 md:mx-0" aria-hidden />
-              <h2 className="mt-4 font-sans text-2xl font-semibold tracking-tight sm:text-3xl">What cameras miss</h2>
-              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/70 md:mx-0 md:text-base">
-                Woodsmoke in wool. Metal on the tongue when adrenaline hits. Thorns tugging your cuff like the bush asking if you are awake.
-              </p>
-            </div>
-          </div>
-          <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {SENSE_TILES.map((s) => (
-                <figure key={s.seed} className="group overflow-hidden rounded-xl ring-1 ring-white/[0.08]">
-                <div className="relative aspect-square w-full">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 lg:gap-4">
+            {SENSE_HUD_TILES.map((s) => (
+              <figure
+                key={s.key}
+                className="group overflow-hidden rounded-xl border border-white/[0.1] bg-black/50 ring-1 ring-white/[0.06]"
+              >
+                <div className="relative aspect-square w-full overflow-hidden">
                   <Image
                     src={s.src}
-                    alt={`${s.cap} sensory moment on the Vaalpenskraal estate`}
+                    alt={s.alt}
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="object-cover transition-transform duration-500 ease-out will-change-transform group-hover:-translate-y-0.5 group-hover:scale-[1.02]"
                   />
+                  <div className="pointer-events-none absolute left-2 top-2 rounded border border-white/15 bg-black/55 px-2 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm md:left-2.5 md:top-2.5 md:text-[10px]">
+                    {s.label}
+                  </div>
                 </div>
-                <figcaption className="border-t border-white/[0.06] bg-white/[0.03] px-3 py-3 font-sans text-[10px] uppercase tracking-[0.12em] text-white/70 md:text-[11px]">
+                <figcaption className="border-t border-white/[0.08] bg-black/60 px-2.5 py-2.5 font-sans text-[10px] font-medium uppercase leading-snug tracking-[0.12em] text-white/75 md:px-3 md:py-3 md:text-[11px] md:tracking-[0.14em]">
                   {s.cap}
                 </figcaption>
               </figure>
@@ -377,107 +375,225 @@ const ExperiencePage = () => {
         </div>
       </section>
 
-      {/* Guides / media */}
-      <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
+      {/* 4. Straight talk */}
+      <section className="border-b border-white/[0.07] bg-espresso py-20 text-canvas-cream md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16">
-            <div className="relative order-2 min-h-0 h-full lg:order-1 lg:col-span-7">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:aspect-auto lg:h-full lg:min-h-[min(72vw,520px)]">
-                <ExperienceImg
-                  fill
-                  src={EXPERIENCE_IMAGES.guidesEncounter}
-                  seed="expguideglass"
-                  alt="Hunter and professional guide glassing in the bush at first light"
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-              </div>
+          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-canvas-cream/70">Straight talk</p>
+          <h2 className="mt-3 max-w-3xl font-sans text-3xl font-semibold tracking-tight text-canvas-cream sm:text-4xl">
+            No brochure bullshit
+          </h2>
+          <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-canvas-cream/85 md:text-lg">
+            We do not bait. This is real terrain. Some days you come back empty. Some days you earn a hard-won trophy. Fair chase and ethical harvest sit above feed-scroll bravado.
+          </p>
+          <p className="mt-5 max-w-3xl font-sans text-base leading-relaxed text-canvas-cream/80 md:text-lg">
+            {truth.huntingServices.quarryPolicy} {truth.huntingServices.primary}.
+          </p>
+
+          <div className="mt-12 rounded-2xl border border-canvas-cream/15 bg-black/25 p-6 md:p-8">
+            <Flame className="h-7 w-7 text-burnished-copper/90" aria-hidden />
+            <h3 className="mt-4 font-sans text-lg font-semibold text-canvas-cream">On-site meat and hides</h3>
+            <ul className="mt-4 list-inside list-disc space-y-2 font-sans text-sm leading-relaxed text-canvas-cream/80 md:text-base">
+              {meatLines.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <p className="mt-6 font-sans text-sm leading-relaxed text-canvas-cream/75 md:text-base">
+              {truth.complianceAndTrust.taxidermyAndExport}
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3 md:gap-6">
+            <div className="rounded-2xl border border-canvas-cream/12 bg-black/20 p-6 md:p-7">
+              <Binoculars className="h-7 w-7 text-burnished-copper/85" aria-hidden />
+              <h3 className="mt-4 font-sans text-base font-semibold text-canvas-cream">Fence questions</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-canvas-cream/78">
+                Ask carrying capacity, movement, selective harvest. Transparent ground. If we do not earn your trust, book where you already trust the fence line.
+              </p>
             </div>
-            <div className="order-1 flex min-h-0 flex-col lg:order-2 lg:col-span-5 lg:h-full">
-              <BookOpen className="h-8 w-8 text-burnished-copper/80" aria-hidden />
-              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Professionals</p>
-              <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Guides, writers, cameras</h2>
-              <div className="mt-6 min-h-0 flex-1 space-y-4 font-sans text-base leading-relaxed text-white/70 md:space-y-5">
-                <p>
-                  PHs meet PHs. Safety arcs, client headspace, when to kill a stalk. Craft respected. Egos stay at the gate with city dust.
-                </p>
-                <p>
-                  Press and crews get access without turning the veld into theatre. Stay honest to story and animal. Name format, crew count, dates so we can slot vehicles and quiet hours.
-                </p>
-                <p>
-                  Still photography and slow writing age well here. Fast content often does not. If you need a line that survives editing, build it from wind direction and foot placement first.
-                </p>
-                <p>
-                  Trophy paperwork, taxidermy routing, and import or export sit with your agents and outfitter. On the estate we focus on fair-chase field standards, safe muzzles, and handover timing that respects cold rooms and flights.
-                </p>
-                <p>
-                  If you are filming, say so early. We reserve the right to refuse staged animal stress, crowd noise in a stalk, or shots that force a second take on the veld. The bush is not a rental studio.
-                </p>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-4 lg:mt-auto lg:pt-8">
-                <Link
-                  href="/reserve"
-                  className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
-                >
-                  Plan a hunt
-                  <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
-                </Link>
-                <Link
-                  href="/contact?intent=media"
-                  className="focus-ring-invert inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 font-sans text-sm font-medium text-white/85 transition-colors hover:border-white/35 hover:bg-white/[0.04]"
-                >
-                  <Camera className="h-4 w-4 opacity-70" aria-hidden />
-                  Media enquiry
-                </Link>
-              </div>
+            <div className="rounded-2xl border border-canvas-cream/12 bg-black/20 p-6 md:p-7">
+              <Globe2 className="h-7 w-7 text-burnished-copper/85" aria-hidden />
+              <h3 className="mt-4 font-sans text-base font-semibold text-canvas-cream">Paperwork stays yours</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-canvas-cream/78">
+                {truth.fieldAndLogistics.firearmImport}. Trophy export and dip-and-pack sit with your agents, not our desk.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-canvas-cream/12 bg-black/20 p-6 md:p-7">
+              <Users className="h-7 w-7 text-burnished-copper/85" aria-hidden />
+              <h3 className="mt-4 font-sans text-base font-semibold text-canvas-cream">Who walks with you</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-canvas-cream/78">
+                PH-led field days. {truth.complianceAndTrust.security}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="relative flex min-h-[min(72vh,820px)] items-center justify-center py-20 md:py-28">
+      {/* 5. Camp rhythm & audience */}
+      <section className="border-b border-white/[0.07] py-20 md:py-28">
+        <div className="editorial-container">
+          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Camp rhythm</p>
+          <h2 className="vp-scroll-reveal-type mt-3 max-w-3xl font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
+            Four kraals. One communal pulse.
+          </h2>
+          <p className="vp-scroll-root-line mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70">
+            {truth.accommodation.model} {communalName}: {communalRole}. {campCapacity} when the camp is full.
+          </p>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <Home className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                {chaletCount} guest chalets
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                Named kraals on camp only. {truth.accommodation.bedding}. {truth.accommodation.climateControl}.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <UtensilsCrossed className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                {communalName}
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                {truth.catering.board}. {truth.catering.includes.slice(0, 3).join(", ")}, and more on responsible service.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <Clock className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                Unhurried pace
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                {truth.onEstateActivities.scheduling} Clay and game drives when the week allows. Say what you need in your first mail.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <Binoculars className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                Solo rifleman
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                Technical stalks, wind maths, thicket IQ. The PH shortens the curve without turning the veld into an audition.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <Users className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                Fathers and sons
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                Shared discomfort on the walk, shared laughter at coals. Non-hunters still get the same light clock and honest safety lines.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
+              <Globe2 className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                International hunters
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                {truth.geography.travelNote} Import, export, and temp rifle stay with your stack or outfitter.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Zigzag gallery */}
+      <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
+        <div className="editorial-container">
+          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Honest media</p>
+          <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
+            Zigzag through the week
+          </h2>
+          <p className="vp-scroll-root-line mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70">
+            A raw pass: encounter stills, waterhole dusk, boma canopy, kitchen rhythm. Tasteful, not polished into fiction.
+          </p>
+
+          <div className="mt-14 space-y-16 md:mt-16 md:space-y-20 lg:space-y-24">
+            {ZIGZAG_ROWS.map((row, i) => (
+              <div
+                key={row.key}
+                className="grid gap-10 md:grid-cols-2 md:items-center md:gap-12 lg:gap-16"
+              >
+                <div
+                  className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${i % 2 === 1 ? "md:order-2" : ""}`}
+                >
+                  <ExperienceImg
+                    fill
+                    src={row.src}
+                    seed={row.seed}
+                    alt={row.alt}
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                  />
+                </div>
+                <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                  <h3 className="font-sans text-2xl font-semibold tracking-tight text-white/95 md:text-3xl">{row.title}</h3>
+                  <div className="mt-4 space-y-4 font-sans text-base leading-relaxed text-white/70 md:text-lg">
+                    {row.paragraphs.map((para, pi) => (
+                      <p key={pi}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row sm:gap-4">
+            <Link
+              href="/contact?intent=media"
+              className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:border-white/35 hover:bg-white/[0.04] sm:w-auto"
+            >
+              Media enquiry
+              <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Final push */}
+      <section className="relative flex min-h-[min(78vh,880px)] items-center justify-center py-20 md:min-h-[min(82vh,920px)] md:py-28">
         <div className="absolute inset-0">
           <ExperienceImg
             fill
             src={EXPERIENCE_IMAGES.closingBoma}
             seed="expclosingboma"
-            alt="Evening boma firelight and camp silhouettes at Vaalpenskraal"
+            alt="Boma fire under the canopy at Vaalpenskraal for closing call to book"
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/20" aria-hidden />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/38 to-black/10" aria-hidden />
+          <div className="absolute inset-0 bg-black/25" aria-hidden />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/28 to-black/20" aria-hidden />
         </div>
-        <div className="editorial-container relative z-10 text-center">
-          <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/[0.08] bg-black/35 px-7 py-10 shadow-[0_4px_24px_rgb(0_0_0/0.35),0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-[2px] sm:px-10 sm:py-12 md:px-12 md:py-14">
-            <h2 className="font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.5rem] [text-shadow:0_1px_2px_rgb(0_0_0/0.85),0_2px_12px_rgb(0_0_0/0.75),0_12px_40px_rgb(0_0_0/0.55)]">
-              The fire you imagined is already lit
+        <div className="editorial-container relative z-10">
+          <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/[0.1] bg-black/40 px-7 py-10 shadow-[0_4px_24px_rgb(0_0_0/0.35),0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-sm sm:px-10 sm:py-12 md:px-12 md:py-14">
+            <h2 className="text-center font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.5rem] [text-shadow:0_1px_2px_rgb(0_0_0/0.85),0_2px_12px_rgb(0_0_0/0.75)]">
+              Come for the hunt. Stay for the honesty of the bush.
             </h2>
-            <p className="mt-5 font-sans text-base leading-relaxed text-white/85 md:text-lg [text-shadow:0_1px_2px_rgb(0_0_0/0.9),0_2px_16px_rgb(0_0_0/0.65)]">
-              Walk it once on iron soil. Then argue with the silence if you can.
+            <p className="mt-5 text-center font-sans text-base leading-relaxed text-white/88 md:text-lg [text-shadow:0_1px_2px_rgb(0_0_0/0.9),0_2px_16px_rgb(0_0_0/0.65)]">
+              Small camp intimacy, professional meat chain on site, and compliance language you can verify with management before you sign anything.
             </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+            <ul className="mx-auto mt-8 max-w-xl list-inside list-disc space-y-2 text-left font-sans text-sm leading-relaxed text-white/80 md:text-base">
+              <li>{p3Line}</li>
+              <li>{meatLines.join("; ")}.</li>
+              <li>
+                {chaletCount} guest chalets on camp, {communalName} communal hub.
+              </li>
+            </ul>
+            <div className="mt-10 flex min-w-0 flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
               <Link
-                href="/lodge"
-                className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black shadow-[0_4px_20px_rgb(0_0_0/0.45)] transition-colors hover:bg-white/90"
+                href="/reserve#book-hunt"
+                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black shadow-[0_4px_20px_rgb(0_0_0/0.45)] transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
               >
-                See the lodge
-                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+                Book your hunt
+                <ChevronRight className="h-4 w-4 opacity-70" aria-hidden />
               </Link>
               <Link
                 href="/species"
-                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/90 transition-colors [text-shadow:0_1px_2px_rgb(0_0_0/0.95),0_2px_12px_rgb(0_0_0/0.75)] drop-shadow-[0_2px_8px_rgb(0_0_0/0.55)] hover:text-white"
+                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.06] px-6 py-3.5 text-center font-sans text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/10 sm:w-auto sm:px-8 sm:py-4"
               >
-                Quarry species
-                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
-              </Link>
-              <Link
-                href="/contact?intent=general"
-                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/90 transition-colors [text-shadow:0_1px_2px_rgb(0_0_0/0.95),0_2px_12px_rgb(0_0_0/0.75)] drop-shadow-[0_2px_8px_rgb(0_0_0/0.55)] hover:text-white"
-              >
-                Ask a question
-                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+                Browse quarry species
+                <ChevronRight className="h-4 w-4 opacity-70" aria-hidden />
               </Link>
             </div>
           </div>

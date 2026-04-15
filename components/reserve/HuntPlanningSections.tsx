@@ -133,7 +133,7 @@ export default function HuntPlanningSections() {
                 </ul>
                 <Link
                   href="/reserve#book-hunt"
-                  className="focus-ring-invert mt-10 inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:w-auto lg:mt-auto"
+                  className="focus-ring-invert mt-10 inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4 lg:mt-auto"
                 >
                   Open the booking form
                   <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

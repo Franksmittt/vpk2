@@ -127,7 +127,7 @@ export default function ContactForm({
       </p>
       <button
         type="submit"
-        className="focus-ring-invert inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+        className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8"
       >
         {submitted ? "Open email again" : "Send enquiry"}
       </button>

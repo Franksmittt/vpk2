@@ -13,6 +13,7 @@ import {
 import type { QuarrySpecies } from "@/data/species";
 import { speciesImageUrl } from "@/lib/species-media";
 import { GuideFigureImg } from "@/components/species/guides/GuideFigureImg";
+import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 type FigLayout = "banner" | "tall" | "matchText";
 
@@ -163,9 +164,9 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="sticky top-20 z-[90] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
-          aria-hidden
+        <StickyBreadcrumbImageBackdrop
+          src={speciesImageUrl("kuduheroiron", 960, 400)}
+          alt="Greater kudu habitat strip behind monograph navigation"
         />
         <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
           <Link
@@ -201,9 +202,9 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             className="object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-black/22" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/[0.78] to-black/45"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/32 to-black/18"
           aria-hidden
         />
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
@@ -221,17 +222,17 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             Few African animals earn the quiet reverence of a mature kudu bull. Spiral horns, disruptive
             stripes, and a freeze that breaks your nerve: this is the graduate course in bush stillness.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row">
             <Link
               href="/reserve"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
             >
               Book a kudu hunt
               <ChevronRight className="h-4 w-4" />
             </Link>
             <a
               href="#hunt"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
             >
               Fieldcraft
             </a>
@@ -787,14 +788,14 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/reserve"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
             >
               Enquire for Vaalpenskraal
               <ChevronRight className="h-4 w-4" />
             </Link>
             <Link
               href="/species"
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-8 py-4 font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
+              className="inline-flex w-full min-w-0 items-center justify-center rounded-full border border-white/20 px-6 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto sm:px-8 sm:py-4"
             >
               Back to full quarry list
             </Link>

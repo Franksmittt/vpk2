@@ -766,8 +766,8 @@ const LodgePage = () => {
       </section>
 
       <section className="border-t border-white/[0.07] py-16 md:py-20">
-        <div className="editorial-container flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-          <div>
+        <div className="editorial-container flex min-w-0 flex-col items-stretch justify-between gap-8 sm:flex-row sm:items-center">
+          <div className="min-w-0">
             <h2 className="font-sans text-xl font-semibold sm:text-2xl">Hold your dates</h2>
             <p className="mt-2 max-w-lg font-sans text-sm text-white/70">
               Four chalets only for overnight guests, full catering, pool, boma, outlook and waterhole, field services, and optional shuttle. Enquire with group size and we map beds to chalets.
@@ -775,7 +775,7 @@ const LodgePage = () => {
           </div>
           <Link
             href="/contact?intent=lodge"
-            className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
+            className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
           >
             Enquire about staying
             <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

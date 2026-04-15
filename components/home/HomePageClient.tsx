@@ -453,8 +453,8 @@ const HomePageClient = () => {
       {/* The Quarry - editorial zigzag + index */}
       <section className="relative border-t border-white/[0.07] bg-[#050505] text-white">
         <div className="editorial-container pb-16 pt-16 md:pb-20 md:pt-24 lg:pt-28">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-16">
-            <div className="max-w-2xl">
+          <div className="flex min-w-0 flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+            <div className="min-w-0 max-w-2xl">
               <p className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
                 Species
               </p>
@@ -469,7 +469,7 @@ const HomePageClient = () => {
             </div>
             <Link
               href="/species"
-              className="focus-ring-invert inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 lg:self-auto"
+              className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:px-8 sm:py-4 lg:w-auto lg:self-auto"
             >
               Full quarry list
               <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

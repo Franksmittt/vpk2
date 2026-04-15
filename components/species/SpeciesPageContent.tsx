@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -33,6 +33,7 @@ import {
   SPECIES_PAGE_HERO_IMAGE,
   quarrySpeciesImageSrc,
 } from "@/lib/species-media";
+import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 function SpecCard({
   s,
@@ -440,6 +441,32 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
   const [detailId, setDetailId] = useState<string | null>(null);
   const [copyDone, setCopyDone] = useState(false);
 
+  const spotlightImageRef = useRef<HTMLDivElement | null>(null);
+  const [spotlightImagePx, setSpotlightImagePx] = useState<number | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    const node = spotlightImageRef.current;
+    if (!node || typeof window === "undefined") return;
+
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const apply = () => {
+      if (!mq.matches) {
+        setSpotlightImagePx(undefined);
+        return;
+      }
+      setSpotlightImagePx(node.offsetHeight);
+    };
+
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(node);
+    mq.addEventListener("change", apply);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener("change", apply);
+    };
+  }, []);
+
   const byId = useMemo(() => {
     const m = new Map<string, QuarrySpecies>();
     species.forEach((s) => m.set(s.id, s));
@@ -553,9 +580,9 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             className="object-cover"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-black/18" aria-hidden />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/[0.82] to-black/48"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/58 via-black/26 to-transparent"
           aria-hidden
         />
 
@@ -578,18 +605,18 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
               dictated strictly by our annual ecological census, weather, and what the land can carry
               without flinching.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-10 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch">
               <button
                 type="button"
                 onClick={startComparePick}
-                className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90"
+                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
               >
-                <GitCompare className="h-4 w-4" aria-hidden />
+                <GitCompare className="h-4 w-4 shrink-0" aria-hidden />
                 Compare species side by side
               </button>
               <a
                 href="#species-directory"
-                className="focus-ring-invert inline-flex items-center justify-center gap-2 font-sans text-sm font-medium text-white/85 transition-colors hover:text-white"
+                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 py-3 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:text-white sm:w-auto sm:py-4"
               >
                 <span className="hero-readable-ghost">Browse the quarry</span>
                 <ChevronRight className="hero-readable-ui h-4 w-4" aria-hidden />
@@ -600,22 +627,22 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
       </section>
 
       {/* Sticky jump nav (monograph-style) + compare strip */}
-      <div className="sticky top-20 z-[450] border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
-          aria-hidden
+      <div className="sticky top-20 z-[450] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
+        <StickyBreadcrumbImageBackdrop
+          src={SPECIES_PAGE_HERO_IMAGE}
+          alt="Iron Mountain bushveld behind quarry group navigation"
         />
-        <div className="editorial-container relative z-10 flex flex-col gap-3 px-4 py-3 sm:px-0">
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/"
-              className="mr-auto inline-flex shrink-0 items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
-            >
-              <ChevronLeft className="h-4 w-4" aria-hidden />
-              Home
-            </Link>
+        <div className="editorial-container relative z-10 flex min-w-0 flex-col gap-2 px-4 py-3 sm:gap-3 sm:px-0 md:flex-row md:items-center md:gap-3">
+          <Link
+            href="/"
+            className="inline-flex shrink-0 items-center gap-1 self-start font-sans text-sm text-white/80 transition-colors hover:text-white"
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden />
+            Home
+          </Link>
+          <div className="flex w-full min-w-0 flex-1 items-center justify-center overflow-x-visible pb-0 [-webkit-overflow-scrolling:touch] md:min-h-0 md:overflow-x-auto md:overflow-y-hidden md:pb-1">
             <nav
-              className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-1 md:flex-wrap md:overflow-visible md:pb-0"
+              className="flex w-full max-w-full flex-wrap justify-center gap-x-2 gap-y-2 md:inline-flex md:w-max md:flex-nowrap md:justify-center md:gap-2"
               aria-label="Jump to quarry groups"
             >
               <GroupNavPill href="#species-directory">All quarry</GroupNavPill>
@@ -745,53 +772,83 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
         })()}
       </section>
 
-      {/* Spotlight: Grey Ghost */}
+      {/* Spotlight: Grey Ghost. On lg+, text column min-height tracks the image so the block matches photo height. */}
       <section className="relative border-t border-white/[0.07] bg-[#060606] py-20 md:py-28">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 md:grid-cols-2 md:items-center md:gap-16 md:px-12 lg:grid-cols-12 lg:gap-12">
+        <div className="editorial-container grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start lg:gap-12 xl:gap-16">
           <Link
             href="/species/greater-kudu"
-            className="focus-ring-invert block rounded-[1.5rem] lg:col-span-7"
+            className="focus-ring-invert block rounded-[1.5rem] lg:col-span-7 lg:self-start"
           >
             <motion.div
+              ref={spotlightImageRef}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] ring-1 ring-white/[0.08] transition-transform duration-500 hover:scale-[1.01] md:aspect-[3/4]"
+              className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] ring-1 ring-white/[0.08] transition-transform duration-500 hover:scale-[1.01] md:aspect-[3/4]"
             >
               <Image
                 src={GREATER_KUDU_QUARRY_PAGE_IMAGE}
                 alt="Greater kudu bull in thick bush, featured Grey Ghost quarry on the Iron Mountain"
                 fill
-                sizes="(max-width: 768px) 100vw, 45vw"
+                sizes="(max-width: 1024px) 100vw, 58vw"
                 className="object-cover"
               />
               <Crosshair className="absolute right-6 top-6 h-8 w-8 text-white drop-shadow-md" aria-hidden />
             </motion.div>
           </Link>
-          <div className="lg:col-span-5">
-            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
-              Featured quarry
-            </p>
-            <Link
-              href="/species/greater-kudu"
-              className="focus-ring-invert group mt-4 block rounded-lg"
-            >
-              <h2 className="font-sans text-3xl font-semibold leading-tight tracking-[-0.035em] transition-colors group-hover:text-burnished-copper/95 md:text-4xl lg:text-[2.5rem]">
-                Greater kudu bull
-              </h2>
-              <p className="mt-2 font-sans text-xl text-white/70 transition-colors group-hover:text-white/80">
-                The Grey Ghost
+          <div
+            className="flex min-h-0 flex-col lg:col-span-5"
+            style={
+              typeof spotlightImagePx === "number"
+                ? { minHeight: spotlightImagePx }
+                : undefined
+            }
+          >
+            <div className="flex flex-col gap-5 lg:gap-6">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
+                Featured quarry
               </p>
-            </Link>
-            <p className="mt-6 font-sans text-base leading-relaxed text-white/70">
-              Stripes in shade. Horns that pick up last light. A bull can hold motionless until you
-              doubt your own eyes, then cover ground in three bounds. On the Iron Mountain, kudu are
-              not a consolation prize. They are the graduate course in stillness.
-            </p>
+              <Link
+                href="/species/greater-kudu"
+                className="focus-ring-invert group block rounded-lg"
+              >
+                <h2 className="font-sans text-3xl font-semibold leading-tight tracking-[-0.035em] transition-colors group-hover:text-burnished-copper/95 md:text-4xl lg:text-[2.5rem]">
+                  Greater kudu bull
+                </h2>
+                <p className="mt-2 font-sans text-xl text-white/70 transition-colors group-hover:text-white/80">
+                  The Grey Ghost
+                </p>
+              </Link>
+            </div>
+            <div className="mt-5 flex min-h-0 flex-1 flex-col justify-end lg:mt-6">
+              <div className="space-y-4 font-sans text-base leading-relaxed text-white/70">
+                <p>
+                  Stripes in shade. Horns that pick up last light. A bull can hold motionless until you
+                  doubt your own eyes, then cover ground in three bounds. On the Iron Mountain, kudu are
+                  not a consolation prize. They are the graduate course in stillness.
+                </p>
+                <p>
+                  You read wind the way you read a river. Every step is a negotiation with thorn and
+                  shadow. When the shot comes, it is not luck. It is the sum of small disciplines that
+                  kept you quiet long enough for the mountain to forget you were there.
+                </p>
+                <p>
+                  We do not promise animals off a list. We manage carrying capacity and season with our
+                  PH team. If kudu is part of your Waterberg story, say so when you enquire. We will
+                  talk dates, terrain, and what the census says that year.
+                </p>
+                <p>
+                  A mature bull carries weight in the neck and depth in the chest. You learn age in poor
+                  light, where chrome reads like smoke. Thicket holds sound before bodies. When the
+                  window opens, you want a steady rifle and a PH who already told you straight what the
+                  day can and cannot be.
+                </p>
+              </div>
+            </div>
             <Link
               href="/reserve"
-              className="focus-ring-invert mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10"
+              className="focus-ring-invert mt-6 inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-center font-sans text-sm font-medium text-white transition-colors hover:border-white/35 hover:bg-white/10 sm:w-fit lg:mt-8"
             >
               Talk to us about kudu dates
               <ChevronRight className="h-4 w-4" aria-hidden />

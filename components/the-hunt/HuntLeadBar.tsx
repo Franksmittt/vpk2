@@ -22,17 +22,17 @@ const HuntLeadBar = () => {
           <p className="max-w-xl font-sans text-base leading-relaxed text-white/65 lg:ml-auto lg:max-w-md">
             This page is theatre for the curious. Numbers, dates, and species lists live on Reserve. Here you learn how we think before you ask for a slot.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
             <Link
               href="/reserve#book-hunt"
-              className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black shadow-[0_8px_32px_rgb(0_0_0/0.35)] transition-colors hover:bg-white/90"
+              className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black shadow-[0_8px_32px_rgb(0_0_0/0.35)] transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
             >
               Book your hunt
               <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
             </Link>
             <Link
               href="/experience"
-              className="focus-ring-invert inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 font-sans text-sm font-medium text-white/90 transition-colors hover:border-white/40 hover:bg-white/[0.05]"
+              className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-center font-sans text-sm font-medium text-white/90 transition-colors hover:border-white/40 hover:bg-white/[0.05] sm:w-auto sm:px-8 sm:py-4"
             >
               The Experience
               <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

@@ -241,13 +241,13 @@ const ActivitiesPage = () => {
       </section>
 
       <section className="border-t border-white/[0.07] bg-[#070707] py-16 md:py-20">
-        <div className="editorial-container flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <p className="max-w-xl font-sans text-sm text-white/65">
+        <div className="editorial-container flex min-w-0 flex-col items-stretch justify-between gap-6 sm:flex-row sm:items-center">
+          <p className="max-w-xl min-w-0 font-sans text-sm text-white/65">
             For dates, party size, and species, use the hunt enquiry flow on Book your hunt.
           </p>
           <Link
             href="/reserve#book-hunt"
-            className="focus-ring-invert inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-black transition-colors hover:bg-white/90 md:px-8 md:py-4"
+            className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-center font-sans text-xs font-bold uppercase tracking-[0.18em] text-black transition-colors hover:bg-white/90 sm:w-auto md:px-8 md:py-4"
           >
             Book your hunt
             <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

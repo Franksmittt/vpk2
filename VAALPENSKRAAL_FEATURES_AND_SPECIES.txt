@@ -9,9 +9,16 @@ building block, and every quarry row aligned with data/species.ts.
 Update when routes, components, or QUARRY_SPECIES change. Verify permits,
 quotas, and legal minima with management before external use.
 
-Last aligned with codebase: April 2026 (includes home canvas hero as a single
-full-viewport frame, scroll-driven typography on inner pages, Earnest Ally copy,
-WCAG-oriented layout tweaks on species media shells).
+For user-visible facts about services, species, camp, compliance, and
+geography, treat client-business-truth.json at the repo root as the alignment
+source alongside this file.
+
+Last aligned with codebase: 15 April 2026 (editorial PageHero on all marketing
+routes matching the /species hero scale; sticky quarry navigation with
+full-bleed strip photos and a uniform 20% black wash; /species hub with
+Suspense, URL-driven compare, grouped roster and jump nav; /the-hunt,
+/activities, /gallery; monographs for 21 species plus the bespoke Greater Kudu
+guide; reserve WebPage + ReserveAction JSON-LD; header and sitemap updated).
 
 --------------------------------------------------------------------------------
 HOW TO READ THIS DOCUMENT
@@ -20,8 +27,13 @@ HOW TO READ THIS DOCUMENT
   SEO and discovery, then the full technical picture (stack, colors, fonts,
   layout, motion, accessibility), then every page URL, then every component file
   under components/, then data and lib files, then the complete species table.
-• "Site order" for species matches the array order in data/species.ts (also
-  the order on /species cards).
+• "Site order" in data/species.ts is the array order of QUARRY_SPECIES (stable
+  ids and card ordering tools). On /species the visible directory is grouped by
+  SPECIES_GROUP_ORDER in data/species.ts (woodland, plains, bush-water,
+  herd-morphs, dangerous last).
+• Quarry count in product data and JSON is 22 species. Do not reintroduce
+  removed quarry (for example Common Eland) unless management restores it in
+  data and client-business-truth.json together.
 
 --------------------------------------------------------------------------------
 LOCATION & POSITIONING
@@ -31,6 +43,8 @@ LOCATION & POSITIONING
   fair chase, ethical harvest, and honest fieldcraft in thick bush and open
   moments ("Earnest Ally" tone: casual, serious, respectful, short sentences,
   sensory language, no price justification in prose).
+• Exact gate coordinates and directions are supplied when a booking is
+  confirmed (see client-business-truth.json geography.gateDirectionsPolicy).
 • Firearm temporary import, trophy export, and home-country import rules remain
   the client's responsibility with their own agents; the estate does not
   process client paperwork on their behalf.
@@ -43,6 +57,7 @@ HUNTING & ESTATE: FEATURES & BENEFITS
 • Waterberg thicket and mixed terrain: technical stalking, wind discipline,
   and real bush conditions rather than a "brochure circuit" experience.
 • Optional clay pigeon shooting and game drives for rest days or non-hunters.
+  Scheduling follows camp workload; confirm when you book.
 • Professional meat handling narrative on site: slaughtering, salting of hides,
   carcass weighing; cold room for proper meat chain after the shot.
 • On-site safe facilities for valuables (documents, cash, small electronics).
@@ -83,7 +98,8 @@ OUTDOOR & VIEWING
 
 LOGISTICS & SECURITY
 • Gated access; Matlabas Protection Service referenced in site copy.
-• Optional shuttle: enquire when booking (e.g. Johannesburg / Pretoria timing).
+• Optional shuttle: enquire when booking (for example Johannesburg or Pretoria
+  timing; verify with management).
 
 --------------------------------------------------------------------------------
 GUEST OUTCOMES (BENEFITS SUMMARY)
@@ -106,15 +122,16 @@ CANONICAL ORIGIN
   siteUrl() helpers).
 
 ROOT LAYOUT (app/layout.tsx)
+• Skip link: first focusable control skips to #main-content (main landmark).
 • metadataBase: SITE_ORIGIN.
 • title.template: "%s | Vaalpenskraal" (child pages that set only `title`
   still brand consistently).
 • title.default and openGraph / twitter defaults use:
   Title:   "Vaalpenskraal Game Reserve | Waterberg Hunting"
   Description (default OG/Twitter and root description):
-  "Premium fair-chase hunting and Waterberg stays: four guest chalets on camp,
-  full-board bush hospitality, plains and dangerous game, and international
-  safari support."
+  "Premium fair-chase hunting in the Waterberg, Limpopo: four guest chalets on
+  camp, fully catered hospitality at Vark Kraal, PH-led plains and dangerous
+  game where law and ethics allow, census-driven quarry (not a static menu)."
 • openGraph: type website, locale en_ZA, siteName, url from metadataBase.
 • twitter: summary_large_image.
 
@@ -128,11 +145,12 @@ ROBOTS (app/robots.ts)
 • Static: allow "/", sitemap URL, host = origin.
 
 SITEMAP (app/sitemap.ts)
-• Static paths: /, /species, /reserve, /lodge, /experience, /contact,
-  /booking, /privacy, /terms, /cookies.
+• Static paths: /, /species, /the-hunt, /activities, /gallery, /reserve,
+  /lodge, /experience, /contact, /booking, /privacy, /terms, /cookies.
 • Plus every /species/{id} from QUARRY_SPECIES.
-• Priorities: home 1.0; reserve and species index 0.9; species slugs 0.75;
-  others 0.7. changeFrequency weekly for / and /reserve, monthly elsewhere.
+• Priorities: home 1.0; /reserve, /species, /the-hunt 0.9; species slugs 0.75;
+  other static marketing paths 0.7. changeFrequency weekly for /, /reserve,
+  and /the-hunt; monthly elsewhere.
 
 PER-PAGE METADATA (titles and descriptions as in code)
 --------------------------------------------------------------------------------
@@ -149,15 +167,26 @@ Route              Title (effective)                    Description (meta)
                    Game Reserve                         Vark Kraal bar. Full board...
 
 /reserve           Book Your Hunt | Vaalpenskraal        Waterberg dates. Solo or squad...
-                   Game Reserve
+                   Game Reserve                         (lib/seo/reserve-json-ld.ts
+                                                          RESERVE_PAGE_DESCRIPTION)
+
+/the-hunt          The Hunt | Vaalpenskraal Game         Fair-chase hunting on iron soil...
+                   Reserve
+
+/activities        Activities | Vaalpenskraal Game      Clay pigeon, game drives, pool,
+                   Reserve                              boma, outlook, waterhole...
+
+/gallery           Gallery | Vaalpenskraal Game         Photography grid; placeholder
+                   Reserve                              frames until assets supplied.
 
 /species/*         From app/species/layout.tsx:         Primary quarry of the Iron Mountain...
 (layout)          "Species | Vaalpenskraal Game Reserve"
 
-/species/[slug]   "{Common name} | Vaalpenskraal         Dynamic: monograph vs stub line
-                   Game Reserve"                        (see app/species/[slug]/page.tsx)
-                   + alternates.canonical to full URL
-                   + openGraph article, OG image from card PNG when present
+/species/[slug]   "{Common name} | Vaalpenskraal         Dynamic: monograph line when a
+                   Game Reserve"                        deep guide exists (see
+                   + alternates.canonical to full URL   app/species/[slug]/page.tsx)
+                   + openGraph article, OG image from
+                     card PNG when present
                    + twitter card summary_large_image when image exists
 
 /contact           Contact | Vaalpenskraal Game Reserve Contact Vaalpenskraal... Waterberg...
@@ -169,8 +198,9 @@ Route              Title (effective)                    Description (meta)
 /cookies           Cookie Policy | Vaalpenskraal...      How Vaalpenskraal uses cookies...
 
 JSON-LD
-• /reserve#book-hunt: ReserveAction (Schema.org) in-page script; target URL
-  built from siteUrl("/reserve#book-hunt") (app/reserve/page.tsx).
+• /reserve: buildReservePageJsonLd() from lib/seo/reserve-json-ld.ts: @graph
+  with WebPage plus potentialAction ReserveAction; target URL is
+  siteUrl("/reserve#book-hunt") (app/reserve/page.tsx).
 • /species/[slug]: buildSpeciesJsonLd() from lib/seo/species-json-ld.ts
   (multi-typed entity for taxon plus service-shaped fields where appropriate;
   validate in Rich Results before client sign-off).
@@ -181,21 +211,30 @@ PART A: TECH STACK & PROJECT SHAPE
 FRAMEWORK & TOOLING
 • Next.js 16 (App Router), React 19, TypeScript.
 • Tailwind CSS v4 with @import "tailwindcss" and @theme tokens in app/globals.css.
-• Motion (motion/react) for scroll and enter animations on key pages (e.g. home
-  sections below the canvas hero, species hub).
+• Motion (motion/react) for scroll and enter animations on key pages (for
+  example home sections below the canvas hero, species hub hero and spotlight).
 • lucide-react for icons site-wide.
 • Static-friendly patterns: generateStaticParams for /species/[slug]; static
-  prerender for listed routes.
+  prerender for listed routes (next.config.mjs output: "export", distDir dist).
 • Forms: no server API for enquiries; ContactForm and HuntBookingPanel open
   mailto:info@vaalpenskraal.com with a prefilled body.
+
+PROJECT DOCS (agents and engineers)
+• AGENTS.md and CLAUDE.md: App Router conventions, Server vs Client split,
+  metadata rules, Tailwind v4 single source in globals.css.
+• .next-docs/: version-pinned Next.js reference material for ambiguous behaviour.
+• .cursor/rules/: includes no em dash in project strings and AEO business truth
+  (align visible copy with client-business-truth.json).
 
 HIGH-LEVEL FOLDERS
 • app/           Route segments, layout.tsx (root shell), globals.css, robots.ts,
                  sitemap.ts.
-• components/    Reusable UI: layout, home, species, forms, reserve booking.
-• data/          species.ts (quarry roster), camp-kraals.ts (kraal names for copy),
-                 monographs/ (long-form species copy).
-• lib/           species-media.ts, experience-media.ts, site.ts, seo/species-json-ld.ts.
+• components/    Reusable UI: layout, home, species, the-hunt, activities, forms,
+                 reserve booking.
+• data/          species.ts (quarry roster and group metadata), camp-kraals.ts,
+                 monographs/ (long-form species copy and registry).
+• lib/           species-media.ts, experience-media.ts, site.ts,
+                 seo/species-json-ld.ts, seo/reserve-json-ld.ts.
 • public/images/ Static JPG/PNG assets (home, lodge, hero, hero-sequence,
                  species cards, experience senses, etc.).
 
@@ -262,16 +301,21 @@ MOTION, SCROLL, AND FINAL-PHASE POLISH
     motion.
   - @starting-style provides initial opacity where supported; fallbacks set
     opacity: 1 when scroll() or view() timelines are not supported.
-• PageHero (components/layout/PageHero.tsx): optional prop
-  scrollLinkedTypography wraps copy in vp-scroll-hero-3d with Tailwind 3D
-  utilities (rotate-x-0, scale-z-100, transform-gpu, transform-3d) and
-  [perspective:1400px] on the text container when enabled. Used on /experience,
-  /lodge, /reserve (and can be extended elsewhere).
+• PageHero (components/layout/PageHero.tsx): shared marketing hero aligned with
+  the /species main hero band: min-h-[min(100svh,920px)], full-bleed Image,
+  two-layer scrim (bg-black/18 plus gradient-to-t from-black/58 via-black/26),
+  pill eyebrow with Mountain icon, title clamp text-[clamp(2.25rem,6vw,4rem)],
+  leading and tracking matched to species, max-w-3xl text stack, pb/pt bands
+  pb-16 pt-28 md:pb-24 md:pt-32. Optional scrollLinkedTypography wraps copy in
+  vp-scroll-hero-3d with perspective and applies vp-scroll-hero-eyebrow to the
+  pill when enabled. Used on /experience, /lodge, /reserve, /the-hunt,
+  /activities, /gallery (not on /contact). Background: imageSrc when set, else
+  picsum seed.
 
 ACCESSIBILITY AND ZOOM (WCAG 1.4.4 orientation)
 • Prefer fluid min-heights (min(), rem, dvh) over fixed px stacks on species
   monograph media shells and similar placeholders so large text / 200% zoom
-  clips less aggressively (e.g. MonographMedia.tsx, GreaterKuduGuide.tsx,
+  clips less aggressively (for example MonographMedia.tsx, GreaterKuduGuide.tsx,
   SpeciesMonographGuide.tsx).
 • Editorial grids rely on wrapping columns; avoid fixed pixel heights on pure
   text blocks.
@@ -280,8 +324,15 @@ IMAGE STRATEGY (brief)
 • Local files under public/images/ (lodge, home, hero, hero-sequence, species/cards,
   species hero, experience senses).
 • species-media.ts maps each species id to /images/species/cards/{id}.png.
-• Species page hero uses SPECIES_PAGE_HERO_IMAGE (stalking / bush scene).
+• Species index hero uses SPECIES_PAGE_HERO_IMAGE (iron mountain quarry scene).
 • Greater kudu deep guide still uses greater-kudu folder assets where coded.
+
+STICKY QUARRY NAVIGATION (breadcrumb strip)
+• components/species/StickyBreadcrumbImageBackdrop.tsx: full-bleed strip image
+  plus pointer-events-none absolute inset-0 bg-black/20 over the entire photo.
+• Used behind sticky jump nav on /species (SPECIES_PAGE_HERO_IMAGE), behind
+  monograph sticky TOC bars (SpeciesMonographGuide, GreaterKuduGuide), and behind
+  the top back link bar on SpeciesStubDetail (species seed image).
 
 ================================================================================
 PART C: EVERY PAGE (URL → PURPOSE → CONTENTS)
@@ -315,32 +366,57 @@ listed in the SEO section above where they differ from this narrative.
 • PageHero with scrollLinkedTypography and wide hunt imagery.
 • HuntBookingPanel (client): date range calendar or flexible dates, hunters /
   non-hunters, arrival time, hunt focus, contact fields, mailto submit. Anchor
-  #book-hunt. ReserveAction JSON-LD script. Earnest-style steps and supporting
-  copy. Links to /species and contact.
+  #book-hunt. WebPage + ReserveAction JSON-LD script via buildReservePageJsonLd.
+  HuntPlanningSections for Earnest-style planning copy. Links to /species and
+  contact.
+
+/the-hunt  (app/the-hunt/page.tsx): HUNT NARRATIVE AND FUNNEL
+• PageHero with scrollLinkedTypography and iron mountain quarry hero image.
+• TheHuntPageBody: editorial sections (lead bar, pulse strip, field immersion,
+  audience immersion, quarry strip toward /species, rhythm mosaic, booking
+  journey, packages enquiry, finale CTAs toward /reserve and contact).
+
+/activities  (app/activities/page.tsx): ON-ESTATE ACTIVITIES
+• PageHero with scrollLinkedTypography. Clay pigeon block with
+  ClayPigeonVideoGrid (client), mosaic of existing lodge and experience imagery,
+  scheduling note pulled from client-business-truth.json onEstateActivities.
+
+/gallery  (app/gallery/page.tsx): GALLERY SHELL
+• PageHero with scrollLinkedTypography. Twelve placeholder grid slots wired for
+  future public/images/gallery assets (copy states intent honestly).
 
 /booking  (app/booking/page.tsx): REDIRECT
 • Client-only: useRouter.replace("/reserve"). Static export friendly alias.
 
 /contact  (app/contact/page.tsx): CONTACT
-• PageHero (compact), direct lines (email, phone, map), then a two-column grid:
+• PageHero (same tall editorial height as other marketing heroes, no separate
+  compact variant): direct lines (email, phone, map), then a two-column grid:
   left column copy, right column Suspense-wrapped ContactIntentForm which reads
   URL search params and renders ContactForm with the matching default topic
   (hunt, lodge, media, etc.).
 
 /species  (app/species/page.tsx) + app/species/layout.tsx
 • layout.tsx: default metadata for the species section (see SEO table).
-• page.tsx: thin wrapper; main UI is components/species/SpeciesPageContent.tsx:
-  full-bleed hero (SPECIES_PAGE_HERO_IMAGE), Iron Mountain headline, compare-two
-  species mode, grid of all QUARRY_SPECIES with local card images, featured kudu
-  spotlight, footer link home. Modals for quick detail and side-by-side compare.
+• page.tsx: Suspense boundary with a simple loading fallback; main UI is
+  components/species/SpeciesPageContent.tsx:
+  full-bleed hero (SPECIES_PAGE_HERO_IMAGE) with Iron Mountain quarry pill,
+  primary species headline, ecosystem and census copy, CTAs for compare-two flow
+  and browse to directory; sticky jump nav (Home + group pills) with strip
+  backdrop; optional compare strip when picking or when two ids selected;
+  directory grouped by SPECIES_GROUP_ORDER with intros; SpecCard grid with local
+  card images where present; featured Greater Kudu spotlight; footer link home;
+  modals for quick detail sheet and side-by-side compare. URL ?compare=id,id
+  opens compare when both ids are valid roster entries.
 
 /species/[slug]  (app/species/[slug]/page.tsx): QUARRY DETAIL (22 static paths)
 • generateStaticParams from QUARRY_SPECIES.
 • Per-slug metadata, canonical, OG article, Twitter card; JSON-LD from
   buildSpeciesJsonLd.
 • If slug is greater-kudu → GreaterKuduGuide (large bespoke guide).
-• Else if monograph exists in data/monographs/registry → SpeciesMonographGuide.
-• Else → SpeciesStubDetail (compact profile from species record).
+• Else if hasSpeciesMonograph(slug) in data/monographs/registry.ts →
+  SpeciesMonographGuide with generated MonographDefinition.
+• Else → SpeciesStubDetail (compact profile from species record; reserved for
+  future species not yet wired to a monograph builder).
 
 /privacy  (app/privacy/page.tsx): PRIVACY POLICY
 • Legal / privacy text page (editorial layout). Last updated note in page copy.
@@ -355,7 +431,7 @@ NOT FOUND  (app/not-found.tsx)
 • Simple dark 404 with links back to home and species.
 
 (There is no separate /about route; story is split across home, experience,
-reserve, and lodge.)
+the-hunt, reserve, and lodge.)
 
 ================================================================================
 PART D: EVERY COMPONENT (path → role → main dependencies)
@@ -363,18 +439,21 @@ PART D: EVERY COMPONENT (path → role → main dependencies)
 All paths relative to project root. "Client" means "use client" directive.
 
 components/layout/Header.tsx (client)
-• Sticky top navigation: logo, primary links (Experience, Lodge, Species, The
-  Hunt → /reserve, Contact), mobile menu. Lucide icons, burnished-copper accents.
+• Fixed top navigation: logo, primary links (Experience, The Hunt, Species,
+  Activities), secondary links (The Lodge, Gallery, Contact), mobile overlay
+  menu. Lucide icons, burnished-copper accents. Reserve booking is not a top-bar
+  item; it appears in footer and in-page CTAs (for example /the-hunt, /reserve).
 
 components/layout/Footer.tsx
-• Site-wide footer: columns of links, reserve CTA, legal links, contact line.
+• Site-wide footer: columns of links (Visit, Estate, Policies, Contact), reserve
+  CTA, legal links, contact line.
 
 components/layout/PageHero.tsx
-• Reusable top-of-page hero: eyebrow, title, subtitle, background image from
-  imageSrc or picsum seed, gradient scrim, min-height bands using min() for
-  viewport-friendly sizing, editorial-container for text.
-• Optional scrollLinkedTypography: wraps copy in scroll-driven 3D type
-  classes (see globals.css).
+• Reusable top-of-page marketing hero (species-aligned): pill eyebrow with
+  Mountain icon, title, subtitle, background image from imageSrc or picsum seed,
+  min-h-[min(100svh,920px)], two-layer scrim, editorial-container for text.
+• Optional scrollLinkedTypography: scroll-driven 3D type classes and
+  vp-scroll-hero-eyebrow on the pill (see globals.css).
 
 components/home/HeroCanvasScrollSection.tsx (client)
 • Full-viewport canvas hero: one image, preload, draw on load and resize (no
@@ -398,26 +477,44 @@ components/reserve/HuntBookingPanel.tsx (client)
   column for layout balance.
 
 components/species/SpeciesPageContent.tsx (client)
-• Entire /species hub: compare flow, SpecCard grid, hero layers, modals, kudu
-  spotlight. Imports QUARRY_SPECIES, species-media helpers.
+• Entire /species hub: compare flow with URL sync, SpecCard grid grouped by
+  groupId, hero layers, modals, kudu spotlight, sticky jump nav with
+  StickyBreadcrumbImageBackdrop. Imports QUARRY_SPECIES, SPECIES_GROUP_*,
+  species-media helpers.
+
+components/species/StickyBreadcrumbImageBackdrop.tsx
+• Shared absolute stack: next/image fill object-cover, then bg-black/20 full
+  wash. Used by SpeciesPageContent sticky bar, SpeciesMonographGuide,
+  GreaterKuduGuide, SpeciesStubDetail.
 
 components/species/SpeciesStubDetail.tsx
-• Fallback species page when no monograph: card stats, terrain, copy blocks,
-  links to reserve and species index.
+• Fallback species page when no monograph builder: card stats, terrain, copy
+  blocks, links to reserve and species index; top bar uses strip backdrop.
 
 components/species/guides/GreaterKuduGuide.tsx
 • Very long monograph-style page for greater-kudu only: sections, figures,
   local image paths under public/images/species/greater-kudu, GuideFigureImg.
 
-components/species/guides/GuideFigureImg.tsx
-• Image wrapper with optional local src, fallback to remote URL, loading states.
+components/species/guides/GuideFigureImg.tsx (client)
+• Image wrapper with optional local src, fallback to remote URL, onError swap.
 
 components/species/guides/monograph/SpeciesMonographGuide.tsx
-• Renders MonographDefinition for a species: hero, TOC, sections, figures,
-  quotes, internal navigation. Used for all monograph-backed slugs except kudu.
+• Renders MonographDefinition for a species: hero, sticky TOC with strip
+  backdrop, sections, figures, quotes, internal navigation.
 
 components/species/guides/monograph/MonographMedia.tsx
 • Figures, diagrams, species-specific image helpers for monographs.
+
+components/the-hunt/TheHuntPageBody.tsx
+• Composes the-hunt marketing sections in order.
+
+components/the-hunt/HuntLeadBar.tsx, HuntPulseStrip.tsx, HuntFieldImmersion.tsx,
+HuntAudienceImmersion.tsx, HuntQuarryStrip.tsx, HuntRhythmMosaic.tsx,
+HuntBookingJourney.tsx, HuntPackagesEnquiry.tsx, HuntFinale.tsx
+• Editorial blocks for /the-hunt (copy, imagery, links to /species and /reserve).
+
+components/activities/ClayPigeonVideoGrid.tsx (client)
+• Video or media grid for clay shooting block on /activities.
 
 APP-LOCAL (not under components/)
 app/contact/ContactIntentForm.tsx (client)
@@ -427,21 +524,30 @@ app/contact/ContactIntentForm.tsx (client)
 ================================================================================
 PART E: DATA & LIBRARY FILES (brief)
 ================================================================================
+client-business-truth.json (repo root)
+• Structured facts for SEO, AEO, and agent guardrails: organisation, geography,
+  accommodation, catering, hunting policy line, speciesIds (22), compliance
+  notes, disallowed claims, contact. Align user-visible marketing copy with this
+  file unless management approves changes.
+
 data/species.ts
-• QUARRY_SPECIES array, QuarrySpecies type, getSpeciesBySlug().
+• QUARRY_SPECIES array, QuarrySpecies type (includes groupId), getSpeciesBySlug(),
+  SPECIES_GROUP_ORDER, SPECIES_GROUP_LABELS, SPECIES_GROUP_INTROS.
 
 data/camp-kraals.ts
 • CHALET_KRAALS, CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL for consistent lodge copy.
 
 data/monographs/
-• registry.ts: which slug gets SpeciesMonographGuide content.
-• content/*.ts: one file per species monograph (long editorial + structured blocks).
+• registry.ts: hasSpeciesMonograph(), getMonographContent(); MONOGRAPH_BUILDERS
+  map slug to builder for every roster species except greater-kudu (kudu uses
+  GreaterKuduGuide instead).
+• content/*.ts: one builder per monograph-backed slug.
 • types.ts, seeds.ts: monograph schema and image seeds.
 
 lib/species-media.ts
-• SPECIES_CARD_IMAGE_BY_ID (all 22 local card PNGs), SPECIES_PAGE_HERO_IMAGE,
+• SPECIES_CARD_IMAGE_BY_ID (local card PNGs per id), SPECIES_PAGE_HERO_IMAGE,
   GREATER_KUDU_QUARRY_PAGE_IMAGE (kudu spotlight), quarrySpeciesImageSrc(),
-  speciesImageUrl() fallback for any missing id.
+  speciesImageUrl() remote fallback for dev or missing assets.
 
 lib/experience-media.ts
 • Central paths for /experience photography.
@@ -451,6 +557,10 @@ lib/site.ts
 
 lib/seo/species-json-ld.ts
 • buildSpeciesJsonLd() for species detail pages.
+
+lib/seo/reserve-json-ld.ts
+• buildReservePageJsonLd(), RESERVE_PAGE_DESCRIPTION shared with /reserve
+  metadata.
 
 ================================================================================
 QUARRY SPECIES (COMPLETE: data/species.ts, SITE ORDER)
@@ -484,8 +594,8 @@ buffalo flag for legal / calibre messaging on cards.
 21  Sable Antelope           Regal                      Hippotragus niger           sable-antelope
 22  Roan Antelope            Rare air                   Hippotragus equinus         roan-antelope
 
-Terrain, calibre, and Rowland Ward strings for each row live in data/species.ts
-and on cards / stubs; not duplicated here to avoid drift.
+Terrain, calibre, Rowland Ward strings, and groupId for each row live in
+data/species.ts and on cards / stubs; not duplicated here to avoid drift.
 
 --------------------------------------------------------------------------------
 COUNT
@@ -500,6 +610,8 @@ NOTES FOR SALES / AGENTS
 • Variant species: disclose genetics and management honestly to guests.
 • Giraffe / zebra / export products: confirm permit and import rules per
   destination before promising deliverables.
+• Do not market Common Eland as offered quarry unless management restores it in
+  data and client-business-truth.json together.
 
 ================================================================================
 END OF DOCUMENT

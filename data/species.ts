@@ -6,13 +6,13 @@ export type SpeciesGroupId =
   | "bush-water"
   | "herd-morphs";
 
-/** Display order for `/species` jump navigation and grouped grid. */
+/** Display order for `/species` jump navigation and grouped grid (dangerous last: single species). */
 export const SPECIES_GROUP_ORDER: readonly SpeciesGroupId[] = [
-  "dangerous",
   "woodland",
   "plains",
   "bush-water",
   "herd-morphs",
+  "dangerous",
 ] as const;
 
 export const SPECIES_GROUP_LABELS: Record<SpeciesGroupId, string> = {
