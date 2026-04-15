@@ -117,29 +117,20 @@ const HomePageClient = () => {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white/30">
       <HeroCanvasScrollSection>
-        <div className="editorial-container flex min-h-0 flex-1 flex-col items-start justify-center gap-4 py-2 sm:gap-6 sm:py-4">
-          <h1 className="hero-readable-title max-w-[min(100%,44rem)] whitespace-pre-line text-left font-sans text-[clamp(2.25rem,7vw,4rem)] font-semibold uppercase leading-[0.98] tracking-tight text-white sm:tracking-tighter">
-            {`Iron\nMountain air.`}
-          </h1>
-          <div className="hero-readable-ui h-px w-10 shrink-0 bg-white/55 shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:w-14" />
-          <p className="hero-readable-body max-w-xl text-left font-sans text-sm font-medium leading-relaxed tracking-tight text-white sm:text-base md:text-lg">
-            Rolling plains. Jagged horizons. Elite silence before the shot. Twenty-two quarry species on hard Waterberg ground.
-          </p>
-          <div className="mt-2 flex w-full max-w-xl flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-            <Link
-              href="/reserve"
-              className="focus-ring-invert group relative inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] sm:px-8"
-            >
-              <span className="relative z-10">Book the hunt</span>
-              <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-            </Link>
-            <Link
-              href="/species"
-              className="focus-ring-invert group inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/35 bg-black/35 px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md transition-colors duration-300 hover:bg-black/50 sm:px-8"
-            >
-              <span className="hero-readable-ghost">Quarry roster</span>
-            </Link>
-          </div>
+        <div className="mt-2 flex w-full max-w-xl flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+          <Link
+            href="/reserve"
+            className="focus-ring-invert group relative inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] sm:px-8"
+          >
+            <span className="relative z-10">Book the hunt</span>
+            <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+          </Link>
+          <Link
+            href="/species"
+            className="focus-ring-invert group inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/35 bg-black/35 px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md transition-colors duration-300 hover:bg-black/50 sm:px-8"
+          >
+            <span className="hero-readable-ghost">Quarry roster</span>
+          </Link>
         </div>
       </HeroCanvasScrollSection>
 
@@ -584,7 +575,7 @@ const HomePageClient = () => {
                 In their words
               </p>
               <p className="mt-3 font-sans text-sm text-white/70">
-                Guests from across South Africa and overseas; many of our hunters fly in from abroad.
+                Guests from across South Africa and overseas. Many of our hunters fly in from abroad.
               </p>
             </div>
             <div className="flex gap-2 self-start sm:self-auto">

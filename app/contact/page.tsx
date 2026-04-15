@@ -9,7 +9,7 @@ import ContactIntentForm from "./ContactIntentForm";
 export const metadata: Metadata = {
   title: "Contact | Vaalpenskraal Game Reserve",
   description:
-    "Contact Vaalpenskraal in the Waterberg, Limpopo: hunt and lodge enquiries by email. Children on camp and minors need prior agreement with management.",
+    "Contact Vaalpenskraal in the Waterberg, Limpopo. Hunt and lodge enquiries land by email. Children on camp and minors need prior agreement with management.",
 };
 
 const ContactPage = () => {
@@ -20,7 +20,7 @@ const ContactPage = () => {
         eyebrow="Contact"
         title="Let's talk before you land in the bush"
         compact
-        subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans: send the honest version. We reply with the same."
+        subtitle="One conversation can save a week of wrong assumptions. Dates, species, lodge space, children on camp, rifle plans. Send the honest version. We reply with the same."
         imageSeed="contacthero"
       />
 
@@ -94,7 +94,7 @@ const ContactPage = () => {
             <div>
               <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/70">Expectations</p>
               <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                Heat, thorns, and silence are real. So is the reward. If someone in your party has mobility limits or dietary needs, say so in the form: the lodge can adapt when we know in advance.
+                Heat, thorns, and silence are real. So is the reward. If someone in your party has mobility limits or dietary needs, say so in the form. The lodge can adapt when we know in advance.
               </p>
             </div>
           </div>

@@ -1,31 +1,10 @@
 import Link from "next/link";
 import { ChevronRight, Compass, Globe, Target, Users, Sun } from "lucide-react";
-
-export const HUNT_PLANNING_STEPS = [
-  {
-    n: "01",
-    title: "Who travels",
-    body: "Solo, father and son, corporate, old mates. Headcount sets vehicles, PH hours, and how hard we push the thicket.",
-  },
-  {
-    n: "02",
-    title: "Your window",
-    body: "Season, moon, rut: we read the calendar with you. No zoo promises.",
-  },
-  {
-    n: "03",
-    title: "Quarry on iron soil",
-    body: "Twenty-two species on the roster. Wish list meets census, ethics, and the legs you actually brought.",
-  },
-  {
-    n: "04",
-    title: "Hard facts",
-    body: "Own rifle or hire. Licences and temp import: yours. DG rules where they apply. Heat and fitness: spoken out loud.",
-  },
-] as const;
+import { HUNT_PLANNING_STEPS } from "@/data/hunt-planning";
 
 /**
- * Editorial hunt-planning body shared by `/the-hunt` (story) and `/reserve` (booking + same story below the form).
+ * Supporting hunt story below the booking form on `/reserve`.
+ * The main editorial hunt narrative lives on `/the-hunt` (`TheHuntPageBody`).
  */
 export default function HuntPlanningSections() {
   return (
@@ -39,7 +18,7 @@ export default function HuntPlanningSections() {
             </div>
             <div className="space-y-8 font-sans text-base leading-relaxed text-white/70 lg:col-span-7">
               <p>
-                <strong className="font-medium text-white/80">First farm hunt?</strong> We slow the clock: foot placement, safety arc, what the PH sees before you do. Ask anything. That is the work.
+                <strong className="font-medium text-white/80">First farm hunt?</strong> We slow the clock on foot placement, safety arc, what the PH sees before you do. Ask anything. That is the work.
               </p>
               <p>
                 <strong className="font-medium text-white/80">Seasoned elsewhere?</strong> The Waterberg still punishes hurry. Wind first. Angle second. Ego stays in the bakkie.
@@ -48,7 +27,7 @@ export default function HuntPlanningSections() {
                 <strong className="font-medium text-white/80">Local weekends?</strong> You know Limpopo light. We match it with blunt quota talk and pacing that respects the freezer and the veld.
               </p>
               <p>
-                <strong className="font-medium text-white/80">Overseas?</strong> JHB, then gravel. Jet lag is a hunting hazard: we say so. Rifle import and trophy export sit with you and your agent. We run camp and field, not Home Affairs.
+                <strong className="font-medium text-white/80">Overseas?</strong> JHB, then gravel. Jet lag is a hunting hazard, and we say so. Rifle import and trophy export sit with you and your agent. We run camp and field, not Home Affairs.
               </p>
             </div>
           </div>
@@ -102,7 +81,7 @@ export default function HuntPlanningSections() {
               <div>
                 <h3 className="font-sans text-lg font-semibold">International guests</h3>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">
-                  Dip, pack, ship: your agent, your timeline. We do not touch import or export files. We keep the hunt clean so their paperwork stays honest.
+                  Dip, pack, and ship stay with your agent and your timeline. We do not touch import or export files. We keep the hunt clean so their paperwork stays honest.
                 </p>
               </div>
             </div>
@@ -112,12 +91,18 @@ export default function HuntPlanningSections() {
 
       <section className="py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16">
+            <div className="flex min-h-0 flex-col lg:col-span-7">
               <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Packages</p>
               <h2 className="mt-4 font-sans text-3xl font-semibold tracking-tight">Stay long enough for the veld to speak</h2>
               <p className="mt-6 font-sans text-base leading-relaxed text-white/70">
-                One dawn teaches little. Multi-day weeks let thicket and heat do their job. DG follows law and PH judgement. Fees move with season and census: the form is where numbers turn real.
+                One dawn teaches little. Multi-day weeks let thicket and heat do their job. DG follows law and PH judgement. Fees move with season and census. The form is where numbers turn real.
+              </p>
+              <p className="mt-5 font-sans text-base leading-relaxed text-white/70">
+                A classic week still reads like chapters. Cold stalk blocks, midday stillness when animals go to shade, last light that rewards patience. We build the day around honest legs and honest quarry, not a checklist sprint.
+              </p>
+              <p className="mt-5 font-sans text-base leading-relaxed text-white/70">
+                The roster stays census-driven. Availability is ecology and quota, not a printed menu promise. When you name species in order, we answer with what the veld can carry that season, then translate it into days on the ground.
               </p>
               <ul className="mt-8 space-y-3 font-sans text-sm text-white/70">
                 <li className="flex gap-3">
@@ -134,24 +119,26 @@ export default function HuntPlanningSections() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/[0.1] bg-gradient-to-br from-white/[0.04] to-transparent p-8 md:p-10 lg:col-span-5">
-              <h3 className="font-sans text-lg font-semibold text-white/90">What to mention in your enquiry</h3>
-              <ul className="mt-6 space-y-3 font-sans text-sm leading-relaxed text-white/70">
-                <li>Approximate dates and flexibility</li>
-                <li>Number of hunters and non-hunters</li>
-                <li>Species that matter most, in order</li>
-                <li>First hunt or many seasons of experience</li>
-                <li>Rifle plans: own, hire, or undecided (your temp import is your arrangement)</li>
-                <li>Any mobility or dietary needs we should plan for</li>
-                <li>Your own trophy export / dip-and-pack agent if applicable (the estate does not process that paperwork)</li>
-              </ul>
-              <Link
-                href="/reserve#book-hunt"
-                className="focus-ring-invert mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
-              >
-                Open the booking form
-                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
-              </Link>
+            <div className="flex min-h-0 flex-col lg:col-span-5">
+              <div className="flex flex-1 flex-col rounded-2xl border border-white/[0.1] bg-gradient-to-br from-white/[0.04] to-transparent p-8 md:p-10">
+                <h3 className="font-sans text-lg font-semibold text-white/90">What to mention in your enquiry</h3>
+                <ul className="mt-6 flex-1 space-y-3 font-sans text-sm leading-relaxed text-white/70">
+                  <li>Approximate dates and flexibility</li>
+                  <li>Number of hunters and non-hunters</li>
+                  <li>Species that matter most, in order</li>
+                  <li>First hunt or many seasons of experience</li>
+                  <li>Rifle plans include own, hire, or undecided (your temp import is your arrangement)</li>
+                  <li>Any mobility or dietary needs we should plan for</li>
+                  <li>Your own trophy export / dip-and-pack agent if applicable (the estate does not process that paperwork)</li>
+                </ul>
+                <Link
+                  href="/reserve#book-hunt"
+                  className="focus-ring-invert mt-10 inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:w-auto lg:mt-auto"
+                >
+                  Open the booking form
+                  <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -162,7 +149,7 @@ export default function HuntPlanningSections() {
           <div className="mx-auto max-w-3xl">
             <h2 className="font-sans text-2xl font-semibold tracking-tight sm:text-3xl">The mountain ignores your PDF</h2>
             <p className="mt-5 font-sans text-base leading-relaxed text-white/70">
-              We own prep, ethics, sweat. Weather, animal mood, jagged horizons: not ours to command. That blunt respect is why people return.
+              We own prep, ethics, sweat. Weather, animal mood, and jagged horizons are not ours to command. That blunt respect is why people return.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link

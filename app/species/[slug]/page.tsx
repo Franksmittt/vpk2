@@ -20,7 +20,7 @@ function speciesPageDescription(slug: string, s: QuarrySpecies) {
   const richMonograph = slug === "greater-kudu" || hasSpeciesMonograph(slug);
   return richMonograph
     ? `${s.name} monograph: biology, fieldcraft, rifles, trophies, meat, and Iron Mountain hunting at Vaalpenskraal.`
-    : `${s.name} (${s.scientific}): Iron Mountain quarry profile and booking at Vaalpenskraal.`;
+    : `${s.name} (${s.scientific}). Iron Mountain quarry profile and booking at Vaalpenskraal.`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -6,7 +6,6 @@ import {
   Footprints,
   Heart,
   MapPin,
-  Sparkles,
   Sunrise,
   Flame,
   Ear,
@@ -21,7 +20,7 @@ import { EXPERIENCE_IMAGES } from "@/lib/experience-media";
 export const metadata: Metadata = {
   title: "The Experience | Vaalpenskraal Game Reserve",
   description:
-    "Dawn on the Iron Mountain. Boma embers. Thicket that teaches patience. First hunt or fiftieth: the Waterberg asks for honesty, not bravado.",
+    "Dawn on the Iron Mountain. Boma embers. Thicket that teaches patience. First hunt or fiftieth, the Waterberg asks for honesty, not bravado.",
 };
 
 /** Local `src` wins; otherwise picsum by `seed` (placeholder until you add an asset). */
@@ -92,7 +91,7 @@ const AUDIENCE: {
     icon: Footprints,
     body: "Elite silence on the stalk. Your pace. The PH beside you, but the shot stays yours. Plenty arrive for horns and leave with a quieter skull.",
     extra:
-      "Flying in alone: we spell gate time, first-night rhythm, who meets you. Rifle and trophy paperwork stay with your agent, not our desk.",
+      "Flying in alone, we spell gate time, first-night rhythm, who meets you. Rifle and trophy paperwork stay with your agent, not our desk.",
   },
   {
     key: "family",
@@ -102,7 +101,7 @@ const AUDIENCE: {
     icon: Heart,
     body: "Shared discomfort on the walk. Shared laughter at coals. Kids watch adults go still. Non-hunters still get copper dawn on the stoep, nyala at the wire, stories that start mid-sentence.",
     extra:
-      "Safety is blunt: animals, cars, water are real. Clear lines. Parents tell us the week rewired listening. They rebook. We believe them.",
+      "Safety is blunt. Animals, cars, and water are real. Clear lines. Parents tell us the week rewired listening. They rebook. We believe them.",
   },
   {
     key: "global",
@@ -110,9 +109,9 @@ const AUDIENCE: {
     src: EXPERIENCE_IMAGES.audience.global,
     title: "Local & international",
     icon: MapPin,
-    body: "Modimolle or Melbourne: last hour narrows to dust, grass, cattle grids. Locals bring humour and honest expectations. Internationals bring jet lag and sharp questions. Same answers.",
+    body: "Modimolle or Melbourne. Last hour narrows to dust, grass, cattle grids. Locals bring humour and honest expectations. Internationals bring jet lag and sharp questions. Same answers.",
     extra:
-      "Import, export, temp rifle: your stack or your outfitter. We stay out. We do care if you are still on another time zone: the PH will bench a reckless first morning.",
+      "Import, export, and temp rifle sit with your stack or your outfitter. We stay out. We do care if you are still on another time zone, and the PH will bench a reckless first morning.",
   },
 ];
 
@@ -120,6 +119,10 @@ const HOURS = [
   {
     t: "Before first light",
     text: "Coffee while the air is blade-cold. Wet finger wind. City noise gone.",
+  },
+  {
+    t: "First light",
+    text: "Sky lifts from ink to grey velvet. The brief lands without theatre. You quit clock-watching and start listening.",
   },
   {
     t: "Golden hour",
@@ -170,55 +173,47 @@ const ExperiencePage = () => {
         scrollLinkedTypography
         eyebrow="The Experience"
         title="The bush is the lead role."
-        subtitle="Dust when the tyres slow. Turtle dove at noon. Cold air under your cuffs at last light. Read this before you book. Hunters, families, writers, guests who never carry a rifle: same respect."
+        subtitle="Dust when the tyres slow. Turtle dove at noon. Cold air under your cuffs at last light. Read this before you book. Hunters, families, writers, guests who never carry a rifle get the same respect."
         imageSeed="experiencehero"
         imageSrc={EXPERIENCE_IMAGES.hero}
       />
 
-      {/* Full-bleed panorama */}
-      <section className="relative border-b border-white/[0.07]">
-        <div className="relative aspect-[21/9] min-h-[200px] w-full overflow-hidden bg-neutral-950 sm:min-h-[280px] md:min-h-[340px]">
-          <ExperienceImg
-            fill
-            src={EXPERIENCE_IMAGES.panorama}
-            seed="expwaterbergpan"
-            alt="Wide view over the Waterberg bush at dawn across Vaalpenskraal"
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-14">
-            <p className="vp-scroll-root-line max-w-3xl font-sans text-sm leading-relaxed text-white/75 md:text-base">
-              Iron soil. Thorn corridors. Ridgelines that turn copper while the sun still has work to do.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Through your eyes */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
-            <div className="lg:col-span-5 [perspective:1400px]">
-              <Sparkles className="h-9 w-9 text-burnished-copper/80" aria-hidden />
-              <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Field note</p>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16">
+            <div className="flex min-h-0 flex-col [perspective:1400px]">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Field note</p>
               <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
                 Through your eyes
               </h2>
+              <div className="mt-6 space-y-5 font-sans text-base leading-relaxed text-white/70 md:mt-8 md:space-y-6">
+                <p>
+                  New to hunting? The arc is slower than a trophy photo. Wind on your neck. Impala alarm that outruns thought. Then the PH goes quiet because the thicket changed the rules.
+                </p>
+                <p>
+                  Seasoned elsewhere? The Waterberg still gives you a new paper. Open glades, then thicket that eats distance. Sometimes the right shot is the one you do not take.
+                </p>
+                <p>
+                  Skeptical of fenced estates? Ask blunt questions. We answer. Habitat, harvest, where money flows back into the veld. That is the spine, not garnish.
+                </p>
+              </div>
             </div>
-            <div className="space-y-6 font-sans text-base leading-relaxed text-white/70 lg:col-span-7">
-              <p>New to hunting? The arc is slower than a trophy photo. Wind on your neck. Impala alarm that outruns thought. Then the PH goes quiet because the thicket changed the rules.</p>
-              <p>Seasoned elsewhere? The Waterberg still gives you a new paper. Open glades, then thicket that eats distance. Sometimes the right shot is the one you do not take.</p>
-              <p>Skeptical of fenced estates? Ask blunt questions. We answer. Habitat, harvest, where money flows back into the veld: that is the spine, not garnish.</p>
+            <div className="flex min-h-0 flex-col space-y-6 font-sans text-base leading-relaxed text-white/70">
               <blockquote className="relative border-l-2 border-burnished-copper/60 py-1 pl-6 font-serif text-lg leading-snug text-white/70 md:text-xl">
                 Curious guests leave quieter. Not smaller. Quieter.
               </blockquote>
-              <p>Non-hunters get the same light clock: jackals like rusted hinges, kudu stepping out as if the bush had been holding its breath.</p>
+              <p>Non-hunters get the same light clock. Jackals like rusted hinges, kudu stepping out as if the bush had been holding its breath.</p>
+              <p>
+                Camp brings a different register. Vark Kraal fills with plates, soft laughter, and honest fatigue. The outlook and waterhole still wait if you want sky without glass. Meals are fully catered on camp, so you are not hunting calories on the side.
+              </p>
+              <p>
+                Game drives and clay pigeons ride the real schedule. If you need them anchored in your week, say so in your first mail so we can answer honestly.
+              </p>
             </div>
           </div>
 
-          <figure className="relative mt-12 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:mt-16">
+          <div className="relative mt-12 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:mt-16">
             <div className="relative aspect-[4/3] w-full lg:aspect-[21/9]">
               <ExperienceImg
                 fill
@@ -229,10 +224,7 @@ const ExperiencePage = () => {
                 sizes="(max-width: 1024px) 100vw, 70vw"
               />
             </div>
-            <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] leading-snug text-white/65 md:px-8">
-              On-estate stalk: thicket and distance, same rhythm as the quarry page hero.
-            </figcaption>
-          </figure>
+          </div>
         </div>
       </section>
 
@@ -260,7 +252,7 @@ const ExperiencePage = () => {
                     fill
                     src={a.src}
                     seed={a.seed}
-                    alt={`${a.title}: Waterberg hunting and lodge context at Vaalpenskraal`}
+                    alt={`${a.title}, Waterberg hunting and lodge context at Vaalpenskraal`}
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -281,7 +273,7 @@ const ExperiencePage = () => {
       {/* Day rhythm */}
       <section className="border-b border-white/[0.07] py-20 md:py-28">
         <div className="editorial-container">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16">
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-28 [perspective:1400px]">
                 <Sunrise className="h-9 w-9 text-burnished-copper/80" aria-hidden />
@@ -290,7 +282,7 @@ const ExperiencePage = () => {
                 <p className="vp-scroll-root-line mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
                   No twin days. Wind and animal mood rewrites. By day three the beat sits in your ribs anyway.
                 </p>
-                <figure className="relative mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
+                <div className="relative mt-10 overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
                   <div className="relative aspect-[4/5] w-full">
                     <ExperienceImg
                       fill
@@ -303,17 +295,14 @@ const ExperiencePage = () => {
                       height={1500}
                     />
                   </div>
-                  <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/65">
-                    Lodge outlook and morning light (estate photography).
-                  </figcaption>
-                </figure>
+                </div>
               </div>
             </div>
-            <div className="space-y-0 lg:col-span-7">
+            <div className="flex flex-col lg:col-span-7 lg:h-full lg:min-h-0">
               {HOURS.map((h, i) => (
                 <div
                   key={h.t}
-                  className={`border-t border-white/[0.08] py-8 first:border-t-0 first:pt-0 md:py-10 ${i === HOURS.length - 1 ? "md:pb-0" : ""}`}
+                  className={`border-t border-white/[0.08] py-8 first:border-t-0 first:pt-0 md:py-10 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:justify-center lg:py-4 ${i === HOURS.length - 1 ? "lg:pb-0" : ""}`}
                 >
                   <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-burnished-copper/85">{h.t}</p>
                   <p className="mt-3 font-sans text-base leading-relaxed text-white/70 md:text-lg">{h.text}</p>
@@ -341,7 +330,7 @@ const ExperiencePage = () => {
               <Binoculars className="h-7 w-7 text-burnished-copper/75" aria-hidden />
               <h3 className="mt-5 font-sans text-lg font-semibold">“I have done Namibia, Zambia, the lot. Surprise me.”</h3>
               <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">
-                Then we drill thicket IQ: small openings, negative space, refusing the scope lie. Waterberg is a technical paper. Arrogance costs inches. Patience pays.
+                Then we drill thicket IQ, small openings, negative space, refusing the scope lie. Waterberg is a technical paper. Arrogance costs inches. Patience pays.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-black/40 p-6 md:p-8">
@@ -391,9 +380,9 @@ const ExperiencePage = () => {
       {/* Guides / media */}
       <section className="border-b border-white/[0.07] bg-[#050505] py-20 md:py-32">
         <div className="editorial-container">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <figure className="relative order-2 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:order-1 lg:col-span-7">
-              <div className="relative aspect-[4/3] w-full lg:aspect-[5/4]">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16">
+            <div className="relative order-2 min-h-0 h-full lg:order-1 lg:col-span-7">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] lg:aspect-auto lg:h-full lg:min-h-[min(72vw,520px)]">
                 <ExperienceImg
                   fill
                   src={EXPERIENCE_IMAGES.guidesEncounter}
@@ -403,21 +392,29 @@ const ExperiencePage = () => {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
               </div>
-              <figcaption className="border-t border-white/[0.06] bg-white/[0.02] px-4 py-3 font-sans text-[11px] text-white/65 md:px-6">
-                Field encounter: estate hunt photography (replace if you want a dedicated glassing shot).
-              </figcaption>
-            </figure>
-            <div className="order-1 lg:order-2 lg:col-span-5">
+            </div>
+            <div className="order-1 flex min-h-0 flex-col lg:order-2 lg:col-span-5 lg:h-full">
               <BookOpen className="h-8 w-8 text-burnished-copper/80" aria-hidden />
               <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Professionals</p>
               <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Guides, writers, cameras</h2>
-              <p className="mt-6 font-sans text-base leading-relaxed text-white/70">
-                PHs meet PHs: safety arcs, client headspace, when to kill a stalk. Craft respected. Egos stay at the gate with city dust.
-              </p>
-              <p className="mt-4 font-sans text-base leading-relaxed text-white/70">
-                Press and crews get access without turning the veld into theatre. Stay honest to story and animal. Name format, crew count, dates so we can slot vehicles and quiet hours.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-6 min-h-0 flex-1 space-y-4 font-sans text-base leading-relaxed text-white/70 md:space-y-5">
+                <p>
+                  PHs meet PHs. Safety arcs, client headspace, when to kill a stalk. Craft respected. Egos stay at the gate with city dust.
+                </p>
+                <p>
+                  Press and crews get access without turning the veld into theatre. Stay honest to story and animal. Name format, crew count, dates so we can slot vehicles and quiet hours.
+                </p>
+                <p>
+                  Still photography and slow writing age well here. Fast content often does not. If you need a line that survives editing, build it from wind direction and foot placement first.
+                </p>
+                <p>
+                  Trophy paperwork, taxidermy routing, and import or export sit with your agents and outfitter. On the estate we focus on fair-chase field standards, safe muzzles, and handover timing that respects cold rooms and flights.
+                </p>
+                <p>
+                  If you are filming, say so early. We reserve the right to refuse staged animal stress, crowd noise in a stalk, or shots that force a second take on the veld. The bush is not a rental studio.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4 lg:mt-auto lg:pt-8">
                 <Link
                   href="/reserve"
                   className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
@@ -446,35 +443,38 @@ const ExperiencePage = () => {
             src={EXPERIENCE_IMAGES.closingBoma}
             seed="expclosingboma"
             alt="Evening boma firelight and camp silhouettes at Vaalpenskraal"
-            className="object-cover opacity-40"
+            className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/88 to-black/70" />
+          <div className="absolute inset-0 bg-black/20" aria-hidden />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/38 to-black/10" aria-hidden />
         </div>
         <div className="editorial-container relative z-10 text-center">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="font-sans text-3xl font-semibold tracking-tight sm:text-4xl md:text-[2.5rem]">The fire you imagined is already lit</h2>
-            <p className="mt-5 font-sans text-base leading-relaxed text-white/70 md:text-lg">
+          <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/[0.08] bg-black/35 px-7 py-10 shadow-[0_4px_24px_rgb(0_0_0/0.35),0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-[2px] sm:px-10 sm:py-12 md:px-12 md:py-14">
+            <h2 className="font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.5rem] [text-shadow:0_1px_2px_rgb(0_0_0/0.85),0_2px_12px_rgb(0_0_0/0.75),0_12px_40px_rgb(0_0_0/0.55)]">
+              The fire you imagined is already lit
+            </h2>
+            <p className="mt-5 font-sans text-base leading-relaxed text-white/85 md:text-lg [text-shadow:0_1px_2px_rgb(0_0_0/0.9),0_2px_16px_rgb(0_0_0/0.65)]">
               Walk it once on iron soil. Then argue with the silence if you can.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
               <Link
                 href="/lodge"
-                className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black transition-colors hover:bg-white/90"
+                className="focus-ring-invert inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-medium text-black shadow-[0_4px_20px_rgb(0_0_0/0.45)] transition-colors hover:bg-white/90"
               >
                 See the lodge
                 <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
               </Link>
               <Link
                 href="/species"
-                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/70 transition-colors hover:text-white"
+                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/90 transition-colors [text-shadow:0_1px_2px_rgb(0_0_0/0.95),0_2px_12px_rgb(0_0_0/0.75)] drop-shadow-[0_2px_8px_rgb(0_0_0/0.55)] hover:text-white"
               >
                 Quarry species
                 <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
               </Link>
               <Link
                 href="/contact?intent=general"
-                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/70 transition-colors hover:text-white"
+                className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/90 transition-colors [text-shadow:0_1px_2px_rgb(0_0_0/0.95),0_2px_12px_rgb(0_0_0/0.75)] drop-shadow-[0_2px_8px_rgb(0_0_0/0.55)] hover:text-white"
               >
                 Ask a question
                 <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />

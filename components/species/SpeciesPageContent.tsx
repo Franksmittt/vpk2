@@ -211,7 +211,7 @@ function DetailPanel({
       <div className="relative h-56 w-full sm:h-72">
         <Image
           src={quarrySpeciesImageSrc(s, 1600, 900)}
-          alt={`${s.name} hero sheet: Waterberg quarry reference photography`}
+          alt={`${s.name} hero sheet for Waterberg quarry reference photography`}
           fill
           sizes="100vw"
           className="object-cover"
@@ -413,6 +413,11 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             className="object-cover"
           />
         </div>
+        <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/[0.82] to-black/48"
+          aria-hidden
+        />
 
         <div className="editorial-container relative z-10 flex min-h-[min(100svh,920px)] flex-col justify-end pb-16 pt-28 md:pb-24 md:pt-32">
           <motion.div

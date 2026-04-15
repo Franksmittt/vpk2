@@ -201,6 +201,11 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             className="object-cover"
           />
         </div>
+        <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/[0.78] to-black/45"
+          aria-hidden
+        />
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
           <div className="hero-readable-eyebrow mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
             <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />

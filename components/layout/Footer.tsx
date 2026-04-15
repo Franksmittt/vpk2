@@ -1,62 +1,132 @@
 import Link from "next/link";
 
-export default function Footer() {
+const linkClass =
+  "focus-ring rounded-sm font-sans text-sm font-medium text-white/65 transition-colors hover:text-white";
+
+const columnClass = "font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/55";
+
+const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-black pb-10 pt-16 md:pt-20">
+    <footer className="border-t border-white/[0.07] bg-[#050505] pb-14 pt-16 md:pb-16 md:pt-20">
       <div className="editorial-container">
-        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:mb-16 lg:grid-cols-5 lg:gap-12">
-          <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Explore</h4>
-            <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li><Link href="/experience" className="focus-ring rounded-sm transition-colors hover:text-white">The Experience</Link></li>
-              <li><Link href="/the-hunt" className="focus-ring rounded-sm transition-colors hover:text-white">The Hunt</Link></li>
-              <li><Link href="/reserve" className="focus-ring rounded-sm transition-colors hover:text-white">Book Your Hunt</Link></li>
-              <li><Link href="/species" className="focus-ring rounded-sm transition-colors hover:text-white">Quarry Species</Link></li>
-              <li><Link href="/activities" className="focus-ring rounded-sm transition-colors hover:text-white">Activities</Link></li>
-              <li><Link href="/gallery" className="focus-ring rounded-sm transition-colors hover:text-white">Gallery</Link></li>
-              <li><Link href="/lodge" className="focus-ring rounded-sm transition-colors hover:text-white">The Lodge</Link></li>
-              <li><Link href="/contact?intent=general" className="focus-ring rounded-sm transition-colors hover:text-white">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Compliance and place</h4>
-            <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li>P3 Exemption Permit (confirm current certificate and scope with management)</li>
-              <li>Waterberg Biosphere Reserve</li>
-              <li>Matlabas Protection Service (gated access referenced in estate materials)</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Legal</h4>
-            <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li><Link href="/privacy" className="focus-ring rounded-sm transition-colors hover:text-white">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="focus-ring rounded-sm transition-colors hover:text-white">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="focus-ring rounded-sm transition-colors hover:text-white">Cookie Policy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Location</h4>
-            <ul className="space-y-3 font-sans text-sm text-white/60 font-medium">
-              <li>Waterberg Biosphere</li>
-              <li>Thabazimbi area, Limpopo</li>
-              <li>South Africa</li>
-              <li className="pt-2"><a href="mailto:info@vaalpenskraal.com" className="focus-ring rounded-sm transition-colors hover:text-white">info@vaalpenskraal.com</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-sans font-bold text-xl text-white mb-6 uppercase tracking-tight">Advisory</h4>
-            <p className="font-sans text-sm text-white/60 leading-relaxed font-medium">
-              Firearm temporary import, trophy export, and home-country import rules are your responsibility with your own authorities and agents. Vaalpenskraal does not process client paperwork on your behalf.
+        <div className="mb-14 flex flex-col gap-6 border-b border-white/[0.06] pb-14 md:mb-16 md:flex-row md:items-end md:justify-between md:pb-16">
+          <div className="max-w-lg">
+            <p className={columnClass}>Vaalpenskraal Game Reserve</p>
+            <p className="mt-3 font-sans text-base leading-relaxed text-white/60 md:text-[1.05rem]">
+              Waterberg bushveld, PH-led field days, and four kraals on camp. Book when you are ready to listen more than you talk.
             </p>
           </div>
+          <p className="font-serif text-2xl font-medium tracking-tight text-burnished-copper/75 md:text-3xl">Iron Mountain</p>
         </div>
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-sans text-xs text-white/65 uppercase tracking-widest font-bold">
-            &copy; {new Date().getFullYear()} Vaalpenskraal Game Reserve. All rights reserved.
+
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-12 sm:gap-x-12 lg:grid-cols-4 lg:gap-x-10">
+          <div>
+            <p className={columnClass}>Visit</p>
+            <ul className="mt-5 space-y-3.5">
+              <li>
+                <Link href="/" className={linkClass}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/experience" className={linkClass}>
+                  The Experience
+                </Link>
+              </li>
+              <li>
+                <Link href="/the-hunt" className={linkClass}>
+                  The Hunt
+                </Link>
+              </li>
+              <li>
+                <Link href="/species" className={linkClass}>
+                  Quarry species
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className={columnClass}>Estate</p>
+            <ul className="mt-5 space-y-3.5">
+              <li>
+                <Link href="/lodge" className={linkClass}>
+                  The Lodge
+                </Link>
+              </li>
+              <li>
+                <Link href="/activities" className={linkClass}>
+                  Activities
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className={linkClass}>
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/reserve" className={linkClass}>
+                  Book your hunt
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className={columnClass}>Policies</p>
+            <ul className="mt-5 space-y-3.5">
+              <li>
+                <Link href="/privacy" className={linkClass}>
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className={linkClass}>
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookies" className={linkClass}>
+                  Cookies
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className={columnClass}>Contact</p>
+            <ul className="mt-5 space-y-3.5">
+              <li>
+                <Link href="/contact?intent=general" className={linkClass}>
+                  Enquire
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact?intent=media" className={linkClass}>
+                  Media
+                </Link>
+              </li>
+              <li>
+                <a href="mailto:info@vaalpenskraal.com" className={linkClass}>
+                  info@vaalpenskraal.com
+                </a>
+              </li>
+            </ul>
+            <p className="mt-6 font-sans text-xs leading-relaxed text-white/45">
+              Waterberg Biosphere · Thabazimbi area, Limpopo, South Africa
+            </p>
+          </div>
+        </nav>
+
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/[0.06] pt-10 md:mt-16 md:flex-row md:items-center">
+          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-white/45">
+            &copy; {new Date().getFullYear()} Vaalpenskraal Game Reserve
           </p>
-          <div className="font-sans font-black text-xl text-white/20 uppercase tracking-tighter">Iron Mountain</div>
+          <p className="font-sans text-[11px] text-white/40">All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

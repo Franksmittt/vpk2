@@ -30,7 +30,7 @@ const CookiesPage = () => {
           <section>
             <h2 className="text-base font-semibold text-white/85">Third-party content</h2>
             <p className="mt-3">
-              Embedded maps, videos, or fonts from third parties may set their own cookies. We do not control those; check the third party’s policy if you need detail.
+              Embedded maps, videos, or fonts from third parties may set their own cookies. We do not control those, so check the third party’s policy if you need detail.
             </p>
           </section>
           <section>

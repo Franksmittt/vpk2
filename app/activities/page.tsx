@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Target, Binoculars, Waves, Flame, Mountain, Droplets } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import { ClayPigeonVideoGrid } from "@/components/activities/ClayPigeonVideoGrid";
 import truth from "@/client-business-truth.json";
 
 export const metadata: Metadata = {
   title: "Activities | Vaalpenskraal Game Reserve",
   description:
-    "Clay pigeon shooting, game drives, swimming pool, canopy boma, outlook point, and waterhole viewing at Vaalpenskraal. Scheduling follows camp workload: confirm when you book.",
+    "Clay pigeon shooting, game drives, swimming pool, canopy boma, outlook point, and waterhole viewing at Vaalpenskraal. Scheduling follows camp workload. Confirm when you book.",
 };
 
 const schedulingNote = truth.onEstateActivities.scheduling;
@@ -76,7 +77,7 @@ const ActivitiesPage = () => {
         scrollLinkedTypography
         eyebrow="On the estate"
         title="Camp life between stalks."
-        subtitle="Pool, canopy boma, outlook point, waterhole, clay pigeon shooting, and game drives: the same facility and activity names we publish for Vaalpenskraal. Hunting stays the spine of the week; scheduling stays honest."
+        subtitle="Pool, canopy boma, outlook point, waterhole, clay pigeon shooting, and game drives match the same facility and activity names we publish for Vaalpenskraal. Hunting stays the spine of the week, and scheduling stays honest."
         imageSeed="activitieshero"
         imageSrc="/images/hero/wide-hunt-story.png"
       />
@@ -110,24 +111,34 @@ const ActivitiesPage = () => {
             {schedulingNote} Say you want clays in your first email so PH time, vehicles, and hunt blocks stay aligned.
           </p>
 
+          <div className="mt-10 w-full">
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-white/45">On the line</p>
+            <p className="mt-2 font-sans text-xs text-white/55 md:text-sm">
+              Three short clips from clay sessions. Thumbnails open a larger view. Playback stays muted on this page.
+            </p>
+            <div className="mt-4">
+              <ClayPigeonVideoGrid />
+            </div>
+          </div>
+
           <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="space-y-5 font-sans text-sm leading-relaxed text-white/70 md:text-base lg:col-span-6">
               <p>
-                Clay pigeon work is straightforward in concept: a thrower sends a brittle disc across sky or
+                Clay pigeon work is straightforward in concept. A thrower sends a brittle disc across sky or
                 ground edge, and you practice mounting the shotgun, picking up the line, and finishing the swing so
                 shot and target still share the same future. Eye dominance, cast, and foot placement matter as much as
                 speed. It is one of the fastest ways to shake off flight rust and prove safety habits before anyone
                 steps into live thicket.
               </p>
               <p>
-                At camp it is rarely about trophies. It is about rhythm: closing the gun safely, calling &quot;pull&quot; only
+                At camp it is rarely about trophies. It is about rhythm, closing the gun safely, calling &quot;pull&quot; only
                 when the lane is clear, respecting the next shooter in line, and letting the PH reset the drill when
                 wind or fatigue shows up. Good sessions stay short, loud only in the right moments, and end with
                 everyone still friends with their own shoulder.
               </p>
               <p>
                 Vaalpenskraal lists {truth.onEstateActivities.items[0].toLowerCase()} on the published activity roster.
-                We do not promise a fixed lane layout or daily trap time here on the web. What we promise is honesty: if
+                We do not promise a fixed lane layout or daily trap time here on the web. What we promise is honesty. If
                 the day belongs to stalking, meat, and rest, clays wait. If the day has a window and the right people on
                 range, you get real throws and real feedback, not a brochure photo.
               </p>

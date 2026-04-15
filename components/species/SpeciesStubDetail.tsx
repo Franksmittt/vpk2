@@ -34,6 +34,11 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
             className="object-cover"
           />
         </div>
+        <div className="pointer-events-none absolute inset-0 bg-black/42" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/[0.9] via-black/50 to-black/40"
+          aria-hidden
+        />
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:px-12 md:py-28">
           <p className="hero-readable-eyebrow font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
             {s.epithet}

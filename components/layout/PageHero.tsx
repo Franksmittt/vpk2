@@ -52,16 +52,17 @@ const PageHero = ({
           className="object-cover"
         />
       </div>
+      <div className="pointer-events-none absolute inset-0 bg-black/22" aria-hidden />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/50"
+        className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_75%_at_50%_38%,rgb(0_0_0/0.12)_0%,rgb(0_0_0/0.42)_50%,rgb(0_0_0/0.68)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_75%_at_50%_38%,rgb(0_0_0/0.06)_0%,rgb(0_0_0/0.22)_50%,rgb(0_0_0/0.38)_100%)]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 top-[25%] bg-gradient-to-b from-transparent via-black/35 to-black/75"
+        className="pointer-events-none absolute inset-x-0 bottom-0 top-[25%] bg-gradient-to-b from-transparent via-black/18 to-black/48"
         aria-hidden
       />
       <div

@@ -80,7 +80,7 @@ type SpecRow = {
 const SPECS: SpecRow[] = [
   {
     label: "Overnight",
-    value: "Four chalets only: the only guest sleeping quarters on the hunting camp; no separate guest residence",
+    value: "Four chalets only. They are the only guest sleeping quarters on the hunting camp, with no separate guest residence",
     seed: "vpspec-overnight",
     src: `${LODGE}/spec-overnight.jpg`,
     layout: "full",
@@ -104,7 +104,7 @@ const SPECS: SpecRow[] = [
   {
     label: "Catering",
     value:
-      "Fully catered: snacks, lunch, supper, food, soft drinks, alcohol on estate under responsible service guidelines",
+      "Fully catered, with snacks, lunch, supper, food, soft drinks, and alcohol on estate under responsible service guidelines",
     seed: "vpspec-catering",
     src: `${LODGE}/spec-catering.jpg`,
     layout: "wide",
@@ -125,7 +125,7 @@ const SPECS: SpecRow[] = [
   { label: "Activities", value: "Clay pigeon shooting · game drives", seed: "vpspec-activities" },
   {
     label: "Permit",
-    value: "P3 Exemption Permit: confirm current certificates with management when booking",
+    value: "P3 Exemption Permit. Confirm current certificates with management when booking",
     seed: "vpspec-permit",
     src: `${LODGE}/spec-permit.jpg`,
   },
@@ -144,7 +144,7 @@ const SPECS: SpecRow[] = [
   },
   {
     label: "Taxidermy",
-    value: "Outsourced to professional taxidermists you appoint; international shipping & export paperwork sit with you and your taxidermist. The estate does not process client trophy paperwork",
+    value: "Outsourced to professional taxidermists you appoint. International shipping and export paperwork sit with you and your taxidermist. The estate does not process client trophy paperwork",
     seed: "vpspec-taxidermy",
     src: `${LODGE}/spec-taxidermy.png`,
     layout: "full",
@@ -385,7 +385,7 @@ const LodgePage = () => {
                 <div>
                   <h3 className="font-sans text-lg font-semibold text-white/90">Aircons</h3>
                   <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">
-                    Climate control in the chalets so midday rest and night recovery are predictable. The bush is wild; your room temperature does not have to be.
+                    Climate control in the chalets so midday rest and night recovery are predictable. The bush is wild, and your room temperature does not have to be.
                   </p>
                 </div>
               </div>
@@ -545,8 +545,8 @@ const LodgePage = () => {
           <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Outlook point &amp; waterhole</h2>
           <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/70">
             Between stalks and stories, the estate gives you places to <strong className="font-medium text-white/65">watch game</strong> without a rifle in hand. The{" "}
-            <strong className="font-medium text-white/65">outlook point</strong> lifts the view; the <strong className="font-medium text-white/65">waterhole</strong> pulls animals in on their schedule. Bring binoculars, a jacket for the breeze, and time for{" "}
-            <strong className="font-medium text-white/65">sundowners</strong> when the light turns copper: the kind of evening that does not need a filter.
+            <strong className="font-medium text-white/65">outlook point</strong> lifts the view, and the <strong className="font-medium text-white/65">waterhole</strong> pulls animals in on their schedule. Bring binoculars, a jacket for the breeze, and time for{" "}
+            <strong className="font-medium text-white/65">sundowners</strong> when the light turns copper, the kind of evening that does not need a filter.
           </p>
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
@@ -560,7 +560,7 @@ const LodgePage = () => {
                 <Mountain className="h-7 w-7 text-burnished-copper/80" aria-hidden />
                 <h3 className="mt-4 font-sans text-lg font-semibold">Outlook point</h3>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">
-                  Elevated perspective over valleys and thicket lines: ideal for scanning movement, glassing at last light, and letting non-hunters feel the scale of the Waterberg without a vehicle bouncing under them.
+                  Elevated perspective over valleys and thicket lines, ideal for scanning movement, glassing at last light, and letting non-hunters feel the scale of the Waterberg without a vehicle bouncing under them.
                 </p>
               </div>
             </article>
@@ -575,7 +575,7 @@ const LodgePage = () => {
                 <Droplets className="h-7 w-7 text-burnished-copper/80" aria-hidden />
                 <h3 className="mt-4 font-sans text-lg font-semibold">Waterhole</h3>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">
-                  A natural focal point for game viewing: patience beats horsepower here. We keep voices low and respect the animals&apos; rhythm. Sundowners taste better when kudu or zebra step in on their own time.
+                  A natural focal point for game viewing where patience beats horsepower. We keep voices low and respect the animals&apos; rhythm. Sundowners taste better when kudu or zebra step in on their own time.
                 </p>
               </div>
             </article>
@@ -589,7 +589,7 @@ const LodgePage = () => {
           <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">On the estate</p>
           <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Clay pigeon and game drives</h2>
           <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/70">
-            Beyond the hunt itself, we run experiences that keep hands busy and binoculars up: <strong className="font-medium text-white/65">clay pigeon shooting</strong> for shotgunning rhythm, and <strong className="font-medium text-white/65">game drives</strong> for guests who want the bush without a rifle.
+            Beyond the hunt itself, we run experiences that keep hands busy and binoculars up, with <strong className="font-medium text-white/65">clay pigeon shooting</strong> for shotgunning rhythm, and <strong className="font-medium text-white/65">game drives</strong> for guests who want the bush without a rifle.
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <figure className="overflow-hidden rounded-2xl ring-1 ring-white/[0.08]">
@@ -618,7 +618,7 @@ const LodgePage = () => {
           <p className="text-center font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">Compliance &amp; camp infrastructure</p>
           <h2 className="mt-3 text-center font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Permit, safes, cold room, and meat handling</h2>
           <p className="mx-auto mt-5 max-w-2xl text-center font-sans text-base leading-relaxed text-white/70">
-            Trophy hunters and international groups often need more than a bed: secure storage, cold chain, and professional field support. The lines below are the services we highlight on camp; numbers and permit references are confirmed on your booking pack.
+            Trophy hunters and international groups often need more than a bed, with secure storage, cold chain, and professional field support. The lines below are the services we highlight on camp, and numbers and permit references are confirmed on your booking pack.
           </p>
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-burnished-copper/30 bg-burnished-copper/[0.06] px-5 py-5 md:px-8 md:py-6">
             <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:items-start sm:text-left">
@@ -636,14 +636,14 @@ const LodgePage = () => {
               <Vault className="h-8 w-8 text-burnished-copper/80" aria-hidden />
               <h3 className="mt-4 font-sans text-lg font-semibold">Safe facilities</h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/65">
-                On-site safes are available for <strong className="font-medium text-white/75">valuables</strong>: cash, documents, watches, and small electronics you do not want loose in a chalet when the whole group is in and out of vehicles.
+                On-site safes are available for <strong className="font-medium text-white/75">valuables</strong>, including cash, documents, watches, and small electronics you do not want loose in a chalet when the whole group is in and out of vehicles.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-7">
               <Snowflake className="h-8 w-8 text-burnished-copper/80" aria-hidden />
               <h3 className="mt-4 font-sans text-lg font-semibold">Cold room</h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/65">
-                <strong className="font-medium text-white/75">Cold room facilities</strong> support proper meat handling after the shot: hang time, hygiene, and handover to your butcher or export chain without improvising ice in a cooler box.
+                <strong className="font-medium text-white/75">Cold room facilities</strong> support proper meat handling after the shot, with hang time, hygiene, and handover to your butcher or export chain without improvising ice in a cooler box.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-7">
@@ -667,10 +667,10 @@ const LodgePage = () => {
               <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">Taxidermy partners and shipping home</h2>
               <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-white/70">
                 <p>
-                  Many guests appoint a <strong className="font-medium text-white/75">professional taxidermist</strong> they already trust. On camp we help with practical handover and timing with <em className="text-white/60">your</em> contractor. The estate is not the taxidermy shop; field prep, dipping, and paperwork follow your taxidermist&apos;s scope.
+                  Many guests appoint a <strong className="font-medium text-white/75">professional taxidermist</strong> they already trust. On camp we help with practical handover and timing with <em className="text-white/60">your</em> contractor. The estate is not the taxidermy shop, and field prep, dipping, and paperwork follow your taxidermist&apos;s scope.
                 </p>
                 <p>
-                  For clients who need trophies moved <strong className="font-medium text-white/75">outside South Africa</strong>, the export path, permits, and courier paperwork are handled between <strong className="font-medium text-white/75">you, your taxidermist, and the relevant authorities</strong>. Vaalpenskraal does not process client import/export paperwork; we keep the hunt and camp services honest so your agents can do their job without mixed signals.
+                  For clients who need trophies moved <strong className="font-medium text-white/75">outside South Africa</strong>, the export path, permits, and courier paperwork are handled between <strong className="font-medium text-white/75">you, your taxidermist, and the relevant authorities</strong>. Vaalpenskraal does not process client import or export paperwork, and we keep the hunt and camp services honest so your agents can do their job without mixed signals.
                 </p>
               </div>
             </div>

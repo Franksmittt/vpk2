@@ -40,7 +40,7 @@ const PrivacyPage = () => {
           <section>
             <h2 className="text-base font-semibold text-white/85">4. Storage and security</h2>
             <p className="mt-3">
-              Email and office systems may store your message on secure servers or devices operated by us or our email provider. No online transmission is perfectly secure; avoid sending passport or payment details by email unless we explicitly request them through a secure process.
+              Email and office systems may store your message on secure servers or devices operated by us or our email provider. No online transmission is perfectly secure, so avoid sending passport or payment details by email unless we explicitly request them through a secure process.
             </p>
           </section>
           <section>

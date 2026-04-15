@@ -1,11 +1,7 @@
-Hero image (optional)
+Hero image sequence (optional legacy art)
 
-The home hero uses a single full-bleed canvas frame. It loads:
+The home page hero uses three full-bleed stills under /images/hero/ with crossfade and dot controls only.
+Page scroll does not advance slides.
 
-  frame-0001.jpg
-
-from this folder when present. Additional frames (frame-0002.jpg …) are not
-used by the current site build; you can keep them for future art direction.
-
-If frame-0001.jpg is missing, the hero uses the first available still under
-/images/hero/ (see HeroCanvasScrollSection.tsx).
+This folder can still hold frame-0001.jpg, frame-0002.jpg, etc. for future art direction or exports.
+The live site build does not read these JPEGs for the home hero.

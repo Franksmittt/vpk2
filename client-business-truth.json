@@ -61,7 +61,7 @@
   ],
   "onEstateActivities": {
     "items": ["Clay pigeon shooting", "Game drives"],
-    "scheduling": "When the schedule allows; not guaranteed every day without enquiry"
+    "scheduling": "When the schedule allows. Not guaranteed every day without enquiry"
   },
   "huntingServices": {
     "primary": "Fair-chase hunting under professional hunter (PH) field standards",
@@ -101,14 +101,14 @@
       "Cold room for meat and perishables"
     ],
     "valuables": "On-site safe facilities for documents, cash, small electronics",
-    "shuttle": "Optional shuttle service; enquire when booking",
+    "shuttle": "Optional shuttle service. Enquire when booking",
     "rifleHire": "Verify availability and terms with management",
     "firearmImport": "Temporary import (e.g. SAPS 520) and licences are the client's responsibility with their own agents"
   },
   "complianceAndTrust": {
-    "p3ExemptionPermit": "Estate references P3 Exemption Permit framework; confirm current certificate and scope with management before any legal or marketing claim",
-    "taxidermyAndExport": "Estate does not process client import, export, or taxidermy paperwork. Client appoints taxidermist and agents; estate supports practical field handover timing",
-    "security": "Gated access; property referenced under Matlabas Protection Service in site copy"
+    "p3ExemptionPermit": "Estate references P3 Exemption Permit framework. Confirm current certificate and scope with management before any legal or marketing claim",
+    "taxidermyAndExport": "Estate does not process client import, export, or taxidermy paperwork. Client appoints taxidermist and agents. Estate supports practical field handover timing",
+    "security": "Gated access. Property referenced under Matlabas Protection Service in site copy"
   },
   "policiesRequiringManagementVerification": [
     "Bow hunting",
@@ -130,7 +130,7 @@
   ],
   "contact": {
     "primaryEmail": "info@vaalpenskraal.com",
-    "enquiryMechanism": "mailto prefilled body from on-site forms; no server-side booking API in current build"
+    "enquiryMechanism": "mailto prefilled body from on-site forms. No server-side booking API in current build"
   },
   "seoKeywordClusters": {
     "pillar1_hunt": [

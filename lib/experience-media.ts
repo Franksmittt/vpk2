@@ -3,12 +3,10 @@
  * When no fitting estate photo exists, pages fall back to seeded placeholders (see page).
  */
 export const EXPERIENCE_IMAGES = {
-  /** PageHero background (replaces picsum seed `experiencehero`). */
-  hero: "/images/hero/wide-hunt-story.png",
-  /** Full-bleed panorama under hero. */
-  panorama: "/images/lodge/brochure-pano.jpg",
-  /** “Through your eyes” stalk / bush (same stalking asset as species quarry hero). */
-  thicketWalk: "/images/species/iron-mountain-quarry-hero.png",
+  /** PageHero background (same wide stalk frame as species quarry hero). */
+  hero: "/images/species/iron-mountain-quarry-hero.png",
+  /** “Through your eyes” stalk / bush. */
+  thicketWalk: "/images/hero/wide-hunt-story.png",
   audience: {
     solo: "/images/home/solitary-tracker.png",
     family: "/images/lodge/lodge-evening.jpg",
