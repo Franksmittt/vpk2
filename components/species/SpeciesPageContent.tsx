@@ -3,15 +3,25 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import {
+  ChevronLeft,
   ChevronRight,
+  Copy,
   GitCompare,
   X,
   Crosshair,
   Mountain,
 } from "lucide-react";
-import { QUARRY_SPECIES, type QuarrySpecies } from "@/data/species";
+import {
+  QUARRY_SPECIES,
+  SPECIES_GROUP_INTROS,
+  SPECIES_GROUP_LABELS,
+  SPECIES_GROUP_ORDER,
+  speciesInGroup,
+  type QuarrySpecies,
+} from "@/data/species";
 
 /** Props are resolved on the server where possible so this client island stays data-driven. */
 export type SpeciesPageContentProps = {
@@ -272,73 +282,131 @@ function DetailPanel({
 function ComparePanel({
   a,
   b,
+  shareUrl,
   onClose,
+  onCopyLink,
+  copyDone,
 }: {
   a: QuarrySpecies;
   b: QuarrySpecies;
+  shareUrl: string;
   onClose: () => void;
+  onCopyLink: () => void;
+  copyDone: boolean;
 }) {
-  const rows: { label: string; key: keyof Pick<QuarrySpecies, "caliber" | "rowlandWard" | "terrain" | "scientific" | "epithet"> }[] = [
+  const textRows: { label: string; key: keyof Pick<QuarrySpecies, "caliber" | "rowlandWard" | "terrain" | "scientific" | "epithet"> }[] = [
     { label: "Epithet", key: "epithet" },
     { label: "Scientific", key: "scientific" },
     { label: "Caliber", key: "caliber" },
     { label: "Rowland Ward", key: "rowlandWard" },
     { label: "Terrain", key: "terrain" },
   ];
+  const yn = (v: boolean | undefined) => (v ? "Yes" : "No");
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[3000] flex flex-col bg-black/80 backdrop-blur-md"
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[3000] flex flex-col bg-black/85 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
       aria-labelledby="compare-species-heading"
     >
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-        <h2 id="compare-species-heading" className="font-sans text-sm font-medium text-white">
-          Side by side
-        </h2>
-        <button
-          type="button"
-          onClick={onClose}
-          className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10"
-          aria-label="Close compare"
-        >
-          <X className="h-5 w-5" aria-hidden />
-        </button>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
+        <div>
+          <h2 id="compare-species-heading" className="font-sans text-sm font-medium text-white">
+            Side by side
+          </h2>
+          <p className="mt-1 font-sans text-xs text-white/55">
+            Same quarry fields as the cards. Share this view with your PH or hunting partner.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={onCopyLink}
+            className="focus-ring-invert inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/85 hover:bg-white/10"
+          >
+            <Copy className="h-4 w-4" aria-hidden />
+            {copyDone ? "Copied" : "Copy link"}
+          </button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="focus-ring-invert rounded-full border border-white/15 p-2 text-white/80 hover:bg-white/10"
+            aria-label="Close compare"
+          >
+            <X className="h-5 w-5" aria-hidden />
+          </button>
+        </div>
       </div>
       <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-8">
+        {shareUrl ? (
+          <p className="mx-auto mb-4 max-w-5xl font-mono text-[10px] text-white/40 break-all sm:text-xs">
+            {shareUrl}
+          </p>
+        ) : null}
         <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-12">
           {[a, b].map((s) => (
             <div key={s.id} className="overflow-hidden rounded-2xl ring-1 ring-white/10 lg:col-span-6">
-              <div className="relative h-40">
+              <div className="relative h-44 sm:h-48">
                 <Image
                   src={quarrySpeciesImageSrc(s, 800, 500)}
                   alt={`${s.name} compare card for side-by-side quarry review`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
+                  className="object-cover"
+                />
                 <div className="absolute bottom-4 left-4 right-4 drop-shadow-[0_2px_12px_rgb(0_0_0/0.85)]">
                   <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-burnished-copper/90">
                     {s.epithet}
                   </p>
                   <h3 className="font-sans text-lg font-semibold text-white">{s.name}</h3>
+                  <Link
+                    href={`/species/${s.id}`}
+                    className="focus-ring-invert mt-2 inline-flex items-center gap-1 font-sans text-xs font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
+                  >
+                    Full species page
+                    <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
         <div className="mx-auto mt-8 max-w-5xl overflow-x-auto rounded-2xl border border-white/[0.08]">
-          <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+          <table className="w-full min-w-[560px] border-collapse text-left text-sm">
             <tbody>
-              {rows.map((row) => (
+              <tr className="border-b border-white/[0.06]">
+                <th className="w-[28%] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
+                  Group
+                </th>
+                <td className="w-[36%] px-4 py-3 font-sans text-white/80">
+                  {SPECIES_GROUP_LABELS[a.groupId]}
+                </td>
+                <td className="px-4 py-3 font-sans text-white/80">{SPECIES_GROUP_LABELS[b.groupId]}</td>
+              </tr>
+              <tr className="border-b border-white/[0.06]">
+                <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
+                  Dangerous game
+                </th>
+                <td className="px-4 py-3 font-sans text-white/80">{yn(a.dangerous)}</td>
+                <td className="px-4 py-3 font-sans text-white/80">{yn(b.dangerous)}</td>
+              </tr>
+              <tr className="border-b border-white/[0.06]">
+                <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
+                  Variant
+                </th>
+                <td className="px-4 py-3 font-sans text-white/80">{yn(a.variant)}</td>
+                <td className="px-4 py-3 font-sans text-white/80">{yn(b.variant)}</td>
+              </tr>
+              {textRows.map((row) => (
                 <tr key={row.key} className="border-b border-white/[0.06] last:border-0">
-                  <th className="w-[28%] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
+                  <th className="px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/65">
                     {row.label}
                   </th>
-                  <td className="w-[36%] px-4 py-3 font-sans text-white/80">{a[row.key]}</td>
+                  <td className="px-4 py-3 font-sans text-white/80">{a[row.key]}</td>
                   <td className="px-4 py-3 font-sans text-white/80">{b[row.key]}</td>
                 </tr>
               ))}
@@ -350,11 +418,27 @@ function ComparePanel({
   );
 }
 
+function GroupNavPill({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/25 hover:bg-white/[0.08] hover:text-white/90 sm:px-4 sm:text-[11px] sm:tracking-[0.18em]"
+    >
+      {children}
+    </a>
+  );
+}
+
 const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [compareIds, setCompareIds] = useState<string[]>([]);
   const [pickingCompare, setPickingCompare] = useState(false);
   const [compareOpen, setCompareOpen] = useState(false);
   const [detailId, setDetailId] = useState<string | null>(null);
+  const [copyDone, setCopyDone] = useState(false);
 
   const byId = useMemo(() => {
     const m = new Map<string, QuarrySpecies>();
@@ -366,6 +450,11 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
   const compareA = compareIds[0] ? byId.get(compareIds[0]) : undefined;
   const compareB = compareIds[1] ? byId.get(compareIds[1]) : undefined;
 
+  const shareUrl = useMemo(() => {
+    if (typeof window === "undefined" || !compareA || !compareB) return "";
+    return `${window.location.origin}${pathname}?compare=${compareA.id},${compareB.id}`;
+  }, [compareA, compareB, pathname]);
+
   const toggleCompare = useCallback((id: string) => {
     setCompareIds((prev) => {
       if (prev.includes(id)) return prev.filter((x) => x !== id);
@@ -373,6 +462,30 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
       return [...prev, id];
     });
   }, []);
+
+  useEffect(() => {
+    // While the visitor is tapping two cards, do not re-apply ?compare= from the URL or pick mode resets.
+    if (pickingCompare) return;
+    const raw = searchParams.get("compare");
+    if (!raw) return;
+    const parts = raw.split(",").map((s) => s.trim()).filter(Boolean);
+    if (parts.length !== 2) return;
+    const nextA = species.find((s) => s.id === parts[0]);
+    const nextB = species.find((s) => s.id === parts[1]);
+    if (!nextA || !nextB) return;
+    setCompareIds((prev) =>
+      prev[0] === nextA.id && prev[1] === nextB.id ? prev : [nextA.id, nextB.id],
+    );
+    setCompareOpen(true);
+    setPickingCompare(false);
+  }, [searchParams, species, pickingCompare]);
+
+  useEffect(() => {
+    if (!compareOpen || !compareA || !compareB) return;
+    const q = `${compareA.id},${compareB.id}`;
+    if (searchParams.get("compare") === q) return;
+    router.replace(`${pathname}?compare=${encodeURIComponent(q)}`, { scroll: false });
+  }, [compareOpen, compareA?.id, compareB?.id, pathname, router, searchParams]);
 
   useEffect(() => {
     const locked = Boolean(detailSpecies || (compareOpen && compareA && compareB));
@@ -393,10 +506,37 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
     }
   }, [pickingCompare, compareIds.length]);
 
+  const clearCompareUi = useCallback(() => {
+    setCompareIds([]);
+    setCompareOpen(false);
+    router.replace(pathname, { scroll: false });
+  }, [pathname, router]);
+
+  const closeCompareModal = useCallback(() => {
+    setCompareOpen(false);
+    setCompareIds([]);
+    router.replace(pathname, { scroll: false });
+  }, [pathname, router]);
+
+  const copyCompareLink = useCallback(() => {
+    if (!shareUrl) return;
+    void navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopyDone(true);
+      window.setTimeout(() => setCopyDone(false), 2200);
+    });
+  }, [shareUrl]);
+
   const startComparePick = () => {
+    setCompareOpen(false);
     setCompareIds([]);
     setPickingCompare(true);
     setDetailId(null);
+    router.replace(pathname, { scroll: false });
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById("species-directory")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   return (
@@ -448,7 +588,7 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
                 Compare species side by side
               </button>
               <a
-                href="#grid"
+                href="#species-directory"
                 className="focus-ring-invert inline-flex items-center justify-center gap-2 font-sans text-sm font-medium text-white/85 transition-colors hover:text-white"
               >
                 <span className="hero-readable-ghost">Browse the quarry</span>
@@ -459,63 +599,92 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
         </div>
       </section>
 
-      {/* Sticky compare bar */}
-      <AnimatePresence>
-        {(compareIds.length > 0 || pickingCompare) && (
-          <motion.div
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 80, opacity: 0 }}
-            className="sticky top-20 z-[500] relative overflow-hidden border-b border-white/[0.08] px-4 py-3 backdrop-blur-xl md:top-24"
-          >
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
-              aria-hidden
-            />
-            <div className="editorial-container relative z-10 flex flex-wrap items-center justify-between gap-3">
-              <p className="font-sans text-xs text-white/70">
-                {pickingCompare
-                  ? "Tap two species to compare."
-                  : `${compareIds.length} selected · max 2`}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {pickingCompare && (
-                  <button
-                    type="button"
-                    onClick={() => setPickingCompare(false)}
-                    className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
-                  >
-                    Cancel
-                  </button>
-                )}
-                {compareIds.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCompareIds([]);
-                      setCompareOpen(false);
-                    }}
-                    className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
-                  >
-                    Clear
-                  </button>
-                )}
-                {compareIds.length === 2 && !pickingCompare && (
-                  <button
-                    type="button"
-                    onClick={() => setCompareOpen(true)}
-                    className="focus-ring-invert rounded-full bg-burnished-copper px-5 py-2 font-sans text-xs font-semibold text-black hover:bg-burnished-copper/90"
-                  >
-                    View comparison
-                  </button>
-                )}
+      {/* Sticky jump nav (monograph-style) + compare strip */}
+      <div className="sticky top-20 z-[450] border-b border-white/[0.08] backdrop-blur-xl md:top-24">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/95 via-black/88 to-black/82"
+          aria-hidden
+        />
+        <div className="editorial-container relative z-10 flex flex-col gap-3 px-4 py-3 sm:px-0">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/"
+              className="mr-auto inline-flex shrink-0 items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
+            >
+              <ChevronLeft className="h-4 w-4" aria-hidden />
+              Home
+            </Link>
+            <nav
+              className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-1 md:flex-wrap md:overflow-visible md:pb-0"
+              aria-label="Jump to quarry groups"
+            >
+              <GroupNavPill href="#species-directory">All quarry</GroupNavPill>
+              {SPECIES_GROUP_ORDER.map((gid) => (
+                <GroupNavPill key={gid} href={`#species-group-${gid}`}>
+                  {SPECIES_GROUP_LABELS[gid]}
+                </GroupNavPill>
+              ))}
+            </nav>
+          </div>
+        </div>
+        <AnimatePresence>
+          {(compareIds.length > 0 || pickingCompare) && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative border-t border-white/[0.06]"
+            >
+              <div
+                className="pointer-events-none absolute inset-0 bg-black/50"
+                aria-hidden
+              />
+              <div className="editorial-container relative z-10 flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-0">
+                <p className="font-sans text-xs text-white/70">
+                  {pickingCompare
+                    ? "Tap two species to compare."
+                    : `${compareIds.length} selected · max 2`}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {pickingCompare && (
+                    <button
+                      type="button"
+                      onClick={() => setPickingCompare(false)}
+                      className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
+                    >
+                      Cancel
+                    </button>
+                  )}
+                  {compareIds.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={clearCompareUi}
+                      className="focus-ring-invert rounded-full border border-white/15 px-4 py-2 font-sans text-xs font-medium text-white/80 hover:bg-white/10"
+                    >
+                      Clear
+                    </button>
+                  )}
+                  {compareIds.length === 2 && !pickingCompare && (
+                    <button
+                      type="button"
+                      onClick={() => setCompareOpen(true)}
+                      className="focus-ring-invert rounded-full bg-burnished-copper px-5 py-2 font-sans text-xs font-semibold text-black hover:bg-burnished-copper/90"
+                    >
+                      View comparison
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
-      <section id="grid" className="editorial-container py-16 md:py-24">
+      <section
+        id="species-directory"
+        className="editorial-container scroll-mt-28 py-16 md:scroll-mt-32 md:py-24"
+      >
         <div className="mb-12 flex flex-col gap-4 border-b border-white/[0.07] pb-10 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">
@@ -526,24 +695,54 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
             </h2>
           </div>
           <p className="max-w-md font-sans text-sm text-white/70">
-            Each row is a living brief: what rifle ethics look like here, what the tape measures,
-            where you will likely intersect the animal.
+            Jump with the strip above, or scroll the groups. Each card is the same quarry brief you
+            see on species pages (caliber, tape, terrain).
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {species.map((s, i) => (
-            <SpecCard
-              key={s.id}
-              s={s}
-              comparePick={compareIds.includes(s.id)}
-              pickingCompare={pickingCompare}
-              index={i}
-              onToggleCompare={() => toggleCompare(s.id)}
-              onOpenDetail={() => setDetailId(s.id)}
-            />
-          ))}
-        </div>
+        {(() => {
+          let globalIndex = 0;
+          const groupsWithData = SPECIES_GROUP_ORDER.filter(
+            (gid) => speciesInGroup(species, gid).length > 0,
+          );
+          return groupsWithData.map((groupId, groupIdx) => {
+            const groupList = speciesInGroup(species, groupId);
+            const block = (
+              <div
+                key={groupId}
+                id={`species-group-${groupId}`}
+                className={`scroll-mt-28 md:scroll-mt-32 ${groupIdx === 0 ? "" : "border-t border-white/[0.06] pt-12"}`}
+              >
+                <div className="mb-8 max-w-3xl">
+                  <h3 className="font-sans text-xl font-semibold tracking-[-0.02em] text-white md:text-2xl">
+                    {SPECIES_GROUP_LABELS[groupId]}
+                  </h3>
+                  <p className="mt-2 font-sans text-sm text-white/65">
+                    {SPECIES_GROUP_INTROS[groupId]}
+                  </p>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+                  {groupList.map((s) => {
+                    const i = globalIndex;
+                    globalIndex += 1;
+                    return (
+                      <SpecCard
+                        key={s.id}
+                        s={s}
+                        comparePick={compareIds.includes(s.id)}
+                        pickingCompare={pickingCompare}
+                        index={i}
+                        onToggleCompare={() => toggleCompare(s.id)}
+                        onOpenDetail={() => setDetailId(s.id)}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            );
+            return block;
+          });
+        })()}
       </section>
 
       {/* Spotlight: Grey Ghost */}
@@ -613,15 +812,16 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {compareOpen && compareA && compareB && (
           <ComparePanel
+            key={`${compareA.id}-${compareB.id}`}
             a={compareA}
             b={compareB}
-            onClose={() => {
-              setCompareOpen(false);
-              setCompareIds([]);
-            }}
+            shareUrl={shareUrl}
+            copyDone={copyDone}
+            onCopyLink={copyCompareLink}
+            onClose={closeCompareModal}
           />
         )}
       </AnimatePresence>

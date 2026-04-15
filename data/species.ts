@@ -1,3 +1,37 @@
+/** Five roster buckets for `/species` jump nav (keep within 4 to 6 pills plus All quarry). */
+export type SpeciesGroupId =
+  | "dangerous"
+  | "woodland"
+  | "plains"
+  | "bush-water"
+  | "herd-morphs";
+
+/** Display order for `/species` jump navigation and grouped grid. */
+export const SPECIES_GROUP_ORDER: readonly SpeciesGroupId[] = [
+  "dangerous",
+  "woodland",
+  "plains",
+  "bush-water",
+  "herd-morphs",
+] as const;
+
+export const SPECIES_GROUP_LABELS: Record<SpeciesGroupId, string> = {
+  dangerous: "Dangerous game",
+  woodland: "Woodland trophies",
+  plains: "Plains & speed",
+  "bush-water": "Bush & water",
+  "herd-morphs": "Herd & morphs",
+};
+
+/** Short line under each group heading on `/species` (editorial, not extra facts). */
+export const SPECIES_GROUP_INTROS: Record<SpeciesGroupId, string> = {
+  dangerous: "PH-led dangerous game. Ethics and law first.",
+  woodland: "Spiral-horned favourites, royal antelope, and giraffe in thicket and mixed bush.",
+  plains: "Open ground, long glass, and animals that cover distance fast.",
+  "bush-water": "Reeds, seeps, wallows, and river margins.",
+  "herd-morphs": "Blesbok and impala colour morphs you will often see in herds.",
+};
+
 export type QuarrySpecies = {
   id: string;
   name: string;
@@ -7,6 +41,7 @@ export type QuarrySpecies = {
   rowlandWard: string;
   terrain: string;
   imageSeed: string;
+  groupId: SpeciesGroupId;
   dangerous?: boolean;
   variant?: boolean;
 };
@@ -21,6 +56,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 53 7/8"',
     terrain: "Mountain Thickets",
     imageSeed: "kudu",
+    groupId: "woodland",
   },
   {
     id: "blue-wildebeest",
@@ -31,6 +67,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 28 1/2" (Width)',
     terrain: "Open Plains",
     imageSeed: "wildebeestblue",
+    groupId: "plains",
   },
   {
     id: "impala",
@@ -41,6 +78,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 23 5/8"',
     terrain: "Woodland fringe",
     imageSeed: "impala",
+    groupId: "plains",
   },
   {
     id: "gemsbok",
@@ -51,6 +89,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 40"',
     terrain: "Open Scrub",
     imageSeed: "gemsbok",
+    groupId: "plains",
   },
   {
     id: "warthog",
@@ -61,6 +100,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 13" (Tusk)',
     terrain: "Waterholes / Mud Wallows",
     imageSeed: "warthog",
+    groupId: "bush-water",
   },
   {
     id: "blesbok",
@@ -71,6 +111,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 16 ½"',
     terrain: "Highveld Grasslands",
     imageSeed: "blesbok",
+    groupId: "herd-morphs",
   },
   {
     id: "bushbuck",
@@ -81,6 +122,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 15"',
     terrain: "Riverine Thickets",
     imageSeed: "bushbuck",
+    groupId: "woodland",
   },
   {
     id: "cape-buffalo",
@@ -92,6 +134,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Dense woodland thicket",
     imageSeed: "buffalo",
     dangerous: true,
+    groupId: "dangerous",
   },
   {
     id: "dapple-impala",
@@ -103,6 +146,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Woodland fringe",
     imageSeed: "impaladapple",
     variant: true,
+    groupId: "herd-morphs",
   },
   {
     id: "golden-wildebeest",
@@ -114,6 +158,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Open Plains",
     imageSeed: "wildebeestgold",
     variant: true,
+    groupId: "plains",
   },
   {
     id: "springbok",
@@ -124,6 +169,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 14"',
     terrain: "Open Plains",
     imageSeed: "springbok",
+    groupId: "plains",
   },
   {
     id: "red-hartebeest",
@@ -134,6 +180,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 18"',
     terrain: "Open Plains",
     imageSeed: "hartebeest",
+    groupId: "plains",
   },
   {
     id: "lechwe",
@@ -144,6 +191,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 20"',
     terrain: "Wetlands / Water",
     imageSeed: "lechwe",
+    groupId: "bush-water",
   },
   {
     id: "livingstone-eland",
@@ -154,6 +202,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 30"',
     terrain: "Open woodland",
     imageSeed: "elandlivingstone",
+    groupId: "woodland",
   },
   {
     id: "black-impala",
@@ -165,6 +214,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Woodland fringe",
     imageSeed: "impalablack",
     variant: true,
+    groupId: "herd-morphs",
   },
   {
     id: "white-blesbok",
@@ -176,6 +226,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Highveld Grasslands",
     imageSeed: "blesbokwhite",
     variant: true,
+    groupId: "herd-morphs",
   },
   {
     id: "waterbuck",
@@ -186,6 +237,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 28"',
     terrain: "Water margins & reeds",
     imageSeed: "waterbuck",
+    groupId: "bush-water",
   },
   {
     id: "nyala",
@@ -196,6 +248,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 28"',
     terrain: "Dense woodland & edges",
     imageSeed: "nyala",
+    groupId: "woodland",
   },
   {
     id: "plains-zebra",
@@ -206,6 +259,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: "Skull / hide per estate policy",
     terrain: "Open grassland & savanna",
     imageSeed: "zebraplains",
+    groupId: "plains",
   },
   {
     id: "giraffe",
@@ -216,6 +270,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: "Per outfitter / permit rules",
     terrain: "Woodland & thornveld",
     imageSeed: "giraffe",
+    groupId: "woodland",
   },
   {
     id: "sable-antelope",
@@ -226,6 +281,7 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 42"',
     terrain: "Woodland & mixed bush",
     imageSeed: "sable",
+    groupId: "woodland",
   },
   {
     id: "roan-antelope",
@@ -236,9 +292,17 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     rowlandWard: 'Min. 29"',
     terrain: "Open woodland & grassland",
     imageSeed: "roan",
+    groupId: "woodland",
   },
 ];
 
 export function getSpeciesBySlug(slug: string): QuarrySpecies | undefined {
   return QUARRY_SPECIES.find((s) => s.id === slug);
+}
+
+export function speciesInGroup(
+  list: readonly QuarrySpecies[],
+  groupId: SpeciesGroupId,
+): QuarrySpecies[] {
+  return list.filter((s) => s.groupId === groupId);
 }
