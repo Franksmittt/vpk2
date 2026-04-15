@@ -222,7 +222,7 @@ Reference pack to build full guide pages like `GreaterKuduGuide.tsx` for each qu
 
 | Field | Notes |
 |--------|--------|
-| Subspecies | One of **three** common eland races; **striped** variant; range **Zambezian** woodlands into **northern SA introductions**. |
+| Subspecies | One of **three** eland subspecies; **striped** variant; range **Zambezian** woodlands into **northern SA introductions**. |
 | Size | Largest antelope; bulls **400–942 kg** extreme range in ADW / Wikipedia synthesis; **typical hunted bull** still **massive** vs kudu. |
 | Horns | **Both sexes**; **tight spiral** at base, straighter distally; cows’ horns shorter. |
 | Behaviour | **Nervous**, long flight distances; **crepuscular** bias; can **jump** serious fences. |

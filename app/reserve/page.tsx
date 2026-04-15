@@ -39,7 +39,7 @@ const STEPS = [
   {
     n: "03",
     title: "Quarry on iron soil",
-    body: "Twenty-three species on the roster. Wish list meets census, ethics, and the legs you actually brought.",
+    body: "Twenty-two species on the roster. Wish list meets census, ethics, and the legs you actually brought.",
   },
   {
     n: "04",

@@ -21,7 +21,6 @@ import { plainsZebraMonograph } from "./content/plains-zebra";
 import { giraffeMonograph } from "./content/giraffe";
 import { sableAntelopeMonograph } from "./content/sable-antelope";
 import { roanAntelopeMonograph } from "./content/roan-antelope";
-import { commonElandMonograph } from "./content/common-eland";
 
 const MONOGRAPH_BUILDERS: Partial<Record<string, MonographBuilder>> = {
   "blue-wildebeest": blueWildebeestMonograph,
@@ -45,7 +44,6 @@ const MONOGRAPH_BUILDERS: Partial<Record<string, MonographBuilder>> = {
   giraffe: giraffeMonograph,
   "sable-antelope": sableAntelopeMonograph,
   "roan-antelope": roanAntelopeMonograph,
-  "common-eland": commonElandMonograph,
 };
 
 export function hasSpeciesMonograph(id: string): boolean {

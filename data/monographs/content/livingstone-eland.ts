@@ -22,9 +22,9 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
         body: "Southern savanna form with heavy body and tightly spiralled horns in mature bulls.",
       },
       {
-        title: "Common eland",
-        sub: "T. oryx",
-        body: "Parent species concept. Horn spiral, dewlap, and body mass define the silhouette.",
+        title: "Nominate form (T. oryx)",
+        sub: "Species reference",
+        body: "Root taxon for the eland complex; subspecies names map geography. Horn spiral, dewlap, and body mass define the silhouette.",
       },
       {
         title: "Ecology",

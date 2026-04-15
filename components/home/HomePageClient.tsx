@@ -123,7 +123,7 @@ const HomePageClient = () => {
           </h1>
           <div className="hero-readable-ui h-px w-10 shrink-0 bg-white/55 shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:w-14" />
           <p className="hero-readable-body max-w-xl text-left font-sans text-sm font-medium leading-relaxed tracking-tight text-white sm:text-base md:text-lg">
-            Rolling plains. Jagged horizons. Elite silence before the shot. Twenty-three quarry species on hard Waterberg ground.
+            Rolling plains. Jagged horizons. Elite silence before the shot. Twenty-two quarry species on hard Waterberg ground.
           </p>
           <div className="mt-2 flex w-full max-w-xl flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
@@ -245,7 +245,7 @@ const HomePageClient = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
             <div className="relative z-10">
               <Map className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" aria-hidden />
-              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl">Twenty-three species</h3>
+              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl">Twenty-two species</h3>
               <p className="font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 Grey Ghost kudu. Buffalo that own the thicket. Names you already respect.
               </p>

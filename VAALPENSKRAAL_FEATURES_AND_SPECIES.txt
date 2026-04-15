@@ -335,7 +335,7 @@ listed in the SEO section above where they differ from this narrative.
   species mode, grid of all QUARRY_SPECIES with local card images, featured kudu
   spotlight, footer link home. Modals for quick detail and side-by-side compare.
 
-/species/[slug]  (app/species/[slug]/page.tsx): QUARRY DETAIL (23 static paths)
+/species/[slug]  (app/species/[slug]/page.tsx): QUARRY DETAIL (22 static paths)
 • generateStaticParams from QUARRY_SPECIES.
 • Per-slug metadata, canonical, OG article, Twitter card; JSON-LD from
   buildSpeciesJsonLd.
@@ -439,7 +439,7 @@ data/monographs/
 • types.ts, seeds.ts: monograph schema and image seeds.
 
 lib/species-media.ts
-• SPECIES_CARD_IMAGE_BY_ID (all 23 local card PNGs), SPECIES_PAGE_HERO_IMAGE,
+• SPECIES_CARD_IMAGE_BY_ID (all 22 local card PNGs), SPECIES_PAGE_HERO_IMAGE,
   GREATER_KUDU_QUARRY_PAGE_IMAGE (kudu spotlight), quarrySpeciesImageSrc(),
   speciesImageUrl() fallback for any missing id.
 
@@ -483,7 +483,6 @@ buffalo flag for legal / calibre messaging on cards.
 20  Giraffe                  Tall game                  Giraffa camelopardalis giraffa giraffe
 21  Sable Antelope           Regal                      Hippotragus niger           sable-antelope
 22  Roan Antelope            Rare air                   Hippotragus equinus         roan-antelope
-23  Common Eland             Southern giant             Taurotragus oryx            common-eland
 
 Terrain, calibre, and Rowland Ward strings for each row live in data/species.ts
 and on cards / stubs; not duplicated here to avoid drift.
@@ -491,7 +490,7 @@ and on cards / stubs; not duplicated here to avoid drift.
 --------------------------------------------------------------------------------
 COUNT
 --------------------------------------------------------------------------------
-Total entries in QUARRY_SPECIES: 23 (all listed above).
+Total entries in QUARRY_SPECIES: 22 (all listed above).
 
 --------------------------------------------------------------------------------
 NOTES FOR SALES / AGENTS

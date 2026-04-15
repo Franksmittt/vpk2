@@ -237,16 +237,6 @@ export const QUARRY_SPECIES: QuarrySpecies[] = [
     terrain: "Open woodland & grassland",
     imageSeed: "roan",
   },
-  {
-    id: "common-eland",
-    name: "Common Eland",
-    epithet: "Southern giant",
-    scientific: "Taurotragus oryx",
-    caliber: ".375 H&H",
-    rowlandWard: 'Min. 33 ½"',
-    terrain: "Open woodland & grassland",
-    imageSeed: "elandcommon",
-  },
 ];
 
 export function getSpeciesBySlug(slug: string): QuarrySpecies | undefined {

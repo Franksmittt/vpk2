@@ -31,7 +31,6 @@ export const SPECIES_CARD_IMAGE_BY_ID: Partial<Record<string, string>> = {
   "giraffe": "/images/species/cards/giraffe.png",
   "sable-antelope": "/images/species/cards/sable-antelope.png",
   "roan-antelope": "/images/species/cards/roan-antelope.png",
-  "common-eland": "/images/species/cards/common-eland.png",
 };
 
 /** Full-bleed hero background on `/species` (`public/images/species/iron-mountain-quarry-hero.png`). */
