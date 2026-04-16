@@ -1,7 +1,9 @@
 "use client";
 
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import Image from "next/image";
+
+const HERO_AUTO_ADVANCE_MS = 8000;
 
 /** Three full-bleed stills used for the home hero rotation (no scroll runway). */
 export const HOME_HERO_SLIDES = [
@@ -52,11 +54,33 @@ type Props = {
 };
 
 /**
- * Full-viewport home hero: stacked stills with crossfade. Slides advance only from the dot controls,
- * never from page scroll (no canvas runway, no scroll-timeline index).
+ * Full-viewport home hero: stacked stills with crossfade. Slides auto-advance on a timer, with dots
+ * for manual choice. No scroll runway or scroll-timeline index. Autoplay pauses when the hero is
+ * hovered or focused, and is off when the user prefers reduced motion.
  */
 export default function HeroCanvasScrollSection({ children, slides = HOME_HERO_SLIDES }: Props) {
   const [active, setActive] = useState(0);
+  const [hoverWithin, setHoverWithin] = useState(false);
+  const [focusWithin, setFocusWithin] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const interactionPause = hoverWithin || focusWithin;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduceMotion(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || interactionPause) return;
+    const id = window.setInterval(() => {
+      setActive((prev) => (prev + 1) % slides.length);
+    }, HERO_AUTO_ADVANCE_MS);
+    return () => window.clearInterval(id);
+  }, [interactionPause, reduceMotion, slides.length]);
+
   const go = useCallback((index: number) => {
     setActive((prev) => (index === prev ? prev : index));
   }, []);
@@ -67,6 +91,14 @@ export default function HeroCanvasScrollSection({ children, slides = HOME_HERO_S
     <section
       className="relative w-full shrink-0 bg-black min-h-[min(100svh,100dvh)]"
       aria-label="Hero"
+      onMouseEnter={() => setHoverWithin(true)}
+      onMouseLeave={() => setHoverWithin(false)}
+      onFocus={() => setFocusWithin(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+          setFocusWithin(false);
+        }
+      }}
     >
       <div className="relative flex min-h-[min(100svh,100dvh)] w-full flex-col overflow-hidden">
         <div className="absolute inset-0" aria-hidden>

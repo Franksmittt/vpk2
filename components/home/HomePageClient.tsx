@@ -134,46 +134,83 @@ const HomePageClient = () => {
         </div>
       </HeroCanvasScrollSection>
 
-      {/* NEW COMPONENT 1: The Code (Ethics & Values) */}
-      <section className="section-y border-b border-white/5 bg-neutral-950">
+      {/* The Code: headline row + hairline 3-up panels */}
+      <section
+        className="section-y border-b border-white/[0.06] bg-neutral-950"
+        aria-labelledby="home-code-heading"
+      >
         <div className="editorial-container">
-          <div className="mb-16 text-center md:mb-20">
-            <h2 className="vp-scroll-reveal-type mb-4 font-sans text-3xl font-semibold uppercase tracking-tight sm:text-4xl md:text-5xl">
-              The code we hunt by
-            </h2>
-            <p className="mx-auto max-w-2xl font-sans text-lg font-medium leading-relaxed text-white/70">
-              Fair chase. Clean habitat. Cold honesty when the wind lies. You earn the shot here.
+          <div className="flex flex-col gap-6 border-b border-white/[0.08] pb-10 md:flex-row md:items-end md:justify-between md:gap-10 md:pb-14">
+            <div className="max-w-2xl">
+              <p className="font-[family-name:var(--font-montserrat),sans-serif] text-[11px] font-medium uppercase tracking-[0.32em] text-burnished-copper/90">
+                Field standard
+              </p>
+              <h2
+                id="home-code-heading"
+                className="vp-scroll-reveal-type mt-3 font-sans text-[clamp(1.85rem,4.5vw,3.25rem)] font-semibold uppercase leading-[1.08] tracking-[-0.03em] text-white"
+              >
+                The code <span className="text-white/55">we hunt by</span>
+              </h2>
+            </div>
+            <p className="max-w-md font-sans text-sm font-normal leading-relaxed text-white/65 md:max-w-sm md:pb-1 md:text-right md:text-base">
+              PH-led work on Waterberg iron soil. Quarry follows census and quota, not a brochure fantasy. When the day is thin, we say so.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12">
-            <div className="group flex flex-col items-center text-center">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/5 transition-colors group-hover:bg-white/10">
-                <Shield className="h-8 w-8 text-white/80" />
+          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-white/[0.12] ring-1 ring-white/[0.06] sm:mt-12 sm:rounded-[1.35rem] md:grid-cols-3">
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+              <div
+                className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
+                aria-hidden
+              />
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
+                  <Shield className="h-5 w-5" aria-hidden />
+                </div>
+                <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                  Fair chase
+                </h3>
               </div>
-              <h3 className="mb-3 font-sans text-xl font-semibold uppercase tracking-tight">Fair chase</h3>
-              <p className="font-sans text-sm leading-relaxed text-white/65 sm:text-base">
-                Free-ranging quarry. No theatre. You read thorns, heat, and your own pulse.
+              <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
+                Game ranges free on the estate. No pens, no staged encounters. You carry wind, thicket, and distance while your PH keeps the field honest.
               </p>
-            </div>
-            <div className="group flex flex-col items-center text-center">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/5 transition-colors group-hover:bg-white/10">
-                <Leaf className="h-8 w-8 text-white/80" />
+            </article>
+
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+              <div
+                className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
+                aria-hidden
+              />
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
+                  <Leaf className="h-5 w-5" aria-hidden />
+                </div>
+                <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                  Land first
+                </h3>
               </div>
-              <h3 className="mb-3 font-sans text-xl font-semibold uppercase tracking-tight">Land first</h3>
-              <p className="font-sans text-sm leading-relaxed text-white/65 sm:text-base">
-                Census drives quota. The veld decides what we offer. We listen.
+              <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
+                Census and quota shape what we can offer each season. The veld leads; the roster follows. You book a hunt in camp, not a printed guarantee on every species.
               </p>
-            </div>
-            <div className="group flex flex-col items-center text-center">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/5 transition-colors group-hover:bg-white/10">
-                <Target className="h-8 w-8 text-white/80" />
+            </article>
+
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+              <div
+                className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
+                aria-hidden
+              />
+              <div className="mb-8 flex items-center gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
+                  <Target className="h-5 w-5" aria-hidden />
+                </div>
+                <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                  One clean moment
+                </h3>
               </div>
-              <h3 className="mb-3 font-sans text-xl font-semibold uppercase tracking-tight">One clean moment</h3>
-              <p className="font-sans text-sm leading-relaxed text-white/65 sm:text-base">
-                Patience is not decoration. It is how you honour the animal and the rifle.
+              <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
+                The shot worth taking lives in the quiet before steel moves. Patience is the same discipline as respect for the animal and the rifle.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
