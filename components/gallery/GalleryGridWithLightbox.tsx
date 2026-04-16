@@ -94,7 +94,7 @@ const GalleryGridWithLightbox = ({ images }: Props) => {
 
       {active !== null && activeIndex !== null ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-3 sm:p-6 md:p-10"
+          className="fixed inset-0 z-[5000] flex items-center justify-center bg-black/92 p-3 sm:p-6 md:p-10"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -113,7 +113,7 @@ const GalleryGridWithLightbox = ({ images }: Props) => {
               e.stopPropagation();
               close();
             }}
-            className="focus-ring-invert absolute right-3 top-3 z-[102] inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-black/60 text-white/90 backdrop-blur-sm transition-colors hover:border-white/45 hover:bg-black/80 sm:right-5 sm:top-5"
+            className="focus-ring-invert absolute right-3 top-3 z-[2] inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/25 bg-black/60 text-white/90 backdrop-blur-sm transition-colors hover:border-white/45 hover:bg-black/80 sm:right-5 sm:top-5"
             aria-label="Close image viewer"
           >
             <X className="h-5 w-5" aria-hidden />
@@ -128,7 +128,7 @@ const GalleryGridWithLightbox = ({ images }: Props) => {
                   goPrev();
                 }}
                 disabled={activeIndex <= 0}
-                className="focus-ring-invert absolute left-2 top-1/2 z-[102] inline-flex min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white/90 backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-black/75 disabled:pointer-events-none disabled:opacity-35 sm:left-4"
+                className="focus-ring-invert absolute left-2 top-1/2 z-[2] inline-flex min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white/90 backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-black/75 disabled:pointer-events-none disabled:opacity-35 sm:left-4"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="h-7 w-7" aria-hidden />
@@ -140,7 +140,7 @@ const GalleryGridWithLightbox = ({ images }: Props) => {
                   goNext();
                 }}
                 disabled={activeIndex >= images.length - 1}
-                className="focus-ring-invert absolute right-2 top-1/2 z-[102] inline-flex min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white/90 backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-black/75 disabled:pointer-events-none disabled:opacity-35 sm:right-4"
+                className="focus-ring-invert absolute right-2 top-1/2 z-[2] inline-flex min-h-[44px] min-w-[44px] -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white/90 backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-black/75 disabled:pointer-events-none disabled:opacity-35 sm:right-4"
                 aria-label="Next image"
               >
                 <ChevronRight className="h-7 w-7" aria-hidden />
@@ -149,7 +149,7 @@ const GalleryGridWithLightbox = ({ images }: Props) => {
           ) : null}
 
           <div
-            className="relative z-[101] flex max-h-[min(88vh,100%)] w-full max-w-6xl flex-col items-center"
+            className="relative z-[1] flex max-h-[min(88vh,100%)] w-full max-w-6xl flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-[min(82vh,85vw)] w-full max-w-6xl">
