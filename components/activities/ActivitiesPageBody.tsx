@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Binoculars, Droplets, Flame, Mountain, Sunset, Target, Waves } from "lucide-react";
+import { Binoculars, ChevronRight, Sunset, Target } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { ClayPigeonVideoGrid } from "@/components/activities/ClayPigeonVideoGrid";
 import truth from "@/client-business-truth.json";
@@ -15,7 +15,10 @@ const clayActivityLower = clayTitle.toLowerCase();
 const outlookFacilityLabel = truth.campFacilities[2]!;
 
 const HERO_STRIP: { src: string; alt: string }[] = [
-  { src: "/images/lodge/lodge-pool.jpg", alt: "Swimming pool at Vaalpenskraal camp" },
+  {
+    src: "/images/activities/activities-pool-hero.jpg",
+    alt: "Swimming pool and lodge chalets at Vaalpenskraal camp",
+  },
   { src: OUTLOOK_POINT_IMAGES.am952, alt: "Outlook point above the Vaalpenskraal bushveld" },
   { src: "/images/lodge/lodge-waterhole.jpg", alt: "Waterhole for passive game viewing at camp" },
 ];
@@ -45,15 +48,39 @@ const SUNDOWNER_TRIPTYCH: readonly { src: string; alt: string }[] = [
   { src: OUTLOOK_POINT_IMAGES.am952, alt: "Wide outlook over Iron Mountain country at sundowner hour" },
 ];
 
-const facilityIconByTitle: Record<string, typeof Waves> = {
-  "Swimming pool": Waves,
-  "Canopy boma under trees": Flame,
-  "Outlook point for viewing and sundowners": Mountain,
-  "Waterhole for passive game viewing": Droplets,
-};
+const SUNDOWNER_QUARRY_ROWS = [
+  {
+    code: "01",
+    nickname: "The ridgeline seat",
+    title: "Outlook point",
+    blurb: `${schedulingNote} The published facility list names this stop as ${outlookFacilityLabel}. It is the same ridgeline seat you will see on the lodge route, used here as a scheduled extra when the day has room for last light and wind you can read without rushing.`,
+    image: SUNDOWNER_TRIPTYCH[0]!,
+    href: "/lodge" as const,
+  },
+  {
+    code: "02",
+    nickname: "Field discipline",
+    title: "Sundowners on camp",
+    blurb:
+      "Sundowners here are not a nightclub on gravel. The PH keeps glass disciplined, voices low, and movement predictable so breeding herds below the rim are not treated like a stage set. You get honest Waterberg colour, a safe place to set a drink when the estate allows it under the same catering line as the rest of camp, and a hard stop when the schedule says the ridge is done for the night.",
+    image: SUNDOWNER_TRIPTYCH[1]!,
+    href: "#leisure" as const,
+  },
+  {
+    code: "03",
+    nickname: "Hosted pass",
+    title: "The same crew",
+    blurb: `If you only need a quiet bench and binoculars without the ritual, the outlook still belongs to the same facility card in leisure. When we list ${sundownerTitle.toLowerCase()} as its own roster line, we mean the hosted evening pass with the crew you already hunted beside that week. Scheduling stays blunt on purpose: ${schedulingNote}`,
+    image: SUNDOWNER_TRIPTYCH[2]!,
+    href: "/reserve#book-hunt" as const,
+  },
+];
 
 const facilityImageByTitle: Record<string, { src: string; alt: string }> = {
-  "Swimming pool": { src: "/images/lodge/lodge-pool.jpg", alt: "Swimming pool at Vaalpenskraal camp" },
+  "Swimming pool": {
+    src: "/images/activities/activities-pool-hero.jpg",
+    alt: "Swimming pool and lodge chalets at Vaalpenskraal camp",
+  },
   "Canopy boma under trees": { src: "/images/lodge/lodge-boma.jpg", alt: "Canopy boma under trees at Vaalpenskraal" },
   "Outlook point for viewing and sundowners": {
     src: OUTLOOK_POINT_IMAGES.am946,
@@ -64,6 +91,40 @@ const facilityImageByTitle: Record<string, { src: string; alt: string }> = {
     alt: "Waterhole for passive game viewing at Vaalpenskraal",
   },
 };
+
+const LEISURE_QUARRY_TOTAL = String(truth.campFacilities.length).padStart(2, "0");
+
+const LEISURE_FACILITY_NICKNAME: Record<string, string> = {
+  "Swimming pool": "Between stalks",
+  "Canopy boma under trees": "Fire ring nights",
+  "Outlook point for viewing and sundowners": "Glass and rim",
+  "Waterhole for passive game viewing": "Still water watch",
+};
+
+const LEISURE_FACILITY_BLURB: Record<string, string> = {
+  "Swimming pool":
+    "Cool water between stalks and long meals. Depth and rules follow camp briefing on arrival.",
+  "Canopy boma under trees": `Fire, canopy cover, and the social heart next to ${truth.communalHub.name} dining when the evening belongs to the group.`,
+  "Outlook point for viewing and sundowners":
+    "Raised stop for glass, wind check, and last light without crowding the water itself.",
+  "Waterhole for passive game viewing":
+    "Quiet bench discipline when animals choose the pan. No staged feeding: patience only.",
+};
+
+const LEISURE_QUARRY_ROWS = truth.campFacilities.map((title, index) => {
+  const image = facilityImageByTitle[title];
+  if (!image) {
+    throw new Error(`Missing facility image for leisure row: ${title}`);
+  }
+  return {
+    code: String(index + 1).padStart(2, "0"),
+    nickname: LEISURE_FACILITY_NICKNAME[title] ?? "On camp",
+    title,
+    blurb: LEISURE_FACILITY_BLURB[title] ?? "",
+    image,
+    href: title === "Outlook point for viewing and sundowners" ? "#sundowners" : "/lodge",
+  };
+});
 
 function EditorialImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
@@ -249,125 +310,180 @@ const ActivitiesPageBody = () => {
         </div>
       </section>
 
-      {/* Sundowners at outlook */}
-      <section id="sundowners" className="scroll-mt-28 border-b border-white/[0.07] bg-[#060606] py-16 md:py-24 lg:scroll-mt-32">
-        <div className="editorial-container">
-          <div className="flex flex-wrap items-center gap-3">
-            <Sunset className="h-9 w-9 shrink-0 text-burnished-copper/85" aria-hidden />
-            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/65">On-estate activity</p>
+      {/* Sundowners: same zigzag rail as home "The quarry" (species strip) */}
+      <section id="sundowners" className="scroll-mt-28 border-b border-white/[0.07] bg-[#050505] text-white lg:scroll-mt-32">
+        <div className="editorial-container pb-16 pt-16 md:pb-20 md:pt-24 lg:pt-28">
+          <div className="flex min-w-0 flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+            <div className="min-w-0 max-w-2xl">
+              <p className="mb-4 flex items-center gap-3 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
+                <Sunset className="h-5 w-5 shrink-0 text-burnished-copper/85" aria-hidden />
+                On-estate activity
+              </p>
+              <h2 className="font-sans text-[2.5rem] font-light leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-[2.75rem]">
+                <span className="text-white/90">Sundowners at the</span>{" "}
+                <span className="font-semibold text-white">outlook point</span>
+                <span className="text-white/50">.</span>
+              </h2>
+              <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+                Same ridgeline seat as the lodge route, same scheduling honesty as every other on-estate extra. PH-led
+                glass, low voices, and last light that does not borrow drama from the bush below.
+              </p>
+            </div>
+            <Link
+              href="/lodge"
+              className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:px-8 sm:py-4 lg:w-auto lg:self-auto"
+            >
+              The Lodge
+              <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+            </Link>
           </div>
-          <h2 className="mt-4 max-w-3xl font-sans text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl md:text-[2.35rem]">
-            {sundownerTitle}
-          </h2>
-          <p className="mt-4 max-w-3xl font-sans text-sm leading-relaxed text-white/68 md:text-base">
-            {schedulingNote} The published facility list names this stop as {outlookFacilityLabel}. It is the same ridgeline
-            seat you will see on the lodge route, used here as a scheduled extra when the day has room for last light
-            and wind you can read without rushing.
-          </p>
+        </div>
 
-          <div className="mt-10 max-w-3xl space-y-6 font-sans text-sm leading-relaxed text-white/72 md:mt-12 md:space-y-7 md:text-base">
-            <p>
-              Sundowners here are not a nightclub on gravel. The PH keeps glass disciplined, voices low, and movement
-              predictable so breeding herds below the rim are not treated like a stage set. You get honest Waterberg
-              colour, a safe place to set a drink when the estate allows it under the same catering line as the rest of
-              camp, and a hard stop when the schedule says the ridge is done for the night.
-            </p>
-            <p>
-              If you only need a quiet bench and binoculars without the ritual, the outlook still belongs to the same
-              facility card in leisure. When we list {sundownerTitle.toLowerCase()} as its own roster line, we mean the
-              hosted evening pass with the crew you already hunted beside that week.
-            </p>
-            <p className="border-l-2 border-burnished-copper/40 pl-5 text-white/68 md:pl-6">
-              Scheduling stays blunt on purpose: {schedulingNote}
-            </p>
-          </div>
+        <div className="border-t border-white/[0.07]">
+          {SUNDOWNER_QUARRY_ROWS.map((row, i) => (
+            <Link
+              key={row.code}
+              href={row.href}
+              className="focus-ring-invert group grid grid-cols-1 items-stretch border-b border-white/[0.07] transition-colors hover:bg-white/[0.02] md:grid-cols-2 lg:grid-cols-12"
+            >
+              <div
+                className={`relative h-full min-h-[200px] w-full shrink-0 overflow-hidden bg-neutral-950 ring-1 ring-inset ring-white/[0.06] sm:min-h-[220px] md:min-h-[240px] lg:col-span-7 ${
+                  i % 2 === 1 ? "md:order-2 lg:order-2" : ""
+                }`}
+              >
+                <div className="absolute inset-0 transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]">
+                  <Image
+                    src={row.image.src}
+                    alt={row.image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/15 to-transparent md:from-black/50" />
+                <span className="absolute left-4 top-4 font-sans text-[11px] font-medium tabular-nums tracking-[0.25em] text-white/70 md:left-5 md:top-5">
+                  {row.code} / 03
+                </span>
+              </div>
 
-          <div
-            className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-14 md:gap-4"
-            aria-label="Outlook point photography on the estate"
-          >
-            {SUNDOWNER_TRIPTYCH.map((img) => (
-              <EditorialImage key={img.src} src={img.src} alt={img.alt} className="aspect-[5/4] min-h-[200px]" />
-            ))}
-          </div>
+              <div
+                className={`flex flex-col justify-center px-4 py-10 sm:px-6 md:px-10 md:py-14 lg:col-span-5 ${
+                  i % 2 === 1 ? "md:order-1 lg:order-1" : ""
+                }`}
+              >
+                <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-burnished-copper/85">
+                  {row.nickname}
+                </p>
+                <h3 className="mt-4 font-sans text-2xl font-semibold tracking-[-0.035em] text-white/95 sm:text-3xl md:text-[2rem]">
+                  {row.title}
+                </h3>
+                <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-white/70 md:mt-5 md:text-base">
+                  {row.blurb}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-medium text-white/70 transition-colors group-hover:text-white md:mt-8">
+                  Explore
+                  <ChevronRight className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-1" aria-hidden />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Leisure on camp: truth-backed facilities plus photography (single block, no duplicate footer CTA) */}
-      <section id="leisure" className="scroll-mt-28 border-b border-white/[0.07] bg-neutral-950 py-16 md:py-24 lg:scroll-mt-32">
-        <div className="editorial-container">
-          <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/90">
-            Leisure on camp
-          </p>
-          <h2 className="mt-4 max-w-3xl font-serif text-[clamp(1.85rem,3.5vw,2.75rem)] font-medium leading-tight tracking-[-0.02em] text-canvas-cream">
-            Pool, boma, outlook, water
-          </h2>
-          <div className="mt-6 max-w-3xl space-y-4 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-            <p>
-              {truth.accommodation.model} We do not offer campground camping, tent pitches, or self-cater camping in the
-              public campground sense. You sleep in chalets and use communal space at {truth.communalHub.name} for bar,
-              kitchen, lounge, and dining.
-            </p>
-            <p>
-              Leisure on the estate still means the swimming pool, canopy boma, outlook point for viewing and sundowners,
-              and passive viewing at the waterhole. {schedulingNote}{" "}
-              {formatEnglishList(truth.onEstateActivities.items)} sit in the sections above.
-            </p>
+      {/* Leisure on camp: same quarry rail as sundowners (zigzag, stretch, Explore) */}
+      <section id="leisure" className="scroll-mt-28 border-b border-white/[0.07] bg-[#050505] text-white lg:scroll-mt-32">
+        <div className="editorial-container pb-16 pt-16 md:pb-20 md:pt-24 lg:pt-28">
+          <div className="flex min-w-0 flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+            <div className="min-w-0 max-w-2xl">
+              <p className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
+                Leisure on camp
+              </p>
+              <h2 className="font-sans text-[2.5rem] font-light leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-[2.75rem]">
+                <span className="text-white/90">Pool, boma,</span>{" "}
+                <span className="font-semibold text-white">outlook, water</span>
+                <span className="text-white/50">.</span>
+              </h2>
+              <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+                {truth.accommodation.model} We do not offer campground camping, tent pitches, or self-cater camping in the
+                public campground sense. You sleep in chalets and use communal space at {truth.communalHub.name} for bar,
+                kitchen, lounge, and dining.
+              </p>
+              <p className="mt-4 max-w-xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+                Leisure on the estate still means the swimming pool, canopy boma, outlook point for viewing and sundowners,
+                and passive viewing at the waterhole. {schedulingNote}{" "}
+                {formatEnglishList(truth.onEstateActivities.items)} sit in the sections above.
+              </p>
+              <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/55 md:text-base">
+                Each row below pairs a published facility title with on-estate photography already used on the lodge route.
+              </p>
+            </div>
+            <div className="flex min-w-0 w-full flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-auto lg:justify-end">
+              <Link
+                href="/lodge"
+                className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
+              >
+                The Lodge
+                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+              </Link>
+              <Link
+                href="/reserve#book-hunt"
+                className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 rounded-full border border-white/25 bg-transparent px-6 py-3.5 text-center font-sans text-sm font-medium text-white/90 transition-colors hover:border-white/40 hover:bg-white/[0.06] sm:w-auto sm:px-8 sm:py-4"
+              >
+                Book your hunt
+                <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
+              </Link>
+            </div>
           </div>
-          <p className="mt-8 max-w-2xl font-sans text-xs leading-relaxed text-white/50 md:text-sm">
-            Chalet layout, full board, and communal hub detail live on{" "}
-            <Link href="/lodge" className="text-burnished-copper/90 underline decoration-burnished-copper/40 underline-offset-4 transition-colors hover:text-burnished-copper">
-              The Lodge
-            </Link>
-            . Dates, party size, and species use{" "}
-            <Link href="/reserve#book-hunt" className="text-burnished-copper/90 underline decoration-burnished-copper/40 underline-offset-4 transition-colors hover:text-burnished-copper">
-              Book your hunt
-            </Link>
-            .
-          </p>
-          <p className="mt-10 max-w-2xl font-sans text-sm leading-relaxed text-white/65 md:text-base">
-            Each card pairs a facility title from our published list with on-estate photography already used on the lodge
-            route.
-          </p>
+        </div>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-            {truth.campFacilities.map((title) => {
-              const Icon = facilityIconByTitle[title] ?? Mountain;
-              const shot = facilityImageByTitle[title];
-              return (
-                <article
-                  key={title}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.09] bg-[#0a0a0a] transition-colors hover:border-burnished-copper/35 md:rounded-[1.35rem]"
-                >
-                  {shot ? (
-                    <div className="relative aspect-[5/4] w-full border-b border-white/[0.06]">
-                      <Image
-                        src={shot.src}
-                        alt={shot.alt}
-                        fill
-                        className="object-cover transition duration-700 group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, 25vw"
-                      />
-                    </div>
-                  ) : null}
-                  <div className="flex flex-1 flex-col p-5 md:p-6">
-                    <Icon className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-                    <h3 className="mt-3 font-sans text-base font-semibold leading-snug text-white/92 md:text-lg">{title}</h3>
-                    <p className="mt-2 flex-1 font-sans text-xs leading-relaxed text-white/65 md:text-sm">
-                      {title === "Swimming pool" &&
-                        "Cool water between stalks and long meals. Depth and rules follow camp briefing on arrival."}
-                      {title === "Canopy boma under trees" &&
-                        `Fire, canopy cover, and the social heart next to ${truth.communalHub.name} dining when the evening belongs to the group.`}
-                      {title === "Outlook point for viewing and sundowners" &&
-                        "Raised stop for glass, wind check, and last light without crowding the water itself."}
-                      {title === "Waterhole for passive game viewing" &&
-                        "Quiet bench discipline when animals choose the pan. No staged feeding: patience only."}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+        <div className="border-t border-white/[0.07]">
+          {LEISURE_QUARRY_ROWS.map((row, i) => (
+            <Link
+              key={row.title}
+              href={row.href}
+              className="focus-ring-invert group grid grid-cols-1 items-stretch border-b border-white/[0.07] transition-colors hover:bg-white/[0.02] md:grid-cols-2 lg:grid-cols-12"
+            >
+              <div
+                className={`relative h-full min-h-[200px] w-full shrink-0 overflow-hidden bg-neutral-950 ring-1 ring-inset ring-white/[0.06] sm:min-h-[220px] md:min-h-[240px] lg:col-span-7 ${
+                  i % 2 === 1 ? "md:order-2 lg:order-2" : ""
+                }`}
+              >
+                <div className="absolute inset-0 transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]">
+                  <Image
+                    src={row.image.src}
+                    alt={row.image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/15 to-transparent md:from-black/50" />
+                <span className="absolute left-4 top-4 font-sans text-[11px] font-medium tabular-nums tracking-[0.25em] text-white/70 md:left-5 md:top-5">
+                  {row.code} / {LEISURE_QUARRY_TOTAL}
+                </span>
+              </div>
+
+              <div
+                className={`flex flex-col justify-center px-4 py-10 sm:px-6 md:px-10 md:py-14 lg:col-span-5 ${
+                  i % 2 === 1 ? "md:order-1 lg:order-1" : ""
+                }`}
+              >
+                <p className="font-sans text-[11px] font-medium uppercase tracking-[0.28em] text-burnished-copper/85">
+                  {row.nickname}
+                </p>
+                <h3 className="mt-4 font-sans text-xl font-semibold tracking-[-0.035em] text-white/95 sm:text-2xl md:text-[1.65rem]">
+                  {row.title}
+                </h3>
+                <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-white/70 md:mt-5 md:text-base">
+                  {row.blurb}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-medium text-white/70 transition-colors group-hover:text-white md:mt-8">
+                  Explore
+                  <ChevronRight className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-1" aria-hidden />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

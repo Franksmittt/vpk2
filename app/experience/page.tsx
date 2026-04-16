@@ -132,7 +132,7 @@ const STALK_BEATS: readonly (StaticStalkBeat | CycleStalkBeat)[] = [
     ],
     src: EXPERIENCE_IMAGES.stalk.prep,
     seed: "expstalkprep",
-    alt: "Vaalpenskraal camp kitchen and early-morning prep before a stalk",
+    alt: "Early-morning rifle and kit prep at Vark Kraal before a stalk on the Vaalpenskraal estate",
   },
   {
     kind: "static",

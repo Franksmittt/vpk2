@@ -22,7 +22,7 @@ export const EXPERIENCE_IMAGES = {
   closingBoma: "/images/lodge/lodge-boma.jpg",
   /** Stalk timeline beats (documentary stills, estate or representative). */
   stalk: {
-    prep: "/images/lodge/lodge-kitchen.jpg",
+    prep: "/images/experience/experience-stalk-prep.jpg",
     thicket: "/images/hero/wide-hunt-story.png",
     pause: "/images/hero/hero-encounter.png",
   },
