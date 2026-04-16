@@ -203,14 +203,14 @@ const SENSE_HUD_TILES = [
     key: "smell",
     label: "Smell",
     cap: "Dust after rain, acacia smoke, warm hide",
-    src: "/images/experience/senses-boma-embers.png",
+    src: "/images/experience/experience-senses-boma-embers.png",
     alt: "Boma embers sensory moment on the Vaalpenskraal estate",
   },
   {
     key: "touch",
     label: "Touch",
     cap: "Stock warm from sun, sweat on your back, evening chill",
-    src: "/images/experience/senses-dry-grass.png",
+    src: "/images/experience/experience-senses-dry-grass.png",
     alt: "Dry grass against legs on the Vaalpenskraal estate",
   },
   {
@@ -224,14 +224,14 @@ const SENSE_HUD_TILES = [
     key: "sky",
     label: "Sky",
     cap: "Night sky pressed close over camp",
-    src: "/images/experience/senses-night-sky.png",
+    src: "/images/experience/experience-senses-night-sky.png",
     alt: "Night sky over the Vaalpenskraal camp",
   },
   {
     key: "petrichor",
     label: "Petrichor",
     cap: "Iron soil breathing after rain",
-    src: "/images/experience/senses-petrichor.png",
+    src: "/images/experience/experience-senses-petrichor.png",
     alt: "Petrichor and storm air over the Waterberg estate",
   },
   {

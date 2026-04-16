@@ -13,12 +13,18 @@ For user-visible facts about services, species, camp, compliance, and
 geography, treat client-business-truth.json at the repo root as the alignment
 source alongside this file.
 
-Last aligned with codebase: 15 April 2026 (editorial PageHero on all marketing
+Last aligned with codebase: 16 April 2026 (editorial PageHero on all marketing
 routes matching the /species hero scale; sticky quarry navigation with
 full-bleed strip photos and a uniform 20% black wash; /species hub with
 Suspense, URL-driven compare, grouped roster and jump nav; /the-hunt,
-/activities, /gallery; monographs for 21 species plus the bespoke Greater Kudu
-guide; reserve WebPage + ReserveAction JSON-LD; header and sitemap updated).
+/activities, /gallery with 52 local JPGs and a lightbox grid; monographs for
+21 roster slugs in MONOGRAPH_BUILDERS plus the bespoke Greater Kudu guide (all
+22 quarry pages ship rich content today; SpeciesStubDetail remains a fallback);
+reserve WebPage + ReserveAction JSON-LD; header and sitemap updated; static
+image housekeeping: shared wide estate still at /images/hero/estate-bushveld-wide.png,
+experience senses tiles prefixed experience-senses-* under public/images/experience/,
+scripts/audit-images.mjs and scripts/move-unused-images.mjs, and an
+unused-images/ folder at repo root for assets removed from public/).
 
 --------------------------------------------------------------------------------
 HOW TO READ THIS DOCUMENT
@@ -176,8 +182,10 @@ Route              Title (effective)                    Description (meta)
 /activities        Activities | Vaalpenskraal Game      Clay pigeon, game drives, pool,
                    Reserve                              boma, outlook, waterhole...
 
-/gallery           Gallery | Vaalpenskraal Game         Photography grid; placeholder
-                   Reserve                              frames until assets supplied.
+/gallery           Gallery | Vaalpenskraal Game         Photography from the estate;
+                   Reserve                              grid of 52 JPGs (vpk-gallery-001
+                                                          through vpk-gallery-052) with
+                                                          lightbox (see data/gallery-images.ts).
 
 /species/*         From app/species/layout.tsx:         Primary quarry of the Iron Mountain...
 (layout)          "Species | Vaalpenskraal Game Reserve"
@@ -235,8 +243,14 @@ HIGH-LEVEL FOLDERS
                  monographs/ (long-form species copy and registry).
 • lib/           species-media.ts, experience-media.ts, site.ts,
                  seo/species-json-ld.ts, seo/reserve-json-ld.ts.
-• public/images/ Static JPG/PNG assets (home, lodge, hero, hero-sequence,
-                 species cards, experience senses, etc.).
+• public/images/ Static JPG and PNG assets (home, lodge, hero, optional
+                 hero-sequence, gallery, outlook, activities, species cards and
+                 monographs, experience photography, the-hunt art).
+• unused-images/ Repo-root archive for image files intentionally removed from
+                 public/ (not served by Next.js; keep out of user-facing URLs).
+• scripts/       audit-images.mjs (reference scan), copy-gallery.mjs (ingest to
+                 public/images/gallery/), move-unused-images.mjs (one-off moves
+                 into unused-images/ when pruning).
 
 ================================================================================
 PART B: DESIGN SYSTEM (COLORS, FONTS, LAYOUT)
@@ -284,10 +298,13 @@ LAYOUT UTILITIES (globals.css, @layer utilities)
 MOTION, SCROLL, AND FINAL-PHASE POLISH
 • Home hero: components/home/HeroCanvasScrollSection.tsx (client). One viewport
   tall (min 100svh / 100dvh), no scroll runway: wheel and trackpad move the page
-  normally. HTML5 canvas draws a single cover frame from
-  /images/hero-sequence/frame-0001.jpg when present; otherwise the first
-  successful still under /images/hero/. ResizeObserver repaints on layout resize.
-  See public/images/hero-sequence/README.txt for asset naming.
+  normally. Three full-bleed Next/Image stills crossfade on a timer with dot
+  controls (default set: /images/hero/hero-legacy.png,
+  /images/hero/hero-encounter.png, /images/hero/estate-bushveld-wide.png).
+  Autoplay pauses on hover or focus; prefers-reduced-motion disables the timer.
+  public/images/hero-sequence/ remains optional for future frame-sequence work;
+  see public/images/hero-sequence/README.txt (the live home hero does not read
+  those frames today).
 • Home body: components/home/HomePageClient.tsx wraps the hero in
   HeroCanvasScrollSection; bento and downstream sections use Motion and fluid
   min-heights where updated (avoid rigid px min-heights on text-heavy cards).
@@ -321,11 +338,17 @@ ACCESSIBILITY AND ZOOM (WCAG 1.4.4 orientation)
   text blocks.
 
 IMAGE STRATEGY (brief)
-• Local files under public/images/ (lodge, home, hero, hero-sequence, species/cards,
-  species hero, experience senses).
+• Local files under public/images/ (lodge, home, hero, optional hero-sequence,
+  gallery, outlook, activities, species/cards, species monograph folders,
+  experience photography, the-hunt). URLs in code are root-absolute paths such
+  as /images/hero/estate-bushveld-wide.png (Next.js static file convention).
 • species-media.ts maps each species id to /images/species/cards/{id}.png.
 • Species index hero uses SPECIES_PAGE_HERO_IMAGE (iron mountain quarry scene).
 • Greater kudu deep guide still uses greater-kudu folder assets where coded.
+• Experience page senses tiles use the experience-senses-* filenames under
+  public/images/experience/ (wired in app/experience/page.tsx).
+• Discarded or duplicate marketing stills that should not ship live sit under
+  unused-images/ at the repo root, not under public/.
 
 STICKY QUARRY NAVIGATION (breadcrumb strip)
 • Sticky jump bars use a solid dark bar (bg-black/90, light backdrop-blur-md,
@@ -345,8 +368,9 @@ listed in the SEO section above where they differ from this narrative.
 • Hero: HeroCanvasScrollSection (single canvas frame + scrims),
   Earnest-style headline, CTAs, hunter's code strip, bento links toward
   Experience, Lodge, Species, Reserve, Contact. Motion on lower sections.
-• Photography from public/images/home and public/images/hero (and optional
-  hero-sequence JPEGs).
+• Photography from public/images/home and public/images/hero (three-slide
+  rotation in HeroCanvasScrollSection; optional hero-sequence folder is unused
+  by the current hero implementation).
 
 /experience  (app/experience/page.tsx): THE EXPERIENCE
 • PageHero with scrollLinkedTypography + full-bleed panorama + long-form
@@ -363,7 +387,8 @@ listed in the SEO section above where they differ from this narrative.
   and labelled placeholder slots in copy where assets are pending.
 
 /reserve  (app/reserve/page.tsx): BOOK YOUR HUNT (primary booking narrative)
-• PageHero with scrollLinkedTypography and wide hunt imagery.
+• PageHero with scrollLinkedTypography and wide estate still
+  (/images/hero/estate-bushveld-wide.png).
 • HuntBookingPanel (client): date range calendar or flexible dates, hunters /
   non-hunters, arrival time, hunt focus, contact fields, mailto submit. Anchor
   #book-hunt. WebPage + ReserveAction JSON-LD script via buildReservePageJsonLd.
@@ -381,9 +406,13 @@ listed in the SEO section above where they differ from this narrative.
   ClayPigeonVideoGrid (client), mosaic of existing lodge and experience imagery,
   scheduling note pulled from client-business-truth.json onEstateActivities.
 
-/gallery  (app/gallery/page.tsx): GALLERY SHELL
-• PageHero with scrollLinkedTypography. Twelve placeholder grid slots wired for
-  future public/images/gallery assets (copy states intent honestly).
+/gallery  (app/gallery/page.tsx): GALLERY
+• PageHero with scrollLinkedTypography and the same wide estate still as other
+  marketing heroes when imageSrc is set.
+• data/gallery-images.ts exports galleryImages (GALLERY_IMAGE_COUNT = 52) and
+  paths /images/gallery/vpk-gallery-001.jpg through vpk-gallery-052.jpg.
+• components/gallery/GalleryGridWithLightbox.tsx (client): responsive grid,
+  keyboard-friendly lightbox, alt text from the data module.
 
 /booking  (app/booking/page.tsx): REDIRECT
 • Client-only: useRouter.replace("/reserve"). Static export friendly alias.
@@ -415,8 +444,9 @@ listed in the SEO section above where they differ from this narrative.
 • If slug is greater-kudu → GreaterKuduGuide (large bespoke guide).
 • Else if hasSpeciesMonograph(slug) in data/monographs/registry.ts →
   SpeciesMonographGuide with generated MonographDefinition.
-• Else → SpeciesStubDetail (compact profile from species record; reserved for
-  future species not yet wired to a monograph builder).
+• Else → SpeciesStubDetail (compact profile from species record; fallback only:
+  every current QUARRY_SPECIES slug uses either GreaterKuduGuide or a monograph
+  builder).
 
 /privacy  (app/privacy/page.tsx): PRIVACY POLICY
 • Legal / privacy text page (editorial layout). Last updated note in page copy.
@@ -456,8 +486,8 @@ components/layout/PageHero.tsx
   vp-scroll-hero-eyebrow on the pill (see globals.css).
 
 components/home/HeroCanvasScrollSection.tsx (client)
-• Full-viewport canvas hero: one image, preload, draw on load and resize (no
-  scroll-linked frame scrubbing).
+• Full-viewport hero: stacked full-bleed stills with crossfade, dot tablist, and
+  reduced-motion aware autoplay (see HOME_HERO_SLIDES defaults).
 
 components/home/HomePageClient.tsx (client)
 • Full home page: canvas hero section, testimonials carousel, bento, motion
@@ -510,6 +540,9 @@ HuntBookingJourney.tsx, HuntPackagesEnquiry.tsx, HuntFinale.tsx
 components/activities/ClayPigeonVideoGrid.tsx (client)
 • Video or media grid for clay shooting block on /activities.
 
+components/gallery/GalleryGridWithLightbox.tsx (client)
+• Gallery index: grid of Next/Image tiles, opens a lightbox for full-size view.
+
 APP-LOCAL (not under components/)
 app/contact/ContactIntentForm.tsx (client)
 • useSearchParams: maps ?intent= to ContactForm defaultTopic; shows short helper
@@ -530,6 +563,9 @@ data/species.ts
 
 data/camp-kraals.ts
 • CHALET_KRAALS, CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL for consistent lodge copy.
+
+data/gallery-images.ts
+• GALLERY_IMAGE_COUNT and galleryImages[] for /gallery (vpk-gallery-NNN.jpg).
 
 data/monographs/
 • registry.ts: hasSpeciesMonograph(), getMonographContent(); MONOGRAPH_BUILDERS

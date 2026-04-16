@@ -22,7 +22,7 @@ const HuntBookingJourney = () => {
 
         <div className="mt-16 flex flex-col gap-12 md:gap-16 lg:mt-20">
           {HUNT_PLANNING_STEPS.map((s, i) => {
-            const src = stepImage[s.n] ?? "/images/hero/wide-hunt-story.png";
+            const src = stepImage[s.n] ?? "/images/hero/estate-bushveld-wide.png";
             const reverse = i % 2 === 1;
             return (
               <div key={s.n} className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">

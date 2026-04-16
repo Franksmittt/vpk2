@@ -19,7 +19,7 @@ const GalleryPage = () => {
         title="The estate in still frames."
         subtitle="A quiet room for hunt weeks, the people who shared them, and the estate light that still shows up in your camera roll long after you drive home."
         imageSeed="galleryhero"
-        imageSrc="/images/hero/wide-hunt-story.png"
+        imageSrc="/images/hero/estate-bushveld-wide.png"
       />
 
       <section className="border-t border-white/[0.07] py-16 md:py-24">

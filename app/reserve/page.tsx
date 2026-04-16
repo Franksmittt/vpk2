@@ -19,7 +19,7 @@ const ReservePage = () => {
         title="Hold a week on the Iron Mountain."
         subtitle="Brochure stops here. Send dates, party, species in order. We reply with quota, silence where the land says no, and a stalk rhythm that fits the heat."
         imageSeed="reservehero"
-        imageSrc="/images/hero/wide-hunt-story.png"
+        imageSrc="/images/hero/estate-bushveld-wide.png"
       />
 
       <section id="book-hunt" className="scroll-mt-24 border-b border-white/[0.07] bg-[#050505] py-16 md:py-24">

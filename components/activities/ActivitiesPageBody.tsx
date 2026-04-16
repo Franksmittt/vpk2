@@ -24,7 +24,7 @@ const HERO_STRIP: { src: string; alt: string }[] = [
 ];
 
 const CLAY_IMAGES: { src: string; alt: string }[] = [
-  { src: "/images/hero/wide-hunt-story.png", alt: "Open bushveld on the Vaalpenskraal estate" },
+  { src: "/images/hero/estate-bushveld-wide.png", alt: "Open bushveld on the Vaalpenskraal estate" },
   { src: "/images/lodge/spec-outdoor.jpg", alt: "Outdoor space at camp between hunt sessions" },
   { src: "/images/lodge/lodge-overview.jpg", alt: "Overview of Vaalpenskraal camp buildings and bush" },
 ];
@@ -156,7 +156,7 @@ const ActivitiesPageBody = () => {
         title="Between stalks, the hunting camp still breathes."
         subtitle="Guest chalets on camp, not campground camping. Clay pigeon shooting, game drives, sundowners at the outlook point, pool, canopy boma, outlook point, and waterhole sit on the same published roster as the lodge. Hunting stays the spine of the week. Scheduling follows camp workload: confirm when you book."
         imageSeed="activitieshero"
-        imageSrc="/images/hero/wide-hunt-story.png"
+        imageSrc="/images/hero/estate-bushveld-wide.png"
       />
 
       {/* Estate overview: split rail + scheduling + hero strip */}

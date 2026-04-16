@@ -8,7 +8,7 @@ export const EXPERIENCE_IMAGES = {
   /** PageHero on `/experience`: canonical outlook-point frame (see `outlook-media`). */
   hero: OUTLOOK_POINT_IMAGES.am946,
   /** “Through your eyes” stalk / bush. */
-  thicketWalk: "/images/hero/wide-hunt-story.png",
+  thicketWalk: "/images/hero/estate-bushveld-wide.png",
   audience: {
     solo: "/images/home/solitary-tracker.png",
     family: "/images/lodge/lodge-evening.jpg",
@@ -23,7 +23,7 @@ export const EXPERIENCE_IMAGES = {
   /** Stalk timeline beats (documentary stills, estate or representative). */
   stalk: {
     prep: "/images/experience/experience-stalk-prep.jpg",
-    thicket: "/images/hero/wide-hunt-story.png",
+    thicket: "/images/hero/estate-bushveld-wide.png",
     pause: "/images/hero/hero-encounter.png",
   },
   /** "The fire" stalk beat: cycled in `CrossfadeImageCycle` on `/experience`. */

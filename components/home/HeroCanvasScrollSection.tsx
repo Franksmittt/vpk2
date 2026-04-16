@@ -32,7 +32,7 @@ export const HOME_HERO_SLIDES = [
     body: "Crosshairs do not write ethics. Thicket, wind, and a PH who knows when silence is the sentence do.",
   },
   {
-    src: "/images/hero/wide-hunt-story.png",
+    src: "/images/hero/estate-bushveld-wide.png",
     imageAlt: "Wide Waterberg plains and hunt story landscape at Vaalpenskraal",
     title: (
       <>
