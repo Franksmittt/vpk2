@@ -187,15 +187,15 @@ const SENSE_HUD_TILES = [
   {
     key: "sight",
     label: "Sight",
-    cap: "Golden hour on horns and red soil",
-    src: "/images/lodge/brochure-game.jpg",
-    alt: "Game viewing light on the Vaalpenskraal estate",
+    cap: "Light on dust, scales, and thicket texture",
+    src: "/images/experience/experience-senses-sight.jpg",
+    alt: "Close bush sight detail on the Vaalpenskraal estate",
   },
   {
     key: "sound",
     label: "Sound",
     cap: "Francolin alarm, warthog grunt, silence, then a twig",
-    src: "/images/lodge/lodge-waterhole.jpg",
+    src: "/images/experience/experience-senses-sound.jpg",
     alt: "Waterhole edge at Vaalpenskraal for quiet bush soundscape",
   },
   {
@@ -493,7 +493,7 @@ const ExperiencePage = () => {
                   fill
                   src={EXPERIENCE_IMAGES.campRhythm.chalets}
                   seed="expcampchalets"
-                  alt="Placeholder image slot for guest chalets on camp at Vaalpenskraal"
+                  alt="Guest chalet exterior on camp at Vaalpenskraal"
                   className="object-cover"
                   sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                 />
@@ -515,7 +515,7 @@ const ExperiencePage = () => {
                   fill
                   src={EXPERIENCE_IMAGES.campRhythm.communalHub}
                   seed="expcampvark"
-                  alt={`Placeholder image slot for ${communalName} communal hub and catering`}
+                  alt={`${communalName} bar and communal hub at Vaalpenskraal`}
                   className="object-cover"
                   sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                 />

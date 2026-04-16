@@ -41,16 +41,15 @@ export const EXPERIENCE_IMAGES = {
   /** Zigzag gallery rows. */
   zigzag: {
     encounter: "/images/hero/hero-encounter.png",
-    waterhole: "/images/lodge/lodge-waterhole.jpg",
+    waterhole: "/images/experience/experience-zigzag-waterhole-dusk.jpg",
     boma: "/images/lodge/lodge-boma.jpg",
     catering: "/images/lodge/brochure-food.jpg",
   },
-  /**
-   * Camp rhythm grid on `/experience`. Remaining `undefined` keys fall back to seeded placeholders on the page.
-   */
+  /** Camp rhythm grid on `/experience`. */
   campRhythm: {
-    chalets: undefined,
-    communalHub: undefined,
+    /** Copy of `lodge-chalet-gemsbok.jpg` so `/lodge` kraal tiles stay independent. */
+    chalets: "/images/experience/experience-camp-chalets-gemsbok.jpg",
+    communalHub: "/images/experience/experience-camp-communal-bar.jpg",
     pace: "/images/experience/experience-camp-pace.jpg",
     solo: "/images/experience/experience-camp-solo.jpg",
     family: "/images/experience/experience-camp-family.jpg",
