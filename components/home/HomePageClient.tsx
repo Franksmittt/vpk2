@@ -172,7 +172,7 @@ const HomePageClient = () => {
                 </h3>
               </div>
               <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
-                Game ranges free on the estate. No pens, no staged encounters. You carry wind, thicket, and distance while your PH keeps the field honest.
+                Free-ranging quarry. No theatre. You read thorns, heat, and your own pulse.
               </p>
             </article>
 
@@ -190,7 +190,7 @@ const HomePageClient = () => {
                 </h3>
               </div>
               <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
-                Census and quota shape what we can offer each season. The veld leads; the roster follows. You book a hunt in camp, not a printed guarantee on every species.
+                Census drives quota. The veld decides what we offer. We listen.
               </p>
             </article>
 
@@ -208,7 +208,7 @@ const HomePageClient = () => {
                 </h3>
               </div>
               <p className="mt-auto font-sans text-sm leading-relaxed text-white/68 sm:text-[0.9375rem]">
-                The shot worth taking lives in the quiet before steel moves. Patience is the same discipline as respect for the animal and the rifle.
+                Patience is not decoration. It is how you honour the animal and the rifle.
               </p>
             </article>
           </div>
@@ -721,8 +721,8 @@ const HomePageClient = () => {
         </div>
       </section>
 
-      {/* Begin Your Journey CTA */}
-      <section className="section-y relative overflow-hidden">
+      {/* Bottom CTA: centered cinematic (chosen layout A) */}
+      <section className="relative border-t border-white/[0.08]" aria-labelledby="home-bush-cta-heading">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/home/cta-bush-calling.png"
@@ -732,27 +732,33 @@ const HomePageClient = () => {
             className="object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 z-10 bg-black/60 backdrop-blur-[2px]" />
-        
-        <div className="editorial-container relative z-20 text-center">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="font-sans text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white mb-6 md:mb-8 uppercase leading-none">
-              The bush
-              <br />
-              is calling.
-            </h2>
-            <p className="font-sans text-lg sm:text-xl md:text-2xl text-white/70 mb-10 md:mb-16 max-w-2xl mx-auto font-medium tracking-tight">
-              Secure your place in the legacy of the Waterberg.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-              <Link
-                href="/reserve"
-                className="focus-ring-invert group relative flex w-full items-center justify-center overflow-hidden rounded-full bg-white px-12 py-5 font-sans text-sm font-bold uppercase tracking-widest text-black transition-transform hover:scale-105 sm:w-auto sm:px-16 sm:py-6"
-              >
-                <span className="relative z-10">Book Your Hunt</span>
-                <div className="absolute inset-0 bg-neutral-200 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-              </Link>
-            </div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-black/25" aria-hidden />
+        <div className="editorial-container relative z-20 flex min-h-[min(64vh,520px)] flex-col items-center justify-center px-4 py-20 text-center md:py-28">
+          <h2
+            id="home-bush-cta-heading"
+            className="max-w-4xl font-serif text-[clamp(2.75rem,9vw,5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-canvas-cream"
+          >
+            The bush
+            <br />
+            <span className="text-white/90">is calling.</span>
+          </h2>
+          <p className="mx-auto mt-8 max-w-xl font-sans text-base font-normal leading-relaxed text-white/75 sm:text-lg">
+            Secure your place in the legacy of the Waterberg.
+          </p>
+          <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link
+              href="/reserve"
+              className="focus-ring-invert group relative inline-flex min-h-[48px] flex-1 items-center justify-center overflow-hidden rounded-full bg-white px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-black sm:flex-none sm:px-10"
+            >
+              <span className="relative z-10">Book your hunt</span>
+              <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+            </Link>
+            <Link
+              href="/species"
+              className="focus-ring-invert inline-flex min-h-[48px] flex-1 items-center justify-center rounded-full border border-white/35 bg-black/35 px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:flex-none sm:px-10"
+            >
+              Quarry roster
+            </Link>
           </div>
         </div>
       </section>
