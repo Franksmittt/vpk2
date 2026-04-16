@@ -5,6 +5,7 @@ import { ChevronRight, Target, Binoculars, Waves, Flame, Mountain, Droplets } fr
 import PageHero from "@/components/layout/PageHero";
 import { ClayPigeonVideoGrid } from "@/components/activities/ClayPigeonVideoGrid";
 import truth from "@/client-business-truth.json";
+import { OUTLOOK_POINT_IMAGES } from "@/lib/outlook-media";
 
 export const metadata: Metadata = {
   title: "Activities | Vaalpenskraal Game Reserve",
@@ -18,7 +19,7 @@ const schedulingNote = truth.onEstateActivities.scheduling;
 const MOSAIC_IMAGES: { src: string; alt: string }[] = [
   { src: "/images/lodge/lodge-pool.jpg", alt: "Swimming pool at Vaalpenskraal camp" },
   { src: "/images/lodge/lodge-boma.jpg", alt: "Canopy boma area at Vaalpenskraal camp" },
-  { src: "/images/lodge/lodge-outlook.jpg", alt: "Outlook point above the Vaalpenskraal bushveld" },
+  { src: OUTLOOK_POINT_IMAGES.am952, alt: "Outlook point above the Vaalpenskraal bushveld" },
   { src: "/images/lodge/lodge-waterhole.jpg", alt: "Waterhole for passive game viewing at camp" },
   { src: "/images/lodge/brochure-game.jpg", alt: "Game viewing from a vehicle on the estate" },
   { src: "/images/lodge/spec-outdoor.jpg", alt: "Outdoor camp areas used for scheduled activities" },
@@ -51,7 +52,7 @@ const facilityImageByTitle: Record<string, { src: string; alt: string }> = {
   "Swimming pool": { src: "/images/lodge/lodge-pool.jpg", alt: "Swimming pool at Vaalpenskraal camp" },
   "Canopy boma under trees": { src: "/images/lodge/lodge-boma.jpg", alt: "Canopy boma under trees at Vaalpenskraal" },
   "Outlook point for viewing and sundowners": {
-    src: "/images/lodge/lodge-outlook.jpg",
+    src: OUTLOOK_POINT_IMAGES.am946,
     alt: "Outlook point for viewing and sundowners at Vaalpenskraal",
   },
   "Waterhole for passive game viewing": {

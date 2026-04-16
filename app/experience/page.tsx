@@ -13,6 +13,7 @@ import {
   UtensilsCrossed,
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
+import CrossfadeImageCycle from "@/components/experience/CrossfadeImageCycle";
 import { EXPERIENCE_IMAGES } from "@/lib/experience-media";
 import truth from "@/client-business-truth.json";
 
@@ -80,8 +81,47 @@ function ExperienceImg({
   );
 }
 
-const STALK_BEATS = [
+const STALK_WEIGHT_SLIDES = EXPERIENCE_IMAGES.stalkWeightCycle.map((src, index) => ({
+  src,
+  alt: `Slaughter, recovery, and cold chain on camp at Vaalpenskraal (${index + 1} of ${EXPERIENCE_IMAGES.stalkWeightCycle.length})`,
+})) as readonly { src: string; alt: string }[];
+
+const STALK_FIRE_SLIDES = [
   {
+    src: EXPERIENCE_IMAGES.stalkFireCycle[0],
+    alt: "Elevated outlook and sundowner light over the Vaalpenskraal bushveld",
+  },
+  {
+    src: EXPERIENCE_IMAGES.stalkFireCycle[1],
+    alt: "Boma embers and evening gathering space at Vaalpenskraal camp",
+  },
+  {
+    src: EXPERIENCE_IMAGES.stalkFireCycle[2],
+    alt: "Evening light over the lodge grounds after a day in the field",
+  },
+] as const;
+
+type StaticStalkBeat = {
+  kind: "static";
+  time: string;
+  title: string;
+  paragraphs: readonly string[];
+  src?: string;
+  seed: string;
+  alt: string;
+};
+
+type CycleStalkBeat = {
+  kind: "cycle";
+  time: string;
+  title: string;
+  paragraphs: readonly string[];
+  cycleSlides: readonly { src: string; alt: string }[];
+};
+
+const STALK_BEATS: readonly (StaticStalkBeat | CycleStalkBeat)[] = [
+  {
+    kind: "static",
     time: "04:30",
     title: "The prep",
     paragraphs: [
@@ -94,6 +134,7 @@ const STALK_BEATS = [
     alt: "Vaalpenskraal camp kitchen and early-morning prep before a stalk",
   },
   {
+    kind: "static",
     time: "06:00",
     title: "The thicket",
     paragraphs: [
@@ -106,6 +147,7 @@ const STALK_BEATS = [
     alt: "Thick Waterberg bush on the estate with hunters at a distance",
   },
   {
+    kind: "static",
     time: "09:15",
     title: "The pause",
     paragraphs: [
@@ -118,6 +160,7 @@ const STALK_BEATS = [
     alt: "Hunter and PH glassing in the bush at first light on the estate",
   },
   {
+    kind: "cycle",
     time: "11:30",
     title: "The weight",
     paragraphs: [
@@ -125,11 +168,10 @@ const STALK_BEATS = [
       "Hands tire in ways office work never taught. Blood under nails is not romance. It is consequence you signed for when you squeezed.",
       "Then cold chain takes over. The estate owes the animal a clean thread from field to cold room, and the crew treats that like craft, not hurry.",
     ],
-    src: EXPERIENCE_IMAGES.stalk.weight,
-    seed: "expstalkweight",
-    alt: "Outdoor camp and field areas used between hunt sessions at Vaalpenskraal",
+    cycleSlides: STALK_WEIGHT_SLIDES,
   },
   {
+    kind: "cycle",
     time: "18:00",
     title: "The fire",
     paragraphs: [
@@ -137,11 +179,9 @@ const STALK_BEATS = [
       "Plates land when they land. Someone tells a story that would sound thin in a city lounge but carries here because everyone is tired enough to listen.",
       "You sleep with smoke in your hair and a week that already feels longer than the calendar says. That is the bush doing its quiet accounting.",
     ],
-    src: EXPERIENCE_IMAGES.stalk.fire,
-    seed: "expstalkfire",
-    alt: "Outlook over the Vaalpenskraal bushveld at last light before boma evening",
+    cycleSlides: STALK_FIRE_SLIDES,
   },
-] as const;
+];
 
 const SENSE_HUD_TILES = [
   {
@@ -306,14 +346,21 @@ const ExperiencePage = () => {
                 <div
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${i % 2 === 1 ? "md:order-2" : ""}`}
                 >
-                  <ExperienceImg
-                    fill
-                    src={b.src}
-                    seed={b.seed}
-                    alt={b.alt}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
+                  {b.kind === "cycle" ? (
+                    <CrossfadeImageCycle
+                      slides={b.cycleSlides}
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
+                  ) : (
+                    <ExperienceImg
+                      fill
+                      src={b.src}
+                      seed={b.seed}
+                      alt={b.alt}
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
+                  )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15" aria-hidden />
                 </div>
                 <div className={`min-w-0 ${i % 2 === 1 ? "md:order-1" : ""}`}>

@@ -1,10 +1,12 @@
+import { OUTLOOK_POINT_IMAGES } from "@/lib/outlook-media";
+
 /**
  * Local assets for `/experience`. Paths must exist under `public/`.
  * When no fitting estate photo exists, pages fall back to seeded placeholders (see page).
  */
 export const EXPERIENCE_IMAGES = {
-  /** PageHero background (same wide stalk frame as species quarry hero). */
-  hero: "/images/species/iron-mountain-quarry-hero.png",
+  /** PageHero on `/experience`: canonical outlook-point frame (see `outlook-media`). */
+  hero: OUTLOOK_POINT_IMAGES.am946,
   /** “Through your eyes” stalk / bush. */
   thicketWalk: "/images/hero/wide-hunt-story.png",
   audience: {
@@ -12,8 +14,8 @@ export const EXPERIENCE_IMAGES = {
     family: "/images/lodge/lodge-evening.jpg",
     global: "/images/lodge/brochure-vista.jpg",
   },
-  /** Sticky column: dawn / outlook (coffee line in copy). */
-  dawnOutlook: "/images/lodge/lodge-outlook.jpg",
+  /** Reserved for dawn / outlook copy blocks; same canonical outlook pool. */
+  dawnOutlook: OUTLOOK_POINT_IMAGES.am949,
   /** Guides & media zig-zag. */
   guidesEncounter: "/images/hero/hero-encounter.png",
   /** Closing CTA band. */
@@ -23,9 +25,19 @@ export const EXPERIENCE_IMAGES = {
     prep: "/images/lodge/lodge-kitchen.jpg",
     thicket: "/images/hero/wide-hunt-story.png",
     pause: "/images/hero/hero-encounter.png",
-    weight: "/images/lodge/spec-outdoor.jpg",
-    fire: "/images/lodge/lodge-outlook.jpg",
   },
+  /** "The fire" stalk beat: cycled in `CrossfadeImageCycle` on `/experience`. */
+  stalkFireCycle: [
+    OUTLOOK_POINT_IMAGES.am1015,
+    "/images/experience/experience-stalk-fire-boma.jpg",
+    "/images/experience/experience-stalk-fire-evening.jpg",
+  ] as const,
+  /** "The weight" stalk beat: cycled in `CrossfadeImageCycle` on `/experience`. */
+  stalkWeightCycle: [
+    "/images/experience/experience-stalk-weight-01.jpg",
+    "/images/experience/experience-stalk-weight-02.jpg",
+    "/images/experience/experience-stalk-weight-03.jpg",
+  ] as const,
   /** Zigzag gallery rows. */
   zigzag: {
     encounter: "/images/hero/hero-encounter.png",

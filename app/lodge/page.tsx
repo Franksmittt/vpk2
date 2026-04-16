@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { CHALET_KRAALS, CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL } from "@/data/camp-kraals";
+import { OUTLOOK_POINT_IMAGES } from "@/lib/outlook-media";
 
 export const metadata: Metadata = {
   title: "The Lodge & Stay | Vaalpenskraal Game Reserve",
@@ -552,7 +553,7 @@ const LodgePage = () => {
             <article className="overflow-hidden rounded-2xl border border-white/[0.08] bg-black/30">
               <Pic
                 seed="vpoutlookpoint"
-                src={`${LODGE}/lodge-outlook.jpg`}
+                src={OUTLOOK_POINT_IMAGES.am1007}
                 alt="Camp and chalets from an elevated outlook over the bush"
                 className="aspect-[4/3] w-full object-cover"
               />

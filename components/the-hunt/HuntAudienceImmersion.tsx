@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { OUTLOOK_POINT_IMAGES } from "@/lib/outlook-media";
 
 const lanes = [
   {
@@ -26,8 +27,8 @@ const lanes = [
     tag: "Global",
     title: "Overseas flight?",
     body: "JHB, then gravel. Jet lag is a hunting hazard, and we say so. Import and export sit with you and your agent. We run camp and field, not Home Affairs.",
-    src: "/images/lodge/brochure-vista.jpg",
-    alt: "Wide vista over Waterberg bush from the lodge outlook",
+    src: OUTLOOK_POINT_IMAGES.am949,
+    alt: "Wide vista over Waterberg bush from the lodge outlook point",
   },
 ] as const;
 
