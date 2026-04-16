@@ -140,6 +140,11 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Mass", "Commonly 100 to 240 kg depending on sex and range condition"],
       ["Range in SA", "Native arid belt plus widespread introductions"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      panorama: "gemsbok-intro-panorama",
+      panoramaLocalBase: "/images/species/gemsbok",
+      panoramaLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Gemsbok estate field reference below intro copy.",
   };
 }

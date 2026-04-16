@@ -140,6 +140,11 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
       ["Mass (ram)", "Often 53 to 76 kg in good condition"],
       ["Horns", "Lyrate, strongly ridged, length varies sharply by age and soil"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      panorama: "impala-intro-panorama",
+      panoramaLocalBase: "/images/species/impala",
+      panoramaLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Impala estate field reference below intro copy.",
   };
 }
