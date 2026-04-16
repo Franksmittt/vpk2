@@ -140,6 +140,11 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
       ["Mass", "Roughly 45 to 150 kg depending on sex and range condition"],
       ["Burrows", "Often aardvark origin, warthog modified"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      panorama: "warthog-intro-panorama",
+      panoramaLocalBase: "/images/species/warthog",
+      panoramaLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Warthog estate field reference below intro copy.",
   };
 }

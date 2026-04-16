@@ -139,6 +139,11 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Horns", "Both sexes; rams heavier"],
       ["Habitat", "Highveld grassland and derived pastures"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      panorama: "blesbok-intro-panorama",
+      panoramaLocalBase: "/images/species/blesbok",
+      panoramaLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Blesbok estate field reference below intro copy.",
   };
 }

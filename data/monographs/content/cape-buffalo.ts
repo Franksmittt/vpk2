@@ -142,6 +142,11 @@ export function capeBuffaloMonograph(s: QuarrySpecies): MonographDefinition {
       ["Typical approach", "Short range with PH backup"],
       ["Herd type", "Matrilineal herds plus bachelor and solitary bulls"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      panorama: "cape-buffalo-intro-panorama",
+      panoramaLocalBase: "/images/species/cape-buffalo",
+      panoramaLocalExt: "png",
+    }),
+    introPanoramaCaption: "Cape buffalo estate field reference below intro copy.",
   };
 }
