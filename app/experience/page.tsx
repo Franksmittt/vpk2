@@ -289,8 +289,8 @@ const ExperiencePage = () => {
         <div className="editorial-container">
           <div className="max-w-3xl [perspective:1400px]">
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/70">The stalk</p>
-            <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
-              Through your eyes
+              <h2 className="vp-scroll-reveal-type mt-3 font-sans text-3xl font-semibold tracking-tight sm:text-4xl">
+                Through your eyes
             </h2>
             <p className="vp-scroll-root-line mt-5 font-sans text-base leading-relaxed text-white/70 md:text-lg">
               A step-by-daybreak timeline. Same editorial container and spacing as the rest of the site, with one beat per row so nothing feels like a template dump.
@@ -370,7 +370,7 @@ const ExperiencePage = () => {
                   {s.cap}
                 </figcaption>
               </figure>
-            ))}
+              ))}
           </div>
         </div>
       </section>
@@ -440,59 +440,137 @@ const ExperiencePage = () => {
           </p>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <Home className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                {chaletCount} guest chalets
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                Named kraals on camp only. {truth.accommodation.bedding}. {truth.accommodation.climateControl}.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.chalets}
+                  seed="expcampchalets"
+                  alt="Placeholder image slot for guest chalets on camp at Vaalpenskraal"
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <Home className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  {chaletCount} guest chalets
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  Named kraals on camp only. {truth.accommodation.bedding}. {truth.accommodation.climateControl}.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <UtensilsCrossed className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                {communalName}
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                {truth.catering.board}. {truth.catering.includes.slice(0, 3).join(", ")}, and more on responsible service.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.communalHub}
+                  seed="expcampvark"
+                  alt={`Placeholder image slot for ${communalName} communal hub and catering`}
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <UtensilsCrossed className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  {communalName}
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  {truth.catering.board}. {truth.catering.includes.slice(0, 3).join(", ")}, and more on responsible service.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <Clock className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                Unhurried pace
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                {truth.onEstateActivities.scheduling} Clay and game drives when the week allows. Say what you need in your first mail.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.pace}
+                  seed="expcamppace"
+                  alt="Unhurried camp pace and optional clay or game drives at Vaalpenskraal"
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <Clock className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  Unhurried pace
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  {truth.onEstateActivities.scheduling} Clay and game drives when the week allows. Say what you need in your first mail.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <Binoculars className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                Solo rifleman
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                Technical stalks, wind maths, thicket IQ. The PH shortens the curve without turning the veld into an audition.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.solo}
+                  seed="expcampsolo"
+                  alt="Solo hunter and PH-led technical stalks on the Vaalpenskraal estate"
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <Binoculars className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  Solo rifleman
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  Technical stalks, wind maths, thicket IQ. The PH shortens the curve without turning the veld into an audition.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <Users className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                Fathers and sons
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                Shared discomfort on the walk, shared laughter at coals. Non-hunters still get the same light clock and honest safety lines.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.family}
+                  seed="expcampfamily"
+                  alt="Fathers and sons and family rhythm at Vaalpenskraal camp"
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <Users className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  Fathers and sons
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  Shared discomfort on the walk, shared laughter at coals. Non-hunters still get the same light clock and honest safety lines.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 md:p-6">
-              <Globe2 className="h-6 w-6 text-burnished-copper/80" aria-hidden />
-              <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
-                International hunters
-              </h3>
-              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                {truth.geography.travelNote} Import, export, and temp rifle stay with your stack or outfitter.
-              </p>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03]">
+              <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden border-b border-white/[0.06] bg-black/50">
+                <ExperienceImg
+                  fill
+                  src={EXPERIENCE_IMAGES.campRhythm.international}
+                  seed="expcampglobal"
+                  alt="International hunters and travel context for Vaalpenskraal"
+                  className="object-cover"
+                  sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" aria-hidden />
+              </div>
+              <div className="p-5 md:p-6">
+                <Globe2 className="h-6 w-6 text-burnished-copper/80" aria-hidden />
+                <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-white/90">
+                  International hunters
+                </h3>
+                <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                  {truth.geography.travelNote} Import, export, and temp rifle stay with your stack or outfitter.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -518,14 +596,14 @@ const ExperiencePage = () => {
                 <div
                   className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-white/[0.08] ${i % 2 === 1 ? "md:order-2" : ""}`}
                 >
-                  <ExperienceImg
-                    fill
+                <ExperienceImg
+                  fill
                     src={row.src}
                     seed={row.seed}
                     alt={row.alt}
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                  />
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
                 </div>
                 <div className={i % 2 === 1 ? "md:order-1" : ""}>
                   <h3 className="font-sans text-2xl font-semibold tracking-tight text-white/95 md:text-3xl">{row.title}</h3>
@@ -540,13 +618,13 @@ const ExperiencePage = () => {
           </div>
 
           <div className="mt-16 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row sm:gap-4">
-            <Link
-              href="/contact?intent=media"
+                <Link
+                  href="/contact?intent=media"
               className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:border-white/35 hover:bg-white/[0.04] sm:w-auto"
-            >
-              Media enquiry
+                >
+                  Media enquiry
               <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
-            </Link>
+                </Link>
           </div>
         </div>
       </section>

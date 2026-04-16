@@ -33,4 +33,15 @@ export const EXPERIENCE_IMAGES = {
     boma: "/images/lodge/lodge-boma.jpg",
     catering: "/images/lodge/brochure-food.jpg",
   },
+  /**
+   * Camp rhythm grid on `/experience`. Remaining `undefined` keys fall back to seeded placeholders on the page.
+   */
+  campRhythm: {
+    chalets: undefined,
+    communalHub: undefined,
+    pace: "/images/experience/experience-camp-pace.jpg",
+    solo: "/images/experience/experience-camp-solo.jpg",
+    family: "/images/experience/experience-camp-family.jpg",
+    international: "/images/experience/experience-camp-international.jpg",
+  },
 } as const;

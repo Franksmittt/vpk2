@@ -3,27 +3,10 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { QuarrySpecies } from "@/data/species";
 import { speciesImageUrl } from "@/lib/species-media";
-import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl">
-        <StickyBreadcrumbImageBackdrop
-          src={speciesImageUrl(s.imageSeed, 960, 400)}
-          alt={`Strip portrait behind navigation to ${s.name} species stub`}
-        />
-        <div className="relative z-10 mx-auto flex max-w-6xl items-center gap-4 px-5 py-4 sm:px-8 md:px-12">
-          <Link
-            href="/species"
-            className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/80 transition-colors hover:text-white"
-          >
-            <ChevronLeft className="h-4 w-4" aria-hidden />
-            All species
-          </Link>
-        </div>
-      </div>
-
       <header className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -66,6 +49,18 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
           </dl>
         </div>
       </header>
+
+      <div className="sticky top-20 z-[90] border-b border-white/[0.08] bg-black/90 backdrop-blur-md md:top-24">
+        <div className="relative mx-auto flex max-w-6xl items-center gap-4 px-5 py-4 sm:px-8 md:px-12">
+          <Link
+            href="/species"
+            className="focus-ring-invert inline-flex items-center gap-2 font-sans text-sm text-white/80 transition-colors hover:text-white"
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden />
+            All species
+          </Link>
+        </div>
+      </div>
 
       <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
         <h2 className="font-sans text-2xl font-semibold tracking-tight">Full hunting monograph</h2>

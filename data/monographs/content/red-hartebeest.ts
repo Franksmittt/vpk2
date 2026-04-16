@@ -140,6 +140,11 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
       ["Horns", "Ridged, both sexes horned; bulls carry the trophy narrative"],
       ["Silhouette", "High withers, sloping back: mind range estimation"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      panorama: "red-hartebeest-intro-panorama",
+      panoramaLocalBase: "/images/species/red-hartebeest",
+      panoramaLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Red hartebeest estate reference below intro copy.",
   };
 }

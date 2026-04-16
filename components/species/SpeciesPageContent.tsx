@@ -33,8 +33,6 @@ import {
   SPECIES_PAGE_HERO_IMAGE,
   quarrySpeciesImageSrc,
 } from "@/lib/species-media";
-import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
-
 function SpecCard({
   s,
   comparePick,
@@ -627,11 +625,7 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
       </section>
 
       {/* Sticky jump nav (monograph-style) + compare strip */}
-      <div className="sticky top-20 z-[450] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <StickyBreadcrumbImageBackdrop
-          src={SPECIES_PAGE_HERO_IMAGE}
-          alt="Iron Mountain bushveld behind quarry group navigation"
-        />
+      <div className="sticky top-20 z-[450] relative border-b border-white/[0.08] bg-black/90 backdrop-blur-md md:top-24">
         <div className="editorial-container relative z-10 flex min-w-0 flex-col gap-2 px-4 py-3 sm:gap-3 sm:px-0 md:flex-row md:items-center md:gap-3">
           <Link
             href="/"

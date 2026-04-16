@@ -13,7 +13,6 @@ import {
 import type { QuarrySpecies } from "@/data/species";
 import { speciesImageUrl } from "@/lib/species-media";
 import { GuideFigureImg } from "@/components/species/guides/GuideFigureImg";
-import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 type FigLayout = "banner" | "tall" | "matchText";
 
@@ -163,33 +162,6 @@ function NavPill({ href, children }: { href: string; children: React.ReactNode }
 const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="sticky top-20 z-[90] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <StickyBreadcrumbImageBackdrop
-          src={speciesImageUrl("kuduheroiron", 960, 400)}
-          alt="Greater kudu habitat strip behind monograph navigation"
-        />
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
-          <Link
-            href="/species"
-            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Quarry
-          </Link>
-          <nav
-            className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0"
-            aria-label="On this page"
-          >
-            <NavPill href="#overview">Overview</NavPill>
-            <NavPill href="#form">Form &amp; horns</NavPill>
-            <NavPill href="#range">Range &amp; diet</NavPill>
-            <NavPill href="#hunt">Hunting</NavPill>
-            <NavPill href="#rifle">Rifle &amp; shot</NavPill>
-            <NavPill href="#table">Quick facts</NavPill>
-          </nav>
-        </div>
-      </div>
-
       {/* Hero */}
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
@@ -239,6 +211,29 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           </div>
         </div>
       </header>
+
+      <div className="sticky top-20 z-[90] border-b border-white/[0.08] bg-black/90 backdrop-blur-md md:top-24">
+        <div className="relative mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
+          <Link
+            href="/species"
+            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Quarry
+          </Link>
+          <nav
+            className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0"
+            aria-label="On this page"
+          >
+            <NavPill href="#overview">Overview</NavPill>
+            <NavPill href="#form">Form &amp; horns</NavPill>
+            <NavPill href="#range">Range &amp; diet</NavPill>
+            <NavPill href="#hunt">Hunting</NavPill>
+            <NavPill href="#rifle">Rifle &amp; shot</NavPill>
+            <NavPill href="#table">Quick facts</NavPill>
+          </nav>
+        </div>
+      </div>
 
       <div id="overview" className="scroll-mt-36 md:scroll-mt-40" />
 

@@ -13,7 +13,6 @@ import type { QuarrySpecies } from "@/data/species";
 import type { MonographDefinition } from "@/data/monographs/types";
 import { speciesImageUrl } from "@/lib/species-media";
 import { MonographFig, MonographSpeciesFig } from "./MonographMedia";
-import { StickyBreadcrumbImageBackdrop } from "@/components/species/StickyBreadcrumbImageBackdrop";
 
 const socialIconMap = {
   mountain: Mountain,
@@ -50,33 +49,6 @@ const SpeciesMonographGuide = ({
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="sticky top-20 z-[90] relative overflow-hidden border-b border-white/[0.08] backdrop-blur-xl md:top-24">
-        <StickyBreadcrumbImageBackdrop
-          src={speciesImageUrl(c.imageSeeds.hero, 960, 400)}
-          alt={`Waterberg bush strip behind ${s.name} monograph navigation`}
-        />
-        <div className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
-          <Link
-            href="/species"
-            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Quarry
-          </Link>
-          <nav
-            className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0"
-            aria-label="On this page"
-          >
-            <NavPill href="#overview">Overview</NavPill>
-            <NavPill href="#form">Form &amp; horns</NavPill>
-            <NavPill href="#range">Range &amp; diet</NavPill>
-            <NavPill href="#hunt">Hunting</NavPill>
-            <NavPill href="#rifle">Rifle &amp; shot</NavPill>
-            <NavPill href="#table">Quick facts</NavPill>
-          </nav>
-        </div>
-      </div>
-
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -125,6 +97,29 @@ const SpeciesMonographGuide = ({
         </div>
       </header>
 
+      <div className="sticky top-20 z-[90] border-b border-white/[0.08] bg-black/90 backdrop-blur-md md:top-24">
+        <div className="relative mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3 sm:px-8 md:px-12">
+          <Link
+            href="/species"
+            className="mr-auto inline-flex items-center gap-1 font-sans text-sm text-white/80 transition-colors hover:text-white"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Quarry
+          </Link>
+          <nav
+            className="flex max-w-full gap-2 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0"
+            aria-label="On this page"
+          >
+            <NavPill href="#overview">Overview</NavPill>
+            <NavPill href="#form">Form &amp; horns</NavPill>
+            <NavPill href="#range">Range &amp; diet</NavPill>
+            <NavPill href="#hunt">Hunting</NavPill>
+            <NavPill href="#rifle">Rifle &amp; shot</NavPill>
+            <NavPill href="#table">Quick facts</NavPill>
+          </nav>
+        </div>
+      </div>
+
       <div id="overview" className="scroll-mt-36 md:scroll-mt-40" />
 
       <section className="border-t border-white/[0.07] bg-[#050505] py-16 md:py-24">
@@ -153,6 +148,9 @@ const SpeciesMonographGuide = ({
       <MonographFig
         seed={c.imageSeeds.panorama}
         className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12"
+        localBase={c.imageSeeds.panoramaLocalBase}
+        localExt={c.imageSeeds.panoramaLocalBase ? (c.imageSeeds.panoramaLocalExt ?? "jpg") : undefined}
+        caption={c.introPanoramaCaption}
       />
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">

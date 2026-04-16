@@ -32,6 +32,9 @@ export type MonographImageSeeds = {
   trophy: string;
   rifle: string;
   meat: string;
+  /** When set with `panorama` as filename stem, intro-wide banner loads `/public` asset first (see MonographFig localBase). */
+  panoramaLocalBase?: string;
+  panoramaLocalExt?: string;
 };
 
 export type MonographDefinition = {
@@ -79,6 +82,8 @@ export type MonographDefinition = {
   closingBody: string;
   quickFactExtraRows: [string, string][];
   imageSeeds: MonographImageSeeds;
+  /** Optional caption under the intro wide panorama when `panoramaLocalBase` is set. */
+  introPanoramaCaption?: string;
   huntSectionEyebrow?: string;
   showTrophySection?: boolean;
 };

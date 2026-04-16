@@ -83,6 +83,13 @@ export function goldenWildebeestMonograph(s: QuarrySpecies): MonographDefinition
       ["Species", "Connochaetes taurinus"],
       ["Hybrid note", "Keep blue and black wildebeest management honest"],
     ],
-    imageSeeds: base.imageSeeds,
+    imageSeeds: {
+      ...base.imageSeeds,
+      panoramaLocalBase: "/images/species/golden-wildebeest",
+      panoramaLocalExt: "jpg",
+      panorama: "golden-wildebeest-harvest",
+    },
+    introPanoramaCaption:
+      "Golden wildebeest morph after harvest (estate field reference below intro copy).",
   };
 }

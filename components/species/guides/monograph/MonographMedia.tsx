@@ -49,6 +49,7 @@ export function MonographFig({
             <GuideFigureImg
               localSrc={`${localBase}/${seed}.${localExt}`}
               fallbackSrc={speciesImageUrl(seed, matchFallbackW, matchFallbackH)}
+              alt={caption ? `Figure: ${caption}` : "Species monograph figure"}
               className="absolute inset-0 h-full w-full object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -94,6 +95,7 @@ export function MonographFig({
           <GuideFigureImg
             localSrc={`${localBase}/${seed}.${localExt}`}
             fallbackSrc={speciesImageUrl(seed, wideFallbackW, wideFallbackH)}
+            alt={caption ? `Figure: ${caption}` : "Species monograph banner"}
             className="h-full w-full object-cover"
           />
         ) : (

@@ -328,11 +328,11 @@ IMAGE STRATEGY (brief)
 • Greater kudu deep guide still uses greater-kudu folder assets where coded.
 
 STICKY QUARRY NAVIGATION (breadcrumb strip)
-• components/species/StickyBreadcrumbImageBackdrop.tsx: full-bleed strip image
-  plus pointer-events-none absolute inset-0 bg-black/20 over the entire photo.
-• Used behind sticky jump nav on /species (SPECIES_PAGE_HERO_IMAGE), behind
-  monograph sticky TOC bars (SpeciesMonographGuide, GreaterKuduGuide), and behind
-  the top back link bar on SpeciesStubDetail (species seed image).
+• Sticky jump bars use a solid dark bar (bg-black/90, light backdrop-blur-md,
+  border-b) only. No second hero image behind the strip (avoids duplicate crop
+  with the page hero).
+• Order: full-width hero first, then sticky TOC or back link (SpeciesPageContent,
+  SpeciesMonographGuide, GreaterKuduGuide, SpeciesStubDetail).
 
 ================================================================================
 PART C: EVERY PAGE (URL → PURPOSE → CONTENTS)
@@ -478,18 +478,12 @@ components/reserve/HuntBookingPanel.tsx (client)
 
 components/species/SpeciesPageContent.tsx (client)
 • Entire /species hub: compare flow with URL sync, SpecCard grid grouped by
-  groupId, hero layers, modals, kudu spotlight, sticky jump nav with
-  StickyBreadcrumbImageBackdrop. Imports QUARRY_SPECIES, SPECIES_GROUP_*,
-  species-media helpers.
-
-components/species/StickyBreadcrumbImageBackdrop.tsx
-• Shared absolute stack: next/image fill object-cover, then bg-black/20 full
-  wash. Used by SpeciesPageContent sticky bar, SpeciesMonographGuide,
-  GreaterKuduGuide, SpeciesStubDetail.
+  groupId, hero layers, modals, kudu spotlight, sticky jump nav (solid bar).
+  Imports QUARRY_SPECIES, SPECIES_GROUP_*, species-media helpers.
 
 components/species/SpeciesStubDetail.tsx
 • Fallback species page when no monograph builder: card stats, terrain, copy
-  blocks, links to reserve and species index; top bar uses strip backdrop.
+  blocks, links to reserve and species index; hero then sticky back link bar.
 
 components/species/guides/GreaterKuduGuide.tsx
 • Very long monograph-style page for greater-kudu only: sections, figures,
@@ -499,8 +493,8 @@ components/species/guides/GuideFigureImg.tsx (client)
 • Image wrapper with optional local src, fallback to remote URL, onError swap.
 
 components/species/guides/monograph/SpeciesMonographGuide.tsx
-• Renders MonographDefinition for a species: hero, sticky TOC with strip
-  backdrop, sections, figures, quotes, internal navigation.
+• Renders MonographDefinition for a species: hero, sticky TOC (solid bar),
+  sections, figures, quotes, internal navigation.
 
 components/species/guides/monograph/MonographMedia.tsx
 • Figures, diagrams, species-specific image helpers for monographs.

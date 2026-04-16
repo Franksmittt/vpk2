@@ -22,5 +22,7 @@ export function monoSeeds(
     trophy: keys.trophy ?? `${p}monotrophy`,
     rifle: keys.rifle ?? `${p}monorifle`,
     meat: keys.meat ?? `${p}monomeat`,
+    panoramaLocalBase: keys.panoramaLocalBase,
+    panoramaLocalExt: keys.panoramaLocalExt,
   };
 }
