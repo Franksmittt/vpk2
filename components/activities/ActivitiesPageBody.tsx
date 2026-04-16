@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Binoculars, Droplets, Flame, Mountain, Target, Waves } from "lucide-react";
+import { Binoculars, Droplets, Flame, Mountain, Sunset, Target, Waves } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import { ClayPigeonVideoGrid } from "@/components/activities/ClayPigeonVideoGrid";
 import truth from "@/client-business-truth.json";
+import { formatEnglishList } from "@/lib/format-english-list";
 import { OUTLOOK_POINT_IMAGES } from "@/lib/outlook-media";
 
 const schedulingNote = truth.onEstateActivities.scheduling;
-const clayTitle = truth.onEstateActivities.items[0];
-const driveTitle = truth.onEstateActivities.items[1];
+const clayTitle = truth.onEstateActivities.items[0]!;
+const driveTitle = truth.onEstateActivities.items[1]!;
+const sundownerTitle = truth.onEstateActivities.items[2]!;
 const clayActivityLower = clayTitle.toLowerCase();
+const outlookFacilityLabel = truth.campFacilities[2]!;
 
 const HERO_STRIP: { src: string; alt: string }[] = [
   { src: "/images/lodge/lodge-pool.jpg", alt: "Swimming pool at Vaalpenskraal camp" },
@@ -35,6 +38,12 @@ const DRIVE_STACK: { src: string; alt: string }[] = [
 
 /** Filmstrip under drive copy: camp context, vehicle glassing, thicket (not a sidebar column). */
 const DRIVE_TRIPTYCH: readonly { src: string; alt: string }[] = [DRIVE_STACK[0]!, DRIVE_HERO, DRIVE_STACK[1]!];
+
+const SUNDOWNER_TRIPTYCH: readonly { src: string; alt: string }[] = [
+  { src: OUTLOOK_POINT_IMAGES.am949, alt: "Outlook point ridgeline above Vaalpenskraal bushveld" },
+  { src: OUTLOOK_POINT_IMAGES.am946, alt: "Outlook point for viewing and last light at Vaalpenskraal" },
+  { src: OUTLOOK_POINT_IMAGES.am952, alt: "Wide outlook over Iron Mountain country at sundowner hour" },
+];
 
 const facilityIconByTitle: Record<string, typeof Waves> = {
   "Swimming pool": Waves,
@@ -84,7 +93,7 @@ const ActivitiesPageBody = () => {
         scrollLinkedTypography
         eyebrow="On the estate"
         title="Between stalks, the hunting camp still breathes."
-        subtitle="Guest chalets on camp, not campground camping. Clay pigeon shooting, game drives, pool, canopy boma, outlook point, and waterhole sit on the same published roster as the lodge. Hunting stays the spine of the week. Scheduling follows camp workload: confirm when you book."
+        subtitle="Guest chalets on camp, not campground camping. Clay pigeon shooting, game drives, sundowners at the outlook point, pool, canopy boma, outlook point, and waterhole sit on the same published roster as the lodge. Hunting stays the spine of the week. Scheduling follows camp workload: confirm when you book."
         imageSeed="activitieshero"
         imageSrc="/images/hero/wide-hunt-story.png"
       />
@@ -98,11 +107,11 @@ const ActivitiesPageBody = () => {
                 Hunting camp layout
               </p>
               <h2 className="mt-4 font-serif text-[clamp(2rem,4.5vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.02em] text-canvas-cream">
-                Pool, boma, outlook, water, and two scheduled extras.
+                Pool, boma, outlook, water, and three scheduled extras.
               </h2>
               <p className="mt-6 max-w-xl font-sans text-sm leading-relaxed text-white/68 md:text-base">
-                {truth.accommodation.model} {truth.onEstateActivities.items.join(" and ")} use the same scheduling rule
-                as everything else on this page. Names match our published brief, including the lodge route.
+                {truth.accommodation.model} {formatEnglishList(truth.onEstateActivities.items)} use the same scheduling
+                rule as everything else on this page. Names match our published brief, including the lodge route.
               </p>
             </div>
             <aside className="rounded-2xl border border-burnished-copper/30 bg-burnished-copper/[0.07] p-6 md:p-8 lg:col-span-5">
@@ -111,7 +120,8 @@ const ActivitiesPageBody = () => {
               </p>
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/80 md:text-base">{schedulingNote}</p>
               <p className="mt-4 font-sans text-xs leading-relaxed text-white/55">
-                Say clays or drives in your first email so PH time, vehicles, and hunt blocks stay aligned.
+                Say clays, drives, or outlook sundowners in your first email so PH time, vehicles, and hunt blocks stay
+                aligned.
               </p>
             </aside>
           </div>
@@ -125,6 +135,9 @@ const ActivitiesPageBody = () => {
             </a>
             <a href="#drives" className={jumpLinkClass}>
               {driveTitle}
+            </a>
+            <a href="#sundowners" className={jumpLinkClass}>
+              {sundownerTitle}
             </a>
             <a href="#leisure" className={jumpLinkClass}>
               Leisure on camp
@@ -236,6 +249,50 @@ const ActivitiesPageBody = () => {
         </div>
       </section>
 
+      {/* Sundowners at outlook */}
+      <section id="sundowners" className="scroll-mt-28 border-b border-white/[0.07] bg-[#060606] py-16 md:py-24 lg:scroll-mt-32">
+        <div className="editorial-container">
+          <div className="flex flex-wrap items-center gap-3">
+            <Sunset className="h-9 w-9 shrink-0 text-burnished-copper/85" aria-hidden />
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-white/65">On-estate activity</p>
+          </div>
+          <h2 className="mt-4 max-w-3xl font-sans text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl md:text-[2.35rem]">
+            {sundownerTitle}
+          </h2>
+          <p className="mt-4 max-w-3xl font-sans text-sm leading-relaxed text-white/68 md:text-base">
+            {schedulingNote} The published facility list names this stop as {outlookFacilityLabel}. It is the same ridgeline
+            seat you will see on the lodge route, used here as a scheduled extra when the day has room for last light
+            and wind you can read without rushing.
+          </p>
+
+          <div className="mt-10 max-w-3xl space-y-6 font-sans text-sm leading-relaxed text-white/72 md:mt-12 md:space-y-7 md:text-base">
+            <p>
+              Sundowners here are not a nightclub on gravel. The PH keeps glass disciplined, voices low, and movement
+              predictable so breeding herds below the rim are not treated like a stage set. You get honest Waterberg
+              colour, a safe place to set a drink when the estate allows it under the same catering line as the rest of
+              camp, and a hard stop when the schedule says the ridge is done for the night.
+            </p>
+            <p>
+              If you only need a quiet bench and binoculars without the ritual, the outlook still belongs to the same
+              facility card in leisure. When we list {sundownerTitle.toLowerCase()} as its own roster line, we mean the
+              hosted evening pass with the crew you already hunted beside that week.
+            </p>
+            <p className="border-l-2 border-burnished-copper/40 pl-5 text-white/68 md:pl-6">
+              Scheduling stays blunt on purpose: {schedulingNote}
+            </p>
+          </div>
+
+          <div
+            className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-14 md:gap-4"
+            aria-label="Outlook point photography on the estate"
+          >
+            {SUNDOWNER_TRIPTYCH.map((img) => (
+              <EditorialImage key={img.src} src={img.src} alt={img.alt} className="aspect-[5/4] min-h-[200px]" />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Leisure on camp: truth-backed facilities plus photography (single block, no duplicate footer CTA) */}
       <section id="leisure" className="scroll-mt-28 border-b border-white/[0.07] bg-neutral-950 py-16 md:py-24 lg:scroll-mt-32">
         <div className="editorial-container">
@@ -253,8 +310,8 @@ const ActivitiesPageBody = () => {
             </p>
             <p>
               Leisure on the estate still means the swimming pool, canopy boma, outlook point for viewing and sundowners,
-              and passive viewing at the waterhole. {schedulingNote} Clay pigeon shooting and game drives sit in the
-              sections above.
+              and passive viewing at the waterhole. {schedulingNote}{" "}
+              {formatEnglishList(truth.onEstateActivities.items)} sit in the sections above.
             </p>
           </div>
           <p className="mt-8 max-w-2xl font-sans text-xs leading-relaxed text-white/50 md:text-sm">

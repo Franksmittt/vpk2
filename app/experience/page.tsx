@@ -15,6 +15,7 @@ import {
 import PageHero from "@/components/layout/PageHero";
 import CrossfadeImageCycle from "@/components/experience/CrossfadeImageCycle";
 import { EXPERIENCE_IMAGES } from "@/lib/experience-media";
+import { formatEnglishList } from "@/lib/format-english-list";
 import truth from "@/client-business-truth.json";
 
 export const metadata: Metadata = {
@@ -537,7 +538,7 @@ const ExperiencePage = () => {
                   fill
                   src={EXPERIENCE_IMAGES.campRhythm.pace}
                   seed="expcamppace"
-                  alt="Unhurried camp pace and optional clay or game drives at Vaalpenskraal"
+                  alt="Unhurried camp pace with optional clay, game drives, or outlook sundowners at Vaalpenskraal"
                   className="object-cover"
                   sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                 />
@@ -549,7 +550,8 @@ const ExperiencePage = () => {
                   Unhurried pace
                 </h3>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-                  {truth.onEstateActivities.scheduling} Clay and game drives when the week allows. Say what you need in your first mail.
+                  {truth.onEstateActivities.scheduling} {formatEnglishList(truth.onEstateActivities.items)} when the week
+                  allows. Say what you need in your first mail.
                 </p>
               </div>
             </div>

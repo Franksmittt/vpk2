@@ -60,7 +60,7 @@
     "Waterhole for passive game viewing"
   ],
   "onEstateActivities": {
-    "items": ["Clay pigeon shooting", "Game drives"],
+    "items": ["Clay pigeon shooting", "Game drives", "Sundowners at the outlook point"],
     "scheduling": "When the schedule allows. Not guaranteed every day without enquiry"
   },
   "huntingServices": {
