@@ -83,6 +83,8 @@ export default function HeroCanvasScrollSection({ children, slides = HOME_HERO_S
                 alt={slide.imageAlt}
                 fill
                 priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
                 sizes="100vw"
                 className="object-cover object-center"
               />

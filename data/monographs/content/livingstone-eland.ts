@@ -140,6 +140,10 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
       ["Horns", "Spiralled in both sexes; bulls carry trophy focus"],
       ["Feeding", "Mixed grazer-browser; seasonal diet shift"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      predation: "livingstone-eland-predation-lions",
+      predationLocalBase: "/images/species/livingstone-eland",
+      predationLocalExt: "jpg",
+    }),
   };
 }

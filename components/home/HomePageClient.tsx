@@ -324,8 +324,8 @@ const HomePageClient = () => {
             <div className="relative min-h-[min(52vh,420px)] overflow-hidden rounded-[1.35rem] bg-neutral-900 ring-1 ring-white/[0.07] md:min-h-[520px] md:rounded-[1.75rem] lg:col-span-7">
               <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out hover:scale-[1.02]">
                 <Image
-                  src="https://picsum.photos/seed/luxurylodge/1600/2000"
-                  alt="Bush lodge interior and deck: representative luxury lodge imagery for the stay section"
+                  src="/images/lodge/lodge-chalet-gemsbok.jpg"
+                  alt="Gemsbok Kraal chalet at Vaalpenskraal lodge"
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover object-center"

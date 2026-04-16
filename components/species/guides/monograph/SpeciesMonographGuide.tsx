@@ -46,13 +46,16 @@ const SpeciesMonographGuide = ({
 }) => {
   const showTrophy = c.showTrophySection !== false;
   const huntEyebrow = c.huntSectionEyebrow ?? c.huntTitle;
+  const heroSrc = c.imageSeeds.heroLocalBase
+    ? `${c.imageSeeds.heroLocalBase}/${c.imageSeeds.hero}.${c.imageSeeds.heroLocalExt ?? "jpg"}`
+    : speciesImageUrl(c.imageSeeds.hero, 1920, 1200);
 
   return (
     <div className="min-h-screen bg-black text-white">
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={speciesImageUrl(c.imageSeeds.hero, 1920, 1200)}
+            src={heroSrc}
             alt={`${s.name} monograph hero for Waterberg quarry photography on the Iron Mountain`}
             fill
             priority
@@ -287,7 +290,14 @@ const SpeciesMonographGuide = ({
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
         <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.predationTitle}</h2>
         <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.predationBody}</p>
-        <MonographFig seed={c.imageSeeds.predation} className="mt-10" />
+        <MonographFig
+          seed={c.imageSeeds.predation}
+          localBase={c.imageSeeds.predationLocalBase}
+          localExt={
+            c.imageSeeds.predationLocalBase ? (c.imageSeeds.predationLocalExt ?? "jpg") : undefined
+          }
+          className="mt-10"
+        />
       </section>
 
       <div id="hunt" className="scroll-mt-36 md:scroll-mt-40" />

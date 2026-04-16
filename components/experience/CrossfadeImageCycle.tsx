@@ -38,6 +38,8 @@ const CrossfadeImageCycle = ({ slides, sizes, intervalMs = 3000 }: CrossfadeImag
             i === active ? "z-[1] opacity-100" : "z-0 opacity-0"
           }`}
           priority={i === 0}
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchPriority={i === 0 ? "high" : "low"}
           aria-hidden={i !== active}
         />
       ))}

@@ -140,6 +140,14 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Mass (ram)", "Commonly mid-twenties to mid-thirties kg in lean Karoo-type rangeland"],
       ["Horns", "Both sexes horned; trophy focus usually on mature rams"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      hero: "springbok-monograph-hero",
+      heroLocalBase: "/images/species/springbok",
+      heroLocalExt: "png",
+      panorama: "springbok-intro-panorama",
+      panoramaLocalBase: "/images/species/springbok",
+      panoramaLocalExt: "png",
+    }),
+    introPanoramaCaption: "Springbok estate field reference below intro copy.",
   };
 }

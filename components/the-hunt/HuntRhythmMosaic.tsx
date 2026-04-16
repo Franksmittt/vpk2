@@ -40,18 +40,20 @@ const HuntRhythmMosaic = () => {
           return (
             <article
               key={t.title}
-              className="group relative min-h-[min(52vh,420px)] overflow-hidden rounded-2xl border border-white/[0.08] ring-1 ring-white/[0.05] md:min-h-[min(48vh,520px)]"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070707] ring-1 ring-white/[0.05]"
             >
-              <Image
-                src={t.src}
-                alt={t.alt}
-                fill
-                className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/15" />
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                <Icon className="h-8 w-8 text-burnished-copper/85" aria-hidden />
+              <div className="relative aspect-[5/4] w-full shrink-0 overflow-hidden">
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  fill
+                  className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-6 md:p-8">
+                <p className="font-sans text-sm leading-relaxed text-white/55 md:text-[0.95rem]">{t.alt}</p>
+                <Icon className="mt-5 h-8 w-8 text-burnished-copper/85" aria-hidden />
                 <h3 className="mt-4 font-sans text-xl font-semibold tracking-tight text-white md:text-2xl">{t.title}</h3>
                 <p className="mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/75 md:text-base">{t.body}</p>
               </div>

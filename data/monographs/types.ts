@@ -19,6 +19,9 @@ export type MonographRifleTip = {
 
 export type MonographImageSeeds = {
   hero: string;
+  /** When set with `hero` as filename stem, monograph page hero loads `/public` asset first (see SpeciesMonographGuide). */
+  heroLocalBase?: string;
+  heroLocalExt?: string;
   intro: string;
   useIntroCardImage: boolean;
   panorama: string;
@@ -28,6 +31,9 @@ export type MonographImageSeeds = {
   feedWide: string;
   rutLeft: string;
   predation: string;
+  /** When set with `predation` as filename stem, predation-section banner loads `/public` asset first. */
+  predationLocalBase?: string;
+  predationLocalExt?: string;
   hunt: string;
   trophy: string;
   rifle: string;

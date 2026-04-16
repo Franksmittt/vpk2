@@ -10,15 +10,15 @@ const strips = [
   },
   {
     n: "02",
-    src: "/images/lodge/brochure-game.jpg",
+    src: "/images/the-hunt/hunt-field-shared-miles.jpg",
     alt: "Guests and guide at a safari vehicle on the estate, scanning for game",
     cap: "Shared miles",
     text: "Bakkie corridors, glass up, quiet jokes that end when the wind changes. Groups still move as one muzzle line.",
   },
   {
     n: "03",
-    src: "/images/lodge/spec-permit.jpg",
-    alt: "Permit and field paperwork reference materials on a lodge desk",
+    src: "/images/the-hunt/hunt-field-rifles-paperwork.jpg",
+    alt: "Rifle and paperwork preparation for a Waterberg hunt at Vaalpenskraal",
     cap: "Rifles and paperwork",
     text: "Own licensed rifle or hire from the estate when management confirms availability and terms. Temporary import, for example SAPS 520, and licences stay with you and your own agents. We keep the hunt honest, and your stack stays yours.",
   },

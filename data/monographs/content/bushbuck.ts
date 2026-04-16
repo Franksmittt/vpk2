@@ -139,6 +139,10 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
       ["Habitat", "Riverine thickets, forest edges, dense bush"],
       ["Predators", "Leopard primary where cats persist"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      hero: "bushbuck-monograph-hero",
+      heroLocalBase: "/images/species/bushbuck",
+      heroLocalExt: "png",
+    }),
   };
 }

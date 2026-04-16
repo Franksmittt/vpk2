@@ -9,6 +9,8 @@ export function monoSeeds(
   const p = s.imageSeed;
   return {
     hero: keys.hero ?? `${p}monohero`,
+    heroLocalBase: keys.heroLocalBase,
+    heroLocalExt: keys.heroLocalExt,
     intro: keys.intro ?? `${p}monintro`,
     useIntroCardImage: keys.useIntroCardImage ?? useIntroCard,
     panorama: keys.panorama ?? `${p}monopan`,
@@ -18,6 +20,8 @@ export function monoSeeds(
     feedWide: keys.feedWide ?? `${p}monofeed`,
     rutLeft: keys.rutLeft ?? `${p}monorut`,
     predation: keys.predation ?? `${p}monopred`,
+    predationLocalBase: keys.predationLocalBase,
+    predationLocalExt: keys.predationLocalExt,
     hunt: keys.hunt ?? `${p}monohunt`,
     trophy: keys.trophy ?? `${p}monotrophy`,
     rifle: keys.rifle ?? `${p}monorifle`,

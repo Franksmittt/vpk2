@@ -6,7 +6,7 @@ const lanes = [
     tag: "First stalk",
     title: "First farm hunt?",
     body: "We slow the clock on foot placement, safety arc, what the PH sees before you do. Ask anything. That is the work.",
-    src: "/images/home/solitary-tracker.png",
+    src: "/images/the-hunt/hunt-audience-first-stalk-thicket.jpg",
     alt: "Hunter moving alone through dense Waterberg thicket",
   },
   {
