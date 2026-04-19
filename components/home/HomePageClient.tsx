@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CHALET_KRAALS_LINE, COMMUNAL_BAR_KRAAL } from "@/data/camp-kraals";
 import { ChevronRight, Crosshair, Users, Flame, Map, Shield, Leaf, Target, ChevronLeft } from "lucide-react";
 import HeroCanvasScrollSection from "@/components/home/HeroCanvasScrollSection";
+import { ContentTrack, PageShell, Prose, Section, Stack } from "@/components/layout/system";
 
 const TESTIMONIALS = [
   {
@@ -115,9 +116,9 @@ const HomePageClient = () => {
   const activeT = TESTIMONIALS[activeTestimonial];
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-white/30">
+    <PageShell>
       <HeroCanvasScrollSection>
-        <div className="mt-2 flex w-full max-w-xl flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+        <div className="flex w-full max-w-xl flex-col gap-ds-sm pt-ds-2xs sm:flex-row sm:flex-wrap sm:items-center">
           <Link
             href="/reserve"
             className="focus-ring-invert group relative inline-flex min-h-[44px] items-center justify-center rounded-full bg-white px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-black transition-transform hover:scale-[1.02] sm:px-8"
@@ -135,35 +136,36 @@ const HomePageClient = () => {
       </HeroCanvasScrollSection>
 
       {/* The Code: headline row + hairline 3-up panels */}
-      <section
-        className="section-y border-b border-white/[0.06] bg-neutral-950"
+      <Section
+        className="border-b border-white/[0.06] bg-neutral-950"
         aria-labelledby="home-code-heading"
       >
-        <div className="editorial-container">
-          <div className="flex flex-col gap-6 border-b border-white/[0.08] pb-10 md:flex-row md:items-end md:justify-between md:gap-10 md:pb-14">
-            <div className="max-w-2xl">
-              <p className="font-[family-name:var(--font-montserrat),sans-serif] text-[11px] font-medium uppercase tracking-[0.32em] text-burnished-copper/90">
-                Field standard
+        <ContentTrack>
+          <Stack gap="lg">
+            <div className="flex flex-col gap-ds-md border-b border-white/[0.08] pb-ds-lg md:flex-row md:items-end md:justify-between md:gap-ds-xl md:pb-ds-xl">
+              <Stack gap="xs" className="max-w-2xl">
+                <p className="font-[family-name:var(--font-montserrat),sans-serif] text-[11px] font-medium uppercase tracking-[0.32em] text-burnished-copper/90">
+                  Field standard
+                </p>
+                <h2
+                  id="home-code-heading"
+                  className="vp-scroll-reveal-type font-sans text-[clamp(1.85rem,4.5vw,3.25rem)] font-semibold uppercase leading-[1.08] tracking-[-0.03em] text-white"
+                >
+                  The code <span className="text-white/55">we hunt by</span>
+                </h2>
+              </Stack>
+              <p className="max-w-md font-sans text-sm font-normal leading-relaxed text-white/65 md:max-w-sm md:pb-1 md:text-right md:text-base">
+                PH-led work on Waterberg iron soil. Quarry follows census and quota, not a brochure fantasy. When the day is thin, we say so.
               </p>
-              <h2
-                id="home-code-heading"
-                className="vp-scroll-reveal-type mt-3 font-sans text-[clamp(1.85rem,4.5vw,3.25rem)] font-semibold uppercase leading-[1.08] tracking-[-0.03em] text-white"
-              >
-                The code <span className="text-white/55">we hunt by</span>
-              </h2>
             </div>
-            <p className="max-w-md font-sans text-sm font-normal leading-relaxed text-white/65 md:max-w-sm md:pb-1 md:text-right md:text-base">
-              PH-led work on Waterberg iron soil. Quarry follows census and quota, not a brochure fantasy. When the day is thin, we say so.
-            </p>
-          </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-white/[0.12] ring-1 ring-white/[0.06] sm:mt-12 sm:rounded-[1.35rem] md:grid-cols-3">
-            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-white/[0.12] ring-1 ring-white/[0.06] sm:rounded-[1.35rem] md:grid-cols-3">
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] p-ds-sm transition-colors duration-500 hover:bg-[#0d0d0d] sm:p-ds-md md:min-h-[min(22rem,46vh)]">
               <div
                 className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
                 aria-hidden
               />
-              <div className="mb-8 flex items-center gap-4">
+              <div className="mb-ds-md flex items-center gap-ds-sm">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
                   <Shield className="h-5 w-5" aria-hidden />
                 </div>
@@ -176,12 +178,12 @@ const HomePageClient = () => {
               </p>
             </article>
 
-            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] p-ds-sm transition-colors duration-500 hover:bg-[#0d0d0d] sm:p-ds-md md:min-h-[min(22rem,46vh)]">
               <div
                 className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
                 aria-hidden
               />
-              <div className="mb-8 flex items-center gap-4">
+              <div className="mb-ds-md flex items-center gap-ds-sm">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
                   <Leaf className="h-5 w-5" aria-hidden />
                 </div>
@@ -194,12 +196,12 @@ const HomePageClient = () => {
               </p>
             </article>
 
-            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] px-7 py-10 transition-colors duration-500 hover:bg-[#0d0d0d] sm:px-8 sm:py-12 md:min-h-[min(22rem,46vh)]">
+            <article className="group relative flex min-h-0 flex-col bg-[#0a0a0a] p-ds-sm transition-colors duration-500 hover:bg-[#0d0d0d] sm:p-ds-md md:min-h-[min(22rem,46vh)]">
               <div
                 className="absolute left-0 top-0 h-1 w-full origin-left scale-x-0 bg-burnished-copper/80 transition-transform duration-500 group-hover:scale-x-100"
                 aria-hidden
               />
-              <div className="mb-8 flex items-center gap-4">
+              <div className="mb-ds-md flex items-center gap-ds-sm">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.04] text-burnished-copper/95">
                   <Target className="h-5 w-5" aria-hidden />
                 </div>
@@ -212,22 +214,23 @@ const HomePageClient = () => {
               </p>
             </article>
           </div>
-        </div>
-      </section>
+          </Stack>
+        </ContentTrack>
+      </Section>
 
       {/* Bento Grid: The Experience */}
-      <section className="section-y relative z-30">
-        <div className="editorial-container">
-        <div className="mb-12 text-center md:mb-20">
-          <h2 className="vp-scroll-reveal-type mb-6 font-sans text-4xl font-semibold uppercase tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            Built for the stalk
-          </h2>
-          <p className="mx-auto max-w-3xl font-sans text-lg font-medium leading-relaxed text-white/70 sm:text-xl md:text-2xl">
-            Solo miles or fireside noise. Same iron soil. Same standard.
-          </p>
-        </div>
+      <Section className="relative z-30">
+        <ContentTrack>
+          <Stack gap="xl" className="mb-ds-xl text-center md:mb-ds-2xl">
+            <h2 className="vp-scroll-reveal-type font-sans text-4xl font-semibold uppercase tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Built for the stalk
+            </h2>
+            <p className="mx-auto max-w-3xl font-sans text-lg font-medium leading-relaxed text-white/70 sm:text-xl md:text-2xl">
+              Solo miles or fireside noise. Same iron soil. Same standard.
+            </p>
+          </Stack>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-12 lg:gap-6">
+        <div className="grid grid-cols-1 gap-ds-md md:grid-cols-3 lg:grid-cols-12 lg:gap-ds-md">
           {/* Card 1: Solo Hunter */}
           <Link
             href="/reserve"
@@ -244,14 +247,16 @@ const HomePageClient = () => {
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 sm:p-8 md:p-10">
-              <Crosshair className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" aria-hidden />
-              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+            <div className="absolute bottom-0 left-0 p-ds-sm sm:p-ds-md md:p-ds-lg">
+              <Stack gap="sm" className="max-w-lg">
+              <Crosshair className="h-8 w-8 text-white md:h-10 md:w-10" aria-hidden />
+              <h3 className="font-sans text-3xl font-semibold uppercase tracking-tight sm:text-4xl md:text-5xl">
                 The solitary tracker
               </h3>
-              <p className="max-w-lg font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
+              <p className="font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 Dawn cold on your cheek. Boots loud until they are not. Then only wind.
               </p>
+              </Stack>
             </div>
           </Link>
 
@@ -259,7 +264,7 @@ const HomePageClient = () => {
           <Link
             href="/species"
             aria-label="Explore quarry species"
-            className="focus-ring-invert group relative flex min-h-[min(22rem,58dvh)] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-6 sm:p-8 md:col-span-1 md:min-h-[min(26rem,52dvh)] md:p-10 lg:col-span-5"
+            className="focus-ring-invert group relative flex min-h-[min(22rem,58dvh)] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-ds-sm sm:p-ds-md md:col-span-1 md:min-h-[min(26rem,52dvh)] md:p-ds-lg lg:col-span-5"
           >
             <div className="absolute inset-0 overflow-hidden transition-all duration-1000 group-hover:scale-105">
               <Image
@@ -271,20 +276,20 @@ const HomePageClient = () => {
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
-            <div className="relative z-10">
-              <Map className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" aria-hidden />
-              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl">Twenty-two species</h3>
+            <Stack gap="sm" className="relative z-10">
+              <Map className="h-8 w-8 text-white md:h-10 md:w-10" aria-hidden />
+              <h3 className="font-sans text-3xl font-semibold uppercase tracking-tight sm:text-4xl">Twenty-two species</h3>
               <p className="font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 Grey Ghost kudu. Buffalo that own the thicket. Names you already respect.
               </p>
-            </div>
+            </Stack>
           </Link>
 
           {/* Card 3: The Brotherhood */}
           <Link
             href="/lodge"
             aria-label="The lodge: groups and fireside"
-            className="focus-ring-invert group relative flex min-h-[min(22rem,58dvh)] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-6 sm:p-8 md:col-span-1 md:min-h-[min(26rem,52dvh)] md:p-10 lg:col-span-5"
+            className="focus-ring-invert group relative flex min-h-[min(22rem,58dvh)] flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 p-ds-sm sm:p-ds-md md:col-span-1 md:min-h-[min(26rem,52dvh)] md:p-ds-lg lg:col-span-5"
           >
             <div className="absolute inset-0 overflow-hidden transition-all duration-1000 group-hover:scale-105">
               <Image
@@ -296,13 +301,13 @@ const HomePageClient = () => {
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
-            <div className="relative z-10">
-              <Users className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" aria-hidden />
-              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl">Fire and roster</h3>
+            <Stack gap="sm" className="relative z-10">
+              <Users className="h-8 w-8 text-white md:h-10 md:w-10" aria-hidden />
+              <h3 className="font-sans text-3xl font-semibold uppercase tracking-tight sm:text-4xl">Fire and roster</h3>
               <p className="font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 Ember light on wet eyes. The week names itself here.
               </p>
-            </div>
+            </Stack>
           </Link>
 
           {/* Card 4: The Culture */}
@@ -321,43 +326,44 @@ const HomePageClient = () => {
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 sm:p-8 md:p-10">
-              <Flame className="w-8 h-8 md:w-10 md:h-10 text-white mb-4 md:mb-6" aria-hidden />
-              <h3 className="mb-3 font-sans text-3xl font-semibold uppercase tracking-tight sm:mb-4 sm:text-4xl md:text-5xl">
+            <div className="absolute bottom-0 left-0 p-ds-sm sm:p-ds-md md:p-ds-lg">
+              <Stack gap="sm" className="max-w-lg">
+              <Flame className="h-8 w-8 text-white md:h-10 md:w-10" aria-hidden />
+              <h3 className="font-sans text-3xl font-semibold uppercase tracking-tight sm:text-4xl md:text-5xl">
                 The culture
               </h3>
-              <p className="max-w-lg font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
+              <p className="font-sans text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 Dust in the throat. Woodsmoke in wool. The stalk still humming behind your ribs.
               </p>
+              </Stack>
             </div>
           </Link>
         </div>
-        </div>
-      </section>
+        </ContentTrack>
+      </Section>
 
       {/* Basecamp - split canvas: image + stacked amenity rails */}
-      <section className="border-t border-white/[0.06] bg-[#070707] text-white">
-        <div className="editorial-container pb-12 pt-16 md:pb-16 md:pt-24 lg:pt-28">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-16">
-            <div className="max-w-xl">
-              <p className="font-sans text-[11px] font-medium tracking-[0.3em] uppercase text-white/70 mb-4">
-                The lodge
+      <Section className="border-t border-white/[0.06] bg-[#070707] text-white" padding="none">
+        <ContentTrack className="ds-section-y">
+          <Stack gap="2xl">
+            <div className="flex flex-col gap-ds-lg lg:flex-row lg:items-end lg:justify-between lg:gap-ds-xl">
+              <Stack gap="xs" className="max-w-xl">
+                <p className="font-sans text-[11px] font-medium tracking-[0.3em] uppercase text-white/70">
+                  The lodge
+                </p>
+                <h2 className="font-sans text-[2.75rem] sm:text-4xl md:text-[2.85rem] font-light tracking-[-0.03em] leading-[1.08]">
+                  The basecamp is{" "}
+                  <span className="font-semibold text-white">where the bush</span>
+                  <br className="hidden sm:block" />
+                  <span className="font-semibold text-white"> lets you exhale.</span>
+                </h2>
+              </Stack>
+              <p className="font-sans text-base leading-relaxed text-white/65 md:text-base lg:max-w-[22rem] lg:text-right">
+                After miles in thick thicket, you want silence, hot water, and a fire you did not have to build alone. Premium comfort, without polishing away the grit.
               </p>
-              <h2 className="font-sans text-[2.75rem] sm:text-4xl md:text-[2.85rem] font-light tracking-[-0.03em] leading-[1.08]">
-                The basecamp is{" "}
-                <span className="font-semibold text-white">where the bush</span>
-                <br className="hidden sm:block" />
-                <span className="font-semibold text-white"> lets you exhale.</span>
-              </h2>
             </div>
-            <p className="font-sans lg:max-w-[22rem] text-base md:text-base leading-relaxed text-white/65 font-normal lg:text-right lg:pb-0">
-              After miles in thick thicket, you want silence, hot water, and a fire you did not have to build alone. Premium comfort, without polishing away the grit.
-            </p>
-          </div>
-        </div>
 
-        <div className="editorial-container pb-16 md:pb-24 lg:pb-32">
-          <div className="grid grid-cols-1 gap-4 md:gap-4 md:items-stretch lg:grid-cols-12">
+            <div className="grid grid-cols-1 gap-ds-md md:items-stretch lg:grid-cols-12">
             <div className="relative min-h-[min(52vh,420px)] overflow-hidden rounded-[1.35rem] bg-neutral-900 ring-1 ring-white/[0.07] md:min-h-[520px] md:rounded-[1.75rem] lg:col-span-7">
               <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out hover:scale-[1.02]">
                 <Image
@@ -369,7 +375,7 @@ const HomePageClient = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-tr from-black/55 via-transparent to-black/25 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between gap-4">
+              <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-ds-sm p-ds-sm md:p-ds-md">
                 <p className="font-sans text-xs md:text-sm text-white/55 max-w-[18rem] leading-snug">
                   {CHALET_KRAALS_LINE} · overnight guests only. {COMMUNAL_BAR_KRAAL}, kitchen, pool, boma, outlook &amp; waterhole. Full board in the Waterberg.
                 </p>
@@ -383,7 +389,7 @@ const HomePageClient = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 md:gap-4 lg:col-span-5">
+            <Stack gap="md" className="lg:col-span-5">
               {[
                 {
                   tag: "01",
@@ -410,40 +416,41 @@ const HomePageClient = () => {
               ].map((row) => (
                 <div
                   key={row.tag}
-                  className="group flex gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] px-4 py-4 md:px-5 md:py-4 hover:border-white/[0.14] hover:bg-white/[0.035] transition-colors"
+                  className="group flex gap-ds-sm rounded-2xl border border-white/[0.08] bg-white/[0.02] px-ds-sm py-ds-sm transition-colors hover:border-white/[0.14] hover:bg-white/[0.035] md:px-ds-md md:py-ds-sm"
                 >
-                  <span className="font-sans text-[11px] font-medium tabular-nums tracking-widest text-white/60 pt-1">
+                  <span className="pt-1 font-sans text-[11px] font-medium tabular-nums tracking-widest text-white/60">
                     {row.tag}
                   </span>
-                  <div className="min-w-0 flex-1">
+                  <Stack gap="2xs" className="min-w-0 flex-1">
                     <p className="font-sans text-base font-medium tracking-[-0.015em] text-white/90">
                       {row.title}
                     </p>
-                    <p className="mt-2 font-sans text-xs leading-snug text-white/65 md:text-sm">
+                    <p className="font-sans text-xs leading-snug text-white/65 md:text-sm">
                       {row.note}
                     </p>
-                  </div>
+                  </Stack>
                 </div>
               ))}
-            </div>
+            </Stack>
           </div>
 
-          <div className="mt-10 md:mt-12 flex justify-start md:justify-end">
+            <div className="flex justify-start md:justify-end">
             <Link
               href="/lodge"
-              className="focus-ring-invert group inline-flex items-center gap-2 font-sans text-sm text-white/70 transition-colors hover:text-white"
+              className="focus-ring-invert group inline-flex items-center gap-ds-sm font-sans text-sm text-white/70 transition-colors hover:text-white"
             >
               Full lodge breakdown
               <ChevronRight className="h-4 w-4 opacity-60 transition-transform group-hover:translate-x-1" aria-hidden />
             </Link>
-          </div>
-        </div>
-      </section>
+            </div>
+          </Stack>
+        </ContentTrack>
+      </Section>
 
       {/* Manifesto - iron / copper editorial */}
-      <section className="section-y relative isolate overflow-hidden border-y border-white/[0.07] bg-black">
+      <Section className="relative isolate border-y border-white/[0.07] bg-black">
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.55]"
+          className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.55]"
           aria-hidden
         >
           <div className="absolute -top-40 left-1/2 h-[min(100vw,520px)] w-[min(100vw,520px)] -translate-x-1/2 rounded-full bg-burnished-copper/25 blur-[120px]" />
@@ -451,68 +458,70 @@ const HomePageClient = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(184,115,51,0.12),transparent_55%)]" />
         </div>
 
-        <div className="editorial-container">
-          <p className="mb-10 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70 md:mb-14">
-            The Waterberg · not a brochure trip
-          </p>
+        <ContentTrack className="relative min-w-0">
+          <Stack gap="lg">
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70 md:mb-2">
+              The Waterberg · not a brochure trip
+            </p>
 
-          <div className="grid gap-14 lg:gap-16 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-7">
-              <h2 className="font-sans text-[clamp(2.6rem,7.5vw,5.25rem)] font-semibold tracking-[-0.045em] leading-[0.96]">
-                <span className="block text-white">Raw.</span>
-                <span className="block text-white/88">Real.</span>
-                <span className="block bg-gradient-to-r from-sunset-gold via-burnished-copper to-dried-grass bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(184,115,51,0.25)]">
-                  Relentless.
-                </span>
-              </h2>
-              <div
-                className="mt-8 md:mt-10 h-px max-w-[10rem] bg-gradient-to-r from-burnished-copper/90 via-white/25 to-transparent"
-                aria-hidden
-              />
-            </div>
-
-            <div className="lg:col-span-5 space-y-8 md:space-y-10">
-              <p className="font-sans text-lg md:text-xl lg:text-[1.35rem] leading-[1.55] text-white/65 font-normal first-line:font-medium first-line:text-white/85">
-                We reject the staged safari circuit. Vaalpenskraal is a return to the Waterberg bush as it is: oxidized iron under your boots, burnished copper light on the ridgeline, and terrain that does not perform for a camera.
-              </p>
-              <p className="relative font-sans text-base md:text-lg leading-relaxed text-white/65 pl-6 md:pl-7">
-                <span
-                  className="absolute left-0 top-1 bottom-1 w-px rounded-full bg-gradient-to-b from-burnished-copper/85 via-white/20 to-transparent"
+            <div className="grid min-w-0 grid-cols-1 items-end gap-ds-xl lg:gap-x-ds-2xl lg:gap-y-0 lg:[grid-template-columns:minmax(0,7fr)_minmax(0,5fr)]">
+              <div className="min-w-0 max-w-full overflow-x-clip lg:pr-ds-sm">
+                <h2 className="max-w-full break-words font-sans text-[clamp(2.6rem,7.5vw,5.25rem)] font-semibold leading-[0.96] tracking-[-0.045em]">
+                  <span className="block max-w-full text-white">Raw.</span>
+                  <span className="block max-w-full text-white/88">Real.</span>
+                  <span className="block max-w-full bg-gradient-to-r from-sunset-gold via-burnished-copper to-dried-grass bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(184,115,51,0.25)]">
+                    Relentless.
+                  </span>
+                </h2>
+                <div
+                  className="mt-ds-md h-px max-w-[10rem] bg-gradient-to-r from-burnished-copper/90 via-white/25 to-transparent md:mt-ds-lg"
                   aria-hidden
                 />
-                For those who still believe in respect: the stalk, the fire, the silence after. The kind of bond with the land that outlasts the flight home.
-              </p>
+              </div>
+
+              <Stack gap="lg" className="relative z-10 min-w-0 w-full md:gap-ds-xl">
+                <Prose className="break-words text-lg text-white/65 first-line:font-medium first-line:text-white/85 md:text-xl lg:text-[1.35rem] lg:leading-[1.55]">
+                  We reject the staged safari circuit. Vaalpenskraal is a return to the Waterberg bush as it is: oxidized iron under your boots, burnished copper light on the ridgeline, and terrain that does not perform for a camera.
+                </Prose>
+                <Prose className="relative z-10 box-border max-w-full break-words pl-ds-md text-base leading-relaxed text-white/65 md:pl-ds-lg md:text-lg">
+                  <span
+                    className="absolute left-0 top-1 bottom-1 w-px rounded-full bg-gradient-to-b from-burnished-copper/85 via-white/20 to-transparent"
+                    aria-hidden
+                  />
+                  For those who still believe in respect: the stalk, the fire, the silence after. The kind of bond with the land that outlasts the flight home.
+                </Prose>
+              </Stack>
             </div>
-          </div>
-        </div>
-      </section>
+          </Stack>
+        </ContentTrack>
+      </Section>
 
       {/* The Quarry - editorial zigzag + index */}
-      <section className="relative border-t border-white/[0.07] bg-[#050505] text-white">
-        <div className="editorial-container pb-16 pt-16 md:pb-20 md:pt-24 lg:pt-28">
-          <div className="flex min-w-0 flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-            <div className="min-w-0 max-w-2xl">
-              <p className="mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
+      <Section className="relative border-t border-white/[0.07] bg-[#050505] text-white" padding="none">
+        <ContentTrack className="ds-section-y">
+          <div className="flex min-w-0 flex-col gap-ds-xl lg:flex-row lg:items-end lg:justify-between lg:gap-ds-xl">
+            <Stack gap="sm" className="min-w-0 max-w-2xl">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70">
                 Species
               </p>
-              <h2 className="font-sans text-[2.5rem] sm:text-4xl md:text-[2.75rem] font-light tracking-[-0.03em] leading-[1.08]">
+              <h2 className="font-sans text-[2.5rem] font-light leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-[2.75rem]">
                 The{" "}
                 <span className="font-semibold text-white">quarry</span>
                 <span className="text-white/50">.</span>
               </h2>
-              <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+              <Prose className="max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
                 Legendary Waterberg game: each animal its own exam. Reading wind, closing distance, and earning the shot.
-              </p>
-            </div>
+              </Prose>
+            </Stack>
             <Link
               href="/species"
-              className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:px-8 sm:py-4 lg:w-auto lg:self-auto"
+              className="focus-ring-invert inline-flex w-full min-w-0 shrink-0 items-center justify-center gap-ds-sm self-start rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-medium text-black transition-colors hover:bg-white/90 sm:px-8 sm:py-4 lg:w-auto lg:self-auto"
             >
               Full quarry list
               <ChevronRight className="h-4 w-4 opacity-60" aria-hidden />
             </Link>
           </div>
-        </div>
+        </ContentTrack>
 
         <div className="border-t border-white/[0.07]">
           {[
@@ -522,7 +531,7 @@ const HomePageClient = () => {
               name: "Cape Buffalo",
               imageUrl: "/images/home/quarry-buffalo.png",
               href: "/species/cape-buffalo",
-              blurb: "Thick bush. Zero margin. The Waterberg’s most serious conversation.",
+              blurb: "Thick bush. Zero margin. The Waterberg's most serious conversation.",
             },
             {
               code: "02",
@@ -566,33 +575,34 @@ const HomePageClient = () => {
                 </span>
               </div>
 
-              <div
-                className={`flex flex-col justify-center px-4 py-12 sm:px-6 md:px-12 md:py-16 lg:col-span-5 ${
+              <Stack
+                gap="md"
+                className={`items-start justify-center px-4 py-ds-xl sm:px-6 md:px-ds-xl md:py-ds-2xl lg:col-span-5 ${
                   i % 2 === 1 ? "md:order-1 lg:order-1" : ""
                 }`}
               >
                 <p className="font-sans text-[11px] font-medium tracking-[0.28em] uppercase text-burnished-copper/85">
                   {row.nickname}
                 </p>
-                <h3 className="font-sans mt-4 text-3xl sm:text-4xl md:text-[2.35rem] font-semibold tracking-[-0.035em] text-white/95">
+                <h3 className="font-sans text-3xl font-semibold tracking-[-0.035em] text-white/95 sm:text-4xl md:text-[2.35rem]">
                   {row.name}
                 </h3>
-                <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-white/70 md:mt-6 md:text-base">
+                <Prose className="max-w-md text-sm text-white/70 md:text-base">
                   {row.blurb}
-                </p>
-                <span className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-medium text-white/70 transition-colors group-hover:text-white">
+                </Prose>
+                <span className="inline-flex items-center gap-ds-sm font-sans text-sm font-medium text-white/70 transition-colors group-hover:text-white">
                   Explore
                   <ChevronRight className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-1" aria-hidden />
                 </span>
-              </div>
+              </Stack>
             </Link>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* Editorial testimonials: local and international guests */}
-      <section
-        className="section-y relative isolate overflow-hidden border-t border-white/[0.07] bg-black"
+      <Section
+        className="relative isolate overflow-hidden border-t border-white/[0.07] bg-black"
         aria-labelledby="legacy-heading"
       >
         <div
@@ -602,20 +612,21 @@ const HomePageClient = () => {
           <div className="absolute left-[-20%] top-1/2 h-[min(90vw,560px)] w-[min(90vw,560px)] -translate-y-1/2 rounded-full bg-burnished-copper/20 blur-[110px]" />
         </div>
 
-        <div className="editorial-container relative">
-          <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between md:mb-16">
-            <div>
+        <ContentTrack className="relative">
+          <Stack gap="lg" className="md:gap-ds-xl">
+          <div className="flex flex-col gap-ds-sm sm:flex-row sm:items-end sm:justify-between">
+            <Stack gap="xs">
               <p
                 id="legacy-heading"
                 className="font-sans text-[11px] font-medium uppercase tracking-[0.32em] text-white/70"
               >
                 In their words
               </p>
-              <p className="mt-3 font-sans text-sm text-white/70">
+              <p className="font-sans text-sm text-white/70">
                 Guests from across South Africa and overseas. Many of our hunters fly in from abroad.
               </p>
-            </div>
-            <div className="flex gap-2 self-start sm:self-auto">
+            </Stack>
+            <div className="flex gap-ds-sm self-start sm:self-auto">
               <button
                 type="button"
                 onClick={() =>
@@ -644,7 +655,7 @@ const HomePageClient = () => {
             </div>
           </div>
 
-          <div className="grid gap-14 lg:grid-cols-12 lg:gap-12 lg:items-stretch">
+          <div className="grid gap-ds-xl lg:grid-cols-12 lg:items-stretch lg:gap-ds-xl">
             <div className="relative lg:col-span-7">
               <span
                 className="pointer-events-none absolute -left-1 -top-6 sm:-top-10 font-serif text-[clamp(4.5rem,14vw,9rem)] leading-none text-white/[0.06]"
@@ -659,7 +670,7 @@ const HomePageClient = () => {
               </blockquote>
             </div>
 
-            <aside className="flex flex-row items-center gap-5 border-t border-white/[0.08] pt-10 lg:col-span-5 lg:flex-col lg:items-start lg:border-t-0 lg:border-l lg:border-white/[0.08] lg:pt-0 lg:pl-12 lg:justify-center">
+            <aside className="flex flex-row items-center gap-ds-md border-t border-white/[0.08] pt-ds-lg lg:col-span-5 lg:flex-col lg:items-start lg:justify-center lg:border-t-0 lg:border-l lg:border-white/[0.08] lg:pt-0 lg:pl-ds-xl">
               <div
                 className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-neutral-800 ring-2 ring-white/10 sm:h-16 sm:w-16"
                 role="presentation"
@@ -673,8 +684,8 @@ const HomePageClient = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="min-w-0 flex-1 text-left">
-                <div className="flex flex-wrap items-center gap-2">
+              <Stack gap="2xs" className="min-w-0 flex-1 text-left">
+                <div className="flex flex-wrap items-center gap-ds-sm">
                   <p className="font-sans text-lg font-medium tracking-[-0.02em] text-white/92">
                     {activeT.name}
                   </p>
@@ -684,15 +695,15 @@ const HomePageClient = () => {
                     </span>
                   )}
                 </div>
-                <p className="mt-2 font-sans text-sm text-white/70">
+                <p className="font-sans text-sm text-white/70">
                   {activeT.location}
                 </p>
-              </div>
+              </Stack>
             </aside>
           </div>
 
           <div
-            className="mt-14 flex gap-2 overflow-x-auto pb-2 md:mt-16 md:flex-wrap md:overflow-visible md:pb-0 [-webkit-overflow-scrolling:touch]"
+            className="flex gap-ds-sm overflow-x-auto pb-ds-sm [-webkit-overflow-scrolling:touch] md:flex-wrap md:overflow-visible md:pb-0"
             role="tablist"
             aria-label="Choose a testimonial"
           >
@@ -703,26 +714,29 @@ const HomePageClient = () => {
                 role="tab"
                 aria-selected={i === activeTestimonial}
                 onClick={() => setActiveTestimonial(i)}
-                className={`focus-ring-invert shrink-0 rounded-full border px-4 py-3 text-left transition-colors md:min-w-0 ${
+                className={`focus-ring-invert shrink-0 rounded-full border px-ds-sm py-ds-sm text-left transition-colors md:min-w-0 ${
                   i === activeTestimonial
                     ? "border-white/30 bg-white/10 text-white"
                     : "border-white/10 bg-transparent text-white/70 hover:border-white/20 hover:bg-white/[0.04] hover:text-white"
                 }`}
               >
-                <span className="block font-sans text-xs font-medium tracking-[-0.01em] text-white/90">
-                  {item.name}
-                </span>
-                <span className="mt-1 block font-sans text-[10px] uppercase tracking-wider text-white/65">
-                  {item.location}
-                </span>
+                <Stack gap="3xs">
+                  <span className="block font-sans text-xs font-medium tracking-[-0.01em] text-white/90">
+                    {item.name}
+                  </span>
+                  <span className="block font-sans text-[10px] uppercase tracking-wider text-white/65">
+                    {item.location}
+                  </span>
+                </Stack>
               </button>
             ))}
           </div>
-        </div>
-      </section>
+          </Stack>
+        </ContentTrack>
+      </Section>
 
       {/* Bottom CTA: centered cinematic (chosen layout A) */}
-      <section className="relative border-t border-white/[0.08]" aria-labelledby="home-bush-cta-heading">
+      <Section className="relative border-t border-white/[0.08]" padding="none" aria-labelledby="home-bush-cta-heading">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/home/cta-bush-calling.png"
@@ -733,36 +747,38 @@ const HomePageClient = () => {
           />
         </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-black/25" aria-hidden />
-        <div className="editorial-container relative z-20 flex min-h-[min(64vh,520px)] flex-col items-center justify-center px-4 py-20 text-center md:py-28">
-          <h2
-            id="home-bush-cta-heading"
-            className="max-w-4xl font-serif text-[clamp(2.75rem,9vw,5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-canvas-cream"
-          >
-            The bush
-            <br />
-            <span className="text-white/90">is calling.</span>
-          </h2>
-          <p className="mx-auto mt-8 max-w-xl font-sans text-base font-normal leading-relaxed text-white/75 sm:text-lg">
-            Secure your place in the legacy of the Waterberg.
-          </p>
-          <div className="mt-10 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/reserve"
-              className="focus-ring-invert group relative inline-flex min-h-[48px] flex-1 items-center justify-center overflow-hidden rounded-full bg-white px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-black sm:flex-none sm:px-10"
+        <ContentTrack className="relative z-20 flex min-h-[min(64vh,520px)] flex-col items-center justify-center py-ds-2xl text-center">
+          <Stack gap="lg" className="w-full max-w-md items-center sm:max-w-none">
+            <h2
+              id="home-bush-cta-heading"
+              className="max-w-4xl font-serif text-[clamp(2.75rem,9vw,5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-canvas-cream"
             >
-              <span className="relative z-10">Book your hunt</span>
-              <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
-            </Link>
-            <Link
-              href="/species"
-              className="focus-ring-invert inline-flex min-h-[48px] flex-1 items-center justify-center rounded-full border border-white/35 bg-black/35 px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:flex-none sm:px-10"
-            >
-              Quarry roster
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+              The bush
+              <br />
+              <span className="text-white/90">is calling.</span>
+            </h2>
+            <Prose align="center" className="max-w-xl text-base font-normal text-white/75 sm:text-lg">
+              Secure your place in the legacy of the Waterberg.
+            </Prose>
+            <div className="flex w-full max-w-md flex-col gap-ds-sm sm:flex-row sm:justify-center">
+              <Link
+                href="/reserve"
+                className="focus-ring-invert group relative inline-flex min-h-[48px] flex-1 items-center justify-center overflow-hidden rounded-full bg-white px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-black sm:flex-none sm:px-10"
+              >
+                <span className="relative z-10">Book your hunt</span>
+                <div className="absolute inset-0 origin-left scale-x-0 transform bg-neutral-200 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+              </Link>
+              <Link
+                href="/species"
+                className="focus-ring-invert inline-flex min-h-[48px] flex-1 items-center justify-center rounded-full border border-white/35 bg-black/35 px-8 py-3.5 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:flex-none sm:px-10"
+              >
+                Quarry roster
+              </Link>
+            </div>
+          </Stack>
+        </ContentTrack>
+      </Section>
+    </PageShell>
   );
 };
 

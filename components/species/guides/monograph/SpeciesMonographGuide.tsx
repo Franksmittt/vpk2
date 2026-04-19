@@ -143,6 +143,10 @@ const SpeciesMonographGuide = ({
               useCardImage={c.imageSeeds.useIntroCardImage}
               layout="matchText"
               className="h-full min-h-[min(13.75rem,48dvh)]"
+              localBase={c.imageSeeds.introLocalBase}
+              localExt={
+                c.imageSeeds.introLocalBase ? (c.imageSeeds.introLocalExt ?? "jpg") : undefined
+              }
             />
           </div>
         </div>
@@ -183,7 +187,7 @@ const SpeciesMonographGuide = ({
           </div>
 
           <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="space-y-6 lg:py-0.5">
+            <div className="flex h-full min-h-0 flex-col space-y-6 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">{c.formPrimaryTitle}</h3>
               <p className="font-sans text-base leading-[1.75] text-white/70">{c.formPrimaryBody}</p>
               <ul className="space-y-3 font-sans text-sm text-white/70">
@@ -197,16 +201,36 @@ const SpeciesMonographGuide = ({
                 ))}
               </ul>
             </div>
-            <div className="flex min-h-0 flex-col">
-              <MonographFig seed={c.imageSeeds.formPrimary} layout="matchText" className="h-full" />
+            <div className="flex h-full min-h-0 flex-col">
+              <MonographFig
+                seed={c.imageSeeds.formPrimary}
+                layout="matchText"
+                className="h-full"
+                localBase={c.imageSeeds.formPrimaryLocalBase}
+                localExt={
+                  c.imageSeeds.formPrimaryLocalBase
+                    ? (c.imageSeeds.formPrimaryLocalExt ?? "jpg")
+                    : undefined
+                }
+              />
             </div>
           </div>
 
           <div className="mt-16 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="order-2 flex min-h-0 flex-col lg:order-1">
-              <MonographFig seed={c.imageSeeds.formSecondary} layout="matchText" className="h-full" />
+            <div className="order-2 flex h-full min-h-0 flex-col lg:order-1">
+              <MonographFig
+                seed={c.imageSeeds.formSecondary}
+                layout="matchText"
+                className="h-full"
+                localBase={c.imageSeeds.formSecondaryLocalBase}
+                localExt={
+                  c.imageSeeds.formSecondaryLocalBase
+                    ? (c.imageSeeds.formSecondaryLocalExt ?? "jpg")
+                    : undefined
+                }
+              />
             </div>
-            <div className="order-1 space-y-6 lg:order-2 lg:py-0.5">
+            <div className="order-1 flex h-full min-h-0 flex-col space-y-6 lg:order-2 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">{c.formSecondaryTitle}</h3>
               <p className="font-sans text-base leading-[1.75] text-white/70">{c.formSecondaryBody}</p>
             </div>
@@ -219,29 +243,49 @@ const SpeciesMonographGuide = ({
             {c.formBlockquote}
           </blockquote>
 
-          <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
-            <MonographFig
-              layout="matchText"
-              className="h-full"
-              placeholder="Field reference: broadside heart-lung placement for this species (PH briefing style)."
-            />
-            <MonographFig seed={`${s.id}-horns`} layout="matchText" className="h-full" />
-          </div>
+          {c.hideFormBlockquoteFigures ? null : (
+            <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
+              <MonographFig
+                layout="matchText"
+                className="h-full"
+                placeholder="Field reference: broadside heart-lung placement for this species (PH briefing style)."
+              />
+              <MonographFig
+                seed={`${s.id}-horns`}
+                layout="matchText"
+                className="h-full"
+                localBase={c.imageSeeds.hornsLocalBase}
+                localExt={
+                  c.imageSeeds.hornsLocalBase ? (c.imageSeeds.hornsLocalExt ?? "jpg") : undefined
+                }
+              />
+            </div>
+          )}
         </div>
       </section>
 
       <div id="range" className="scroll-mt-36 md:scroll-mt-40" />
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
-        <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.ecologyTitle}</h2>
-        <div className="mt-10 grid items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="space-y-6 font-sans text-base leading-[1.75] text-white/52 lg:col-span-7 lg:py-0.5">
-            {c.ecologyParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+        <div className="grid items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="flex h-full min-h-0 flex-col gap-10 lg:col-span-7 lg:py-0.5">
+            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.ecologyTitle}</h2>
+            <div className="space-y-6 font-sans text-base leading-[1.75] text-white/52">
+              {c.ecologyParagraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
           </div>
-          <div className="flex min-h-0 flex-col lg:col-span-5">
-            <MonographFig seed={c.imageSeeds.ecology} layout="matchText" className="h-full" />
+          <div className="flex h-full min-h-0 flex-col lg:col-span-5">
+            <MonographFig
+              seed={c.imageSeeds.ecology}
+              layout="matchText"
+              className="h-full"
+              localBase={c.imageSeeds.ecologyLocalBase}
+              localExt={
+                c.imageSeeds.ecologyLocalBase ? (c.imageSeeds.ecologyLocalExt ?? "jpg") : undefined
+              }
+            />
           </div>
         </div>
 
@@ -255,63 +299,53 @@ const SpeciesMonographGuide = ({
           <p className="mt-3 font-sans text-base leading-relaxed text-white/70">{c.fieldNoteBody}</p>
         </div>
 
-        <MonographFig seed={c.imageSeeds.feedWide} className="mt-12" />
+        <MonographFig
+          seed={c.imageSeeds.feedWide}
+          className="mt-12"
+          localBase={c.imageSeeds.feedWideLocalBase}
+          localExt={
+            c.imageSeeds.feedWideLocalBase ? (c.imageSeeds.feedWideLocalExt ?? "jpg") : undefined
+          }
+        />
       </section>
+
+      {c.hidePredationSection ? null : (
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
+          <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.predationTitle}</h2>
+          <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.predationBody}</p>
+          <MonographFig
+            seed={c.imageSeeds.predation}
+            localBase={c.imageSeeds.predationLocalBase}
+            localExt={
+              c.imageSeeds.predationLocalBase ? (c.imageSeeds.predationLocalExt ?? "jpg") : undefined
+            }
+            className="mt-10"
+          />
+        </section>
+      )}
 
       <section className="border-t border-white/[0.07] bg-[#060606] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
           <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.socialTitle}</h2>
-          <div className="mt-10 grid gap-10 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {c.socialCards.map((card) => {
               const Icon = socialIconMap[card.icon];
               return (
-                <div key={card.title} className="rounded-2xl border border-white/[0.08] p-6">
-                  <Icon className="h-6 w-6 text-burnished-copper/80" />
-                  <h3 className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/80">
-                    {card.title}
-                  </h3>
+                <div
+                  key={`social-${card.title}`}
+                  className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors hover:border-burnished-copper/25"
+                >
+                  <Icon className="h-7 w-7 text-burnished-copper/85" />
+                  <h3 className="mt-4 font-sans text-base font-semibold text-white/90">{card.title}</h3>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-white/70">{card.body}</p>
                 </div>
               );
             })}
-          </div>
-          <p className="mt-10 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.rutParagraph}</p>
-          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <MonographFig seed={c.imageSeeds.rutLeft} layout="matchText" className="h-full" />
-            <MonographFig
-              layout="matchText"
-              className="h-full"
-              placeholder="Vocal signature and herd behaviour: reference diagram for guides and guests."
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
-        <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.predationTitle}</h2>
-        <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.predationBody}</p>
-        <MonographFig
-          seed={c.imageSeeds.predation}
-          localBase={c.imageSeeds.predationLocalBase}
-          localExt={
-            c.imageSeeds.predationLocalBase ? (c.imageSeeds.predationLocalExt ?? "jpg") : undefined
-          }
-          className="mt-10"
-        />
-      </section>
-
-      <div id="hunt" className="scroll-mt-36 md:scroll-mt-40" />
-
-      <section className="border-t border-white/[0.07] bg-[#050505] py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{huntEyebrow}</h2>
-          <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.huntIntro}</p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {c.huntMethods.map((b) => {
               const Icon = huntIconMap[b.icon];
               return (
                 <div
-                  key={b.title}
+                  key={`hunt-${b.title}`}
                   className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors hover:border-burnished-copper/25"
                 >
                   <Icon className="h-7 w-7 text-burnished-copper/85" />
@@ -321,13 +355,48 @@ const SpeciesMonographGuide = ({
               );
             })}
           </div>
-          <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <MonographFig seed={c.imageSeeds.hunt} layout="matchText" className="h-full" />
-            <MonographFig
-              layout="matchText"
-              className="h-full"
-              placeholder="Spoor comparison: this species alongside common Waterberg quarry for scale."
-            />
+          <p className="mt-10 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.rutParagraph}</p>
+          {c.hideRutFigures ? null : (
+            <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+              <MonographFig
+                seed={c.imageSeeds.rutLeft}
+                layout="matchText"
+                className="h-full"
+                localBase={c.imageSeeds.rutLeftLocalBase}
+                localExt={
+                  c.imageSeeds.rutLeftLocalBase ? (c.imageSeeds.rutLeftLocalExt ?? "jpg") : undefined
+                }
+              />
+              <MonographFig
+                layout="matchText"
+                className="h-full"
+                placeholder="Vocal signature and herd behaviour: reference diagram for guides and guests."
+              />
+            </div>
+          )}
+
+          <div
+            id="hunt"
+            className="mt-14 scroll-mt-36 border-t border-white/[0.08] pt-14 md:mt-20 md:scroll-mt-40 md:pt-20"
+          >
+            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{huntEyebrow}</h2>
+            <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.huntIntro}</p>
+            <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+              <MonographFig
+                seed={c.imageSeeds.hunt}
+                layout="matchText"
+                className="h-full"
+                localBase={c.imageSeeds.huntLocalBase}
+                localExt={
+                  c.imageSeeds.huntLocalBase ? (c.imageSeeds.huntLocalExt ?? "jpg") : undefined
+                }
+              />
+              <MonographFig
+                layout="matchText"
+                className="h-full"
+                placeholder="Spoor comparison: this species alongside common Waterberg quarry for scale."
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -340,7 +409,14 @@ const SpeciesMonographGuide = ({
               {p}
             </p>
           ))}
-          <MonographFig seed={c.imageSeeds.trophy} className="mt-10" />
+          <MonographFig
+            seed={c.imageSeeds.trophy}
+            className="mt-10"
+            localBase={c.imageSeeds.trophyLocalBase}
+            localExt={
+              c.imageSeeds.trophyLocalBase ? (c.imageSeeds.trophyLocalExt ?? "jpg") : undefined
+            }
+          />
         </section>
       ) : null}
 
@@ -395,7 +471,14 @@ const SpeciesMonographGuide = ({
             </div>
           </div>
 
-          <MonographFig seed={c.imageSeeds.rifle} className="mt-12" />
+          <MonographFig
+            seed={c.imageSeeds.rifle}
+            className="mt-12"
+            localBase={c.imageSeeds.rifleLocalBase}
+            localExt={
+              c.imageSeeds.rifleLocalBase ? (c.imageSeeds.rifleLocalExt ?? "jpg") : undefined
+            }
+          />
         </div>
       </section>
 
@@ -413,14 +496,24 @@ const SpeciesMonographGuide = ({
             ))}
           </div>
         </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
-          <MonographFig seed={c.imageSeeds.meat} layout="matchText" className="h-full" />
-          <MonographFig
-            layout="matchText"
-            className="h-full"
-            placeholder="Meat handling: chill chain, curing, and table presentation at camp."
-          />
-        </div>
+        {c.hideMeatFigures ? null : (
+          <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
+            <MonographFig
+              seed={c.imageSeeds.meat}
+              layout="matchText"
+              className="h-full"
+              localBase={c.imageSeeds.meatLocalBase}
+              localExt={
+                c.imageSeeds.meatLocalBase ? (c.imageSeeds.meatLocalExt ?? "jpg") : undefined
+              }
+            />
+            <MonographFig
+              layout="matchText"
+              className="h-full"
+              placeholder="Meat handling: chill chain, curing, and table presentation at camp."
+            />
+          </div>
+        )}
       </section>
 
       <div id="table" className="scroll-mt-36 md:scroll-mt-40" />

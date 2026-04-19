@@ -32,7 +32,7 @@ export function MonographFig({
   if (layout === "matchText") {
     return (
       <figure className={`flex h-full min-h-0 flex-col ${className}`}>
-        <div className="relative min-h-[min(13.75rem,50dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(16rem,52dvh)] lg:min-h-0">
+        <div className="relative min-h-[min(16rem,52dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(18rem,56dvh)] lg:h-full lg:min-h-full">
           {diagramSrc ? (
             <Image
               src={diagramSrc}
@@ -121,7 +121,9 @@ export function MonographSpeciesFig({
   useCardImage,
   className = "",
   layout = "banner",
-}: Omit<ComponentProps<typeof MonographFig>, "seed" | "localBase" | "diagramSrc" | "placeholder"> & {
+  localBase,
+  localExt,
+}: Omit<ComponentProps<typeof MonographFig>, "seed" | "diagramSrc" | "placeholder"> & {
   speciesId: string;
   seed: string;
   useCardImage?: boolean;
@@ -131,7 +133,7 @@ export function MonographSpeciesFig({
     if (layout === "matchText") {
       return (
         <figure className={`flex h-full min-h-0 flex-col ${className}`}>
-          <div className="relative min-h-[min(13.75rem,50dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(16rem,52dvh)] lg:min-h-0">
+          <div className="relative min-h-[min(16rem,52dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(18rem,56dvh)] lg:h-full lg:min-h-full">
             <GuideFigureImg
               localSrc={card}
               fallbackSrc={speciesImageUrl(seed, 1200, 1200)}
@@ -159,5 +161,13 @@ export function MonographSpeciesFig({
       </figure>
     );
   }
-  return <MonographFig seed={seed} layout={layout} className={className} />;
+  return (
+    <MonographFig
+      seed={seed}
+      layout={layout}
+      className={className}
+      localBase={localBase}
+      localExt={localExt}
+    />
+  );
 }

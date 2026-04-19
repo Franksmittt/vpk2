@@ -22,6 +22,19 @@
   /* 4px baseline rhythm token (use with calc/spacing where needed) */
   --spacing-base: 0.25rem;
 
+  /**
+   * Design-system spacing (luxury editorial unification doc).
+   * Use gap-ds-md, p-ds-lg, etc. Layout primitives own inter-block gaps; leaves use inset only.
+   */
+  --spacing-ds-3xs: 0.25rem;
+  --spacing-ds-2xs: 0.5rem;
+  --spacing-ds-xs: 1rem;
+  --spacing-ds-sm: 1.5rem;
+  --spacing-ds-md: 2rem;
+  --spacing-ds-lg: 4rem;
+  --spacing-ds-xl: 6rem;
+  --spacing-ds-2xl: 8rem;
+
   --animate-fade-in: fade-in 1s ease-out both;
   --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-zoom-out: zoom-out 20s ease-out both;
@@ -59,9 +72,25 @@
   .section-y-tight {
     @apply py-10 md:py-16;
   }
+  /**
+   * Fluid section block padding (clamp): mobile-tight to desktop-wide.
+   * Replaces ad hoc py-16 / py-24 mixes for route-level Section primitive.
+   */
+  .ds-section-y {
+    padding-block: clamp(var(--spacing-ds-lg), 2.25rem + 5vw, var(--spacing-ds-2xl));
+  }
+  .ds-section-y-tight {
+    padding-block: clamp(2.5rem, 1.5rem + 3.5vw, var(--spacing-ds-xl));
+  }
   /** Readable measure for long body copy */
   .prose-measure {
     @apply max-w-prose;
+  }
+  /** Editorial reading column (~65ch); min(65ch,100%) avoids grid overflow when column is narrower */
+  .ds-prose-measure {
+    max-width: min(65ch, 100%);
+    min-width: 0;
+    overflow-wrap: break-word;
   }
   /** WCAG-friendly focus: interactive controls (links, buttons, inputs) */
   .focus-ring {
