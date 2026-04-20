@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "Pronking punctuation on the open sheet",
     heroLead:
       "Springbok are Antidorcas marsupialis, the gazelle that named a nation and a rugby jersey. On the Iron Mountain they read like a weather gauge: when they relax, the range feels honest. When they lift into those stiff-legged bounds, something already decided the day.",
@@ -141,13 +143,33 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Horns", "Both sexes horned; trophy focus usually on mature rams"],
     ],
     imageSeeds: monoSeeds(s, false, {
-      hero: "springbok-monograph-hero",
       heroLocalBase: "/images/species/springbok",
-      heroLocalExt: "png",
-      panorama: "springbok-intro-panorama",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/springbok",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/springbok",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/springbok",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/springbok",
+      formSecondaryLocalExt: "jpg",
       panoramaLocalBase: "/images/species/springbok",
-      panoramaLocalExt: "png",
+      panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/springbok",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/springbok",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/springbok",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/springbok",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/springbok",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/springbok",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/springbok",
+      rifleLocalExt: "jpg",
     }),
-    introPanoramaCaption: "Springbok estate field reference below intro copy.",
+    introPanoramaCaption: "Tall grass, heat shimmer, or horn tips above the Karoo line.",
   };
 }
