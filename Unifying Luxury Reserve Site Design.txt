@@ -1,0 +1,491 @@
+﻿Systematizing Luxury Editorial UI: A Unified Design and Engineering Framework for South African Reserve Experiences
+Introduction: The Architecture of Digital Prestige
+In the highly competitive sector of high-end South African game reserves, digital properties must negotiate a complex dualism. They are tasked with conveying the raw, serious realities of conservation, wildlife management, and hunting heritage, while simultaneously delivering an ultra-luxury, frictionless hospitality booking experience.1 A pervasive problem arises when a site’s digital evolution outpaces its architectural discipline. The result is a fragmented user interface where different routes employ varying layout logic, grid densities, and typographic scales, creating an aesthetic of stacked themes rather than a singular, cohesive luxury brand.
+For a platform built on the Next.js App Router and Tailwind CSS v4, resolving this fragmentation requires transitioning from ad hoc page-building to a rigorous, component-driven design system. This report provides an exhaustive, research-backed framework to unify layout primitives, spacing contracts, typographic rhythm, and performance architecture. By centralizing spatial logic and leveraging React Server Components, engineering and design teams can deliver an exceptional user experience that supports editorial drama without compromising usability or conversion velocity.4
+1. Layout Primitives for Multi-Page Marketing Sites
+A disciplined design system eliminates the anti-pattern of treating every new page as an isolated layout experiment. To achieve a cohesive aesthetic across diverse content types—ranging from dense booking funnels to immersive species monographs—the architecture must rely on a strictly defined set of layout primitives. These primitives act as invisible structural boundaries that enforce consistency while deferring visual styling to their child components.6
+Balancing Full-Bleed Media with Readable Measure
+Luxury editorial design relies heavily on full-bleed, edge-to-edge photography to establish immersion, scale, and emotional resonance.1 However, forcing typographic content to span these identical, expansive widths severely degrades readability. Ergonomic research dictates that optimal reading comprehension and minimal eye fatigue occur when text blocks are constrained to a measure of 65 to 75 characters per line.8
+To balance these conflicting requirements, the layout system must decouple the media container from the prose container. Utilizing modern CSS Grid, the PageShell can be defined with a central, constrained reading column flanked by flexible margins, while specific MediaBleed components are permitted to break out of this central track to intersect the viewport edges. This approach maintains the high-drama impact of expansive landscape photography while preserving the intimate, focused engagement required for serious long-form editorial content.2
+Preventing Unrestrained Layout Variation
+To prevent layout fragmentation, component variations must be codified as strict enumerations rather than open-ended variables. For instance, a hero section should not accept arbitrary pixel heights; it must be constrained to a defined set of proportional variants (e.g., viewport-full, viewport-two-thirds, content-fit). By locking these proportions, the systemic rhythm of the page load becomes predictable, ensuring that the transition from a visually arresting home page to a utilitarian booking screen feels intentional rather than accidental.
+Recommended Layout System Specification (Deliverable A)
+The following named primitives must form the core architectural foundation of the Next.js codebase. These primitives are exclusively responsible for spatial mapping and must not contain localized visual styling.
+
+
+Primitive Name
+	Purpose
+	Default Padding / Spacing
+	Max-Width Rules
+	Allowed Variants
+	PageShell
+	The highest-level wrapper for a route. Provides global context, controls horizontal overflow, and manages header/footer structural integration.
+	0 padding; manages global lateral gutters.
+	100vw (Viewport bounded)
+	default, transparent-header, minimal-booking
+	Section
+	Defines macro thematic vertical zones within a page. Controls the primary vertical rhythm and grouping of related content.
+	Fluid vertical padding (e.g., clamp() scaling from 64px to 128px).8
+	None (Allows background colors/images to span full width).
+	default, flush-top, flush-bottom
+	Prose
+	Constrains text blocks for optimal reading measure and vertical line-height alignment.
+	0 horizontal; vertical gaps inherited from typography tokens.
+	Maximum 65-75 characters (approximately 65ch or 700px).8
+	centered, aligned-left, offset-column
+	Split
+	A foundational column layout for pairing media with text or forms, eliminating the need for ad hoc flexbox implementations.
+	Internal gap defined by the global grid token (e.g., space-md).
+	Inherits maximum width from the parent Section or PageShell.
+	50-50, 60-40-media-heavy, 40-60-text-heavy
+	MediaBleed
+	Overrides the standard content container width, allowing images, videos, or immersive maps to touch the viewport edges.
+	0
+	100vw
+	aspect-video, aspect-portrait, intrinsic
+	2. Spacing and Padding Systems
+The perception of luxury in a digital interface is inextricably linked to its use of negative space. Without mathematical discipline, interfaces suffer from "spacing drift," where margins are eyeballed or guessed, resulting in a disjointed and chaotic user experience.9
+Modular Spacing Scales and the 4/8-Point Base
+The foundation of a robust spacing architecture is a modular scale, universally standardized around a 4px or 8px base unit.9 An 8-point grid ensures that dimensions scale cleanly and predictably across all screen densities, avoiding sub-pixel rendering issues. Within this framework, spacing tokens are abstracted into distinct functional tiers: base primitives (raw numerical values), semantic tokens (purpose-driven assignments), and component-specific tokens.12
+The Component Spacing Contract: Preventing Double Padding
+A critical architectural challenge involves the intersection of section padding, layout gaps, and component internal padding. A pervasive anti-pattern in component-driven frameworks like React occurs when nested components bring their own external margins.13 For example, if a LodgeCard component includes a hardcoded margin-bottom: 24px, and it is subsequently placed inside a BentoGrid primitive that applies a gap: 24px, the spatial values collide. The resulting 48px space breaks the vertical rhythm and creates an awkward, disconnected layout.13
+The definitive solution is the establishment of a strict Component Spacing Contract. This contract dictates that leaf components (e.g., cards, buttons, text inputs) are completely forbidden from dictating their own external margins.13 Leaf components are solely responsible for their internal padding (insets). The responsibility for spacing between components is delegated entirely to the layout primitives (such as the Split, Stack, or Grid wrappers) utilizing the CSS gap property.13 This absolute separation of concerns ensures that a component can be seamlessly injected into a dense bento grid or a spacious editorial column without carrying conflicting spatial baggage.
+Consistent Gutters on Ultra-Wide Screens
+Luxury sites often degrade on ultra-wide desktop monitors by allowing content to spread too far horizontally, creating an airy, disconnected layout where relationships between UI elements are severed. To maintain consistent and ergonomic gutters, the layout system must establish a hard maximum width for the central content container (e.g., 1440px). Beyond this threshold, the lateral margins must auto-expand (margin-inline: auto), keeping the content centered and cohesive, ensuring that the user is not forced to scan excessively wide visual distances.16
+Spacing Token Table Recommendation (Deliverable B)
+The following token scale maps the 4/8-point base unit to specific semantic intents, creating a predictable rhythm across the entire platform.
+Token Name
+	Base Multiplier
+	Value (rem/px)
+	Usage Rule (Section vs. Inset vs. Component)
+	space-3xs
+	0.5x
+	0.25rem (4px)
+	Tight component internal insets (e.g., gap between an icon and a text label).
+	space-2xs
+	1x
+	0.5rem (8px)
+	Standard component internal structural gap.
+	space-xs
+	2x
+	1rem (16px)
+	Form field internal padding, tight mobile card insets.
+	space-sm
+	3x
+	1.5rem (24px)
+	Standard desktop card inset, minor layout structural gaps.
+	space-md
+	4x
+	2rem (32px)
+	Standard layout grid gap, major editorial card inset.
+	space-lg
+	8x
+	4rem (64px)
+	Inter-component vertical spacing within a shared thematic section.
+	space-xl
+	12x
+	6rem (96px)
+	Standard vertical gap between distinct layout sections.
+	space-2xl
+	16x
+	8rem (128px)
+	Major editorial thematic shifts or hero-to-content transitions.
+	The Fluid Spacing Imperative for Section Gaps
+For macro-spacing tokens (space-lg, space-xl, space-2xl) that govern the vertical rhythm between Section primitives, a fluid spacing approach is imperative. Fixed vertical rhythms often result in either cramped desktop layouts or absurdly sparse mobile experiences. Fluid spacing utilizes the CSS clamp() function to dynamically calculate the optimal space based on the viewport or container width, eliminating jarring layout shifts associated with rigid media queries.8
+A fluid section gap token is defined mathematically as clamp(minimum_value, preferred_calculated_value, maximum_value). For example, a gap might be configured as clamp(4rem, 2.9rem + 4.5vw, 8rem). This ensures that a mobile user experiences a tighter, screen-appropriate 64px vertical gap, while an ultra-wide desktop user experiences a luxurious 128px gap, with the layout interpolating smoothly at every conceivable pixel width in between, resulting in an intrinsically responsive, polished rhythm.8
+3. Typography and Vertical Rhythm Tied to Layout
+In luxury editorial design, typography functions as the primary aesthetic differentiator. High-end hospitality brands frequently utilize Didone-inspired serif typefaces—characterized by dramatic stroke contrast and vertical stress—paired with generous tracking to signal prestige.18 However, translating this print-inspired aesthetic into a functional, multi-device digital system requires strict mathematical alignment.
+Tying Type Scale to Spacing Tokens
+The vertical rhythm of the typography must directly interface with the spatial scale. Line height (leading) is the critical variable in this relationship. To ensure that text blocks align harmoniously with adjacent media containers or UI elements, line heights must be calculated as multiples of the base 8-point grid.9 For example, a 16px font size should utilize a 24px line height (a 1.5 multiplier), ensuring that multiple lines of text will consistently land on the underlying 8px baseline grid.19
+Furthermore, the management of heading-to-body gaps must adhere to the component spacing contract. Traditional CSS margin collapse behavior—where an H2 with a margin-bottom of 24px and a paragraph with a margin-top of 16px unpredictably collapse into a single 24px space—creates systemic instability.14 By utilizing a layout primitive (like a Stack component) that relies on the CSS gap property to space typographic siblings, the design system circumvents margin collapse entirely, ensuring that a space-sm token applied between a heading and body copy yields exactly 24px of separation in all contexts.6
+Rules for Display Type vs. UI Type
+A comprehensive luxury site must negotiate two highly distinct typographical duties: immersive editorial storytelling and utilitarian booking interfaces. Deploying a high-contrast serif typeface for a complex reservation form severely reduces legibility and increases cognitive friction, directly harming conversion rates.18
+The system must define a strict bifurcation between two typeface families:
+* Display Typography: Reserved exclusively for Hero headlines, blockquotes, and primary section titles. This family utilizes the brand's custom, high-contrast serif, heavily leveraging fluid typography (e.g., scaling smoothly from 2.5rem on mobile to 5.5rem on desktop via clamp()) to ensure dramatic impact without triggering horizontal overflow on small devices.8
+* UI Typography: Assigned to navigation menus, form labels, buttons, and booking widgets. This must be a highly legible, geometrically stable sans-serif with an generous x-height and excellent internationalization character support.24
+To ensure these distinct typefaces feel cohesively related rather than sourced from different products, their spacing tokens must be synchronized. The spatial gap between a Display heading and a UI form field must utilize the exact same space-md token applied to the site's primary grid. Additionally, the UI font should adopt the refined tracking (letter spacing) and capitalized treatments utilized in the Display font's subheadings, creating a subtle visual through-line that unites the brand aesthetic.18
+4. Grids, Breakpoints, and Component Families
+The architectural debate between utilizing a traditional 12-column grid versus modern Bento box layouts is highly relevant for a site combining long-form editorial narratives with data-dense booking flows. Traditional 12-column systems excel at horizontal rhythm and standard web layouts, but they frequently result in a homogeneous visual field where every element commands identical emphasis.26
+Bento grids, alternatively, encode visual hierarchy directly into the structural mass of the layout containers. Eye-tracking research confirms that users consistently fixate on larger structural modules first, spending exponentially more time viewing them compared to smaller, uniformly sized adjacent components.26 This allows designers to dictate the reading order far more effectively than through color or typography alone. Furthermore, modular Bento layouts significantly reduce decision fatigue; usability studies demonstrate that participants complete complex information-finding tasks 23% faster on modularly organized pages because the cognitive load associated with spatial parsing is vastly reduced.26
+For a South African reserve, a hybrid grid strategy is optimal:
+* Editorial Measure (12-Column Asymmetric): Deployed for the "Experience Narrative" and "Species Monograph" archetypes, where deep, long-form reading is the primary objective. The 12-column grid is utilized asymmetrically—for example, centering text across 6 columns, flanked by 2 empty columns for negative space, and a 4-column marginalia rail for pull quotes or related species links.28
+* Bento Modules: Deployed on the "Home," "Species Hub," and "Lodge Detail" archetypes to present dense arrays of amenities, climate data, pricing tiers, and gallery snippets cleanly, without overwhelming the user interface.27
+When to Break the Grid for Impact
+A strict, unyielding grid system can feel sterile and corporate if it is never violated. In luxury design, breaking the grid is a deliberate editorial maneuver to signal emotional impact or a shift in narrative pacing.30 In the context of a game reserve, pulling a breathtaking landscape image out of its standard container to a full MediaBleed, or slightly overlapping a text-heavy Card across the boundary of an adjacent image using a negative margin token, generates visual depth. This "magazine-like" structural tension elevates the perception of luxury and craftsmanship.
+Defining Three to Five Component Families
+To prevent a sprawling, unmaintainable codebase, the UI must be constructed from a highly constrained set of component families that consume the layout primitives. These families reuse the identical spacing contract, ensuring systemic unity:
+1. The Hero Family: Governs the top-of-page introduction. Approved variants include HeroVideo (full-bleed looping environmental footage), HeroSplit (strict 50/50 division of text and image), and HeroEditorial (massive display typography layered over deep, darkened imagery).
+2. The Content Ribbon: Horizontal bands designed for quick value propositions. Variants include RibbonStats (highlighting wildlife populations or conservation metrics) and RibbonLogos (accolades and press features).15
+3. The Card Grid: Standardized containers for related content arrays. Variants include CardBento (for asymmetric grids), CardArticle (standard editorial/news snippets), and CardAccommodation (heavy focus on room specifications and pricing hierarchy).
+4. The Split Feature: The primary workhorse of the marketing narrative, pairing media and text. Variants allow for swapping media orientation (left versus right alignment) to maintain visual interest down the page.31
+5. The CTA Band: High-contrast, strictly utilitarian conversion blocks designed to capture booking intent with minimal friction.
+5. Motion, Density, and Luxury Perception
+In luxury digital environments, restraint is the ultimate indicator of prestige. While aggressive animations, complex scroll-hijacking, and hyper-kinetic transitions may appear sophisticated in isolation, they frequently degrade usability and drastically increase cognitive load, particularly within critical conversion funnels.22
+Motion Restraint and Scroll-Linked Effects
+Research into interface motion indicates that animations should mimic the physics of the natural world to feel intuitive rather than intrusive. Tailwind v4’s integration of native motion tokens provides a robust framework for managing this physics.12 Duration scales must be tightly constrained and semantically assigned: hover states should execute rapidly (approximately 100ms) utilizing ease-out curves to feel responsive, while modal appearances or major page transitions should utilize slower, ease-spring curves (approximately 300ms to 500ms) to feel deliberate and weighted.12
+Scroll-linked effects—where an animation's progress is directly tied to the user's scroll position—must be deployed with extreme caution. They are highly effective for parallax reveals of expansive savannah landscapes, creating a sense of depth and scale. However, they are actively detrimental when applied to text or interactive elements. If a user is forced to scroll back and forth to "scrub" an animation merely to read a paragraph, the cognitive cost entirely outweighs the visual novelty, breaking the luxury illusion.
+Handling Density: Airy vs. Information-Rich
+Luxury hospitality sites frequently struggle to balance density. They typically err toward either extreme minimalism—hiding critical pricing, availability, and amenity data behind obscure "mystery meat" navigation patterns—or they overwhelm the user with cluttered, OTA-style (Online Travel Agency) booking grids.33
+The systemic solution lies in progressive disclosure.32 Top-of-funnel pages such as "Home" and "Experience" must remain airy, heavily utilizing negative space to evoke the vastness of the African landscape.2 However, once a user navigates to the "Lodge Detail" or the "Booking Funnel," information density must increase to serve high-intent decision making. Deploying the CardBento family allows for dense arrays of technical data (square footage, bed configurations, child policies, seasonal pricing) to be presented in mathematically crisp, separate compartments. This eliminates visual clutter while retaining high information density.26
+Within the booking funnel itself, cognitive friction must be ruthlessly eliminated. The guest journey should follow a strict, linear progression: discovery → selection → information gathering → payment.22 Progressive information collection must be utilized, capturing critical constraints (dates and guest counts) first, and intentionally deferring special requests, dietary needs, and extensive personal details until the final payment stage to drastically reduce initial funnel abandonment.32
+6. Accessibility and Internationalization
+A premium aesthetic cannot be achieved at the expense of universal access. The European Accessibility Act (EAA) and the Americans with Disabilities Act (ADA) strictly mandate digital inclusion, establishing WCAG 2.2 Level AA compliance as a non-negotiable baseline for international hospitality platforms.36
+Touch Targets, Focus Order, and Zoom Scaling
+Interactive elements must conform to strict ergonomic constraints. While the visual footprint of a text link or a minimalistic UI icon may be refined, its actual clickable area (achieved via CSS padding or invisible pseudo-elements) must meet the minimum 44x44 CSS pixel requirement to accommodate users with motor impairments.8
+Logical focus order is paramount. Keyboard navigation must follow the visual flow of the page, supported by highly visible focus rings that do not rely solely on color to indicate active states.38 Furthermore, fluid typography implemented via the clamp() function must be engineered meticulously to ensure it does not inhibit the browser's native ability to zoom text to 200%. Over-reliance on viewport width (vw) units without proper bounds can cause text to freeze at specific sizes, violating WCAG 1.4.4. Utilizing container query units (cqi or cqw) alongside relative rem units within the clamp() calculation mitigates this risk, ensuring the layout scales proportionally alongside the zoom level.8
+Contrast Compliance and Photography Scrims
+The reliance on dramatic, low-key wildlife photography poses significant contrast challenges. Placing thin, high-contrast Didone typography directly over an unedited photograph frequently violates the strict 4.5:1 contrast requirement for standard text (or 3:1 for large text defined as 18pt or 14pt bold).40
+To solve this systematically without destroying the integrity of the original photography, the design system must incorporate gradient "scrims".40 A scrim is a CSS-generated, semi-transparent gradient layer injected programmatically between the background image and the text node. The system must define tokenized scrim values (e.g., scrim-light, scrim-heavy) utilizing the OKLCH color space for perceptually smooth blending.12 This guarantees that text remains perfectly legible regardless of the dynamic image pulled from the CMS, preventing the "invisible text" anti-pattern.43
+Internationalization and Text Expansion Dynamics
+For an international luxury destination attracting a diverse, multi-lingual clientele, the layout system must account for structural internationalization.36 A common engineering anti-pattern is designing navigation bars, labels, or CTA buttons that perfectly fit concise English source text but catastrophically break upon translation. German translations, for instance, frequently expand text length by 25% to 30%, while retaining identical semantic meaning.45
+To accommodate this, layout primitives must utilize CSS Flexbox or Grid with intrinsic sizing properties (min-content, max-content, or fit-content) rather than rigid, fixed pixel widths. A button's width should never be hardcoded; it must be defined dynamically by its internal padding tokens combined with the length of its text node. Anticipating this text expansion natively prevents layout fractures where long copy pushes crucial elements out of alignment or induces unintended text wrapping inside hero components.45
+7. Next.js App Router and Tailwind v4 Implementation
+Translating this conceptual framework into a high-performance, stable architecture requires deeply aligning the Next.js and Tailwind paradigms with the design tokens.
+Centralizing Layout in the App Router
+The Next.js App Router shifts the architectural paradigm toward React Server Components (RSC) by default. This is exceptionally powerful for a content-heavy, media-rich marketing site. It allows the heavy lifting of layout construction and complex data fetching (e.g., retrieving lodge availability or CMS species data) to occur entirely on the server, shipping almost zero JavaScript to the client for those structural components.5
+Layouts must be strictly centralized using the framework's file-system router.48 The global root app/layout.tsx should remain highly minimal, containing only the absolute global shell (<html>, <body>, essential global providers, and core fonts). To prevent layout logic from becoming entangled across disparate page types, Route Groups must be utilized extensively.49
+By creating architectural folders wrapped in parentheses—such as app/(marketing)/layout.tsx and app/(booking)/layout.tsx—the engineering team can share distinct structural shells across multiple child routes without altering or polluting the public URL structure.50 The (marketing) layout will securely import the heavy global navigation and comprehensive footer, while the (booking) layout will import a specialized, distraction-free "secure checkout" header specifically engineered to prevent funnel abandonment.52
+Server vs. Client Boundaries
+To maintain elite performance metrics—which are critical for SEO indexing and loading high-resolution safari imagery seamlessly—the boundary between Server and Client environments must be fiercely guarded.4 Structural primitives (PageShell, Section, Prose, Grid) and all pure typography elements must remain Server Components.
+Interactivity, complex state management, and continuous motion should be pushed to the absolute extremities of the component tree—the "leaf nodes".5 For example, a massive Hero section is rendered on the server, but the specific ImageCarousel module inside it, or the AvailabilityCalendar widget on the booking page, are isolated as Client Components using the "use client" directive.5 This "islands of interactivity" architecture ensures absolute layout stability while permitting high-fidelity, client-side motion only precisely where necessary.
+Tailwind v4: The @theme Directive and CSS Variables
+Tailwind CSS v4 introduces a foundational architectural shift from JavaScript-based configuration (tailwind.config.js) to a native, CSS-first approach utilizing the @theme directive.12 This heavily modernizes how design tokens are managed and consumed.
+By defining --color-primary-500 or --spacing-md directly within the @theme block in the global CSS file, Tailwind v4 automatically exposes these as native CSS variables and synchronously generates the requisite utility classes (e.g., bg-primary-500, p-md).12 This allows the engineering team to map the design system's exact token nomenclature directly into the CSS runtime environment. Furthermore, Tailwind v4 utilizes the OKLCH color space natively, guaranteeing that color scales remain perceptually even across all lightness values—a capability critical for maintaining the subtle, sophisticated contrast ratios required in luxury UI design.12
+Auditing the Codebase for Spacing Drift
+In an existing codebase where utility classes like py-24 and mt-8 have been applied ad hoc by multiple developers over time, establishing the new system requires a rigorous audit.55 To audit spacing drift effectively, engineering teams should utilize regex heuristics alongside ESLint plugins (such as eslint-plugin-tailwindcss) configured to strictly ban arbitrary values (e.g., p-[17px]) and restrict usage exclusively to the newly defined semantic tokens.12
+A script can be executed to output a frequency map of all spacing and padding classes currently active in the repository. Values that fall outside the approved modular scale should be flagged automatically and systematically replaced with the closest legal token during the refactoring process.
+8. Migration Strategy: Avoiding the Big-Bang Redesign
+A "big-bang" redesign—attempting to rewrite the entire application layout in a single, massive deployment—carries an unacceptable risk profile. It stalls iterative feature development, introduces massive regression risks, and inevitably leads to compromised design decisions as deadlines loom.56 For a revenue-generating hospitality platform, the migration must be meticulously phased and incrementally adopted.56
+Phase 1: Inventory and Token Freeze
+Before touching a single layout file, conduct a comprehensive audit of existing visual inconsistencies.58 Standardize the foundation by defining and locking the Tailwind v4 @theme variables (colors, typography scales, spacing tokens, and radii).12 During this freeze, all net-new component development must pull exclusively from these tokens, creating a forward-compatible baseline.
+Phase 2: Refactoring the Global Shell
+Begin the architectural migration by refactoring the outermost layers of the application first.56 Implement the new app/layout.tsx and the primary route group layouts (e.g., app/(marketing)/layout.tsx) utilizing the new layout primitives (PageShell, Section).50 This ensures that the global header, footer, and fundamental page wrappers are instantly unified, resolving the most glaring macro-inconsistencies across the entire site simultaneously.
+Phase 3: High-Value Page Archetypes
+Target the site route-by-route, prioritizing high-traffic hubs and critical conversion points.57
+1. The Home Page: Establish the high-drama visual language, deploying the new Bento grid layouts and Hero components.
+2. The Booking Funnel: Refactor the isolated (booking) route group to streamline forms, eliminate friction, and increase trust metrics.
+3. Hub Indexes: Standardize the Lodge and Experience listing pages.
+4. Long-Form Monographs: Refactor the deep, content-heavy species pages last, as they require the most extensive and nuanced mapping to the Prose and Split primitives.
+Definition of Done (Per-Page Checklist)
+A strict Definition of Done (DoD) prevents regression during the incremental migration. For a specific route to be considered successfully migrated, it must pass the following binary checks 58:
+* Does not contain any arbitrary Tailwind values (e.g., w-[325px]).
+* Relies exclusively on approved semantic spacing tokens for layout gaps.
+* Employs defined layout primitives rather than raw HTML <div> tags for structural containers.
+* Passes automated WCAG 2.2 Level AA contrast checks on all dynamic text overlays.
+* Validates flawlessly at 200% browser text zoom without triggering layout overlap or clipping.
+* Scores at or above baseline Lighthouse metrics for First Contentful Paint (FCP) and Cumulative Layout Shift (CLS).57
+Deliverables
+A. Recommended Layout System Spec
+See Section 1 for the comprehensive conceptual specification detailing PageShell, Section, Prose, Split, and MediaBleed primitives, including purpose, default padding, max-width rules, and allowed variants.
+B. Spacing Token Table Recommendation
+See Section 2 for the exhaustive spacing token table, scale steps, and the critical paragraph detailing the implementation of fluid clamp() math for section gaps and vertical rhythm.
+C. Page Archetype Map
+Creating specific page archetypes standardizes the creation of new content and prevents layout divergence. Based on the unique requirements of a South African reserve, the following 8 archetypes govern the user journey 1:
+
+
+Archetype
+	Primary Goal
+	Wireframe Stack Order (Top to Bottom)
+	1. Home
+	Brand positioning & high-level navigation
+	HeroVideo (full-bleed) → RibbonStats → Split (philosophy intro) → CardBento (property overview) → MediaBleed (landscape) → CTABand (booking intent).
+	2. Experience Narrative
+	Immersion into the safari rhythm
+	HeroEditorial → Prose (narrative introduction) → Split (alternating left/right media blocks detailing morning drive, lunch, evening drive) → MediaBleed.
+	3. Species Hub
+	Visual directory for exploration
+	HeroSplit → Prose (brief ecosystem intro) → CardBento (dense grid of species thumbnails with categorization filters) → CTABand.
+	4. Species Monograph
+	Scientific/Editorial deep dive
+	HeroEditorial (animal focus) → Split (taxonomy data and distribution map) → Prose (behavioral text) → CardGrid (related species).60
+	5. Reserve Booking
+	Low-friction conversion
+	Minimal PageShell (no primary nav) → Split (cart summary on left, progressive form on right) → Trust badges/SSL indicators.22
+	6. Lodge Detail
+	Data-dense room evaluation
+	HeroEditorial → Prose (vibe summary) → CardBento (amenities, floorplans, climate data) → Split (gallery preview) → CTABand (room-specific booking).27
+	7. Gallery
+	Visual proof and immersion
+	Minimal header → Horizontal Scroll or Masonry Grid (images only, launching high-res lightboxes on click).
+	8. Legal & Policies
+	Utilitarian compliance
+	Standard header → Prose wrapper (heavy text, deep semantic heading structure, strictly utilizing UI sans-serif font).
+	D. Heuristic Audit Rubric
+To maintain systemic integrity post-migration, the following 35-point rubric must be utilized by QA and Design teams to score the consistency of every new or existing route.58
+
+
+Category
+	#
+	Heuristic Check
+	Pass Criteria
+	Containers
+	1
+	Root Container Usage
+	Route utilizes the PageShell primitive; no raw <div> wrappers at the root level.
+	Containers
+	2
+	Section Padding
+	Vertical pacing strictly utilizes space-lg, space-xl, or space-2xl fluid tokens.
+	Containers
+	3
+	Content Measure
+	Text blocks do not exceed the Prose primitive maximum width (approx. 65-75ch).8
+	Containers
+	4
+	Double Padding
+	Leaf components possess zero external margins; parent gap controls all spacing.13
+	Containers
+	5
+	Lateral Gutters
+	Wide-screen layouts utilize margin-inline: auto to prevent infinite horizontal spread.
+	Heroes
+	6
+	Constrained Variants
+	Hero component utilizes an approved height variant (e.g., viewport-full, viewport-two-thirds).
+	Heroes
+	7
+	Media Quality
+	Background media utilizes srcset for appropriate device resolution delivery.
+	Typography
+	8
+	Heading Hierarchy
+	Semantically correct sequential heading order (H1 -> H2 -> H3) with absolutely no skipped levels.39
+	Typography
+	9
+	Vertical Rhythm
+	Line heights mathematically align with the underlying 8pt baseline grid.9
+	Typography
+	10
+	Display vs. UI
+	Booking widgets and dense data utilize the UI sans-serif; narrative headers use Display serif.
+	Typography
+	11
+	Paragraph Leading
+	Body copy line-height is at least 1.5x the font size for readability.8
+	Typography
+	12
+	Orphan Control
+	Text components implement logic to prevent single-word orphans on the last line.
+	Cards & Bento
+	13
+	Component Padding
+	Inset padding utilizes space-sm or space-md consistently across all sibling cards.
+	Cards & Bento
+	14
+	Corner Radii
+	Border radii adhere strictly to the global token scale (e.g., all cards use radius-md).
+	Cards & Bento
+	15
+	Hierarchical Sizing
+	Bento grid elements reflect visual hierarchy (larger cards for more critical information).26
+	Booking & CTA
+	16
+	CTA Prominence
+	Primary booking action is persistent, sticky, or prominently positioned within the viewport.68
+	Booking & CTA
+	17
+	Progressive Form
+	Forms ask only for immediate necessities (Dates, Guests) before transitioning to payment.32
+	Booking & CTA
+	18
+	Trust Indicators
+	Booking widgets are visually encapsulated (borders/shadows) to differentiate from editorial content.
+	Booking & CTA
+	19
+	Error Prevention
+	Form fields validate in real-time with clear, descriptive error messaging.32
+	Accessibility
+	20
+	Normal Text Contrast
+	Standard text meets the strict 4.5:1 WCAG contrast ratio against its background.69
+	Accessibility
+	21
+	Large Text Contrast
+	Display text (18pt+) meets the 3:1 WCAG contrast ratio.41
+	Accessibility
+	22
+	Scrim Application
+	All dynamic text overlays on imagery employ approved OKLCH scrim tokens to guarantee legibility.12
+	Accessibility
+	23
+	Touch Targets
+	All interactive elements possess a minimum 44x44px clickable area.39
+	Accessibility
+	24
+	Focus States
+	Keyboard navigation reveals highly visible, high-contrast focus rings (not just browser defaults).
+	Accessibility
+	25
+	Alt Text
+	All non-decorative images contain descriptive alt text relevant to the context.39
+	Accessibility
+	26
+	Semantic HTML
+	Buttons use <button>, links use <a>; ARIA labels are applied where visual context is insufficient.
+	International
+	27
+	Text Expansion
+	Containers use intrinsic sizing (min-content, fit-content) to handle 25% text length increases (e.g., German).45
+	International
+	28
+	RTL Readiness
+	Layouts utilize logical CSS properties (padding-inline-start) rather than physical properties (padding-left).
+	Motion
+	29
+	Restraint & Physics
+	Animations are tied strictly to defined motion tokens.12
+	Motion
+	30
+	Duration Limits
+	Transition durations do not exceed 500ms; hover states execute at ~100ms.
+	Motion
+	31
+	Reduced Motion
+	prefers-reduced-motion media queries disable all non-essential decorative animations automatically.
+	Performance
+	32
+	Image Optimization
+	Next.js <Image> component is used; MediaBleed primitives utilize responsive sizes attributes.
+	Performance
+	33
+	Server Boundaries
+	Interactive elements are appropriately isolated using "use client"; structural layout is rendered server-side.5
+	Performance
+	34
+	CLS Prevention
+	Image containers reserve aspect-ratio space prior to load to prevent Cumulative Layout Shift.
+	Data Integrity
+	35
+	Token Usage
+	The component's CSS contains zero arbitrary ([...]) Tailwind values.
+	E. Competitive and Reference Set
+To inform the ongoing evolution of the design system, the following public properties and design frameworks offer specific, actionable insights into editorial luxury, conversion optimization, and technical layout implementation.1
+
+
+Brand / System
+	Industry Focus
+	One Sentence: What to Study & Adapt
+	Singita
+	Luxury Safari
+	Study their flawless handling of extreme high-resolution, responsive imagery (srcset variations) and poetic narrative pacing achieved through deliberately slow scrolling.1
+	Londolozi
+	Luxury Safari
+	Observe their robust thematic layout structuring, utilizing dedicated hubs for 'Retreats' and 'Impact' to elevate the brand narrative far beyond a simple hotel stay.2
+	Royal Malewane
+	Luxury Hospitality
+	Analyze their seamless integration of a sticky, highly visible direct booking widget that captures user intent without interrupting the opulent lodge imagery.70
+	Aman
+	Ultra-Luxury Hospitality
+	Examine their extreme restraint regarding information density; their typography and expansive negative space dictate a serene visual pace that inherently communicates high-end exclusivity.
+	Wilderness
+	Eco-Tourism Safari
+	Review their implementation of a complex, multi-country architectural footprint, balancing specific lodge details with broad conservation data arrays.72
+	Kinfolk
+	Editorial Publisher
+	Steal their strict discipline regarding aspect ratios for image containers (e.g., repeating 29:39 or 7:9 blocks) to create a rhythmic, print-magazine-like layout grid.71
+	Cedar (REI)
+	Outdoor E-Commerce
+	Replicate their highly advanced fluid spacing and typography math utilizing clamp() and container queries to completely bypass rigid, fragile media queries.8
+	Atlassian Design
+	SaaS Design System
+	Adopt their systemic abstraction of layout responsibilities into rigid primitives (Box, Stack, Inline) to categorically prevent double-padding and spacing drift.6
+	Carbon (IBM)
+	Tech Design System
+	Study their extensive documentation on grid behavior, specifically observing how a 12-column grid adapts symmetrically and asymmetrically across fluid breakpoints.
+	Baymard Institute
+	UX Research
+	Apply their rigorous, data-backed heuristics for hospitality booking funnels, specifically regarding progressive disclosure, field reduction, and error prevention.34
+	F. Risks and Anti-Patterns
+A relentless pursuit of a "luxury" aesthetic frequently compromises fundamental usability, actively harming the business objectives the design intends to support. The system must guard aggressively against the following anti-patterns:
+1. Illegible Thin Typography: Utilizing ultra-light, high-contrast serif fonts at small sizes or over complex photographic backgrounds destroys readability, particularly for older demographics (a primary cohort for luxury safaris). EAA and ADA contrast compliance must permanently overrule subjective aesthetic preference.18
+2. Mystery Meat Navigation: Hiding crucial booking information, room pricing details, or primary navigation links behind obscure hamburger menus or abstract icons on desktop viewports creates unnecessary friction and deeply frustrates high-intent users.33
+3. Scroll Hijacking and Aggressive Parallax: Manipulating the browser's native scroll bar speed to force a user through a "cinematic" sequence induces motion sickness and removes user autonomy. Scroll-linked animations should complement, never override, natural scrolling mechanics.22
+4. Double Padding Disconnect: Allowing leaf components to bring their own margins into grid layouts causes unpredictable spacing collisions, destroying the vertical rhythm of the page and leading to sloppy CSS overrides.13
+5. The Abandoned Booking Funnel: Presenting a user with a massive, single-page form asking for passport details, dietary requirements, and flight numbers before securing the core reservation leads to massive drop-off. Forms must be progressively sequenced to build momentum.22
+Executive Synthesis: Ten Non-Negotiable Rules
+To successfully transition the current platform from a collection of fragmented, stacked themes into a disciplined, high-performing luxury system, the engineering, design, and product teams must adopt the following 10 rules immediately:
+1. Enforce Component Spacing Contracts: Leaf components dictate internal padding only; layout primitives exclusively govern the spacing (gaps/margins) between components to eliminate double padding.
+2. Abstract Layouts to Primitives: All structural mapping must utilize predefined React components (PageShell, Section, Split, Prose, MediaBleed) rather than raw <div> tags with inline utility classes.
+3. Centralize via Route Groups: Exploit Next.js App Router's (folder) route groups to apply distinct, stable server-side layouts (e.g., Marketing vs. Booking) without polluting URL segments.
+4. Bifurcate Typography by Intent: Enforce a strict separation between fluid, Didone-inspired Display typography for narrative drama, and highly legible, geometric UI typography for functional interactions and data arrays.
+5. Utilize Fluid Scaling Mathematics: Deploy clamp() calculations mapped to container queries for macro-spacing and display typography, ensuring perfectly scaled proportions across all viewports without jarring breakpoints.
+6. Implement @theme Design Tokens: Transition all arbitrary CSS into Tailwind v4's native CSS variables via the @theme directive, utilizing the OKLCH space for perceptually uniform color and scrim overlays.
+7. Mandate Contrast Scrim Overlays: No dynamic text may be placed directly over an unedited image from the CMS; an approved gradient scrim token must be automatically applied programmatically to guarantee WCAG 2.2 AA contrast compliance.
+8. Guard the Server Boundary: Maintain layout stability and optimize loading metrics by keeping structural and typographic components on the server; restrict "use client" exclusively to interactive leaf nodes.
+9. Deploy Bento Modules for High Density: Replace overwhelming walls of text or scattered lists in lodge/species details with strictly compartmentalized Bento grid layouts to lower cognitive load and accelerate information retrieval.
+10. Execute a Phased, Incremental Migration: Freeze current design tokens immediately, refactor the global app/layout.tsx shell first, and tackle the site progressively by page archetype to mitigate regression risk and prevent deployment stalling.
+Works cited
+1. Singita: Luxury African Safari Lodges & Wildlife Reserves, accessed April 16, 2026, https://www.singita.com/
+2. The Premier Luxury Safari Lodge, accessed April 16, 2026, https://www.londolozi.com/
+3. Best safari lodges in South Africa 2024/25 | Far & Wild Travel (US), accessed April 16, 2026, https://farandwild.travel/us/wilder/article/best-safari-lodges-in-south-africa
+4. React Server Components Your Way | TanStack Blog, accessed April 16, 2026, https://tanstack.com/blog/react-server-components
+5. Getting Started: Server and Client Components - Next.js, accessed April 16, 2026, https://nextjs.org/docs/app/getting-started/server-and-client-components
+6. Layout primitives - Atlassian Design System, accessed April 16, 2026, https://atlassian.design/foundations/spacing/primitives
+7. The Best Safari Lodge Website Design Agency in East Africa - Sabertooth Marketing, accessed April 16, 2026, https://sabertoothmarketing.co.ke/safari-lodge-web-design-agency/
+8. Fluid | Cedar Design System | REI Co-op, accessed April 16, 2026, https://cedar.rei.com/guidelines/fluid
+9. 8-Point Grid: Vertical Rhythm - Medium, accessed April 16, 2026, https://medium.com/built-to-adapt/8-point-grid-vertical-rhythm-90d05ad95032
+10. Foundation of Grid & Spacing in Figma | UI/UX Layout Essentials - YouTube, accessed April 16, 2026, https://www.youtube.com/watch?v=3oILMpjf0AY
+11. Overview - Spacing - Atlassian Design System, accessed April 16, 2026, https://atlassian.design/foundations/spacing
+12. Design Tokens That Scale in 2026 (Tailwind v4 + CSS Variables ..., accessed April 16, 2026, https://www.maviklabs.com/blog/design-tokens-tailwind-v4-2026
+13. How Do You Handle Component Spacing in a Design System? - CSS-Tricks, accessed April 16, 2026, https://css-tricks.com/component-spacing-design-system/
+14. Avoid doubling up margins and padding in CSS - Stack Overflow, accessed April 16, 2026, https://stackoverflow.com/questions/58481650/avoid-doubling-up-margins-and-padding-in-css
+15. Space in Design Systems. From Basics to Expanded Concepts to… | by Nathan Curtis | EightShapes | Medium, accessed April 16, 2026, https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+16. What is the difference between fixed, fluid, adaptive and responsive layouts and why should I care? - The Alpaca, accessed April 16, 2026, https://the-alpaca.medium.com/so-what-exactly-is-the-difference-between-fixed-fluid-adaptive-and-responsive-layouts-and-why-3773272d8481
+17. Fixed vs. Fluid vs. Elastic Layout: What's The Right One For You? - Smashing Magazine, accessed April 16, 2026, https://www.smashingmagazine.com/2009/06/fixed-vs-fluid-vs-elastic-layout-whats-the-right-one-for-you/
+18. Luxury Brand Logo Fonts – What Fonts Do Fashion Brands Use? - Font In Logo, accessed April 16, 2026, https://www.fontinlogo.com/post/luxury-brand-logo-fonts
+19. Everything you should know about 8 point grid system in UX design, accessed April 16, 2026, https://uxplanet.org/everything-you-should-know-about-8-point-grid-system-in-ux-design-b69cb945b18d
+20. The 8pt Grid: Consistent Spacing in UI Design with Sketch | by Chris Godby - Prototypr, accessed April 16, 2026, https://blog.prototypr.io/the-8pt-grid-consistent-spacing-in-ui-design-with-sketch-577e4f0fd520
+21. Cascade Layers Guide - CSS-Tricks, accessed April 16, 2026, https://css-tricks.com/css-cascade-layers/
+22. How to Design Hotel Reservation UX? The Essential Guide to Guest Travel | DGTLFACE, accessed April 16, 2026, https://dgtlface.com/en/creative/blog/hotel-booking-ux-basics
+23. Consistent, Fluidly Scaling Type and Spacing - CSS-Tricks, accessed April 16, 2026, https://css-tricks.com/consistent-fluidly-scaling-type-and-spacing/
+24. Building a typography system? Make sure you've covered the minimum. | by Aileen Xin, accessed April 16, 2026, https://www.designsystemscollective.com/building-a-typography-system-make-sure-youve-covered-the-minimum-06fcbf8b12f0
+25. Typography Tips for Building a Luxury Brand - emilyfostercreative.com, accessed April 16, 2026, https://emilyfostercreative.com/typography-tips-for-building-a-luxury-brand/
+26. Bento Grid Design: How to Create Modern Modular Layouts in 2026 - Landdding, accessed April 16, 2026, https://landdding.com/blog/blog-bento-grid-design-guide
+27. Bento Box Layouts: Organizing Content for Clarity - Mellow Designs, accessed April 16, 2026, https://www.mellowdesigns.co/post/bento-box-layouts-organizing-content-for-clarity
+28. Bento Grid Module - maka Agency, accessed April 16, 2026, https://www.maka-agency.com/power-help-center/hubspot-custom-modules/section-modules/bento-grid
+29. Using Grids in Interface Designs - NN/G, accessed April 16, 2026, https://www.nngroup.com/articles/using-grids-in-interface-designs/
+30. I'm very interested in the typographic system used for Off-White. What are the references? What is the grid? What are the rules? : r/typography - Reddit, accessed April 16, 2026, https://www.reddit.com/r/typography/comments/cfmall/im_very_interested_in_the_typographic_system_used/
+31. The Editorial Design System. How and why we created a unified design… | by Willem Purdy | Wise Design | Medium, accessed April 16, 2026, https://medium.com/transferwise-design/the-web-marketing-system-526f939a828c
+32. 4 UX Tweaks to Boost Hotel Direct Booking Conversion & Guest Trust - Nokumo, accessed April 16, 2026, https://www.nokumo.net/en/blog/4-ux-tweaks-to-reduce-friction-in-your-direct-booking-process
+33. How to Conduct a UI Audit: Benefits, Steps, and Checklist Included - DevSquad, accessed April 16, 2026, https://devsquad.com/blog/ui-audit
+34. 3 High-Level UX Takeaways from 992 Hours of Testing Leading Travel Accommodations Sites - Baymard, accessed April 16, 2026, https://baymard.com/blog/new-research-travel-accommodations
+35. Booking Funnel Makeover: What to Test First on Travel Sites - Onix-Systems, accessed April 16, 2026, https://onix-systems.com/blog/travel-booking-funnel-makeover
+36. Luxury Hotels the EU Accessibility Act: How to Make Your Website Compliant, accessed April 16, 2026, https://www.arodigitalstrategy.com/hotelier-hub/latest-articles/luxury-hotels-the-eu-accessibility-act-how-to-make-your-website-compliant
+37. Guidance on Web Accessibility and the ADA - ADA.gov, accessed April 16, 2026, https://www.ada.gov/resources/web-guidance/
+38. Digital Accessibility: The Leading Hotels of the World, accessed April 16, 2026, https://www.lhw.com/digital-accessibility
+39. Making Hospitality Welcoming for All: A Digital Accessibility Guide for Hotels - User Vision, accessed April 16, 2026, https://uservision.co.uk/thoughts/making-hospitality-welcoming-for-all-a-digital-accessibility-guide-for-hotels
+40. Ensure High Contrast for Text Over Images - NN/G, accessed April 16, 2026, https://www.nngroup.com/articles/text-over-images/
+41. Color contrast - Accessibility designing – Material Design 3, accessed April 16, 2026, https://m3.material.io/foundations/designing/color-contrast
+42. Color Contrast Tips for Designers and Developers - Cornell University, accessed April 16, 2026, https://it.cornell.edu/accessibility/color-contrast-tips-designers-and-developers
+43. Text over images: The impact on accessibility - WCAG, accessed April 16, 2026, https://www.wcag.com/blog/content-over-images-how-does-this-ux-ui-trend-impact-accessibility/
+44. Why Multi-Language Websites Matter For The Hospitality Industry - Impact Media, accessed April 16, 2026, https://www.impactmedia.co.uk/insights/multi-language-websites-for-the-hospitality-industry/
+45. Internationalization as a proactive design strategy | by Tripadvisor - Medium, accessed April 16, 2026, https://medium.com/tripadvisor/internationalization-as-a-proactive-design-strategy-d95a3f6f5eb8
+46. Server Components React Explained: 2026 Guide for Next.js - WeWeb, accessed April 16, 2026, https://www.weweb.io/blog/server-components-react-explained-nextjs-guide
+47. React Server Components in practice (Next.js App Router patterns, streaming, caching, partial pre‑render) | by Valentyn Yakymenko | Medium, accessed April 16, 2026, https://medium.com/@vyakymenko/react-server-components-in-practice-next-js-d1c3c8a4971f
+48. Getting Started: Layouts and Pages - Next.js, accessed April 16, 2026, https://nextjs.org/docs/app/getting-started/layouts-and-pages
+49. App Router Directory Design: Next.js Project Structure Patterns - DEV Community, accessed April 16, 2026, https://dev.to/pipipi-dev/app-router-directory-design-nextjs-project-structure-patterns-31eo
+50. Next.js 14 App Router Project Structure: The Patterns That Actually Scale - DEV Community, accessed April 16, 2026, https://dev.to/whoffagents/nextjs-14-app-router-project-structure-the-patterns-that-actually-scale-7a6
+51. Getting Started: Project Structure | Next.js, accessed April 16, 2026, https://nextjs.org/docs/app/getting-started/project-structure
+52. How to Create Independent Layouts in Next.js App Router for Specific Routes?, accessed April 16, 2026, https://stackoverflow.com/questions/78502301/how-to-create-independent-layouts-in-next-js-app-router-for-specific-routes
+53. Next.js + Tailwind v4 feels powerful… but also kinda rough right now? · tailwindlabs tailwindcss · Discussion #19521 - GitHub, accessed April 16, 2026, https://github.com/tailwindlabs/tailwindcss/discussions/19521
+54. Theme variables - Core concepts - Tailwind CSS, accessed April 16, 2026, https://tailwindcss.com/docs/theme
+55. How to turn existing Library into a proper Tailwind CSS v4 design system? - Reddit, accessed April 16, 2026, https://www.reddit.com/r/tailwindcss/comments/1lrf28f/how_to_turn_existing_library_into_a_proper/
+56. Migrating a Large-Scale Monorepo from Next.js 14 to 16: A Real-World Journey, accessed April 16, 2026, https://dev.to/abhilashlr/migrating-a-large-scale-monorepo-from-nextjs-14-to-16-a-real-world-journey-5383
+57. Upgrading to Next.js 15: Your AI-Assisted, Step-by-Step Migration Guide - Atlantic BT, accessed April 16, 2026, https://www.atlanticbt.com/software-development/next-js-15-upgrade/
+58. How to Run a Design System Audit: A Step-by-Step Guide for UX Teams - Netguru, accessed April 16, 2026, https://www.netguru.com/blog/design-system-audit
+59. Design Audit - The Design System Guide, accessed April 16, 2026, https://thedesignsystem.guide/design-audit
+60. Make a guide - Science at the Field Museum, accessed April 16, 2026, https://science.fieldmuseum.org/fieldguides/field-guide-instructions
+61. NEWINSTRUCTIONS FOR CONTRIBUTORS TO MAMMALIAN SPECIES - American Society of Mammalogists, accessed April 16, 2026, http://www.mammalsociety.org/uploads/Mammals%20Species%20instructions_0.pdf
+62. Create Your Own Field Guide - Santa Cruz Museum of Natural History, accessed April 16, 2026, https://santacruzmuseum.org/create-your-own-field-guide/
+63. Website Audit Checklist: Everything You Need To Know - Lollypop Design Studio, accessed April 16, 2026, https://lollypop.design/blog/2025/february/website-audit/
+64. UX audit checklist: 7 Steps to better UX - Maze, accessed April 16, 2026, https://maze.co/collections/ux-ui-design/ux-audit/
+65. UI/UX Audit Checklist Before Redesigning a Site | Saeloun Blog, accessed April 16, 2026, https://blog.saeloun.com/2025/11/27/ui-ux-audit-checklist-before-redesigning-a-site/
+66. UX Audit Checklist: 50 Points & Free Template | CorsoUX, accessed April 16, 2026, https://courseux.com/ux-audit-checklist/
+67. Design Audits: what and why!. by: Celina Leong, Dan Ariniello, and… | by Oscar Health - Medium, accessed April 16, 2026, https://medium.com/oscar-tech/design-audits-what-and-why-wip-82f1d16e1699
+68. Conversion Rate Optimization: Website UX for Boutique Hotels in 2025, accessed April 16, 2026, https://spiltmilkwebdesign.com/conversion-rate-optimization-website-ux-for-boutique-hotels-in-2025/
+69. Use sufficient color contrast - Harvard's Digital Accessibility Services, accessed April 16, 2026, https://accessibility.huit.harvard.edu/use-sufficient-color-contrast
+70. Royal Malewane | Kruger Park Safari Lodge | The Royal Portfolio, accessed April 16, 2026, https://www.theroyalportfolio.com/royal-malewane/
+71. Kinfolk: Home, accessed April 16, 2026, https://www.kinfolk.com/
+72. Wilderness Case Study - FINN Partners, accessed April 16, 2026, https://www.finnpartners.com/case-study/wilderness/
+73. Wilderness Reveals New Brand and Website, accessed April 16, 2026, https://www.wildernessdestinations.com/press-room/wilderness-reveals-new-brand-and-website
+74. Where do you put spacing on design system components? - Eric Bailey, accessed April 16, 2026, https://ericwbailey.website/published/where-do-you-put-spacing-on-design-system-components/

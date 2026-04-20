@@ -1,0 +1,370 @@
+﻿Reference-Grade Field Notes for AI Image Generation: Southern African Antelope Morphology
+================================================================================ SPECIES 1: Springbok (Antidorcas marsupialis)
+A1. Taxonomy and scope
+The springbok (Antidorcas marsupialis) is a medium-sized bovid and the sole extant member of the genus Antidorcas, primarily inhabiting the arid and semi-arid plains of southern and southwestern Africa.1 Three subspecies are generally recognised, adapted to specific ecological zones: A. m. marsupialis (the smaller Highveld and Karoo ecotype), A. m. hofmeyri (the larger Kalahari ecotype), and A. m. angolensis (the Angolan desert ecotype).1 In the context of South African hunting estates, phenotypic colour variants naturally occurring but selectively bred for the wildlife industry must be accurately represented if requested.2 The black morph exhibits a deep chocolate-brown to black pelage with a white facial marking; the white morph is leucistic (not albino, retaining dark eyes) with a pale cream to white body and faint tan lateral stripes; and the copper morph replaces the traditional white underbelly with a caramel or dark golden tone.4 For prompt writers, it is critical to note that these morphs differ from the wild-type coat exclusively in pigmentation, while maintaining identical skeletal structure, horn morphology, and muscular proportions.2
+A2. Confusion pairs
+In the latent space of generative AI, the springbok is frequently conflated with visually similar medium-sized antelopes, particularly the impala (Aepyceros melampus) and Thomson’s gazelle (Eudorcas thomsonii), due to overlapping training data captions and shared physiological traits such as lateral striping or relative size.6 To enforce strict phenotypic accuracy, prompt engineers must rely on specific, single-glance anatomical separators.
+
+
+Feature
+	Springbok (Antidorcas marsupialis)
+	Impala (Aepyceros melampus)
+	Thomson's Gazelle (Eudorcas thomsonii)
+	Horns
+	Present on both sexes; lyre-shaped with inward-hooking tips.1
+	Males only; long, sweeping lyre shape without sharp inward hooks.6
+	Both sexes (often); shorter, slightly curved backward.6
+	Side Stripe
+	Prominent dark reddish-brown stripe separating tan back and white belly.8
+	No side stripe; distinct two-tone reddish-brown coat.6
+	Prominent bold black side stripe.6
+	Face Mask
+	White face with a dark streak through the eye to the mouth.8
+	Clean face with no prominent dark eye streak.9
+	Dark stripes from eye to nose, rufous stripes on forehead.10
+	Rump/Tail
+	White rump pocket (marsupium); thin white tail with a black tuft.1
+	Distinct black "M" marking on the rump.6
+	White rump cut by a black stripe; dark, fluffy tail.6
+	Gait
+	Pronking (stiff-legged vertical leaps with arched back and exposed white dorsal crest).14
+	Bounding leaps up to 3m high and 9m long (not true pronking).16
+	Stotting (similar to pronking but lacks the dorsal crest display).10
+	B1. Sexual dimorphism (critical for prompts)
+Unlike many African antelope species, both male and female springboks carry horns, making a hornless adult an immediate anatomical failure in image generation.8 While both sexes share the identical high-contrast tri-colour coat, sexual dimorphism manifests clearly in overall body mass, neck robustness, and horn morphology.11
+
+
+Trait
+	Adult Male
+	Adult Female
+	Body Mass
+	33 kg to 50 kg (heavier, robust neck and forequarters).8
+	27 kg to 37 kg (gracile, slender build).8
+	Shoulder Height
+	Up to 86 cm (subspecies dependent).1
+	Up to 86 cm (generally identical in height to males).11
+	Horn Length
+	35 cm to 50 cm.1
+	60% to 70% of male length (approx. 21 cm to 35 cm).1
+	Horn Girth
+	71 mm to 83 mm at the base (thick, heavily ridged).1
+	Noticeably thinner, more slender throughout.1
+	Young springbok calves are born hornless and possess a slightly muted version of the adult coat pattern. Horn buds begin to emerge in the first few months. By the time a juvenile is capable of exhibiting the species-true pronking display (which they do playfully in their first year), small, straight horn spikes are visible.14
+C1 Full body
+The springbok is built for explosive speed and agility, necessitating a highly refined, slender musculoskeletal structure.1 The body proportions are compact, with a level backline that dips slightly at the shoulders, supported by long, remarkably thin, and delicate lower limbs.2 The visual impact of the springbok heavily relies on its pristine disruptive camouflage: a rich cinnamon-tan or fawn dorsal area, a sharp dark reddish-brown lateral flank stripe, and a pure white underbelly that extends up the inner legs.8 A defining trait visible from a distance is the white rump patch, which seamlessly integrates with a short tail that is white at the base and terminates in a stark black tuft.1
+When rendering a full-body shot, the interaction between the animal's delicate hooves and the harsh African terrain is crucial for achieving photorealism. In a typical Karoo or Kalahari setting, the animal should cast hard, high-contrast shadows onto stony, red-brown soil or pale sand.19 The coat should exhibit a subtle, healthy sheen over the muscular hindquarters, contrasting with the matte, dust-covered lower legs. When walking, the posture is alert, with the head held high on a relatively long neck, and the ears pointed sharply outward or forward.2
+AI image generators frequently suffer from latent space bleed, applying generic deer or equine anatomy to the springbok. This results in failure modes where the legs are rendered too thick, the torso is excessively elongated, or the backline exhibits a severe downward slope.21 Furthermore, diffusion models often struggle with sharp color boundaries, rendering the distinctive dark flank stripe as a muddy, airbrushed gradient rather than a crisp line separating the tan back from the white belly.21
+* Must show: Crisp, high-contrast three-tone coat (tan, dark stripe, white); very slender lower legs; level backline; black-tufted tail.
+* Must avoid: Thick, stocky, or cow-like legs; blurred or gradient color transitions on the flanks; sloping backlines or elongated torsos.
+C2 Eyes
+The springbok’s eyes are large, dark, and set laterally on the skull, providing a wide field of peripheral vision essential for detecting predators in open savanna environments.22 The pupil of a calm springbok is a horizontal oval or slit, typical of grazing ungulates, though it may dilate to appear more circular in low-light conditions.24 The eye is framed by short, stiff eyelashes on the upper lid that protect against dust and harsh sunlight, while the surrounding skin often shows fine, dry wrinkling.25 A vital anatomical marker is the dark reddish-brown streak that runs continuously from the base of the horn, directly through the eye, and down to the corner of the mouth, contrasting sharply against the white face mask.8
+When rendering a photorealistic close-up, the texture of the eye should capture the environmental context. A specular highlight reflecting the dry, open horizon line and the bright sky anchors the animal in reality.27 In a state of calm, the eye is relaxed with minimal sclera (white part of the eye) showing. In an alarmed state, the eye widens slightly, the horizontal pupil may dilate, and the ears pivot aggressively toward the source of the disturbance.
+AI generative models heavily biased toward human or predator faces are prone to catastrophic anatomical failures when rendering ungulate eyes. They frequently hallucinate perfectly round, forward-facing pupils, or generate "sanpaku" eyes with excessive, human-like white sclera showing beneath the iris.21 Additionally, the AI often breaks the continuity of the dark facial stripe, leaving the eye isolated in a patch of white fur.
+* Must show: Horizontal/oval pupils; lateral eye placement; continuous dark streak running through the eye; specular reflection of an open horizon.
+* Must avoid: Human-like round pupils; excessive white sclera; forward-facing, predator-like eye alignment; disconnected facial stripes.
+C3 Horns
+The horns of the springbok are composed of a permanent keratin sheath over a bony core and are present on both sexes.1 They rise upward and slightly outward from the skull, curve backward in a distinct lyre shape, and finally hook inward toward each other at the tips, creating a silhouette often compared to a stethoscope when viewed from the front.15 The lower 80% of the horn is heavily annulated (ridged), while the inward-hooking tips are completely smooth and sharply pointed.1 The horns are deep black, though dust accumulation in the ridges can give the bases a matte, grayish-charcoal appearance.
+Lighting is highly influential in accurately depicting the horns. Under harsh midday sunlight, the heavy ridges cast intense micro-shadows, emphasizing the rugged texture of the base, while the smooth tips catch bright, polished specular highlights. The transition from the ridged keratin to the smooth tip is gradual but distinct, a detail essential for avoiding a synthetic, plastic look.27
+AI models consistently fail to render complex, symmetrical geometries like lyre-shaped horns. Common artifacts include severe asymmetry (one horn curving differently or being significantly longer than the other), the "melting" of ridges into a smooth cone, or the complete hallucination of branched, deer-like antlers.21 Furthermore, models often fail to attach the horns correctly to the skull, placing them behind the ears or floating above the head.
+* Must show: Black, heavily ridged bases; lyre-shape curving backward and hooking inward at the smooth tips; symmetrical alignment.
+* Must avoid: Branched antlers; smooth bases lacking ridges; asymmetrical horn lengths; horns attaching behind the ears.
+C4 Female
+The female springbok is a vital subject for realistic herd depictions. She bears the exact same high-contrast, tri-colour coat pattern and white facial mask as the male, but her physical build is markedly more gracile and delicate.11 Her neck is slender, lacking the muscular bulk developed by males for territorial combat, and her overall body mass tops out at around 37 kg.8 While she is horned, her horns are a key dimorphic indicator: they are significantly narrower in girth (often appearing pencil-thin compared to a mature male's) and reach only 60% to 70% of the male's total horn length.1
+When composing a portrait or full-body shot of a female, placing her within a loose herd context enhances realism. Females congregate in mixed herds or maternity groups.11 A generic South African background—such as dusty red soil with sparse Acacia (now Vachellia) scrub or pale yellow grasses—provides excellent environmental grounding.32 The shallow depth of field should soften other herd members behind her, maintaining focus on her delicate facial structure and thin horns.
+Because many antelope species have hornless females (e.g., impala, kudu), generative AI models frequently overcompensate for the "female" prompt by stripping the horns away entirely, violating the fundamental taxonomy of the springbok.8 Conversely, if not specifically constrained, the AI may generate a female with massive, thick male horns.
+* Must show: Gracile, slender neck and body; thin, shorter, but visibly ridged horns; prominent dark facial stripe.
+* Must avoid: A completely hornless head; thick, heavy horn bases; overly muscular necks; solitary, aggressive posturing.
+C5 Male
+The mature male springbok is the quintessential plains game subject, built for speed but carrying enough muscular bulk to defend territory. Weighing up to 50 kg, the male exhibits a significantly thicker, more robust neck and heavier forequarters than the female.8 The horns are his most defining feature: they possess thick, heavy bases with deep, aggressive ridges that sweep backward prominently before hooking inward at the tips.1 To convey a photorealistic, "lived-in" aesthetic, the male should exhibit minor imperfections—a chipped horn tip, slightly worn ridges, or subtle, healed scars on the neck and face from rutting combat.35
+Under the golden hour light of late afternoon, the musculature beneath the cinnamon-tan coat should be clearly defined, emphasizing the power of the shoulders and flanks. The white belly must glow brightly against the shadowed earth. Males are often seen alone or patrolling the periphery of a herd when holding a territory during the rut.11
+AI generation is highly prone to exaggeration when prompted for male animals. Failure modes include generating fantasy-record horn lengths that spiral out of control into corkscrews (like a kudu) or curl around the ears (like a domestic sheep).36 The AI may also apply inappropriate bovine muscle mass, rendering the delicate springbok with the bulk of a buffalo.
+* Must show: Thick, robust neck and forequarters; heavy, deeply ridged horn bases; mathematically symmetrical lyre shape; minor realistic wear.
+* Must avoid: Fantasy-scale or record-breaking horn lengths; spiral/corkscrew horn shapes; exaggerated, steroid-like bovine musculature.
+C6 Eating
+The springbok is a highly adaptable mixed feeder. During the wet summer months, it grazes on short Highveld grasses, while in the dry winter, it transitions to browsing on Karoo shrubs, succulent leaves, and roots to extract essential moisture.15 The eating posture involves the long neck extended downward, with the forelegs occasionally splayed slightly outward to allow the narrow, pointed muzzle to reach low-lying vegetation.11
+Anatomically, the most critical detail of a feeding springbok is its dentition. Like all ruminant bovids, the springbok completely lacks upper front incisors. Instead, the upper jaw is fitted with a hard, fibrous, ridged "dental pad".38 When the animal strips leaves or crops grass, the lower incisors press upward against this tough pad to sever the plant material.40 The lips are thin, highly mobile, and often dusted with dirt or pollen.
+This represents one of the most persistent failure modes in generative AI. Because models are heavily trained on human, canine, and equine dentition, prompting for an open-mouthed ungulate almost invariably results in the hallucination of a full, square set of upper front teeth.31 Preventing this requires strict negative prompting regarding upper teeth.
+* Must show: Head lowered to short vegetation; hard, toothless upper dental pad (if mouth interior is visible); lower incisors only.
+* Must avoid: Upper front teeth or incisors of any kind; human-like or dog-like dentition; wide, square, cow-like muzzles.
+C7 Drinking
+While springboks can survive for years without drinking surface water by relying on the metabolic moisture found in succulents and tubers, they will drink when water is available.8 Their long legs and relatively short necks necessitate an awkward, highly vulnerable drinking stance. The forelegs must be splayed wide apart or bent at the "knees" (carpal joints) to bring the muzzle down to the water's surface.22 During this vulnerable moment, the ears are typically swiveled backward and upward, acting as radar to detect approaching predators.22
+The interaction between the animal's muzzle and the water requires precise physical rendering. The thin lips touch the surface, creating gentle, mathematically accurate concentric ripples. The reflection in the water must geometrically mirror the animal's physical features, particularly the stark white face mask and the dark eye streaks.21
+AI struggles severely with the physics of the splayed drinking stance, often generating broken, melting, or amputated forelegs that clip through the terrain.21 Furthermore, AI water reflections are notoriously flawed, either failing to reflect the horns, reflecting the wrong color pattern, or blending the texture of the water seamlessly into the animal's snout, destroying the boundary between flesh and liquid.21
+* Must show: Splayed or bent forelegs; ears swiveled in an alert, backward position; physically accurate water ripples and reflections.
+* Must avoid: Forelegs clipping into or melting into the ground; mismatched or impossible water reflections; the muzzle blending into the water texture.
+C8 Hooves
+The springbok is a cloven-hoofed bovid (Order Artiodactyla), meaning its hooves are split into two distinct, weight-bearing toes.2 The hooves are narrow, sharply pointed at the front, and dark grey to black in color, perfectly adapted for high-speed evasion on the hard, stony ground of the Karoo or the soft sands of the Kalahari.1 In loose sand, the track leaves a distinctive, deep, heart-shaped impression with pointed tips.46 Small, non-weight-bearing dewclaws are positioned high on the back of the slender fetlock joint.
+Close-up images of the hooves should emphasize environmental realism over pristine cleanliness. The keratin surface should appear matte, scratched, and weathered, heavily dusted with local soil (red sand or grey Karoo dust). The transition from the fine hair of the lower leg to the hard keratin of the hoof must be sharply defined.
+AI generative models routinely fail when rendering ungulate extremities. Common artifacts include generating a single, solid hoof (like a horse), splitting the hoof into three or four fleshy, dog-like toes, or fusing the two toes together seamlessly.21 AI also tends to blur the texture of the leg hair directly into the hoof, removing the anatomical joint transition.
+* Must show: Cloven (two-toed), sharp, black/dark grey hooves; slender fetlock joints; natural weathering and dust accumulation.
+* Must avoid: Solid equine hooves; three or more toes; fleshy paws; blurred textures where hair melts into keratin.
+C9 Barely visible
+To convey the authenticity of a wildlife documentary photograph, rendering a springbok partially obscured by its environment is highly effective. In the Highveld, this involves the animal's lower body being hidden by tall, golden-red stands of Themeda triandra (red grass).32 In the Karoo, the occlusion might come from low, grey-green scrub and thorny acacia branches.19 Under the scorching African sun, heat shimmer—a critical atmospheric optical phenomenon—distorts the light near the ground, causing the animal's legs and lower torso to waver and blur organically into the background.20
+The camera's focus must remain tack-sharp on the visible, upper anatomical elements—such as the white facial mask, the dark eye streak, and the lyre-shaped horns rising above the heat haze—while the foreground elements are softly blurred to create depth of field.
+AI struggles profoundly with intentional occlusion. Instead of placing the animal behind the grass, the AI frequently merges the textures, generating grass blades that appear to grow directly out of the animal's fur.21 Furthermore, AI does not inherently understand the physics of heat shimmer, typically applying a uniform, artificial Gaussian blur that looks like a digital error rather than atmospheric refraction.21
+* Must show: Sharp focus on the head/horns; organic occlusion by foreground vegetation; optical heat distortion near the ground.
+* Must avoid: Floating, disembodied heads without implied bodies; fur textures melting into plant textures; artificial, uniform digital blurring.
+C10 Coat
+The springbok's pelage is short, sleek, and highly specialised for disruptive camouflage and visual signalling.8 The coat features three starkly contrasting zones: a cinnamon-tan or fawn back, a dark reddish-brown lateral stripe running horizontally across the flank, and a pure white belly.8 The most unique anatomical feature is the "marsupium," a pocket-like invagination of skin running along the mid-back to the rump, lined with glandular tissue and long, stiff white hairs.1 When the animal is relaxed, this pocket remains tightly closed, appearing merely as a thin, dark line along the spine. However, when highly alarmed or engaged in pronking, the muscles contract, everting the pocket to display a brilliant, fan-like crest of snow-white hair.11
+The texture of the healthy wild-type coat should exhibit a slight, dusty gloss on the tan dorsum, contrasting with the matte white of the underbelly. The white rump patch surrounds a short, thin tail that ends in a stark black tuft.18
+AI models consistently fail to maintain the strict, crisp borders between the three colour zones, frequently blending the tan, brown, and white into muddy, airbrushed gradients.21 Furthermore, the AI almost never comprehends the complex mechanical anatomy of the dorsal fan, either omitting it entirely during jumping sequences or hallucinating bizarre, anatomically impossible "fur wings" sprouting from the animal's ribs.21
+* Must show: Sharp, high-contrast borders between the tan, brown, and white zones; a closed spinal line (if calm) or an erected white dorsal crest (if jumping); black-tufted tail.
+* Must avoid: Muddy gradients or blended colors on the flanks; spotted/fawn patterns; anatomically incorrect fur wings or floating hair crests.
+C11 Front half from side
+A side-profile shot of the front half emphasizes the springbok's athletic build, specifically the long, slender neck and the deep, narrow chest.2 The dark reddish-brown lateral stripe must originate clearly just behind the upper foreleg and shoot horizontally backward along the flank.8 The white of the underbelly sweeps slightly upward onto the front of the chest and throat. The facial profile highlights the pointed, delicate muzzle, the long, narrow ears, and the dark eye-streak cutting diagonally across the white cheek from the horn base to the mouth.8
+Low-angle lighting (such as early morning) will cast shadows that define the scapula and triceps, highlighting the fast-twitch musculature. Dust clinging to the white hair of the lower forelegs grounds the image in reality.
+AI failure modes in profile shots frequently involve catastrophic structural errors with the horns. The AI may misalign the horn attachment, placing them behind the ears, floating above the skull, or growing directly out of the neck.31 Additionally, AI often truncates the neck, giving the gazelle-like springbok a stocky, sheep-like profile.
+* Must show: Long, slender neck; correct origin of the dark flank stripe behind the foreleg; horns attaching properly to the top of the skull, anterior to the ears.
+* Must avoid: Thick, stocky necks; horns attaching behind the ears or floating disconnected; blurring or smudging of the sharp facial mask details.
+C12 Back half from side
+Viewing the rear profile from the side highlights the powerful hindquarters responsible for the springbok's explosive acceleration (up to 88 km/h) and vertical leaping ability.11 The dark lateral stripe must terminate cleanly before reaching the bright white rump patch.1 The tail is thin, white at its base, and ends in a distinct black tuft that rests flat against the white buttocks.18 The hind legs are exceptionally long and angular, featuring a prominent, sharp hock joint.2
+The texture of the white rump hair should appear slightly coarser than the sleek tan fur of the back. If the animal is in a state of high alert but not yet fleeing, the rear edge of the dorsal fan (marsupium) may be slightly flared, offering a subtle hint of the white crest hidden beneath the skin fold.14
+AI struggles intensely with the structural geometry of ungulate hind legs. It frequently generates double joints, bends the hock backward (creating a plantigrade, human-like leg instead of a digitigrade one), or adds extra limbs.21 The tail is another major failure point; AI often hallucinates a thick, fluffy white tail (like a white-tailed deer) or a long, swishing cow tail, entirely missing the specific black-tufted anatomy.13
+* Must show: Bright white rump patch; thin tail with a prominent black tuft; correct digitigrade leg geometry with a distinct, sharp hock.
+* Must avoid: Fluffy, pure white deer tails; backward-bending or double-jointed hind legs; the dark lateral stripe bleeding onto the white rump.
+C13 Half face close-up
+An extreme close-up of a split face requires absolute anatomical fidelity to distinguish the image from CGI. The nostril is comma-shaped and textured with slightly moist, dark, porous, and leathery skin. Fine, stiff vibrissae (whiskers) sprout sparsely from the muzzle and chin.25 The boundary of the stark white face mask must remain razor-sharp against the dark reddish-brown eye streak.8 The eye itself features long, stiff lashes on the upper lid to guard against windblown dust.25
+The lighting in a macro shot must catch microscopic environmental details: the rough texture of the nose, a tiny, accurate specular highlight reflecting the dry horizon in the dark, horizontally-slitted pupil 24, and perhaps a few realistic ticks attached near the base of the ear or the corner of the eye to cement the "real veld" aesthetic without making the animal look diseased.
+AI generative models heavily lean toward over-smoothing these micro-textures, delivering a plastic, overly-perfected, waxy appearance.30 They also frequently fail at rendering realistic vibrissae, turning them into thick, wire-like artifacts, spiderwebs, or random digital noise.21
+* Must show: Moist, porous, textured nostril; fine, stiff vibrissae; horizontal/oval pupil; razor-sharp boundary of the dark eye streak.
+* Must avoid: Waxy, plastic, or overly smooth skin textures; perfectly round human pupils; thick, wire-like or web-like whiskers; sterile "studio" perfection.
+D1. Colour, light, and texture
+To prioritize realism over cinematic drama, lighting must reflect the harsh, uncompromising realities of the South African interior. At first light, the low angle of the sun enhances the rich cinnamon-tan of the dorsum, casting long, sharp shadows across the dusty veld. Under the intense, direct light of the midday sun, contrast is blown out, shadows drop vertically beneath the animal, and the coat appears slightly washed out and dusty.20 Ambient dust kicked up by hooves easily coats the white hair of the lower legs in a faint reddish (Kalahari) or grayish-brown (Karoo) tint.19 A realistic, low ectoparasite load—perhaps one or two small, engorged ticks near the ear base or groin—adds an uncompromising layer of documentary realism.
+E1. Behaviour snippets
+The most iconic and visually spectacular behavior of the springbok is "pronking" (or stotting), an alarm or fitness-display mechanic where the animal leaps up to 2 meters vertically into the air.11 During a true pronk, the back is deeply arched, all four legs are held perfectly stiff and bunched together, the head points downward, and the dorsal marsupium pocket completely everts to flash a brilliant white crest of hair.14 In standard flight, they abandon the stiff-legged pronk and run at speeds up to 88 km/h with an elongated, flattened, ground-covering stride.15 Herds maintain a loose, widely spaced geometry while grazing, but will instantly bunch together tightly when alarmed by a predator.44
+F1. Background discipline
+Backgrounds must remain strictly generic but biologically accurate to South African biomes to avoid looking like a zoo or a composite image. The Highveld biome requires flat or gently undulating plains of golden or pale yellow Themeda triandra (red grass) under endless blue skies.47 The Karoo edge features cracked, stony earth with sparse, low-lying, drought-resistant dwarf shrubs and succulents.19 The environment must explicitly avoid identifiable landmarks, wire fencing, or agricultural infrastructure. When an extreme shallow depth of field (DOF) is required, the background should dissolve into an anonymous, creamy bokeh of pale yellows, dusty greens, and earth tones, keeping the viewer's focus entirely locked on the subject's morphology.
+G1. Output format for Species 1
+All headings A1 through G1 have been strictly followed. Sections C1 through C13 conform to the required paragraph structure, integrating detailed anatomical descriptions, lighting, AI failure modes, and bulleted must show / must avoid constraints.
+H1. Sources
+Data synthesized from SANBI (South African National Biodiversity Institute) species status reports 37, peer-reviewed osteomorphology and dental anatomy studies 38, and standard field guides for Southern African mammals (e.g., Skinner & Chimimba).11
+CHEAT SHEET 1 (Max 25 lines, dense facts only, Species 1 only)
+* Species: Antidorcas marsupialis (Springbok).
+* Size: Shoulder height 71-86 cm. Males 33-50 kg; females 27-37 kg.
+* Horns: Present on BOTH sexes. Black, heavily ridged, lyre-shaped, tips hook inward. Female horns 60-70% male length, much thinner.
+* Coat Pattern: Tri-color. Cinnamon-tan back, dark reddish-brown lateral stripe, pure white belly/inner legs.
+* Face: White face mask with a dark streak running through the eye to the corner of the mouth.
+* Eyes: Lateral placement, horizontal/oval pupils, stiff eyelashes.
+* Mouth: NO upper incisors; hard upper dental pad; lower incisors present. Narrow, pointed muzzle.
+* Tail: Short, white at base, distinct black tuft.
+* Hooves: Cloven (two-toed), sharp, narrow, black/dark gray, approx 5.5 cm long.
+* Dorsal Fan (Marsupium): Hidden pocket on mid-back to rump. Closed = dark line. Open (during pronking) = bright white hair crest.
+* Gait/Behavior: "Pronking" - vertical leaps up to 2m, stiff bunched legs, arched back, head down, white crest fully exposed.
+* Variants: Pure white, pure black, and copper (caramel replaces white belly). Same physical anatomy, just palette swaps.
+* Habitat: Arid open plains, Karoo (stony/shrubs), Kalahari (red sand), Highveld (short grass).
+* AI Red Flags: Round human pupils, deer antlers, upper front teeth, thick stocky legs, gradient blended coat colors, missing dark face stripe.
+================================================================================ SPECIES 2: Blesbok (Damaliscus pygargus, southern African form)
+A2. Taxonomy and scope
+The blesbok (Damaliscus pygargus phillipsi) is a medium-sized, stocky antelope endemic to the Highveld grasslands and central plains of South Africa.55 Taxonomically, it is a subspecies of Damaliscus pygargus, sharing the genus with its rarer, coastal-dwelling relative, the bontebok (D. p. pygargus).56 For prompt writers and estate marketing, the separation must be absolute: the blesbok is characterised by a duller, reddish-brown coat and a white facial blaze that is interrupted by a horizontal brown band above the eyes, while the bontebok features a highly glossy, purplish-black coat, an unbroken facial blaze, and a pure white rump.56 While rare phenotypic variants like the yellow or white blesbok (leucistic mutations) are bred on some estates, the wild-type reddish-brown is the critical standard for realistic imagery.59
+A3. Confusion pairs
+In AI image generation, the blesbok is highly susceptible to latent space contamination, frequently being mistaken for the bontebok, the springbok, the hartebeest, or even North American white-tailed deer due to generalized "white-faced antelope" tagging.7 Single-glance separation is imperative.
+
+
+Feature
+	Blesbok (D. p. phillipsi)
+	Bontebok (D. p. pygargus)
+	Hartebeest (Alcelaphus buselaphus)
+	White-tailed Deer
+	Facial Blaze
+	White blaze BROKEN by a horizontal brown band above the eyes.55
+	Continuous, unbroken white blaze from horns to nose.56
+	Elongated, plain brown face, sometimes with black markings; no white blaze.62
+	Plain face with white eye-rings and muzzle band.49
+	Coat/Rump
+	Dull reddish-brown; pale tan/yellowish rump patch.56
+	Glossy purplish-black; pure stark white rump patch.56
+	Golden-brown to red-brown; pale rump.63
+	Reddish-brown (summer) or grey (winter); large white tail flag.64
+	Horns
+	Both sexes; S-shaped curve, heavily ridged, straw-colored tops.56
+	Both sexes; S-shaped curve, heavily ridged, black tops.56
+	Both sexes; complex angular/Z-shaped brackets.62
+	Males only; branched, smooth antlers (shed annually).49
+	Body Depth
+	Deep-chested, sloping backline (shoulders higher than rump).66
+	Deep-chested, sloping backline.67
+	Extreme sloping backline, very high shoulders.63
+	Level backline, parallel to the ground.49
+	B2. Sexual dimorphism (critical for prompts)
+Sexual dimorphism in the blesbok is subtle and easily overlooked by the untrained eye, making it a critical detail for hyper-realistic prompting. Both males and females possess heavily ridged, S-shaped horns.61 The horns of the adult male are noticeably thicker at the base, slightly longer (ranging from 35 to 50 cm), and tend to be lighter in overall color—often presenting yellowish-brown or straw-colored highlights on the ridges due to wear and age.29 The female's horns are proportionately more slender and slightly shorter.65 Males are noticeably heavier and stockier, ranging from 65 to 85 kg, while females range from 55 to 70 kg.55 Adult males often carry minor scarring on the face, neck, and flanks from territorial combat during the rut. Calves are born a pale tan or light yellowish-brown with dark, muddy faces, completely lacking the prominent white blaze and horns, which develop slowly as they mature.57
+C14 Full body
+The blesbok is a sturdy, medium-sized antelope standing roughly 85 to 100 cm at the shoulder.55 Its anatomy is defined by a distinct downward slope along the backline, with the muscular shoulders sitting visibly higher than the hindquarters.66 The coat is predominantly a dull, earthy reddish-brown, developing a slightly lighter, yellowish-brown "saddle" area on the mid-back, which fades into a pale tan patch on the rump.61 The legs are brown with a white patch tucked behind the upper forelegs. The lower legs (from the carpal/tarsal joints down) feature white "stockings," though the outer and front surfaces of the limbs often remain dark brown, distinguishing them from the pure white stockings of the bontebok.56
+In a photoreal prompt, the blesbok must be heavily grounded in open, flat Highveld grassland. The weight of the animal (up to 85 kg) should appear fully supported by strong, sturdy legs, which are thicker and less fragile-looking than those of a gazelle or springbok. The ambient lighting should reflect off the slightly coarse coat, highlighting the lighter saddle area against the darker, shadow-catching flanks.
+AI failure modes are notoriously rampant with the blesbok. The AI will frequently default to generating the pure white rump of a bontebok instead of the correct pale tan.21 Generative models also struggle with the sloping backline, often overriding the prompt to render the blesbok with the level, rectangular, parallel-to-the-ground body shape of a domestic horse or a white-tailed deer.49
+* Must show: Sloping backline (shoulders higher than rump); dull reddish-brown body with a lighter saddle; broken white facial blaze; pale tan (not white) rump.
+* Must avoid: Pure stark white rump patches; continuous, unbroken facial blazes; level, deer-like body proportions and flat backlines.
+C15 Eyes
+The eyes of the blesbok are set against the dark brown lateral bands of the face, framing the central white blaze.61 The pupils are standard ungulate horizontal ovals, perfectly adapted for scanning the wide, flat horizon of the Highveld.24 A critical anatomical feature, highly visible near the eye, is the preorbital gland. In the blesbok, this gland presents as a distinct, dark, slightly moist depression located just below and in front of the eye, which both sexes use to secrete scent onto grass stalks for territorial marking.57
+A close-up shot of the eye should beautifully capture the stark contrast between the dark, liquid, reflective eye and the matte, reddish-brown hair immediately surrounding it. The white hair of the blaze should be bright, but it must be separated from the eye by a narrow band of dark fur. Eyelashes are present, stiff, but relatively short.
+AI models almost universally fail to render the preorbital gland, leaving the area in front of the eye perfectly smooth and featureless, much like a human face.21 Furthermore, the AI frequently bleeds the white fur of the blaze directly into the eye socket, erasing the necessary dark boundary that separates the blesbok's eye from its nasal blaze.
+* Must show: Horizontal/oval pupil; distinct dark fur separating the eye from the white blaze; highly visible preorbital scent gland depression.
+* Must avoid: White fur touching the eye directly; perfectly round pupils; smooth, plastic-like skin lacking the glandular texture.
+C16 Horns
+Both male and female blesboks carry impressive, heavily ringed horns. They rise straight up from the top of the skull, curve backward and slightly outward, and then hook slightly forward at the very tips, forming a distinct, flowing S-shape.29 The horns are heavily grooved and ridged for roughly 85% to 90% of their length, terminating in smooth, sharp tips.61 A vital defining feature of the blesbok (especially when compared to the jet-black horns of the bontebok) is that the upper surfaces of the ridges are often straw-colored, yellowish-brown, or pale due to environmental wear.56
+In standard lighting, these straw-colored ridges catch the ambient sun, creating a striking, striated, comb-like visual texture against the darker, shadow-filled recesses of the grooves between the rings. The smooth, unridged tips remain dark and sharply pointed.
+AI fails catastrophically by generating smooth, featureless horns, or by rendering them jet black like those of a bontebok.56 The AI also frequently struggles with the specific S-curve geometry, instead producing simple crescent shapes (like a goat), or twisting the horns into a corkscrew spiral (like a kudu or eland).31
+* Must show: Distinct S-shaped curve; heavy ridges extending almost to the tip; straw-colored or yellowish-brown highlights on the upper ridges.
+* Must avoid: Perfectly straight horns; spiral, twisted, or corkscrew shapes; smooth, unridged surfaces; jet-black horns.
+C17 Female
+The female blesbok is anatomically very similar to the male, presenting a significant challenge for exact visual differentiation.55 She shares the exact same reddish-brown coat, the broken white facial blaze, and the characteristic sloping backline. The primary visual differences are her slightly smaller, lighter frame (55-70 kg) and her horns, which are noticeably more slender and slightly shorter than the male's, though they remain heavily ringed and S-shaped.57
+A photorealistic portrayal of a female is best set within a herd context. Females, calves, and juveniles congregate in large, gregarious herds on the Highveld plains.60 The background should feature short, tightly grazed grass, with anonymous, softly blurred herd members in the shallow depth of field to establish her highly social nature.
+Because both sexes are horned and identically patterned, AI often completely ignores sexual dimorphism prompts. When asked for a "female blesbok," it will frequently generate a massive, thick-horned, heavy-necked male. Alternatively, the AI may incorrectly strip the horns entirely from the female, reverting to a generic deer or impala template where females are hornless.9
+* Must show: Slender but heavily ringed horns; reddish-brown coat; broken white facial blaze; slightly lighter neck build.
+* Must avoid: Hornless heads; massive, ultra-thick horn bases; solitary, aggressive male territorial posturing.
+C18 Male
+The mature male blesbok is a sturdy, heavy-set, robust animal weighing up to 85 kg.55 His neck is notably thicker and more muscular to support the impacts of territorial clashing, and his horns feature thick, heavy bases that are noticeably lighter in color (yellow-brown) due to extensive wear and age.29 Males frequently bear the physical toll of the rut, meaning photorealism is greatly enhanced by including minor scarring, torn ear tips, or rubbed, rough patches of fur along the neck and flanks.
+To accurately depict a male, the lighting should emphasize his substantial bulk and the steep height of his shoulders relative to his hindquarters. Males are highly territorial and can often be seen solitary, standing proudly on dung middens, or aggressively patrolling their marked area on the open plains.60
+AI models tend to over-exaggerate the male blesbok's bulk, turning it into a monstrous, heavily muscled, steroid-injected beast resembling a domestic bull or an eland.7 AI also routinely fails to render the specific broken facial blaze on the male, either connecting it entirely (making him a bontebok) or generating random, chaotic white spots across the face.56
+* Must show: Thick horn bases with prominent straw-colored ridges; heavy, muscular, sloping shoulders; broken white facial blaze; minor realistic wear/scars.
+* Must avoid: Over-exaggerated, unrealistic bovine muscle mass; continuous, unbroken facial blazes; solid black horns.
+C19 Eating
+The blesbok is strictly a grazer, exhibiting a strong preference for short grasses, especially the fresh, highly nutritious green growth that sprouts immediately following a veld fire.53 When eating, the blesbok lowers its head entirely to the ground, utilizing its broad, flat muzzle to efficiently crop grass extremely close to the soil.
+Crucially, the blesbok, like the springbok and all other ruminant bovids, possesses a hard, fibrous, toothless dental pad on the upper jaw instead of upper incisors.39 When cropping grass, the lower incisors press upward against this tough pad to sever the plant material. The lips are thick, muscular, and highly mobile to grasp the short grass.
+AI models fundamentally fail at rendering ungulate mouth anatomy. When prompted for an animal eating or with an open mouth, the AI will almost invariably generate a horrifying row of square, human-like upper teeth, completely destroying the anatomical reality of the image.42 This requires highly specific negative prompting to avoid.
+* Must show: Head lowered to short grass; hard, toothless upper dental pad (if mouth interior is visible); broad, flat grazing muzzle.
+* Must avoid: Upper front teeth or incisors of any kind; browsing posture (eating from tall trees/shrubs); human-like or dog-like dentition.
+C20 Drinking
+Blesboks are highly water-dependent animals and must drink daily, making waterholes a very common and natural setting for photography.53 Their stance while drinking involves extending the neck far down and occasionally spreading the forelegs slightly, though the splay is not nearly as extreme as that of a giraffe or a springbok due to their stockier, slightly different proportions.
+The image should capture the physical interaction of the broad, white-blazed muzzle gently breaking the surface tension of the water. The surrounding environment should reflect a muddy, hoof-trampled waterhole edge, typical of Highveld pans.
+AI often struggles profoundly with the spatial interface between the animal and the water surface. It may generate geometrically impossible reflections, merge the bright white of the muzzle seamlessly into the reflection of the sky, or completely botch the anatomy of the forelegs, making them appear amputated as they meet the muddy bank.21
+* Must show: Broad muzzle physically touching the water; accurate concentric ripples; mathematically correct reflection of the broken face blaze.
+* Must avoid: Melting or clipping geometry where the muzzle meets the water; missing, blurry, or mismatched reflections; broken/amputated foreleg anatomy.
+C21 Hooves
+Blesbok hooves are cloven (two-toed), sturdy, and relatively large, designed to support their heavier, 85 kg frame across the firm grassland plains.73 They are dark grey to black in color. The lower legs feature highly distinct markings: the front surfaces of the forelimbs usually remain a dark, muddy brown, while the back and lower portions feature white "stockings".56
+A close-up of the hooves should show them planted firmly in the iconic Highveld red soil or surrounded by dry, golden grass. The hooves must show natural environmental wear—dullness, scratches, and perhaps caked mud or red dust from the veld.
+AI fails repeatedly at hoof generation, frequently outputting a single, solid hoof like a horse, or hallucinating three or four fleshy, claw-like toes.21 It also routinely fails at the specific leg coloration, either making the entire leg pure white (like a bontebok) or entirely solid brown, missing the complex stocking pattern.56
+* Must show: Cloven (two-toed) black/dark grey hooves; white stockings combined with dark brown on the outer/front surfaces of the legs.
+* Must avoid: Solid, single equine hooves; multiple toes or paws; pure white legs lacking brown stripes.
+C22 Barely visible
+A blesbok partially obscured by its environment creates a highly realistic, documentary-style photographic scenario. In the Highveld, this typically means the animal's lower half is completely hidden by dense, tall, golden-brown grasses (such as Themeda triandra), while the distinctive white facial blaze, brown horizontal eye-band, and S-shaped horns rise proudly above the vegetation.48
+The depth of field should be extremely shallow, blurring the foreground grass blades into soft, painterly golden streaks, while keeping the high-contrast white and brown of the blesbok's face in absolute, tack-sharp focus. Airborne dust or distant heat haze can soften the edges of the animal, adding atmospheric depth.
+AI failure modes for intentional occlusion involve merging the animal's fur texture with the environmental plant textures. The AI might generate grass that appears to grow directly out of the blesbok's fur, or create a bizarre "floating head" with no implied physical body structure existing beneath the grass line.21
+* Must show: Clean, physical occlusion by golden grassland; sharp focus on the white facial blaze and horns; physical depth and distance.
+* Must avoid: Fur blending or melting into grass textures; floating heads without bodies; artificial blurring that ignores actual spatial depth.
+C23 Coat
+The pelage of the blesbok is a dull, earthy, reddish-brown, which is notably less glossy and lacks the striking purplish-black sheen of the bontebok.56 The back features a slightly lighter, yellowish-brown "saddle" area, and the rump is a pale tan or yellowish-white—distinctly and importantly not the pure, stark white of the bontebok.56 The tail is relatively short and features a dense, bushy black tuft.75
+The texture of the coat should appear relatively smooth but thick and dense, providing vital insulation against the freezing Highveld winter nights.60 Under harsh sunlight, the lighter saddle should contrast clearly with the darker, shadow-catching flanks.
+AI fundamentally struggles with the nuance of the blesbok vs. bontebok coat distinction. Without incredibly strict negative prompting, AI will generate the pure white rump and the glossy purplish coat of the bontebok.21 It also struggles to accurately render the subtle, lighter saddle on the back, often defaulting to a flat, monochromatic brown texture.
+* Must show: Dull reddish-brown body; lighter yellowish-brown saddle on the back; pale tan/yellowish-white rump; black-tufted tail.
+* Must avoid: Pure, stark white rump patches; purplish-black, highly glossy coats; monochromatic, flat coloring lacking the lighter saddle.
+C24 Front half from side
+From a side profile, the blesbok's highly distinctive sloping posture is incredibly visible, with the heavily muscled shoulders sitting noticeably higher than the rest of the body.66 The neck is thick, robust, and brown, transitioning smoothly to the darker flanks. The profile of the head showcases the long, somewhat narrow face, the prominent, dark preorbital scent gland, and the magnificent S-shaped sweep of the ridged horns.65
+Lighting from a low angle should emphasize the robust, heavy nature of the chest and shoulders. The white patch located on the back of the upper foreleg should be clearly visible against the surrounding brown fur.
+AI failure modes here frequently include flattening the backline entirely to resemble a typical deer, stripping away the unique bovid slope.49 The AI may also misplace the horns, causing them to jut straight forward or straight up, rather than capturing the backward and upward S-curve sweep. The AI may also generate an overly short, stubby muzzle.
+* Must show: Sloping backline (high shoulders); thick, robust neck; S-shaped horn profile; white patch behind the upper foreleg.
+* Must avoid: Level, flat backlines; straight or forward-pointing horns; short, stubby, sheep-like muzzles.
+C25 Back half from side
+Viewing the rear half of the blesbok from a side profile highlights the critical transition from the darker reddish-brown flanks to the pale tan (not white) rump patch.56 The distinct downward slope of the backline continues to the base of the tail. The tail itself hangs downward, ending in a bushy black tuft.75 The white stockings on the lower hind legs are clearly visible, contrasting sharply with the darker brown of the upper leg.
+The texture of the pale tan rump should look like dense, coarse animal hair, not a flat, painted marking. Lighting striking from the rear will beautifully highlight the black tuft of the tail against the pale background of the rump.
+AI will almost always default to generating a glaringly bright, pure white rump patch, hallucinating a bontebok or a Grant's gazelle instead of a blesbok.13 It also struggles immensely with the tail, sometimes generating a thick, fluffy, upright white tail (like a white-tailed deer) instead of the blesbok's thin tail with a black tuft.
+* Must show: Pale tan/yellowish-white rump; downward sloping backline; thin tail ending in a black tuft.
+* Must avoid: Pure, stark white rumps; fluffy, upright deer-like tails; level, flat backlines.
+C26 Half face close-up
+An extreme close-up of the blesbok's face must focus relentlessly on the definitive "bles" (blaze). The stark white blaze runs down the front of the face, but it is characteristically and crucially interrupted or "broken" by a horizontal band of brown fur located just above the eyes.61 The muzzle is relatively broad, adapted for grazing, ending in dark, heavily textured, moist nostrils. The ears are long, pointed, and lined with white hair on the inside.70
+The lighting should capture the coarse, dense texture of the white and brown hair. The preorbital gland located near the eye should appear as a small, dark, slightly moist, skin-textured depression.57
+AI's most common and catastrophic failure when generating the blesbok is rendering a continuous, unbroken white blaze from the base of the horns down to the nose, effectively creating a bontebok.56 It will also routinely smooth out the preorbital gland, treating it as a digital image artifact to be erased rather than a vital anatomical feature.
+* Must show: White facial blaze explicitly broken by a brown horizontal band above the eyes; visible preorbital gland; broad, grazing muzzle.
+* Must avoid: Continuous, unbroken white facial blazes; smooth skin lacking scent glands; narrow, delicate gazelle-like muzzles.
+D2. Colour, light, and texture
+The blesbok’s environment drastically dictates its lighting and texture. Found primarily on the high-altitude Highveld, the light is typically clear, harsh, and sharp. At midday, the dull reddish-brown coat absorbs light, while the straw-colored horn ridges and the bright white facial blaze reflect it intensely.56 The soil of the Highveld is often rich red or dusty brown, which can lightly coat the white stockings of the lower legs with a rusty tint.52 A photorealistic rendering must meticulously avoid the high-gloss, purplish sheen of the bontebok, instead favoring a denser, matte, weather-resistant fur texture suited to surviving the freezing Highveld winters.60
+E2. Behaviour snippets
+A highly unique, visually striking, and camera-visible behavior of the blesbok is their tendency to stand in tightly packed, uniformly orientated groups during the intense heat of the day, with their heads lowered almost to the ground and facing directly into the sun.60 This specific thermoregulatory posture is iconic to the species. When alarmed or fleeing, they do not jump or pronk like the springbok; instead, they run with their heads held low to the ground, often moving in a strict, single-file line.60 Territorial males will stand sideways to display their dominance and aggressively mark grass stalks with their preorbital scent glands.57
+F2. Background discipline
+Blesbok belong exclusively in the open plateau grasslands of the Highveld.55 Backgrounds should feature expansive, flat, or gently undulating plains covered in short green grass (if depicted after a veld burn) or dry, golden-brown winter grass.53 Prompts must strictly avoid rocky, mountainous terrain, or dense, thorny bushveld, as blesbok actively avoid heavily wooded areas.61 A shallow DOF should render the background as a sweeping, anonymous wash of golden and green hues, completely devoid of fences, roads, or artificial farm landmarks.
+G2. Output format for Species 2
+All headings A2 through G2 have been strictly followed. Sections C14 through C26 conform to the required paragraph structure, integrating detailed anatomical descriptions, lighting, AI failure modes, and bulleted must show / must avoid constraints.
+H2. Sources
+Data synthesized from SANBI (South African National Biodiversity Institute) species status reports 53, detailed taxonomic distinction guidelines (blesbok vs. bontebok) 56, and authoritative field guides for Southern African mammals.60
+CHEAT SHEET 2 (Max 25 lines, dense facts only, Species 2 only)
+* Species: Damaliscus pygargus phillipsi (Blesbok).
+* Size: Shoulder height 85-100 cm. Males 65-85 kg; females 55-70 kg.
+* Posture: Distinct sloping backline; heavy, high muscular shoulders dropping to lower hindquarters.
+* Horns: Present on BOTH sexes. S-shaped curve, heavily ridged. Upper ridges are straw-colored/yellowish-brown.
+* Coat Pattern: Dull reddish-brown overall. Lighter yellowish-brown "saddle" on the back. Pale tan rump.
+* Face: White blaze on the face that is explicitly BROKEN/DIVIDED by a horizontal brown band above the eyes.
+* Eyes: Horizontal/oval pupils. Prominent preorbital scent glands visible below/front of the eyes.
+* Mouth: NO upper incisors; hard upper dental pad; broad, flat muzzle for grazing.
+* Legs: White "stockings" on lower legs, but outer/front surfaces often remain dark brown.
+* Tail: Short, with a bushy black tuft.
+* Hooves: Cloven (two-toed), dark grey/black, sturdy.
+* Gait/Behavior: Runs in single-file lines with head low. Rests by standing in groups, heads bowed, facing the sun.
+* Habitat: Highveld open plateau grasslands. Avoids dense woods.
+* AI Red Flags: Continuous white face blaze (bontebok trait), pure white rump (bontebok trait), black horns, level deer-like backline, upper front teeth.
+Works cited
+1. Springbok - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Springbok
+2. The Springbok: Antidorcas marsupialis (Zimmermann, 1790) Prehistory and historical background, morphology - Sabinet African Journals, accessed April 20, 2026, https://journals.co.za/doi/pdf/10.10520/AJA090799001_49
+3. Genetic variation among different springbok (Antidorcas marsupialis) colour variants | Request PDF - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/336999090_Genetic_variation_among_different_springbok_Antidorcas_marsupialis_colour_variants
+4. Springbok – Four Color Phases - Jules of the Karoo, accessed April 20, 2026, http://www.julesofthekaroo.co.za/springbok-four-color-phases/
+5. Copper Springbok | Big Game Hunting Records - Safari Club International Online Record Book, accessed April 20, 2026, http://www.scirecordbook.org/copper-springbok/
+6. Twins of the Wild: Antelope Species That Look Alike But Aren't the Same, accessed April 20, 2026, https://crosswildsafaris.com/different-antelope-species-that-look-alike/
+7. Antelope vs gazelle: key differences and how to spot them - Altezza Travel, accessed April 20, 2026, https://altezzatravel.com/articles/antelope-vs-gazelle
+8. Springbok (Antidorcas Marsupialis) - EL Education, accessed April 20, 2026, https://www.eleducation.org/curriculum/student-resources/springbok-antidorcas-marsupialis/
+9. Impala - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Impala
+10. Thompsons Gazelle by Timothy Hacker - Pixels, accessed April 20, 2026, https://timothy-hacker.pixels.com/featured/thompsons-gazelle-timothy-hacker.html
+11. Springbok Animal Facts - Antidorcas marsupialis, accessed April 20, 2026, https://a-z-animals.com/animals/springbok/
+12. The Impala: a fascinating social species worthy of our attention - Paws Trails Magazine, accessed April 20, 2026, https://www.pawstrailsmagazine.com/the-impala-a-fascinating-social-species-worthy-of-our-attention/
+13. Grant's Verses Thomson's Gazelle - Snapshot Serengeti, accessed April 20, 2026, https://blog.snapshotserengeti.org/2017/04/07/grants-verses-thompsons-gazelle/
+14. Springbok Antelope - Kalahari Hunting Namibia Africa, accessed April 20, 2026, https://www.kalahari-trophy-hunting.com/springbok.html
+15. Springbok | African Antelope, Adaptations & Behavior - Britannica, accessed April 20, 2026, https://www.britannica.com/animal/springbok-mammal
+16. Antelope vs Gazelle: Features, Speed & Size Comparison - Africa Freak, accessed April 20, 2026, https://africafreak.com/antelope-vs-gazelle
+17. Springbok | Animal Database - Fandom, accessed April 20, 2026, https://animals.fandom.com/wiki/Springbok
+18. What Are The Differences Between A Springbok And An Impala? - World Atlas, accessed April 20, 2026, https://www.worldatlas.com/articles/what-are-the-differences-between-a-springbok-and-an-impala.html
+19. Succulent Karoo Biome - PlantZAfrica |, accessed April 20, 2026, https://pza.sanbi.org/vegetation/succulent-karoo-biome
+20. Karoo - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Karoo
+21. What Common Errors Should I Look Out for in Image Generation? - Help Center, accessed April 20, 2026, https://help.trypencil.com/en/articles/11359154-what-common-errors-should-i-look-out-for-in-image-generation
+22. Different pupil shapes in animals, accessed April 20, 2026, https://www.sabisabi.com/discover/topics/different-pupil-shapes-in-animals
+23. Bovids of the World: Antelopes, Gazelles, Cattle, Goats, Sheep, and Relatives 9781400880652 - DOKUMEN.PUB, accessed April 20, 2026, https://dokumen.pub/bovids-of-the-world-antelopes-gazelles-cattle-goats-sheep-and-relatives-9781400880652.html
+24. Guide to what different shaped pupils do as well as the animals which have them. - Reddit, accessed April 20, 2026, https://www.reddit.com/r/coolguides/comments/ft1b4z/guide_to_what_different_shaped_pupils_do_as_well/
+25. Pupil shapes and lens optics in the eyes of terrestrial vertebrates - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/7414913_Pupil_shapes_and_lens_optics_in_the_eyes_of_terrestrial_vertebrates
+26. What Are Sanpaku Eyes? - All About Vision, accessed April 20, 2026, https://www.allaboutvision.com/eye-care/cosmetic/sanpaku-eyes/
+27. A Taxonomy of Six Perceptual Cues Underlying Photorealism in 3D-Rendered Architectural Scenes: A Cue-Based Narrative Review - MDPI, accessed April 20, 2026, https://www.mdpi.com/2313-433X/12/3/113
+28. African animals with horns: facts and photos - IFAW, accessed April 20, 2026, https://www.ifaw.org/journal/african-animals-horns
+29. (PDF) Focus on the Blesbok (Damaliscus pygargus phillipsi) - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/316156647_Focus_on_the_Blesbok_Damaliscus_pygargus_phillipsi
+30. 5 Telltale Signs That a Photo Is AI-generated - Kellogg Insight, accessed April 20, 2026, https://insight.kellogg.northwestern.edu/article/ai-photos-identification
+31. Qualitative Failures of Image Generation Models and Their Application in Detecting Deepfakes - arXiv, accessed April 20, 2026, https://arxiv.org/html/2304.06470v5
+32. Highveld Grasslands | One Earth, accessed April 20, 2026, https://www.oneearth.org/ecoregions/highveld-grasslands/
+33. South Africa's Bushveld Vegetation: An Introduction, accessed April 20, 2026, https://botanicalsociety.org.za/south-africas-bushveld-vegetation-an-introduction/
+34. Gazelle vs Impala: Key Differences Explained - A-Z Animals, accessed April 20, 2026, https://a-z-animals.com/animals/comparison/gazelle-vs-impala-differences/
+35. sexual dimorphism in the greater one-horned rhinoceros - Rhino Resource Center, accessed April 20, 2026, https://rhinoresourcecenter.com/wp-content/uploads/2006/12/1178934690.pdf
+36. Why oh why can Dall-E not create images of African animals properly? : r/dalle2 - Reddit, accessed April 20, 2026, https://www.reddit.com/r/dalle2/comments/1cr1onf/why_oh_why_can_dalle_not_create_images_of_african/
+37. Antidorcas marsupialis Zimmermann, 1780 - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/taxa/detail/1940/
+38. Dental pad - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Dental_pad
+39. Dental Anatomy of Ruminants, accessed April 20, 2026, https://vivo.colostate.edu/hbooks/pathphys/digestion/pregastric/cowpage.html
+40. Dental Formula - Ruminants - WikiVet English, accessed April 20, 2026, https://en.wikivet.net/Dental_Formula_-_Ruminants
+41. Farm Animal Dentistry, Part 2: Cows, Goats, Alpaca, and Llama | PetMD, accessed April 20, 2026, https://www.petmd.com/blogs/thedailyvet/aobriendvm/2015/february/dental-care-cows-goats-and-surprisingly-vicious-llama-324
+42. Qualitative Failures of Image Generation Models | by Ali Borji - Medium, accessed April 20, 2026, https://medium.com/@aliborji/qualitative-failures-of-image-generation-models-36c5ce9ecc53
+43. Springbok (Antidorcas marsupialis) Dimensions & Drawings, accessed April 20, 2026, https://www.dimensions.com/element/springbok-antidorcas-marsupialis
+44. Antidorcas marsupialis (springbok) | INFORMATION - Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Antidorcas_marsupialis/
+45. Antidorcas marsupialis (Zimmermann, 1780) - GBIF, accessed April 20, 2026, https://www.gbif.org/fr/species/113391396
+46. How to Identify Deer Tracks From Other Similar Footprints - Alderleaf Wilderness College, accessed April 20, 2026, https://www.wildernesscollege.com/identify-deer-tracks.html
+47. Themeda triandra - PlantZAfrica |, accessed April 20, 2026, https://pza.sanbi.org/themeda-triandra
+48. Exploring The Great Karoo Grasslands Biome, accessed April 20, 2026, https://logandalodge.co.za/the-great-karoo-grasslands/
+49. Difference Between Impala and Deer, accessed April 20, 2026, https://www.differencebetween.com/difference-between-impala-and-vs-deer/
+50. Blesbok, Blesbok, Amen - Kalahari Hunting Namibia Africa, accessed April 20, 2026, https://www.kalahari-trophy-hunting.com/blesbok-blesbok-amen.html
+51. A Close-Up of an Eye with a Rainbow Iris and Long Eyelashes - Impossible Images, accessed April 20, 2026, https://impossibleimages.ai/impossible-image/a-close-up-of-an-eye-with-a-rainbow-iris-and-long-eyelashes/
+52. Soil colour values (topsoil and subsoil) for the classified... - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/figure/Soil-colour-values-topsoil-and-subsoil-for-the-classified-soils-Error-bars-indicate_fig1_271874221
+53. Red List of South African Species - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/taxa/detail/1892/
+54. Comparative postcranial osteomorphology and osteometry of springbok, Antidorcas marsupialis (Zimmerman, 1780) and grey rhebok, P, accessed April 20, 2026, https://epub.ub.uni-muenchen.de/8394/1/8394.pdf
+55. Blesbok - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Blesbok
+56. Bontebok Abound - Remote Camera Trap - South Africa - MyWild, accessed April 20, 2026, http://cameratrap.mywild.co.za/2010/02/bontebok-abound.html
+57. Damaliscus pygargus (blesbok) | INFORMATION | Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Damaliscus_pygargus/
+58. accessed April 20, 2026, https://www.kariega.co.za/blog/photo-blesbok-and-bontebok#:~:text=The%20two%20antelope%20are%20difficult,purple%2Dblack%20plum%20in%20colour.
+59. Color Phases and Color Variants in Game Animals: What you need to know, accessed April 20, 2026, https://blog.bookyourhunt.com/color-phases-and-color-variants-in-game-animals-what-you-need-to-know/
+60. Blesbok - DeWetsWild, accessed April 20, 2026, https://dewetswild.com/tag/blesbok/
+61. Blesbok - Facts, Diet, Habitat & Pictures on Animalia.bio, accessed April 20, 2026, https://animalia.bio/blesbok
+62. It's All in the Curve | Sports Afield, accessed April 20, 2026, https://sportsafield.com/2021/its-all-in-the-curve/
+63. Antelope Guide - Grazers & Browsers - Kruger National Park, accessed April 20, 2026, https://www.krugerpark.co.za/Kruger_National_Park_Wildlife-travel/explore-kruger-park-buck-and-antelope.html
+64. Deer Tail Characteristics Comparison - Atlas: School AI Assistant, accessed April 20, 2026, https://www.atlas.org/spaces/solve/deer-tail-characteristics-comparison-mynYjeiSyU3bRamNqpW37A
+65. Blesbok | African Antelope, Conservation Status & Habitat - Britannica, accessed April 20, 2026, https://www.britannica.com/animal/blesbok
+66. BUSH FACTS 34 – BLESBUCK | Shakati Private Game Reserve - WordPress.com, accessed April 20, 2026, https://shakati.wordpress.com/2020/12/13/bush-facts-34-blesbuck/
+67. Blesbok - Blue Planet Biomes, accessed April 20, 2026, https://www.blueplanetbiomes.org/blesbok.php
+68. Blesbok - Antelope - South Africa Wildlife Guide - Kruger National Park, accessed April 20, 2026, https://www.krugerpark.co.za/africa_blesbok.html
+69. Blesbok | All information - Beekse Bergen, accessed April 20, 2026, https://www.beeksebergen.nl/en/on-safari/safaripark/animals/blesbok
+70. Blesbok | Matlabas Game Hunters | Animals of the Bushveld, accessed April 20, 2026, https://matlabas.co.za/blesbok/
+71. Blesbok Hunting - Schalk Pienaar Safaris Namibia, accessed April 20, 2026, https://spsafarisnamibia.com/blesbok/
+72. Blesbok - Mammals - South Africa Online, accessed April 20, 2026, https://southafrica.co.za/blesbok.html
+73. Antelope Species of Southern Africa | African Travel Canvas, accessed April 20, 2026, https://africantravelcanvas.com/things-to-see-on-safari/antelope-species-of-southern-africa/
+74. Blesbok on the Highveld by Peter Novellie - Unsung Art, accessed April 20, 2026, https://unsungart.co.za/product/blesbok-on-the-highveld-south-africa-art-artist-peter-novellie/
+75. Damaliscus pygargus phillipsi (Blesbok) - Tsammalex -, accessed April 20, 2026, https://tsammalex.clld.org/parameters/damaliscuspygargusphillipsi
+76. Blesbok - Damaliscus pygargus phillipsi - Endangered Wildlife Trust, accessed April 20, 2026, https://ewt.org/wp-content/uploads/2022/11/8.-Blesbok-Damaliscus-pygargus-phillipsi_LC.pdf
+77. Damaliscus pygargus - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/assessment/last-assessment/1844/

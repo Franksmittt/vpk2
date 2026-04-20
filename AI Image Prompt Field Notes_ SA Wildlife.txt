@@ -1,0 +1,362 @@
+﻿AI Image Generation Reference Guide: Southern African Endemic Ungulates
+================================================================================ SPECIES 1: Waterbuck (Kobus ellipsiprymnus)
+A1. Taxonomy and scope
+The target species for generative rendering within a South African Waterberg or bushveld biome is the common waterbuck (Kobus ellipsiprymnus ellipsiprymnus).1 The species name is critical for establishing the correct phenotype, as the genus encompasses several forms across the continent. For prompt engineers and designers, the sole visually functional distinction between the common waterbuck and the defassa waterbuck (Kobus ellipsiprymnus defassa) lies in the rump markings: the southern African common waterbuck bears a distinct, hollow white elliptical ring surrounding the tail, whereas the defassa phenotype exhibits a solid, filled white patch.2 AI generation must be strictly constrained to produce the hollow ring to maintain geographical accuracy for South African hunting estate visual assets.
+A2. Confusion pairs
+Generative AI models frequently suffer from latent space bleed, drawing heavily from Northern Hemisphere cervids (deer) or conflating African antelopes into generic hybrids. The waterbuck is routinely mistaken by image models for the nyala, puku, lechwe, or a roan antelope in dark lighting.4 The following matrix details the critical single-glance anatomical separations required to force the model away from hallucinated hybrids.
+
+
+Feature
+	Waterbuck (K. ellipsiprymnus)
+	Nyala (Tragelaphus angasii)
+	Puku / Lechwe (Kobus spp.)
+	Silhouette
+	Heavy, barrel-chested, thick neck, robust legs.3
+	Gracile, narrow chest, high-stepping frame.5
+	Medium build, rear-heavy, shorter neck.7
+	Horns
+	Males only. Ridged, sweeping back, out, then forward.6
+	Males only. Smoothly spiraled with ivory tips.5
+	Males only. Shorter, lyrate, curved slightly forward.
+	Neck
+	Extremely thick, coarse shaggy mane.6
+	Slender with a long ventral mane.5
+	Medium thickness, smooth hair.
+	Rump Disc
+	Hollow white elliptical ring crossing the haunch.8
+	No ring; fluffy white undertail only.
+	Solid, diffuse pale rump patch.
+	Legs
+	Black lower legs with a stark white band above hooves.6
+	Orange-tan lower legs with dark upper bands.5
+	Solid dark or reddish-brown.7
+	Tail
+	Medium (22-45 cm), tufted, held down.3
+	Bushy, white underside.5
+	Short, tufted.
+	B1. Sexual dimorphism (critical for prompts)
+Sexual dimorphism in the waterbuck is absolute and forms a primary vector for AI structural failure if not rigidly enforced.3 The model must be prevented from generating horned females or gracile males.
+
+
+Trait
+	Male
+	Female
+	Horns
+	Present. 55 cm to 99 cm.6 Heavily annulated (ridged).
+	Strictly absent.6
+	Mass & Frame
+	198 kg to 262 kg. Heavy, thick neck, prominent shoulders.3
+	161 kg to 214 kg. Slighter frame, narrower neck.3
+	Coat Texture
+	Darker grey-brown, intensely coarse, visibly greasy/oily.3
+	Lighter grizzled brown, coarse but less oily.9
+	Glands/Scars
+	No visible preorbital glands. Neck/flank scars common.3
+	No visible glands. Fewer territorial scars.
+	Young: Calves are born completely hornless with a lighter, fluffier reddish-brown pelage that lacks the greasy, coarse texture of the adults.6 As they progress through their first year, the coat darkens and becomes shaggy. In juvenile males, horn growth begins as straight, unridged spikes before developing the characteristic backward sweep and heavy annulations as they mature toward 14 to 18 months of age.10
+C1. Morphology blocks C1 through C13
+C1 Full body
+The structural foundation of the waterbuck is weight and physical power. The full body presents a robust, heavy-set ungulate with a long torso, a deep chest, and short, highly powerful legs adapted for moving through muddy, riparian environments.3 The shoulder height is substantial, ranging biologically from 120 cm to 136 cm.6 The backline is relatively level, lacking the extreme slope seen in alcelaphines, though the incredibly thick, shaggy hair on the neck can create the optical illusion of slightly higher withers.6
+When standing or walking, the animal's posture is solid and grounded. The neck is held slightly above the horizontal axis of the spine. The ear carriage is typically alert, with the large, rounded ears pointing forward or slightly outward, revealing bright white inner hair.2 The tail is of medium length, ending in a dark tuft, and naturally hangs downward, bisecting the hollow white rump ring.3
+AI models exhibit systemic failure modes when rendering the waterbuck's body. The latent space heavily favors the elegant, long-legged proportions of white-tailed deer or impalas. Models will actively fight the prompt to lengthen the legs, slim the barrel chest, and smooth the coarse coat into a sleek, reflective surface. They also frequently hallucinate vertical white stripes along the flanks due to semantic bleed from the nyala or kudu.
+* Must show: Heavy, barrel-chested torso; short, robust black legs; thick neck; coarse, non-reflective coat; level backline.
+* Must avoid: Sleek, shiny coats; elongated, fragile legs; flank stripes or spots; raised, fluffy tails; narrow, deer-like chests.
+C2 Eyes
+The eyes of the waterbuck are large, dark, and set laterally on the skull, providing a wide field of monocular vision necessary for detecting predators in thick riparian brush.11 Crucially, as a grazing herbivore, the pupil is a horizontal slit, an evolutionary adaptation that maintains a panoramic view of the horizon even when the head is lowered to feed.12 The eyes are framed by highly distinctive white facial markings: a bright white eyebrow stripe extending above the eye, and a lighter patch extending toward the dark tear duct.2
+The default expression for a healthy, unstressed individual should be calm but highly observant. The downward-angled, coarse eyelashes provide protection from the harsh African sun and dust, but they are strictly utilitarian.13 In an alarm state, the eyes widen, potentially revealing the white sclera, but for standard field realism, the iris and pupil should dominate the visible eye.14
+AI failure modes are acute in macro portraits. Image models will almost universally generate round, human-like or canine-like pupils instead of the horizontal slits required for biological accuracy.11 Furthermore, the AI tends to aestheticize the eyelashes, rendering them as long, symmetrical, and cosmetically enhanced, which instantly destroys photorealism.
+* Must show: Horizontal slit pupils; dark brown/black iris; stark white eyebrow stripe; lateral eye placement on the skull.
+* Must avoid: Round pupils; humanized, curled eyelashes; forward-facing predator eye placement; heavy, cosmetic eyeliner markings.
+C3 Horns
+The horns of the waterbuck are exclusive to the male and represent a primary focal point for trophy and wildlife photography. They emerge from the skull widely spaced at the bases, sweeping gracefully backward over the neck, curving outward, and then projecting forward at the tips.2 Biologically, mature horn lengths vary widely from 55 cm to 99 cm; prompts should allow for this variance rather than enforcing an unnatural, uniform maximum.6 The basal two-thirds to three-quarters of the horns are heavily and deeply annulated (ridged), providing structural strength for territorial combat, while the terminal tips are smooth and polished.2
+Realism in mature males often dictates minor asymmetry. The horns may show slight variations in the angle of the forward hook, and the smooth tips may be worn or slightly chipped from fighting.10
+AI failure modes frequently destroy the biological integrity of the horns. Models commonly hallucinate complex, multi-branching antlers derived from deer, or they apply the tight, corkscrew spiral of the kudu.5 Most severely, the AI will routinely violate the sexual dimorphism rule, grafting horns onto female waterbuck.
+* Must show: Sweep backward, outward, then forward; deep, heavy ridges on the lower sections; smooth tips; widely spaced bases.
+* Must avoid: Branching antlers; corkscrew spirals; horns on females; perfectly smooth, unridged horns.
+C4 Female
+A biologically accurate rendering of a female waterbuck must exhibit a complete absence of horns.6 The skull shape, while robust, is slightly narrower and less massive than the male's, though it firmly retains the characteristic dark, heart-shaped rhinarium (nose pad) and the vivid white facial markings, including the muzzle, eyebrows, and the distinctive throat bib.3 The neck is noticeably thinner than a mature male's, lacking the extreme musculature required to support heavy horns, though the hair remains coarse and shaggy.
+If rendered in a herd context, females should be grouped loosely.1 The coat is a grizzled grey-brown, occasionally appearing slightly lighter than the dark, greasy pelage of a dominant male.9 Teats are only visible if the framing is explicitly focused on the underbelly or nursing behavior; otherwise, they are obscured by the coarse hair.
+AI failure modes frequently attempt to "balance" the composition by adding small spike horns or pedicels to the female. Alternatively, the model may overcompensate by rendering the female's face as excessively delicate, mimicking a gazelle or impala, thereby losing the heavy, blunt morphology of the Kobus genus.
+* Must show: Complete absence of horns; smooth skull crown; coarse neck hair; white muzzle and eyebrow markings; robust but feminine frame.
+* Must avoid: Any indication of horns or horn buds; delicate, fragile facial structures; smooth, sleek coats.
+C5 Male
+The mature male waterbuck is a massive, dominant presence on the landscape, weighing between 198 kg and 262 kg.3 The neck is exceptionally thick, covered in long, shaggy hair that forms a rough, untidy mane.6 This thick neck serves as a shock absorber during intense, often lethal, territorial battles with rival males.2 The coat is a dark, grizzled grey-brown, appearing heavily textured and often slightly greasy or matted due to the waterproofing glandular secretions.3
+Photorealism is enhanced by the inclusion of natural wear and tear. Minor, healed scars on the thick skin of the neck, face, or flanks from horn punctures are highly realistic and ground the image in biological reality.10 The overall visual impression should be one of dense, immoveable weight.
+AI failure modes include over-muscling the animal to resemble a heavily vascularized, fantasy creature. Conversely, models may fail to capture the greasy density of the coat, rendering it as dry, fluffy, and perfectly groomed.
+* Must show: Thick, heavily muscled neck; shaggy, greasy-looking coat; widely spaced, ridged horns; robust physical mass; realistic minor scarring.
+* Must avoid: Bodybuilder-style vascularity; fluffy, blown-out, or groomed coats; narrow, fragile necks; excessive, dramatic battle wounds.
+C6 Eating
+Waterbuck are predominantly grazers, specially adapted to consume medium to tall grasses in riparian and floodplain environments, though they will occasionally browse leaves during severe dry seasons.15 When eating, the heavy head is lowered. The mechanics of the mouth must adhere strictly to ruminant dental anatomy: waterbuck completely lack upper front incisors.18 Instead, they possess a hard, cartilaginous dental pad on the upper jaw.
+During the act of grazing, the long, rough tongue wraps around the grass, pulling it against the lower incisors and the upper dental pad to tear it.18 If the mouth is open in the render, this specific anatomy must be correct.
+AI models fail catastrophically at rendering ruminant mouths. The latent space heavily associates open mouths with human, canine, or equine teeth, frequently generating a full set of upper incisors. Prompt engineers must explicitly suppress upper teeth to maintain reference-grade accuracy.
+* Must show: Head lowered into grass; lower incisors only (if visible); hard upper dental pad; tongue wrapping around grass stems.
+* Must avoid: Upper front teeth; browsing high in trees (they are primarily grazers); carnivore-like canine teeth; horse-like biting mechanics.
+C7 Drinking
+Due to their remarkably high water requirements, waterbuck must drink multiple times a day and are inextricably linked to surface water.15 The drinking stance involves the forelegs being slightly splayed or the knees bent to allow the heavy, relatively short neck to reach the water surface.20 The black, heart-shaped muzzle breaks the water, creating subtle, concentric ripples.8
+Crucially, the long, stiff vibrissae (whiskers) around the muzzle will rest on or break the water tension.21 Even while drinking, the animal remains vigilant; the ears must be rotated outward or backward, actively listening for predators like crocodiles or leopards.22
+AI failure modes include rendering the animal standing perfectly straight-legged while drinking (which is biomechanically impossible), or submerging the entire head. Furthermore, AI often renders the ears flat and completely relaxed, violating the constant vigilance required of prey animals.
+* Must show: Splayed front stance; muzzle lightly breaking the water surface; concentric water ripples; stiff vibrissae; alert, rotated ears.
+* Must avoid: Fully submerged heads; perfectly relaxed, drooping ears; straight-legged standing posture; human-like sipping.
+C8 Hooves
+The waterbuck possesses specialized cloven hooves designed to support its massive weight in soft, muddy, waterlogged environments. The hooves are broad, splayed, and solid black, with prominent dewclaws located higher up the rear of the fetlock.23 The track left in sand or mud is deeply indented, reflecting the animal's mass.
+Immediately above the black hoof is a stark, highly visible ring of white hair.6 This white band contrasts sharply with the solid black hair of the lower leg, serving as a primary visual identifier that separates the waterbuck from the nyala (which has orange-tan legs) or the wildebeest (which lacks the white band).5
+AI failure modes involve rendering solid, horse-like hooves, adding inappropriate toes, or missing the stark white band above the hoof entirely, instead generating a generic brown lower leg.
+* Must show: Broad, cloven (two-toed) black hooves; prominent dewclaws; sharp white hair band just above the hoof; solid black lower leg.
+* Must avoid: Solid equine hooves; generic brown lower legs; missing white ankle bands; overly delicate, pointed hooves.
+C9 Barely visible
+For atmospheric, shallow depth-of-field compositions where the animal is partially obscured by tall grass or heat shimmer, the defining geometry of the waterbuck must remain identifiable. The thick, dark grey-brown shoulder mass pushing through golden Themeda triandra grass or emerging from a dense thicket of Senegalia branches provides environmental context.24
+Even when obscured, the sweeping arc of the heavily ridged horns (if male) or the stark white facial markings (muzzle and eyebrows) breaking through the brush should anchor the species identity. The heat shimmer of the bushveld may distort the edges, but the core silhouette must project weight.
+AI failure modes involve the latent space seamlessly transitioning into generating a different animal—such as a generic deer or lion—when asked to obscure the body. The AI may also fail at occlusion, rendering the grass passing anatomically through the animal's body.
+* Must show: Identifiable sweeping horns or white facial markings breaking cover; correct grey-brown pelage colour; accurate environmental occlusion (grass overlapping naturally).
+* Must avoid: Anatomical merging with the environment; defaulting to generic deer silhouettes; loss of the coarse coat texture.
+C10 Coat
+The waterbuck pelage is highly specialized for its semi-aquatic lifestyle. The hair is long, remarkably coarse, and relatively sparse, yet it creates an overall shaggy appearance, particularly along the neck and throat.3 The base colour is a grizzled mixture of grey and reddish-brown, which darkens progressively as the animal ages.6
+When sexually excited or simply maintaining its coat, the skin secretes a greasy, musky substance that provides waterproofing when the animal flees into lakes or rivers.3 This oil gives the coat a slightly matted, greasy sheen, explicitly preventing it from looking fluffy or clean.9 The most critical marking is the crisp, hollow white elliptical ring on the rump, accompanied by the solid black markings on the lower halves of all four legs.6
+AI failure modes include rendering a silky, equine coat, blending the crisp white rump ring into a generic, diffuse white underbelly, or introducing spots and stripes to the flanks.
+* Must show: Coarse, shaggy texture; grizzled grey-brown colour; oily/greasy specular highlights; crisp, hollow white rump ring; solid black lower legs.
+* Must avoid: Smooth, shiny, or fluffy hair; solid white rump patches; spots, stripes, or gradients on the flank.
+C11 Front half from side
+A lateral profile focusing on the anterior half of the waterbuck highlights its impressive physical power. The thick, heavily muscled neck is draped in shaggy hair, leading down to the prominent cream-coloured throat "bib".3 The heavy shoulder transitions into a deep, robust chest. The foreleg is strong and straight, transitioning sharply from grey-brown to solid black just above the carpal joint (knee).6
+If the subject is male, the horn arc is a defining feature. The horn pedicels originate at the rear of the skull, sweeping immediately backward almost parallel to the neck line before curving outward and forward.
+AI failure modes include creating a thin, swan-like neck, rendering the horns emerging straight up from the top of the skull rather than sweeping back, or losing the distinct black coloration of the lower foreleg.
+* Must show: Thick, shaggy neck; clear white throat bib; deep barrel chest; black lower foreleg; backward-sweeping horn origin (in males).
+* Must avoid: Thin, delicate necks; missing throat patch; generic brown lower legs; misplaced, vertically aligned horn pedicels.
+C12 Back half from side
+A lateral view of the posterior emphasizes the heavy, sloping haunch and the crucial identification marker: the white rump ring. From a strict 90-degree side profile, only the lateral edge of this white ellipse is visible, cutting a stark vertical white line across the dark grey-brown hair of the rump.3
+The tail root is thick, dropping seamlessly into a medium-length tail that ends in a dark tuft. The hind legs, mirroring the forelegs, transition to solid black on the lower half, ending in the white band above the hoof.6
+AI failure modes involve confusing the common waterbuck with the defassa subspecies, resulting in the white ring bleeding into a solid white rump patch.2 AI also frequently turns the tail into a long, flowing horse tail, or fails to render the black lower leg markings.
+* Must show: Heavy haunch; side-profile sliver of the hollow white rump ring; black lower hind legs; tufted, downward-hanging tail.
+* Must avoid: Solid white rump patches; fluffy, flowing horse tails; brown lower legs; raised tails (unless the animal is actively fleeing).
+C13 Half face close-up
+A macro or split-face portrait reveals the intricate texture and high-contrast markings of the waterbuck's face. The nose (rhinarium) is black, moist, and distinctly heart-shaped.8 The muzzle immediately surrounding the nose is framed in stark white hair. Long, stiff vibrissae (whiskers) protrude randomly from the muzzle and chin, sensing the environment.21
+The eye is large, featuring the critical horizontal slit pupil, bordered above by a vivid white eyebrow line and accompanied by a lighter cream patch near the tear duct.3 The texture of the facial hair is short, dense, and coarse, contrasting with the longer hair of the neck.
+AI failure modes include generating a wet canine or feline nose instead of a bovid rhinarium, rendering perfectly round pupils, or creating unnaturally symmetrical, cosmetic human eyelashes.
+* Must show: Heart-shaped black rhinarium; vivid white muzzle hair; stiff, irregular vibrissae; horizontal slit pupil; sharp white eyebrow.
+* Must avoid: Dog-like noses; round pupils; human-like eyelashes; smooth, poreless, or highly polished skin textures.
+D1. Colour, light, and texture
+Achieving reference-grade realism requires mastering how light interacts with the waterbuck's specialized coat. In harsh midday sun, the greasy nature of the hair creates hard, tiny specular highlights on the coarse guard hairs, while the thick neck and heavy brow cast deep, structural shadows.3 In the shade or at first light, the grizzled grey-brown tones become richer and more saturated, and the white facial and rump markings pop vividly against the dark background.
+Micro-textures ground the image in reality: a light dusting of red Waterberg soil on the black hooves and lower legs, and a small, non-grotesque cluster of dark, banded-legged Hyalomma (bont-legged) ticks attached inside the white-haired ears or along the folds of the neck.26 Mud is often present on the lower belly, reflecting their riparian habitat.8
+E1. Behaviour snippets
+Waterbuck behavior is heavily dictated by their reliance on water, utilizing it both for hydration and as a refuge from terrestrial predators.7 An alarm stance features the animal standing rigidly still, the heavy head held high, ears cupped completely forward to gather auditory cues, and the horizontal pupils dilated.28 During flight, the waterbuck generally holds its tail down—unlike the raised, flashing tails of impalas—relying instead on the white rump ring serving as a constant, passive "follow-me" target for the herd through dense brush.8 Herds maintain a loose, scattered geometry while grazing, rather than clustering tightly like domestic sheep.1
+F1. Background discipline
+The setting must reflect the South African Waterberg or similar bushveld biome. The background should feature typical riparian edge vegetation: generic muddy riverbanks, stands of tall, golden Themeda triandra grasses, and out-of-focus, scrubby Senegalia or Vachellia (thorn tree) profiles.24 Identifiable farm fences, water troughs, or localized man-made landmarks must be strictly avoided to maintain the illusion of wild bushveld. When extreme shallow depth-of-field is required, the background should resolve into soft, anonymous green and golden-brown bokeh orbs that provide tonal separation for the dark grey coat, without distracting from the subject.31
+G1. Output format for Species 1
+All generated images of the Waterbuck must strictly adhere to the anatomical constraints detailed in sections A1 through F1. When interpreting prompts based on C1–C13, the AI engine must process the "must show" and "must avoid" bullet points as absolute negative and positive weighting constraints to override the latent space bias toward generic cervid or bovid morphology.
+H1. Sources
+Morphological and behavioral data synthesized from the South African National Biodiversity Institute (SANBI) 15, the African Wildlife Foundation 2, and authoritative biological accounts (Estes, 1991; Kingdon, 1982).6 Dental and cranial morphology based on peer-reviewed veterinary anatomy of ruminants.18 Ectoparasite details sourced from CIRAD and SANBI entomological profiles.26 Note: The popular folklore explaining the rump ring as a "freshly painted toilet seat" from Noah's Ark is noted solely as a cultural anecdote; biologically, it functions as a highly visible herd follow-target.7
+CHEAT SHEET 1
+* Species: Common Waterbuck (K. e. ellipsiprymnus).
+* Build: Heavy, 160–300kg, 120–136cm shoulder, thick neck, short legs.
+* Coat: Coarse, shaggy, greasy, grizzled grey-brown.
+* Rump: Hollow white elliptical ring (NOT a solid patch).
+* Legs: Black on the lower half, white band above cloven black hooves.
+* Horns: MALE ONLY. 55–99cm, heavily ridged, sweeping back, out, then forward.
+* Female: Hornless, slightly slighter frame, identical markings.
+* Face: Heart-shaped nose, white muzzle, white eyebrows, dark tear duct.
+* Eyes: Lateral placement, HORIZONTAL slit pupils, no human lashes.
+* Mouth: NO upper front teeth (dental pad), lower incisors only.
+* Ears: Rounded, white inside. Forward/cupped when alert.
+* Habitat: Bushveld, savanna edge, always near water/mud.
+* Texture: Ticks (Hyalomma) in ears, dust on hooves, oily hair shine.
+* AI Fails to block: Horns on females, round pupils, upper teeth, horse hooves, solid white rump, deer-like thin legs.
+================================================================================ SPECIES 2: Red hartebeest (Alcelaphus buselaphus, southern African form)
+A2. Taxonomy and scope
+The target taxon for generative rendering is the red hartebeest (Alcelaphus buselaphus caama), the specific southern African subspecies heavily featured in hunting and wildlife literature.33 For AI prompt anchoring, specifying this exact subspecies is critical because the red hartebeest is visually distinct from its northern cousins; it is the most vibrant of the alcelaphines, characterized by an exceptionally rich red-brown coat contrasting with stark, glossy black markings and a pale abdomen.34 It must be clearly separated from related species like the tsessebe, which possesses a darker, purplish-brown coat and shorter, crescent-shaped horns 36, and the bontebok/blesbok, which display prominent white facial blazes rather than black.
+A3. Confusion pairs
+AI models readily confuse the bizarre morphology of the red hartebeest with the wildebeest, gemsbok, topi, or blesbok.36 Single-glance anatomical separation relies on identifying the extreme evolutionary adaptations for endurance running and selective grazing.
+
+
+Feature
+	Red Hartebeest (A. b. caama)
+	Tsessebe (Damaliscus lunatus)
+	Blesbok (Damaliscus pygargus)
+	Head Shape
+	Extremely elongated, narrow rostrum. High horn pedicel.38
+	Shorter, stockier, more rounded face.36
+	Standard face length, prominent white blaze.4
+	Horns
+	V-shaped from front, sweeping up, forward, then 90-degrees back.40
+	Shorter, curving outward and upward in a crescent.36
+	Straight, lyrate, pointing backward.
+	Shoulder/Back
+	High, pronounced withers sloping drastically to the rump.41
+	Less pronounced shoulder slope, more compact build.36
+	Relatively level backline.
+	Legs
+	Long, thin. Glossy black blazes on forelegs and high on hind legs.42
+	Dark coloration but lacks the stark, contrasting black flashes.36
+	Brown legs, lacking specific black blazes.
+	Coat/Face
+	Rich red-brown. Black blaze down the nose and forehead.42
+	Dark purplish-brown, glossy sheen.36
+	Brown with a stark white face blaze.
+	B2. Sexual dimorphism (critical for prompts)
+Unlike the waterbuck, sexual dimorphism in the red hartebeest is remarkably subtle; both sexes carry horns, and both exhibit the same vivid coat patterns.35 This is a critical prompt engineering threshold, as AI latents heavily associate horns exclusively with male ungulates and will actively attempt to render females hornless.
+
+
+Trait
+	Male
+	Female
+	Horns
+	Present. Thicker bases, heavily ridged, up to 60–70 cm.39
+	Present. Noticeably slenderer bases, slightly less mass.39
+	Mass & Frame
+	~150 kg. Slightly greater skull weight and circumference.34
+	~120 kg. Slightly smaller overall, but identical proportions.35
+	Coat & Markings
+	Red-brown. Black saddle and leg blazes may be slightly more distinct/glossy.42
+	Red-brown. Identical black markings.
+	Scars
+	Facial/horn base scarring common from territorial combat.34
+	Scarring less prominent.
+	Young: Calves are born a lighter, sandy fawn color and exhibit a "follower" strategy, capable of running with the herd shortly after birth rather than hiding in the grass.45 Horn buds begin developing rapidly from the high skull pedicel within the first few months, appearing as small, straight spikes before curving.46
+C14 through C26
+C14 Full body
+The silhouette of the red hartebeest is highly unique, appearing visually awkward when stationary but possessing a perfectly evolved cursorial (running) architecture. The shoulder height averages 135 cm, dominated by a pronounced, prominent hump at the withers caused by elongated dorsal processes on the vertebrae.35 From this high shoulder peak, the backline slopes down steeply to a significantly lower rump.41 The legs are exceptionally long, thin, and spindly, designed for stride efficiency.45 The neck is short, attaching to an extraordinarily long, narrow head.39
+AI failure modes typically involve the model "correcting" the hartebeest's unique sloping backline to match the level spine of a generic deer, horse, or impala. The AI also frequently shortens the elongated face to standard bovid proportions and thickens the distal limbs, destroying the animal's delicate, high-speed geometry.
+* Must show: High withers (shoulder hump); steeply sloping backline; exceptionally elongated face; long, thin legs; rich red-brown coat.
+* Must avoid: Level, flat backlines; short, blocky faces; thick, stocky legs; standard deer-like proportions.
+C15 Eyes
+The eyes are set high on the elongated skull, providing a wide vantage point over the tall highveld grass. Like all grazing bovids, the pupils are horizontal slits.12 A defining anatomical feature of the hartebeest is the massive, highly developed preorbital scent gland located just below and slightly in front of the eye.41 This gland appears as a distinct, dark, hairless patch or slit that secretes territorial marking fluid.42 The eyes are goat-like, pale brown or amber, contrasting sharply with the black blaze that runs down the center of the forehead.48
+AI failure modes include rendering round, human-like pupils, completely omitting the large preorbital glands, or blending the stark black facial markings into a muddy, diffuse brown gradient, losing the sharp contrast of the caama subspecies.
+* Must show: Horizontal slit pupils; prominent dark preorbital glands below the eye; sharp contrast between the red coat and black facial markings.
+* Must avoid: Round, predator-like pupils; smooth faces lacking glandular patches; generic dark eyes without visible horizontal slits.
+C16 Horns
+The horns, present on both males and females, are arguably the most complex of any African antelope.43 They do not emerge laterally from the sides of the skull; instead, they rise from a singular, elevated, shared bony base (the pedicel) at the very apex of the elongated head.40 From this pedicel, the horns flare straight up, curve outward and forward, and then bend sharply backward at a near 90-degree angle.40 From a frontal perspective, they form a distinct heart-like or V-shape.48 The lower 75% of the horn mass is heavily and complexly grooved, while the backward-pointing tips are smooth.40
+AI failure modes are notorious regarding hartebeest horns. The AI will frequently separate the horn bases, failing to render the shared pedicel. It will also default to generating simple, continuously curved horns (like a wildebeest or impala) instead of the complex up-forward-sharp-backward directional sweep.
+* Must show: Both sexes horned; singular elevated pedicel base; heavy ridges; complex up-out-forward-sharp-backward sweep.
+* Must avoid: Horns emerging from the sides of the head; smooth, unridged horns; simple C-shaped curves; hornless adults.
+C17 Female
+A biological portrait of a female red hartebeest must prominently feature horns; a hornless adult hartebeest does not exist in nature.41 The female's horns are distinctly slenderer than the male's, and the horn bases (pedicel) are slightly less massive, but the extreme length of the face and the complex horn curvature remain identical.39 The coat exhibits the exact same red-brown base with high-contrast black markings on the face and legs, though perhaps fractionally less glossy than a prime territorial bull.
+AI failure modes almost always involve the model stripping the female of her horns based on generic cervid latent data. Furthermore, the AI may attempt to soften her features, making her coat lighter and devoid of the characteristic harsh black leg and face blazes.
+* Must show: Slender but complexly curved horns mounted on a pedicel; elongated face; bold black facial blazes.
+* Must avoid: Hornless females; short, delicate faces; absence of black leg or face markings.
+C18 Male
+The mature male red hartebeest carries a heavy, heavily ridged crown, with the horn bases thick and massive atop the pedicel.43 The black "saddle" marking running from the shoulders down to the base of the tail is highly distinct and glossy in prime males.42 The black stripe on the front of the shoulders, running down the forelegs, is stark and vivid against the red-brown coat. The neck is thicker than the female's to support the heavier horns, but it remains relatively short compared to the extreme length of the face.39
+AI failure modes include over-muscling the chest and neck, losing the delicate cursorial build in favor of a bulky, buffalo-like frame. The model may also fail to render the intricate, glossy black patterning on the legs and face, defaulting to a generic brown body.
+* Must show: Massive horn bases on the pedicel; stark, glossy black blazes on the face, shoulders, and legs; pronounced, high shoulder hump.
+* Must avoid: Bulky, level-spined bodies; thick, draft-horse legs; faded or missing black markings.
+C19 Eating
+Red hartebeests are highly selective grazers. They use their narrow, elongated muzzles to surgically crop high-quality forage from otherwise poor-quality, moribund highveld grassland.49 When eating, the exceptionally long legs require the animal to lower its head significantly, which often results in the forelegs splaying slightly outward. Like the waterbuck, they possess a hard dental pad on the upper jaw and completely lack upper front incisors.18 The long face allows them to reach the ground while keeping the eyes elevated above the grass line.
+AI failure modes include generating a full set of upper teeth, rendering the animal browsing leaves from tall trees (they are exclusively grazers of short to medium grass), or artificially foreshortening the face in the downward perspective.
+* Must show: Grazing behavior in open grass; extremely elongated muzzle reaching the ground; absence of upper front teeth.
+* Must avoid: Browsing leaves from tall trees; visible upper incisors; foreshortened, blocky muzzle geometry; human-like chewing.
+C20 Drinking
+While red hartebeests are less water-dependent than waterbucks—capable of drinking only every 2 to 3 days—they share an incredibly awkward drinking posture.42 Because of the extreme length of their forelegs and the high, prominent withers, they must either splay their front legs widely apart or drop down onto their "knees" (carpal joints) to allow the muzzle to reach the water surface. The long face extends to the water, while the ears remain swiveled back or outward to monitor the surrounding savanna for predators.
+AI failure modes include rendering the animal drinking while standing perfectly straight-legged (anatomically impossible without a giraffe-like neck), or rendering the entire face submerged deeply into the water.
+* Must show: Widely splayed forelegs or bent carpal joints; extreme vertical drop from the high withers to the water level; alert ear posture.
+* Must avoid: Standing straight-legged while drinking; relaxed, drooping ears; submerged heads.
+C21 Hooves
+The red hartebeest possesses a highly evolved cursorial build adapted for endurance running on hard, dry savanna and highveld plains.45 The cloven hooves are compact, hard, and pointed, entirely lacking the broad, splayed mud-adaptation seen in the waterbuck. The distal limbs (lower legs) are long and thin, optimizing the pendulum mechanics of the stride for maximum efficiency. The glossy black markings on the legs extend all the way down to the coronary band just above the hoof.42
+AI failure modes involve rendering thick, blocky horse hooves, adding dewclaws that are too prominent, or failing to maintain the delicate, thin structure of the lower leg beneath the heavy shoulder mass.
+* Must show: Compact, cloven hooves; extremely long, thin distal limbs; glossy black hair extending down to the hoof.
+* Must avoid: Splayed, wide hooves; solid equine hooves; thick, stocky, or heavily muscled lower legs.
+C22 Barely visible
+When partially obscured by tall, dry highveld grass (such as Themeda triandra), the red hartebeest's unique silhouette serves as its visual anchor. The high horn pedicel and the oddly angled, backward-sweeping horns will protrude sharply above the grass line, alongside the elongated upper face. The rich red-brown coat contrasts beautifully against the golden, pink, or straw-colored dry grass.25
+AI failure modes involve generating generic, straight, or spiraled antelope horns protruding from the grass, losing the specific high-pedicel origin and the 90-degree backward bend of the hartebeest's horn tips. The AI may also blend the red coat too heavily into the brown grass.
+* Must show: Horn pedicel and angled horns protruding above the grass; vivid red-brown coat; high shoulder hump breaking cover.
+* Must avoid: Generic straight or spiraled horns; anatomical blending or melting into the surrounding grass.
+C23 Coat
+The pelage of the red hartebeest is short, fine in texture, and highly reflective, appearing shiny and sleek.39 The base color is a rich, vibrant reddish-brown or fawn.42 It is uniquely characterized by stark, glossy black markings: a broad blaze down the forehead and nose, dark stripes down the front of the shoulders and forelegs, and high black flashes on the hind legs.35 In sharp contrast to the red and black, the rump and underbelly are a stark pale yellow or creamy white.35 The tail features a distinct brush of black hair.42
+AI failure modes include rendering the coat as a uniform, flat brown, adding unnatural spots or stripes to the flanks, or confusing the hartebeest's pattern with a gemsbok or blesbok (which feature white face blazes, rather than black).
+* Must show: Shiny, fine red-brown hair; bold black face blaze; black leg stripes; pale yellow/white rump and underbelly.
+* Must avoid: Shaggy, coarse, or matte hair; white facial blazes; spots or vertical flank stripes; uniform brown coats without black contrast.
+C24 Front half from side
+A lateral anterior view highlights the bizarre but highly functional cranial anatomy of the red hartebeest. The extreme length of the face is clearly visible, with the black blaze running down the bridge of the nose. The eye, the large preorbital gland, and the short neck attach to the high, prominent shoulder hump. The black stripe running down the front of the long, thin foreleg is starkly prominent.42 At the top of the skull, the singular pedicel horn base is visible, sweeping backward.
+AI failure modes involve normalizing the head-to-neck ratio, resulting in a shorter face and a longer neck (resembling a horse), or removing the high withers to create a level spine.
+* Must show: Extremely elongated face; short neck; high shoulder hump; black foreleg stripe; shared horn pedicel.
+* Must avoid: Equine face-to-neck proportions; level backline; plain brown forelegs; separated horn bases.
+C25 Back half from side
+The lateral posterior view emphasizes the steep, dramatic slope from the high withers down to the significantly lower rump.41 The pale yellow or white rump patch is clearly visible, flanked by the glossy black markings situated high on the hind legs.42 The tail is relatively short, ending in a distinct, swishing brush of black hair rather than a full horse tail.42
+AI failure modes include leveling the backline to make the hindquarters as high as the shoulders, or rendering a fluffy, deer-like white tail instead of the black bovid brush.
+* Must show: Steeply sloping back; lower hindquarters; pale rump patch; black-tufted tail; black markings on the hind legs.
+* Must avoid: Level backline; high hindquarters; fluffy white tails; absence of black leg flashes.
+C26 Half face close-up
+A split-face macro shot of the red hartebeest is dominated by the extreme, stretched length of the rostrum. The glossy black blaze covers the bridge of the nose, contrasting sharply with the red-brown cheeks. The horizontal slit pupil is clearly visible in the goat-like eye, with the massive, dark preorbital scent gland sitting immediately below and slightly forward of the eye.12 The horns emerge together from the high pedicel, heavily and deeply ridged at the base. Vibrissae are present around the muzzle but are noticeably shorter and finer than those of the waterbuck.
+AI failure modes include shortening the nose to standard deer proportions, creating a wet, fleshy canine nose instead of a hard bovid pad, or omitting the preorbital gland entirely.
+* Must show: Extreme face length; black facial blaze; horizontal slit pupil; large dark preorbital gland; shared horn pedicel.
+* Must avoid: Short, deer-like muzzle; round pupils; white face blazes; missing scent glands.
+D2. Colour, light, and texture
+The short, fine coat of the red hartebeest reflects light exceptionally well, appearing shiny and sleek in the harsh midday sun.39 This specular reflection contrasts sharply with the matte, coarse coat of the waterbuck. The rich red-brown and glossy black markings are highly photogenic; in the golden hour of early morning or late afternoon, the red hues become fiery and saturated.36 Dust is common on the lower legs, slightly dulling the black stripes near the hooves. Because their preferred habitat is open grassland, they are rarely shaded, meaning lighting should be direct and harsh, throwing sharp, defining shadows under the high withers and the chin.
+E2. Behaviour snippets
+The red hartebeest is an elite endurance runner, capable of reaching sustained speeds of 55 to 70 km/h across open plains.34 When fleeing predators, they utilize an evasion tactic of running in a chaotic zigzag pattern to induce confusion.34 They possess an awkward, bouncy gait when trotting, sometimes "pronking" or stotting with all four feet leaving the ground simultaneously to demonstrate fitness to predators.48 An alarm stance features the animal staring directly at the threat, the elongated head held high, ears swiveled fully forward, and the V-shaped horns presenting a distinct, intimidating silhouette.
+F2. Background discipline
+The appropriate biome for the red hartebeest is the South African Highveld, semi-desert, or open savanna.49 The background must be dominated by open, treeless horizons or very sparse scrub, featuring resilient grasses like Themeda triandra (redgrass), which turns a rich red-brown in summer.25 Deep forests, thick riparian bush, or muddy swamps must be avoided. Shallow depth-of-field (bokeh) should resolve the dry, golden-brown grasses into soft, linear streaks, complementing the red coat without introducing heavy green woodland cues.52
+G2. Output format for Species 2
+All generated images of the Red Hartebeest must strictly adhere to the anatomical constraints detailed in sections A2 through F2. When interpreting prompts based on C14–C26, the AI engine must process the "must show" and "must avoid" bullet points as absolute constraints, specifically enforcing the high-withers/sloping-back anatomy and the exact color blocking of the A. b. caama subspecies to prevent the model from defaulting to a generic deer or an East African topi.
+H2. Sources
+Morphological, evolutionary, and behavioral data synthesized from the South African National Biodiversity Institute (SANBI) 49, the African Wildlife Foundation 38, and peer-reviewed anatomical studies on alcelaphine cranial morphology, weaponry, and sexual dimorphism.50 Ecological context and flora specifications (e.g., Themeda triandra) drawn from established field records on Highveld vegetation.25
+CHEAT SHEET 2
+* Species: Red hartebeest (A. b. caama).
+* Build: 120–150kg, 135cm shoulder, HIGH withers, sloping back.
+* Coat: Short, fine, shiny, rich red-brown.
+* Markings: GLOSSY BLACK blazes on face, front of forelegs, and high on hind legs.
+* Rump: Pale yellow/white patch; tail ends in a black brush.
+* Head: Exceptionally elongated/narrow; large dark preorbital glands below eyes.
+* Horns: BOTH SEXES HORNED. 45–70cm.
+* Horn Shape: Rise from a single shared pedicel base, V-shaped, bend 90-degrees back.
+* Eyes: Horizontal slit pupils.
+* Mouth: NO upper front teeth (dental pad).
+* Gait/Stance: Awkward, long thin legs, zigzag runner (up to 70km/h).
+* Habitat: Open Highveld, dry savanna, tall golden grass (Themeda triandra).
+* AI Fails to block: Hornless females, level backlines, short faces, separated horn bases, white face blazes, round pupils.
+END.
+Works cited
+1. Waterbuck - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Waterbuck
+2. Waterbuck | African Wildlife Foundation, accessed April 20, 2026, https://www.awf.org/wildlife-conservation/waterbuck
+3. Waterbuck | Creatures of the World Wikia - Fandom, accessed April 20, 2026, https://creatures-of-the-world.fandom.com/wiki/Waterbuck
+4. Antelope Guide - Grazers & Browsers - Kruger National Park, accessed April 20, 2026, https://www.krugerpark.co.za/Kruger_National_Park_Wildlife-travel/explore-kruger-park-buck-and-antelope.html
+5. South Africa: Elands, Kudus, Nyalas and Bushbucks » Talk - Zooniverse, accessed April 20, 2026, https://www.zooniverse.org/talk/1971/762093
+6. Kobus ellipsiprymnus (waterbuck) | INFORMATION - Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Kobus_ellipsiprymnus/
+7. Antelope Spotting, accessed April 20, 2026, https://www.robinnichols.blog/post/antelope-spotting
+8. The Uniqueness of Waterbuck - Londolozi Blog, accessed April 20, 2026, https://blog.londolozi.com/2021/05/29/the-uniqueness-of-waterbuck/
+9. Waterbuck - Kobus ellipsiprymnus - A-Z Animals, accessed April 20, 2026, https://a-z-animals.com/animals/waterbuck/
+10. Waterbuck - Ultimate Ungulate, accessed April 20, 2026, https://www.ultimateungulate.com/Artiodactyla/Kobus_ellipsiprymnus.html
+11. Different pupil shapes in animals, accessed April 20, 2026, https://www.sabisabi.com/discover/topics/different-pupil-shapes-in-animals
+12. Antelope Animal Facts - Bovidae, accessed April 20, 2026, https://a-z-animals.com/animals/antelope/
+13. Closeup of Female Waterbuck Stock Photo - Image of antelope, name - Dreamstime.com, accessed April 20, 2026, https://www.dreamstime.com/closeup-female-waterbuck-closeup-female-waterbuck-scientific-name-kobus-ellipsiprymnus-kuru-swaheli-image-taken-image105143188
+14. Diagrammatic representation of observed ear positions while animals... | Download Scientific Diagram - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/figure/Diagrammatic-representation-of-observed-ear-positions-while-animals-were-stroked-fed-and_fig2_338309375
+15. SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/taxa/detail/2083/
+16. Waterbuck | Matlabas Game Hunters | Animals of the Bushveld, accessed April 20, 2026, https://matlabas.co.za/waterbuck2/
+17. Feeding Preference and Habitat Association of Defassa Waterbuck (Kobus ellipsiprymnus defassa) in Nechisar National Park, Southern Ethiopia - PMC, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC8545546/
+18. Dental pad - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Dental_pad
+19. 5-Title: Gross anatomical studies on cranial cavity, nasal cavity and dentition of blue bull (Boselaphus tragocamelus) - Anandpub, accessed April 20, 2026, https://www.anandpub.com/custom_post/5-title-gross-anatomical-studies-on-cranial-cavity-nasal-cavity-and-dentition-of-blue-bull-boselaphus-tragocamelus/
+20. How many times a day does a waterbuck need to drink? Candid Animal Cam - Mongabay, accessed April 20, 2026, https://news.mongabay.com/video/2021/06/how-many-times-a-day-does-a-waterbuck-need-to-drink-candid-animal-cam/
+21. Muzzle Wet Cat Close Drops Water Stock Photo 221099644 - Shutterstock, accessed April 20, 2026, https://www.shutterstock.com/image-photo/muzzle-wet-cat-close-drops-water-221099644
+22. How to Read Whitetail Body Language | Mossy Oak, accessed April 20, 2026, https://www.mossyoak.com/our-obsession/blogs/deer/how-to-read-whitetail-body-language
+23. How to Tell Buck from Doe Tracks - NatureTracking, accessed April 20, 2026, https://naturetracking.com/buck-vs-doe-tracks/
+24. Dominant trees and shrubs found in each of the seven - vegetation types represented in the Waterberg, accessed April 20, 2026, http://www.waterberg-bioquest.co.za/Waterberg%20Vegetation%20Types.pdf
+25. Themeda triandra - PlantZAfrica |, accessed April 20, 2026, https://pza.sanbi.org/themeda-triandra
+26. Bont-legged tick - SANBI, accessed April 20, 2026, https://www.sanbi.org/animal-of-the-week/bont-legged-tick/
+27. Bont-legged tick (Hyalomma turanicum) - Virbac South Africa, accessed April 20, 2026, https://za.virbac.com/home/every-health-care/pagecontent/every-advices/ticks-lice-and-fly-related-articles/advice.html
+28. “How Animals Communicate” | Open Indiana | Indiana University Press, accessed April 20, 2026, https://publish.iupress.indiana.edu/read/how-animals-communicate/section/d28f841d-b1c6-4eb4-b5f5-f0223fcd717c
+29. QR Did You Know? | Cantharis Alpacas Kapiti Wellington, accessed April 20, 2026, https://nzalpaca.co.nz/qr-did-you-know/
+30. Why Waterbuck Are So Easy To Identify on Safari - Thornybush Game Reserve Kruger Park, accessed April 20, 2026, https://www.thornybush.com/blog/waterbuck-on-safari/
+31. How to Create a Beautiful Bokeh - Nature TTL, accessed April 20, 2026, https://www.naturettl.com/create-beautiful-bokeh/
+32. The bont-legged tick under surveillance - Cirad, accessed April 20, 2026, https://www.cirad.fr/en/press-area/press-releases/2020/bont-legged-tick
+33. Red hartebeest | mammal - Britannica, accessed April 20, 2026, https://www.britannica.com/animal/red-hartebeest
+34. Red hartebeest - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Red_hartebeest
+35. Red hartebeest - Facts, Diet, Habitat & Pictures on Animalia.bio, accessed April 20, 2026, https://animalia.bio/red-hartebeest
+36. What is the Difference Between Red Hartebeest and Tsessebe? - Otjandaue Hunting Safaris, accessed April 20, 2026, https://otjandauehuntingsafaris.com/what-is-the-difference-between-red-hartebeest-and-tsessebe/
+37. Animal Identification - Kruger-2-Kalahari's, accessed April 20, 2026, https://www.kruger-2-kalahari.com/animal-identification.html
+38. Hartebeest | African Wildlife Foundation, accessed April 20, 2026, https://www.awf.org/wildlife-conservation/hartebeest
+39. Hartebeest - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Hartebeest
+40. Focus on the Red Hartebeest (Alcelaphus buselaphus caama) - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/316165747_Focus_on_the_Red_Hartebeest_Alcelaphus_buselaphus_caama
+41. Alcelaphus buselaphus (hartebeest) | INFORMATION - Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Alcelaphus_buselaphus/
+42. Hartebeest | Matlabas Game Hunters | Animals of the Bushveld, accessed April 20, 2026, https://matlabas.co.za/red-hartebeest/
+43. Red Hartebeest Hunting Guide | Alcelaphus buselaphus caama | MIWESU, accessed April 20, 2026, https://www.miwesu.co.za/red-hartebeest
+44. Red Hartebeest | Rietfontein Guest Farm, accessed April 20, 2026, https://rietfontein.co.za/red-hartebeest/
+45. Hartebeest Animal Facts - Alcelaphus buselaphus - A-Z Animals, accessed April 20, 2026, https://a-z-animals.com/animals/hartebeest/
+46. Disbudding Calves - Livestock - University of Wisconsin–Madison, accessed April 20, 2026, https://livestock.extension.wisc.edu/articles/disbudding-calves/
+47. Dehorning Calves - CalfStar, accessed April 20, 2026, https://calfstar.com/dehorning-calves/
+48. Photo of Red Hartebeest | Kariega Private Game Reserve, accessed April 20, 2026, https://www.kariega.co.za/blog/photo-red-hartebeest
+49. Alcelaphus buselaphus lichtensteinii Peers, 1849 - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/taxa/detail/1937/
+50. Alcelaphus buselaphus caama – Red Hartebeest - Endangered Wildlife Trust, accessed April 20, 2026, https://ewt.org/wp-content/uploads/2022/11/2.-Red-Hartebeest-Alcelaphus-buselaphus-caama_LC.pdf
+51. Dental Anatomy of Civet, Antelope, and Dhole | PDF | Tooth - Scribd, accessed April 20, 2026, https://www.scribd.com/presentation/967499551/Dental-Formula
+52. Themeda triandra - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Themeda_triandra
+53. Ultimate Guide to Achieving Beautiful Bokeh - Iceland Photo Tours, accessed April 20, 2026, https://iceland-photo-tours.com/articles/photography-techniques/ultimate-guide-to-achieving-beautiful-bokeh
+54. Red List of South African Species - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/assessment/last-assessment/1937/
+55. Sexual dimorphism: the horns of african antelopes - PubMed, accessed April 20, 2026, https://pubmed.ncbi.nlm.nih.gov/17811523/
+56. Does selection on horn length of males and females differ in protected and hunted populations of a weakly dimorphic ungulate? - PMC, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC5468124/
+57. Highveld grasslands | Earth and Atmospheric Sciences | Research Starters - EBSCO, accessed April 20, 2026, https://www.ebsco.com/research-starters/earth-and-atmospheric-sciences/highveld-grasslands
+58. (PDF) Themeda triandra: a keystone grass species - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/260294477_Themeda_triandra_a_keystone_grass_species

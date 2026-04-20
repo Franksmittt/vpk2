@@ -1,0 +1,400 @@
+﻿Photorealistic AI Prompt Engineering for Southern African Wildlife: Morphological and Biome Guide
+================================================================================ SPECIES A - CAPE BUFFALO (Syncerus caffer)
+Working name for the file: Cape_Buffalo_AI_Field_Notes.txt
+A1) Taxonomy and scope
+The African buffalo comprises several regional subspecies, but for the precise context of South African private reserves, photographic safaris, and hunting estates, the target taxon is exclusively the Cape buffalo, scientifically designated as Syncerus caffer caffer.1 The taxonomy is a critical starting point for artificial intelligence image generation because latent diffusion models are trained on vast, uncurated datasets where the colloquial term "buffalo" overwhelmingly defaults to the North American bison (Bison bison) or the Asian water buffalo (Bubalus bubalis).1 To force the model into the correct latent space, prompt engineers must anchor their text strings with the full binomial nomenclature, Syncerus caffer caffer, alongside specific regional modifiers such as "South African savanna" or "African Bovini tribe".1
+Within the commercial hunting and private reserve sector, the term "Cape buffalo" is the standard trade name, denoting the largest and most robust of the African buffalo subspecies, which is characterized by a massive, continuous keratinous shield across the forehead known as the "boss".1 Unlike the smaller, red-hued forest buffalo (Syncerus caffer nanus) of Central Africa, the Cape buffalo is dark brown to black and inhabits open savannas, bushveld, and riverine thickets.2 To prevent the artificial intelligence from drifting toward domestic cattle or American bison, prompts should explicitly exclude terms describing shaggy coats, shoulder humps, or domestication, while reinforcing "Syncerine" to lock the phylogenetic context.1
+Regarding estate color morphs, the Cape buffalo is managed strictly for horn boss quality, overall mass, and genetic health, rather than engineered color phases like the golden wildebeest or black springbok.7 The standard dark brown to black pelage remains the only scientifically and commercially relevant target for realism.9 Any attempt to prompt a "white" or "golden" Cape buffalo will result in fantasy outputs that violate the strict realism requirements of South African estate documentation. A single site rule applies to all generated outputs: no watermarks, no logos, and no on-image text are permitted, as artificial intelligence models frequently generate garbled typography that destroys photographic credibility.11
+A2) Confusion matrix
+The following table outlines the distinct visual cues necessary to separate the Cape buffalo from morphologically adjacent species that frequently contaminate generative outputs due to overlapping latent tagging.1
+
+
+Row Species
+	Overall Mass and Shoulder Hump
+	Horn Boss Shape and Span
+	Ear Size and Fringe Hair
+	Pelage Colour and Age Classes
+	Tail Length and Brush
+	Hooves and Dewclaws
+	Backline and Dewlap
+	Facial Profile and Gait
+	Cape Buffalo
+	550 to 870 kg, no distinct shoulder hump, massive neck.5
+	Fused central boss, hooks down then up, span up to 100 cm.1
+	Large, drooping below horns, heavily fringed edges.17
+	Dark brown to black, sparse hair, mud-caked in older bulls.2
+	75 to 120 cm, ends in a dark tufted brush.15
+	Split, wide front hooves (15 by 15 cm), high dewclaws.15
+	Straight backline, minimal to no dewlap.5
+	Flat, broad muzzle, walks with a steady, level head.14
+	American Bison
+	Up to 1200 kg, pronounced shoulder hump.13
+	Short, sharp, curved upright, no fused boss.3
+	Small, hidden in thick fur.13
+	Thick, shaggy winter coat, deep brown.13
+	Short, partially hidden in rump fur.21
+	Smaller relative to body mass, standard bovid structure.
+	Sloping backline from high hump, heavy beard.3
+	Large heavy head held low, functions as a snow plow.3
+	Asian Water Buffalo
+	Up to 1200 kg, no hump.13
+	Long, crescent-shaped curving backward and outward, no fused boss.13
+	Moderate, horizontal, sparse fringe.13
+	Slate grey to black, extremely sparse hair.13
+	Moderate length, sparse tuft.13
+	Wide splayed hooves for swamp terrain.22
+	Straight backline, slight neck folds.13
+	Elongated face, docile posture.6
+	Domestic Cattle
+	Variable by breed, flat back or zebu hump.1
+	Variable, separate bases, no central boss.1
+	Upright or drooping, clean edges.1
+	Highly variable, spotted, patched, or uniform.1
+	Long, thin, moderate tuft.
+	Standard cloven, varied wear.
+	Prominent dewlap in many breeds, level back.
+	Narrower muzzle, domestic grazing gait.
+	Wildebeest
+	150 to 250 kg, high shoulders sloping to rear.14
+	Smooth boss, hooks outward and up, much thinner.23
+	Horizontal, pointed, not fringed.
+	Slate grey with dark vertical stripes.24
+	Horse-like flowing tail, reaches hocks.14
+	Narrower, typical antelope structure.
+	Steeply sloping backline, prominent beard and mane.14
+	Elongated, boxy face, bouncy or erratic gait.14
+	Eland
+	400 to 900 kg, slight shoulder hump.15
+	Straight, tightly spiraled, pointing backward, no boss.25
+	Narrow, pointed, bovine-like.
+	Fawn to tan, thin vertical white stripes.25
+	Thin, tufted end, bovine-like.
+	Robust, antelope structure.
+	Level back, massive pendulous dewlap with tuft.
+	Pointed face, dark nose patch, stately walk.
+	Black Rhino
+	800 to 1400 kg, bulky, no hump.26
+	Keratinous nasal horns, no cranial horns.26
+	Trumpet-shaped, highly mobile, fringed tips.
+	Grey, hairless except for ears and tail.
+	Short, thick base, stiff bristles at tip.
+	Three distinct toes, no dewclaws.
+	Concave backline, thick folded skin.
+	Prehensile upper lip, head held high, heavy trot.
+	Hippopotamus
+	1500 to 3000 kg, massive barrel body.27
+	No horns, massive canine tusks inside mouth.
+	Small, rounded, set high on skull.
+	Purplish-grey, naked skin, mucous sheen.
+	Very short, paddle-like, bristled.
+	Four webbed toes.
+	Rounded backline, immense girth.
+	Boxy square muzzle, eyes high on skull, aquatic waddle.
+	A3) Sexual dimorphism
+The Cape buffalo exhibits profound sexual dimorphism, primarily concentrated in the cranial osteology, horn development, and overall cervical musculature.2 The most critical feature for artificial intelligence prompting is the horn boss. In mature males, the bases of the horns expand and fuse across the top of the skull to form a continuous, impenetrable keratinous shield known as the boss.1 This structure is deeply ridged, heavily textured, and often scarred or worn in males older than eight to ten years.2 The horizontal spread of a mature bull's horns frequently reaches up to 100 cm, sweeping downward and outward before hooking sharply back upward.5 In contrast, the horns of female Cape buffalo are noticeably shorter and significantly thinner, and the central boss is either entirely absent or incomplete, leaving a visible patch of hair on the crown of the head between the horn bases.28
+Body mass and muscular distribution further separate the sexes. Bulls are extraordinarily robust, with a body mass ranging from 650 to 870 kg, supported by heavily developed neck and shoulder musculature required to carry the weight of the boss.5 This gives the male a front-heavy, imposing silhouette. Females weigh between 550 and 700 kg, presenting a sleeker neck profile and a less imposing thoracic structure.5 In terms of pelage, older males (colloquially known as "daga boys" when they form bachelor herds or become solitary) frequently lose hair across their backs and flanks, exposing dark, grey-black skin that is typically caked in mud, whereas females and younger animals maintain a slightly denser, dark brown coat.2 Within the herd, females and calves form the core breeding groups, while massive, thick-necked bulls patrol the perimeters or form satellite bachelor groups.17
+A4) Shot-by-shot morphology guide (C1-C13)
+Before detailing the specific photographic framing, it is necessary to identify the top diffusion failure swaps for the Cape buffalo. The latent space routinely substitutes these features when under-prompted, requiring strict negative prompting.
+
+
+Top 10 Cape Buffalo AI Failure Modes
+	Decisive Tokens to Break the Tie
+	Swapping the Cape buffalo boss for an American bison's fluffy crown.6
+	Fused keratin boss, hairless forehead shield, Syncerus caffer.
+	Swapping the dropping horn curve for the sweeping crescent of a water buffalo.13
+	Horns dropping down face before hooking upward, heavy thick bases.
+	Adding a prominent shoulder hump.3
+	Straight level backline, deep barrel chest, no hump.
+	Generating a shaggy winter coat instead of sparse, coarse African hair.21
+	Sparse coarse hair, visible dark skin, dusty matte hide.
+	Swapping the wide, fringed ears for small, hidden bovine ears.17
+	Large drooping ears below horns, sparse hair fringe on ear edges.
+	Generating domestic cow udders on bulls or exaggerated udders on cows.
+	Natural wild bovid anatomy, hidden small udder, thick male neck.
+	Adding a flowing horse-like tail instead of a tufted bovid tail.15
+	Rope-like tail reaching hocks, dark tufted hair brush at tip.
+	Generating upper incisors in the mouth.2
+	Flat wide muzzle, upper dental pad, lower incisors only.
+	Swapping the wide, heavy front hooves for delicate equine or antelope hooves.15
+	Massive cloven hooves, 15 cm wide front hooves, distinct rear dewclaws.
+	Rendering the skin with a CGI plastic sheen rather than matte, dust-caked realism.30
+	Photorealistic matte hide, dried grey mud patches, atmospheric dust.
+	C1 Full body (broadside or slight angle reference)
+Must-show anatomy: A massive, barrel-chested torso with a straight backline, heavy neck, and legs that appear thick and sturdy to support the weight.5 The front hooves must be visibly larger than the rear hooves due to the weight distribution of the massive horns and neck.15 The tail must fall to the hocks, ending in a distinct dark tuft.18 Must-avoid errors: The model will attempt to add a bison shoulder hump or a deep domestic cattle dewlap. Ensure the backline is level and the chest is deep but not sagging with loose skin. Explicit AI failure modes: The generation process frequently creates a hybrid torso with an American bison's front half and a domestic cow's back half, completely breaking the structural integrity of the African species. Negative-prompt tokens: shoulder hump, shaggy coat, winter fur, prominent dewlap, extreme rear slope, fluffy head, bison anatomy, water buffalo horns, flowing tail. Decisive tokens: level backline, deep barrel chest, thick sturdy legs, sparse dark hair, Syncerus caffer caffer, African savanna biome, accurate center of gravity.
+C2 Eyes (macro: placement, pupil, iris, moisture, lashes, ocular sheen)
+Must-show anatomy: The eyes are set wide on the skull, situated below the massive horn bases. The pupil is horizontally oval, an evolutionary adaptation for grazing prey to maintain a wide panoramic field of view, surrounded by a medium to dark brown iris.31 The sclera may show slight red veining at the corners, and moisture should reflect the harsh African sun, presenting a realistic ocular sheen.33 Eyelashes are thick, dark, and protective against insects and thorns. Must-avoid errors: Round predator pupils, human-like whites of the eyes, or overly weeping tear ducts. Explicit AI failure modes: Generating vertical slits resembling feline predators or perfectly round human pupils, often omitting the horizontal orientation required for mammalian herbivores.32 Negative-prompt tokens: round pupil, vertical slit, bright blue iris, human eye, dry matte eye, excessive white sclera, predatory gaze. Decisive tokens: horizontal oval pupil, medium brown iris, thick dark eyelashes, glossy ocular sheen, herbivore eye anatomy, wide field of view.
+C3 Horns or boss region (both sexes as applicable)
+Must-show anatomy: In males, a solid, fused keratinous shield covering the forehead, deeply textured with growth ridges, rough pitting, and asymmetrical wear from sparring.2 The horns must drop down the sides of the face and hook aggressively back upward. In females, separate horn bases with dark hair visible between them.28 Must-avoid errors: Smooth, polished, plastic-looking horns. Symmetrical, perfect mathematical arcs. Horns that point strictly forward like a domestic bull or spiral vertically like an eland. Explicit AI failure modes: The artificial intelligence will generate a patch of fur between the horns on a mature male, failing to fuse the boss, or will render the horns with the tightly ribbed texture of a waterbuck. Negative-prompt tokens: smooth keratin, polished horns, gap between horns on males, spiraled horns, crescent horns, bison horns, perfect symmetry. Decisive tokens: fused central boss, heavily ridged keratin, asymmetrical natural wear, dropping and hooking horns, rough matte texture, dense bone shield.
+C4 Female
+Must-show anatomy: A narrower neck than the male, a sleeker body profile, and horns that are thinner, shorter, and lack a fully developed central boss.28 A subtle, natural udder with four teats, hidden slightly between the rear legs.18 Must-avoid errors: Generating a massive, heavily scarred neck or a solid, fused boss on a female frame. Exaggerated dairy-cow udders that descend below the hocks. Explicit AI failure modes: Defaulting to male cranial geometry regardless of the "female" prompt, or applying Holstein cow anatomy to the lower abdomen, destroying the wild aesthetic. Negative-prompt tokens: fused horn boss, massive neck musculature, swollen dairy udder, male morphology, heavily scarred face. Decisive tokens: separated horn bases, hair on crown between horns, sleek neck, female Cape buffalo, Syncerine cow, thin horn circumference, wild bovid udder.
+C5 Male
+Must-show anatomy: Immense frontal bulk, a heavily muscled neck, a deeply scarred and ridged fused boss, sparse hair exposing slate-grey skin, and a pronounced, tufted penile sheath.5 The musculature must reflect a mature animal capable of carrying a 100 cm horn span. Must-avoid errors: Soft, domestic features. A flawless, unscarred coat. A narrow, deer-like neck supporting massive horns. Explicit AI failure modes: The model often softens the male to look like a domestic steer or scales the head improperly against the body, creating a bobblehead effect. Negative-prompt tokens: fluffy coat, unscarred skin, separated horn bases, slender neck, juvenile features, domestic steer. Decisive tokens: mature bull, daga boy, massive neck musculature, fused keratin boss, sparse hair, scarred hide, mud-caked skin, heavy front quarters.
+C6 Eating (mouth anatomy: grazing vs browsing cues)
+Must-show anatomy: A broad, flat muzzle equipped for bulk grazing, sweeping close to the ground.34 The mouth features a wide row of lower incisors used to crop grass against a hard, toothless dental pad on the upper jaw.18 A thick, highly mobile, dark tongue. Must-avoid errors: Upper incisors, which are a biological impossibility for all bovids. Human-like square teeth. A narrow, pointed snout suited for selective browsing rather than bulk grazing. Explicit AI failure modes: Generating human dentition in the upper jaw, or creating a predatory open-mouth snarl rather than a steady, herbivorous grinding motion. Negative-prompt tokens: upper incisors, sharp teeth, human teeth, pointed snout, canine teeth, open snarl, browsing leaves. Decisive tokens: wide flat muzzle, grazing posture in short grass, lower incisors only, hard upper dental pad, prehensile dark tongue, bulk grazer mouth.
+C7 Drinking (stance at water, neck, reflection sanity, mud)
+Must-show anatomy: Standing squarely on all four legs, neck extended downward, muzzle grazing the water's surface. Wet mud on the lower legs, hooves, and muzzle. Accurate, unbroken water reflections of the dark coat and heavy horns.
+Must-avoid errors: Kneeling to drink, as Cape buffalo stand to access water. Snout submerged completely to the eyes. Disconnected or morphing reflections that break physical laws.
+Explicit AI failure modes: The generation process sometimes forces the animal to its carpal joints to reach the water or merges the animal's geometry with the reflection, creating a two-headed artifact on the water line.
+Negative-prompt tokens: kneeling, submerged face, distorted reflection, ripples merging with skin, floating head, drinking while lying down.
+Decisive tokens: standing on all fours, heavy neck extended downward, flat muzzle touching water, clear surface reflection, wet mud on hooves and lower legs.
+C8 Hooves (cloven structure, dewclaws, wall cracks, mud in sulci, substrate)
+Must-show anatomy: Large, wide, cloven hooves, measuring approximately 15 by 15 cm in the front to support the heavy neck.15 Two prominent dewclaws situated high on the posterior of the lower leg.19 Natural wear, minor vertical keratin wall cracks, and dry mud packed into the interdigital cleft (sulcus).36 Must-avoid errors: Single solid hooves like an equine. Three toes like a rhinoceros. Missing dewclaws. Flawless, manicured keratin typical of generic 3D assets. Explicit AI failure modes: Fusing the cloven hoof into a solid equine block, or generating dewclaws that float disconnected from the leg geometry, floating in the surrounding grass. Negative-prompt tokens: solid hoof, equine foot, three toes, missing dewclaws, polished keratin, floating claws, soft fleshy pads. Decisive tokens: wide cloven hooves, front hooves larger than rear, high posterior dewclaws, keratin wall cracks, mud packed in sulci, standing on dusty soil.
+C9 Barely visible (heavy bush or tall grass occlusion)
+Must-show anatomy: The dark mass of the buffalo seamlessly integrated behind out-of-focus golden grass or riverine thicket. The heavy boss and fringed ears should break the occlusion naturally without seeming detached from the hidden body.17 Must-avoid errors: The animal's texture merging with the grass texture. Floating heads without a connected body mass behind the foliage. Explicit AI failure modes: The diffusion process frequently bleeds the color and texture of the foreground grass into the buffalo's coat, creating a striped or leafy pattern on the animal's skin itself. Negative-prompt tokens: floating head, texture bleed, translucent animal, merged foliage, camouflage skin, disembodied horns. Decisive tokens: heavy bush occlusion, tall dry savanna grass in foreground, dark solid silhouette behind foliage, distinct depth of field separating animal from plants, hidden massive body.
+C10 Coat (macro: hair direction, mud, scars, tick birds optional)
+Must-show anatomy: Coarse, sparse, dark brown to black hair that grows in distinct whorl patterns on the flanks, forehead, and shoulders.2 Skin visible beneath the hair, exhibiting a matte, dusty finish with irregular patches of dried grey mud from wallowing.38 Subtle, non-gory scarring on the flanks. Red-billed oxpeckers clinging naturally to the thick neck hide, scaled correctly relative to the buffalo's mass. Must-avoid errors: Thick, luxurious, salon-quality hair. Shiny plastic CGI skin. Oversized, anatomically incorrect birds that resemble pigeons. Explicit AI failure modes: Generating perfect, uniform hair direction without whorls, or applying a glossy metallic sheen to the skin. Birds often merge into the skin, possess extra wings, or sit mid-air. Negative-prompt tokens: thick fur, glossy skin, plastic sheen, uniform hair direction, oversized birds, metallic finish, dense winter coat. Decisive tokens: sparse coarse hair, natural hair whorl patterns, matte dusty hide, dried grey mud patches, subtle flank scars, properly scaled red-billed oxpeckers.
+C11 Front half from side (crop discipline, forelimb joint direction, boss read)
+Must-show anatomy: The heavy morphological transition from the deep neck to the powerful shoulder. The forelimb joints must articulate correctly, with the carpal joint bending backward relative to the forward movement. The side profile of the boss, showing the massive thickness of the keratin before the horn drops down the cheek.5 Must-avoid errors: Forelegs bending forward like human knees. A weak, thin neck transition that fails to convey the power required to lift the horns. Explicit AI failure modes: Anatomical collapse of the carpal joint, making the leg appear broken, backwards, or entirely jointless like a wooden peg. Negative-prompt tokens: forward-bending knee, thin neck, jointless leg, anatomical collapse, missing boss thickness, delicate shoulder. Decisive tokens: precise side profile, heavy neck musculature, accurate backward carpal joint articulation, thick keratin boss profile, deep barrel chest.
+C12 Back half from side (tail anchor, hock angle, rump mass)
+Must-show anatomy: A straight, robust backline transitioning into a solid, muscular rump. The tail must be anchored high on the pelvis, dropping 75 to 120 cm down to the hocks, ending in a distinct dark hair brush.18 The hock joint must angle sharply backward, supporting the massive frame. Must-avoid errors: A steeply sloping hyena-like backline. A short, pig-like tail or a horse's long flowing tail. Explicit AI failure modes: Blending the tail directly into the hind leg geometry, or failing to render the tufted brush at the end of the tail, leaving a blunt fleshy stump. Negative-prompt tokens: sloping backline, horse tail, short stubby tail, tail merged with leg, weak hindquarters, fluffy tail base. Decisive tokens: level rump, high tail anchor, rope-like tail reaching hocks, dark tufted tail brush, sharp hock angle, heavy muscular hindquarters.
+C13 Half face close-up (rhinarium, nostril flare, eye, ear fringe, boss base transition)
+Must-show anatomy: The wet, textured, hairless skin of the rhinarium surrounding the flared, comma-shaped nostrils. The transition from the coarse hair of the forehead into the hard, corrugated base of the keratin boss.2 The large, drooping ear with long, sparse fringe hairs along the lower edge.17 Must-avoid errors: A dry, furry nose resembling a canine. A smooth, featureless transition from skin to horn without a distinct corrugated base. Small, neat ears. Explicit AI failure modes: The model will often render the nose as a hard beak or a furry snout, and will fail to generate the distinct ridged texturing of the boss base, opting instead for a smooth plastic dome. Negative-prompt tokens: furry nose, dry snout, small ears, smooth horn base, dog nose, missing ear fringe, perfectly smooth keratin. Decisive tokens: wet textured rhinarium, flared comma-shaped nostrils, rough corrugated boss base transition, large drooping ear, long sparse ear fringe, high detail macro texture.
+A5) Behaviour snippets for believable static poses
+To generate highly realistic static poses, the prompt should imply specific behavioral geometry rather than treating the animal as a rigid statue. Cape buffalo are intensely gregarious, forming mega-herds that rely on a front-facing defensive posture when vigilant.17 A believable prompt will position the animal facing the camera with its head held level, ears swiveled horizontally to assess the environment.15 For resting poses, depict the animal standing deep in grey mud, as wallowing is a critical behavioral mechanism for thermoregulation and insect deterrence in hot, open habitats.29 Sparring postures between males should involve lowered heads, engaged boss-to-boss, with front legs splayed wide for leverage, ensuring no anatomical collapse of the joints occurs under the implied physical pressure. Avoid dynamic jumping or running shots unless specifically prompting a stampede, as their standard movement is a heavy, deliberate walk at an average speed of 1.4 meters per second.
+A6) Background discipline (anonymity-first)
+The environment must reflect the pristine South African bushveld, savanna, or mopane belt without looking like a curated zoo exhibit or a managed farm. Use defocused bokeh to imply native flora: the distinct butterfly-shaped, autumn-hued leaves of the mopane tree (Colophospermum mopane), the fine feathery foliage and pale thorns of Vachellia karroo, or the dense, grey-barked structure of the leadwood (Combretum imberbe).40 The background must remain strictly anonymous. To ensure this, negative prompts must explicitly ban readable fences, water troughs, safari vehicles, lodges, tire tracks, kraal geometry, named landmarks, powerlines, paved roads, and wildlife ear tags or tracking collars. The result should look like remote, untouched veld, providing a neutral, wild canvas for the subject.
+A7) Cheat sheet
+1. Anchor species: Syncerus caffer caffer, Cape buffalo, African savanna biome.
+2. Male geometry: 800 kg mass, massive neck, fused keratin boss, sparse hair, mud-caked.
+3. Female geometry: 600 kg mass, sleeker neck, separate horn bases, visible crown hair.
+4. Horns: Drop down sides of face, hook outward and up, natural asymmetrical wear.
+5. Boss (Males): Fused across forehead, heavily ridged, corrugated bone texture.
+6. Ears: Large, drooping below horn curve, long sparse fringe hairs on edges.
+7. Eyes: Horizontal oval pupil, medium brown iris, dark eyelashes, glossy ocular sheen.
+8. Muzzle: Broad, flat, wet rhinarium, lower incisors only, hard upper dental pad.
+9. Coat: Dark brown to black, sparse coarse hair, natural whorls, dusty matte finish.
+10. Backline: Straight and level, deep barrel chest, no bison shoulder hump.
+11. Tail: 75 to 120 cm long, reaches hocks, ends in a dark tufted brush.
+12. Front Hooves: Wide, cloven, 15 by 15 cm, high posterior dewclaws.
+13. Background: Defocused Colophospermum mopane or Vachellia, dry savanna grass.
+14. Negative ban: American bison, water buffalo, shoulder hump, shaggy winter coat.
+15. Negative ban: Upper incisors, human teeth, round pupils, floating dewclaws.
+16. Negative ban: Fences, troughs, vehicles, ear tags, tire tracks, plastic CGI sheen.
+17. Lighting: Harsh African sunlight, strong core shadows, atmospheric dust in air.
+18. Behavior: Front-facing vigilance, level head, horizontal ears, steady posture.
+19. Substrate: Dry, cracked earth, red dust, or grey wallowing mud.
+20. Realism: Healthy, ordinary individual, non-record trophy, natural asymmetry.
+A8) Works cited
+The morphological and ecological parameters defined in this guide are synthesized from highly reliable wildlife biology, taxonomy, and hunting estate records to ensure maximum fidelity in prompt engineering. The taxonomic distinction and morphological measurements of Syncerus caffer caffer are anchored by authoritative accounts from the Animal Diversity Web, the International Union for Conservation of Nature species data, and comprehensive anatomical surveys of African Bovidae, ensuring the correct baseline mass and skeletal geometry are targeted.1 Skeletal and hoof architecture, critical for preventing artificial intelligence generation errors like floating dewclaws, draws upon veterinary anatomical studies comparing the Cape buffalo to the Asian water buffalo and domestic cattle.22 Behavioral ecology, including grazing succession, mud wallowing thermoregulation, and mega-herd dynamics, is informed by current ecological monitoring in Southern Africa.34 While South African hunting estates frequently breed color morphs for species like springbok or wildebeest (for example, golden or king variants), the Cape buffalo is managed for horn boss quality and overall mass rather than engineered color phases, dictating that standard dark brown to black pelage remains the only scientifically and commercially relevant target for realism.7
+================================================================================ SPECIES B - WARTHOG (Phacochoerus africanus)
+Working name for the file: Warthog_AI_Field_Notes.txt
+B1) Taxonomy and scope
+For artificial intelligence image generation targeting South African hunting estates and reserves, the specific target species is the common warthog, designated by the binomial nomenclature Phacochoerus africanus.44 Taxonomically, it is crucial to distinguish this species from the desert warthog (Phacochoerus aethiopicus), which is currently confined to the Horn of Africa, as the historical Cape Warthog subspecies of P. aethiopicus became completely extinct in South Africa in the 1870s.46 Therefore, all contemporary southern African warthogs found on hunting estates are the common variety.
+In the latent space of generative models, the word "warthog" frequently causes the model to drift toward generic feral domestic pigs (Sus scrofa domesticus), Eurasian wild boars (Sus scrofa), or highly stylized, cartoonish representations.48 Recent studies show that models applying automated prompt revisions often inject unrealistic farming features, such as metal railings or concrete floors, when dealing with suidae.50 To anchor the prompt accurately and bypass these architectural biases, engineers must use the full binomial Phacochoerus africanus combined with modifiers like "African Suidae", "savanna grazer", and "wild African pig". This linguistic tethering ensures the model retrieves the correct morphological data: a barrel-shaped body, sparse bristles, large facial warts, and distinct upward-curving tusks, rather than the dense fur of a boar or the fat rolls of an indoor-housed domestic pig. As with the buffalo, the common warthog does not possess recognized, commercially traded "color morphs" in the hunting sector, meaning prompt engineers should strictly focus on natural, soil-derived camouflage and standard biological pigmentation rather than searching for rare genetic variants.46
+B2) Confusion matrix
+To prevent diffusion models from hybridizing the common warthog with morphologically similar animals or distant phylogenetic relatives, prompt engineers must be acutely aware of the following delineations.48
+
+
+Row Species
+	Tusks and Dentition
+	Facial Warts and Snout
+	Hair and Mane
+	Tail and Legs
+	Ears and Posture
+	Common Warthog
+	Upper tusks curve outward and up (up to 63 cm), sharp lower tusks.51
+	Large cartilaginous warts, broad snout disc.51
+	Sparse bristles, distinct dorsal mane down the spine.51
+	Long, thin tail, held strictly upright (flagged) when running. Long legs, calloused knees.51
+	Erect, sparsely haired ears. Kneels on carpal joints to graze.56
+	Feral Domestic Pig
+	Short, mostly hidden tusks.
+	No warts, flat dished face, fleshy pink snout.
+	Mostly hairless or uniform thin coat, no thick dorsal mane.
+	Short, often curled tail. Short legs, heavy fat rolls.
+	Floppy or stiff upright ears. Stands to eat.
+	Eurasian Wild Boar
+	Short, thick lower tusks, minimal upper tusks.48
+	No warts, long sloping wedge-shaped snout.
+	Dense, thick, coarse fur covering the entire body.48
+	Straight, short tail, drops downward. Short, powerful legs.
+	Heavily furred ears. Stands to eat.
+	Bushpig
+	Very short tusks, mostly concealed.52
+	No pronounced warts, elongated snout.52
+	Dense, shaggy reddish-brown coat, white dorsal crest.53
+	Drops downward, bushy.
+	Distinctive ear tufts. Nocturnal posture.52
+	Peccary
+	Straight, downward-pointing interlocking tusks.
+	No warts, small delicate snout.
+	Dense, bristly, uniform coat, distinct white collar.
+	No visible tail. Delicate, thin legs.
+	Small, rounded ears. Stands to eat.
+	Juvenile Buffalo
+	No tusks. Small budding horns.
+	No warts. Broad bovine muzzle.54
+	Uniform dark calf coat.5
+	Drops downward, long. Thick bovine legs.
+	Large drooping ears. Stands to graze.
+	Hyena
+	Scavenger dentition, no tusks.
+	No warts. Carnivore snout.
+	Spotted coat, sloping backline, thick neck mane.
+	Drops downward, bushy.
+	Rounded ears. Sloping gait.
+	B3) Sexual dimorphism
+The common warthog exhibits pronounced sexual dimorphism, primarily localized to the facial architecture and overall body mass. Adult males (boars) are significantly heavier, weighing between 60 and 150 kg, while females (sows) are 15 to 20 percent lighter, ranging from 45 to 75 kg.45 The most critical visual distinction for prompt engineering lies in the facial warts and tusks. Males develop massive, prominent suborbital warts that can grow up to 15 cm long, protruding significantly from the sides of the head beneath the eyes.51 These warts are composed of dense cartilaginous connective tissue and act as shock absorbers during violent sparring matches in the mating season.51 Females also possess warts, but they are dramatically smaller and less protrusive.51
+Tusk development is similarly dimorphic. The upper tusks of a mature male can reach extraordinary lengths, ranging from 25.5 to 63.5 cm, forming a massive upward-curving semicircle.51 In females, the upper tusks are much shorter, typically ranging from 15.2 to 25.5 cm.51 The lower tusks are razor-sharp in both sexes, constantly honed against the upper tusks every time the mouth is opened and closed, but are generally thicker in males.45 Behaviorally, both sexes frequently drop to their calloused carpal joints to graze on short grasses or root for tubers, making the kneeling posture an honest, gender-neutral pose for feeding prompts.56
+B4) Shot-by-shot morphology guide (C1-C13)
+Before outlining the shot types, engineers must address the top diffusion failure swaps for the common warthog, applying the appropriate negative tokens to bypass latent contamination.
+
+
+Top 10 Warthog AI Failure Modes
+	Decisive Tokens to Break the Tie
+	Swapping the sparse, bristly coat for the dense, thick fur of a Eurasian wild boar.48
+	Sparse bristles, exposed grey skin, thin hair coat.
+	Generating a curly domestic pig tail instead of a straight tail with a tufted tip.
+	Straight rope-like tail, tail flagged upright, tufted tip.
+	Rendering the facial warts as pathological tumors rather than natural cartilaginous pads.
+	Smooth cartilaginous facial warts, natural thick skin pads.
+	Generating human teeth or flat bovine dental pads instead of sharp suidae incisors and tusks.
+	Sharp lower incisors, prominent upward curving tusks.
+	Fusing the upward-curving upper tusk and razor-sharp lower tusk into a single elephantine tusk.
+	Distinct upper and lower tusks, upper curving outward, lower sharp at base.
+	Giving the animal short, stubby domestic pig legs rather than proportionately long legs.51
+	Long slender legs, tall shoulder height, lean athletic build.
+	Generating the animal standing to eat short grass, ignoring the anatomically correct kneeling posture.56
+	Kneeling on front wrists, bent carpal joints, feeding on knees.
+	Swapping the broad, shovel-like snout for a soft, pink, cartoonish pig nose.59
+	Broad flat rhinarium, dark tough snout, rooting in dirt.
+	Missing the distinctive mane of long hair running down the spine.51
+	Thick dorsal hair mane, long bristles along spine.
+	Erasing the calloused carpal pads entirely, rendering a smooth leg.56
+	Thick calloused wrist pads, rough carpal skin.
+	C1 Full body (broadside or slight angle reference)
+Must-show anatomy: A barrel-shaped torso lacking subcutaneous fat, supported by proportionately long, slender legs.51 A large, shovel-shaped head that appears disproportionately large for the body. A distinct mane of coarse hair running from the top of the head down the spine to the middle of the back. A long, thin tail ending in a tuft of hair.45 Must-avoid errors: Deep, sagging bellies with heavy fat rolls characteristic of domestic pigs. Short, stubby legs. Thick, uniform fur covering the entire body. Explicit AI failure modes: The model will routinely generate a feral domestic pig with a thick coat, completely missing the sleek, sparse-haired, long-legged silhouette of a true savanna warthog. Negative-prompt tokens: dense fur, fat rolls, short legs, curly tail, domestic pig body, wild boar silhouette, sagging belly, winter coat. Decisive tokens: barrel-shaped lean body, long slender legs, sparse body bristles, thick dorsal spine mane, Phacochoerus africanus, long straight tail with tuft, wild African suidae.
+C2 Eyes (macro: placement, pupil, iris, moisture, lashes, ocular sheen)
+Must-show anatomy: Eyes positioned high and wide on the skull, situated above and behind the prominent suborbital warts.60 The pupil is distinctly round, set within a medium brown iris.61 The eye must reflect a glossy tapetum lucidum sheen, reflecting the environment, and be surrounded by sparse, coarse eyelashes to protect against the dusty environment. Must-avoid errors: Horizontal oval pupils, which belong to bovids and equines. Deeply sunken eyes entirely hidden by thick fur or fleshy folds. Explicit AI failure modes: The artificial intelligence often generates horizontal pupils due to cross-contamination with grazing antelopes sharing the same biome tags, or embeds the eye too deeply into the facial warts, making the animal look blind. Negative-prompt tokens: horizontal pupil, vertical slit pupil, human eye, blue iris, eyes hidden in fur, tumorous eyelids, fleshy folds over eyes. Decisive tokens: round pupil, medium brown iris, eyes set high on skull, glossy ocular sheen, coarse sparse eyelashes, wide visual field.
+C3 Horns or boss region (Tusks and Warts, both sexes as applicable)
+Must-show anatomy: Two precise pairs of tusks. The massive upper tusks grow outward from the sides of the snout and curve upward into a wide semicircle.55 The smaller, razor-sharp lower tusks emerge at the base of the uppers and rub against them.55 Three pairs of cartilaginous warts (suborbital, preorbital, submaxillary) must be clearly defined.51 Must-avoid errors: Tusks pointing downward like a walrus or peccary. Warts that look like bleeding, open, or diseased tumors. Explicit AI failure modes: Fusing the upper and lower tusks into a single solid bone, or erroneously placing the tusks emerging directly from the nostrils rather than the jawline. Negative-prompt tokens: downward tusks, single tusk, tusks from nostrils, bleeding tumors, diseased skin, fleshy fat lumps, elephant tusks. Decisive tokens: upward curving upper tusks, sharp lower tusks at base, prominent cartilaginous facial warts, suborbital protective pads, clean sharp keratin.
+C4 Female
+Must-show anatomy: A slightly smaller overall frame (45 to 75 kg) with significantly smaller, less protrusive facial warts. Upper tusks are present but shorter, typically curving tighter and not exceeding 25.5 cm.45 The snout is generally sleeker. Must-avoid errors: Massive, 15-cm suborbital warts. Huge, thick tusks that cross high over the snout. Explicit AI failure modes: Generating male facial architecture regardless of female prompt keywords, or removing the tusks and warts entirely, resulting in a generic feral sow. Negative-prompt tokens: massive facial warts, giant tusks, male morphology, hornless pig, smooth face, giant boar. Decisive tokens: female warthog sow, small facial warts, short upward curving upper tusks, slender head, Phacochoerus africanus sow, wild female suidae.
+C5 Male
+Must-show anatomy: A massive, flat, shovel-like head dominated by extreme suborbital warts that protrude up to 15 cm outward.51 Thick, heavy upper tusks reaching up to 63.5 cm.51 A heavy, muscular neck supporting the disproportionately large head, with a thick mane of hair rising from the crest.45 Must-avoid errors: Small, delicate features. A smooth face without pronounced warts. Explicit AI failure modes: The model will generate a standard wild boar with thick fur rather than emphasizing the hairless, warty, tusk-heavy architecture of a mature warthog boar. Negative-prompt tokens: smooth face, short tusks, delicate snout, thick wild boar fur, domestic pig face, small warts. Decisive tokens: mature warthog boar, massive cartilaginous suborbital warts, giant thick upper tusks, wide shovel-shaped head, heavy neck, dominant male anatomy.
+C6 Eating (mouth anatomy: rooting vs grazing)
+Must-show anatomy: The animal kneeling heavily on its front carpal joints (wrists), which have thick, calloused, hairless pads designed specifically for this posture.56 The broad snout is pressed to the ground, rooting or grazing. The mouth contains lower incisors, but no upper canines other than the external tusks. Must-avoid errors: Standing up with straight front legs to graze on short grass. Human teeth inside the mouth. A soft, pink domestic pig snout. Explicit AI failure modes: Failing to articulate the carpal joint correctly, resulting in the front legs clipping through the digital ground plane, or generating rows of human teeth inside the open mouth. Negative-prompt tokens: standing to graze, straight front legs, human teeth, pink soft snout, legs clipping into ground, flat bovine dental pad. Decisive tokens: kneeling on front wrists, calloused carpal pads, broad tough snout, rooting in dirt, lower incisors visible, upward curving tusks clear of ground.
+C7 Drinking (stance at water, neck, reflection sanity, mud)
+Must-show anatomy: Kneeling on the front carpal joints at the water's edge, bringing the heavy, short-necked head down to the surface. Wet mud coating the snout and warts. Perfect, undistorted water reflections showing the tusks accurately.
+Must-avoid errors: Standing to drink, as their necks are too short relative to their long legs to reach the water from a standing position. Submerging the nostrils entirely under the water.
+Explicit AI failure modes: Merging the curved tusks with the water reflection, creating infinite spiraling keratin artifacts on the water's surface, or drawing the animal standing in a physically impossible geometric crouch.
+Negative-prompt tokens: standing to drink, submerged snout, distorted reflection, infinite tusks, merged water geometry, crouching on hind legs.
+Decisive tokens: kneeling on front wrists at water edge, heavy head lowered, wet mud on snout, clear water reflection, undisturbed water surface, drinking posture.
+C8 Hooves (cloven structure, dewclaws, substrate)
+Must-show anatomy: Two main weight-bearing toes forming the cloven hoof, and two smaller accessory digits (dewclaws) located higher up on the posterior of the leg.62 The hooves are sharp, dark, and robust, shown digging into dry earth or mud. Must-avoid errors: Solid horse hooves. Three toes like a rhinoceros. Soft, fleshy canine paws. Missing the posterior dewclaws. Explicit AI failure modes: Morphing the cloven hoof into a solid block, or drawing dog-like paws due to "kneeling" prompts confusing the latent space into rendering canine anatomy. Negative-prompt tokens: solid hoof, equine foot, dog paw, three toes, missing dewclaws, soft fleshy feet, human-like toes. Decisive tokens: sharp cloven hooves, two weight-bearing toes, posterior dewclaws, suidae foot anatomy, stepping in dry cracked earth.
+C9 Barely visible (heavy bush or tall grass occlusion)
+Must-show anatomy: The grey-brown curve of the back and the upright dorsal mane visible above short grass pans or thicket margins. The upward curve of the tusks breaking through the foliage, signaling the animal's presence.
+Must-avoid errors: The animal's skin adopting the texture of the surrounding grass. Floating tusks with no connected head or body mass behind the occlusion.
+Explicit AI failure modes: The model will blend the sparse hair of the warthog with the dry grass, creating a translucent, striped, or ghost-like visual artifact.
+Negative-prompt tokens: texture bleed, floating tusks, translucent body, camouflage skin, merged foliage, disembodied head.
+Decisive tokens: animal partially hidden in dry grass, thicket margin, grey-brown skin visible, dorsal mane breaking cover, distinct depth of field, obscured body mass.
+C10 Coat (macro: hair direction, mud, scars)
+Must-show anatomy: Extremely sparse, coarse bristles that do not fully conceal the underlying grey, brown, or black skin.45 A distinct mane of longer, lighter-tipped hair running down the cervical and thoracic spine.64 Patches of dried mud acting as a natural sunscreen and insect repellent.53 Must-avoid errors: Thick, soft, continuous fur. Glossy, wet-looking skin unless actively wallowing in a water source. Explicit AI failure modes: Generating a dense, hairy coat identical to a Eurasian wild boar, completely covering the skin and obscuring the underlying musculature. Negative-prompt tokens: thick fur, dense coat, soft hair, completely covered skin, glossy plastic sheen, winter coat. Decisive tokens: sparse coarse bristles, exposed grey skin, distinct dorsal mane, dried mud patches, matte dusty skin texture, rugged hide.
+C11 Front half from side (crop discipline, forelimb joint direction)
+Must-show anatomy: The flat, elongated profile of the skull. The massive suborbital wart protruding backward and outward. The upward sweep of the upper tusk and the sharp vertical point of the lower tusk. The front leg structure, explicitly showing the calloused, hairless carpal pad on the front of the wrist.
+Must-avoid errors: A short, stubby, dished face. Forward-bending knees on the forelimbs.
+Explicit AI failure modes: Failing to render the calloused wrist pad, drawing a smooth, delicate leg instead of the rugged anatomy required for their evolutionary kneeling adaptation.
+Negative-prompt tokens: short snout, delicate legs, forward-bending knee, missing wrist pad, single tusk, dished face.
+Decisive tokens: precise side profile, elongated flat skull, prominent facial warts, upward curving upper tusk, sharp lower tusk, calloused carpal wrist pad.
+C12 Back half from side (tail anchor, hock angle, rump mass)
+Must-show anatomy: A lean, sloped rump lacking subcutaneous fat.45 The tail must be thin, moderately long, and if the animal is implied to be running or alarmed, the tail must be held rigidly upright like an antenna, with a tuft of hair acting as a flag at the tip.51 Must-avoid errors: A curly, corkscrew tail. A heavily fatted, round, ham-like rump. A bushy, dropping tail while running. Explicit AI failure modes: Invariably generating a curled domestic pig tail, which completely destroys the realism of a wild African warthog. Negative-prompt tokens: curly tail, corkscrew tail, heavy fat rolls, bushy tail, domestic pig rump, dropping tail while running. Decisive tokens: lean sloped rump, no subcutaneous fat, thin straight tail, tail held strictly upright, tufted tail tip, slender athletic hind legs.
+C13 Half face close-up (rhinarium, nostril flare, eye, ear fringe)
+Must-show anatomy: The broad, flattened, tough cartilaginous disc of the snout, known as the rhinarium, containing the nostrils.65 Coarse tactile bristles scattered across the snout for sensory input while rooting. The rough, skin-covered texture of the facial warts. The upward sweep of the thick keratin tusk emerging from the jawline. Must-avoid errors: A soft, wet, pink domestic pig snout. Warts that look like open wounds, blisters, or wet tumors. Explicit AI failure modes: Generating a perfectly smooth, pink, cartoonish pig snout without the coarse texture and dirt-caked reality of a natural digging implement. Negative-prompt tokens: soft pink snout, cartoon pig nose, smooth skin, bleeding warts, wet dog nose, delicate nostrils. Decisive tokens: broad tough rhinarium, coarse snout bristles, cartilaginous facial warts, thick keratin tusk base, dusty macro texture, dirt-caked snout.
+B5) Colour, light, texture
+Warthogs lack subcutaneous fat and possess a highly sparse coat, making their skin highly visible to the camera.45 The skin itself is inherently grey to dark brown, but because they wallow frequently for thermoregulation and insect protection, the local soil color heavily dictates their apparent hue.53 In the South African bushveld, this means red dust or grey mud. The skin should have a matte, dry finish, explicitly avoiding any CGI plastic specular highlights. The edges of the ears may show slight sun damage or thinning hair due to the harsh UV exposure. The warts must appear as tough, thickened, calloused skin, not shiny or inflamed tissue. Lighting should reflect the harsh, high-contrast African sun, casting deep core shadows beneath the barrel of the body.
+B6) Background discipline (anonymity-first)
+The warthog is primarily an animal of the open savanna, short grass pans, and thicket margins.51 Backgrounds should imply an arid, harsh environment. To frame the animal naturally, include out-of-focus elements like abandoned aardvark burrows, which warthogs routinely appropriate for shelter, or low-lying scrub.56 Strictly enforce the anonymity-first rule: use negative prompts to ban readable farm infrastructure, wire fences, water troughs, tire tracks, and any human structures, as models will otherwise default to domestic pig farming environments.50 The depth of field should blur the background into a natural, earthy bokeh consisting of dry grass and scattered acacia thorns.
+B7) Cheat sheet
+1. Anchor species: Phacochoerus africanus, common warthog, African Suidae.
+2. Male geometry: 100 kg mass, massive suborbital warts, huge upper tusks, large flat head.
+3. Female geometry: 60 kg mass, smaller warts, shorter tusks, sleeker head.
+4. Tusks: Upper tusks curve outward and up, up to 63 cm. Sharp lower tusks at base.
+5. Warts: Three pairs of cartilaginous pads. Not tumors, not bleeding.
+6. Coat: Sparse coarse bristles, grey or brown skin visible, thick dorsal spine mane.
+7. Posture (Eating): Kneeling on front carpal joints.
+8. Knees: Thick, hairless, calloused carpal pads on front legs.
+9. Tail: Thin, straight, tufted tip. Held rigidly upright when running.
+10. Snout: Broad, tough, flat rhinarium used for rooting. Not pink or soft.
+11. Eyes: High on skull, round pupil, medium brown iris.
+12. Legs: Proportionately long and slender, not short or stubby.
+13. Hooves: Sharp cloven hooves with two posterior dewclaws.
+14. Background: Dry short grass pans, aardvark burrows, thicket margins.
+15. Negative ban: Domestic pig, wild boar, dense fur, fat rolls, curly tail.
+16. Negative ban: Elephant tusks, downward tusks, human teeth, standing to graze.
+17. Negative ban: Fences, troughs, vehicles, plastic skin sheen, concrete floors.
+18. Lighting: High contrast African sun, red dust or grey mud coating.
+19. Realism: Matte skin, natural asymmetry, rugged and dusty.
+20. Action: Rooting in dirt with broad snout, lower incisors visible.
+B8) Works cited
+The structural and behavioral details provided for Phacochoerus africanus rely on rigorous zoological and evolutionary literature to ensure highly accurate generative outputs. Taxonomic boundaries separating the common warthog from the desert warthog, as well as their evolutionary divergence within the Suidae family, are grounded in comprehensive genomic and biogeographic studies, securing the correct regional data tags.46 Detailed craniomandibular morphology, including the specific lengths and curvature of the upper and lower canines (tusks), is derived from dedicated dental aging and anatomical field guides.45 Crucial biomechanical traits that dictate realistic prompt engineering, such as the specialized calloused carpal joints necessary for their unique kneeling grazing posture, are heavily documented in ecological behavioral records.51 Additionally, studies on artificial intelligence image generation highlight the critical need for explicit wild-context tokens to prevent models from defaulting to domestic pig morphology and indoor farming infrastructure.50 While the South African hunting industry actively breeds and markets specific color variants of certain plains game, the common warthog does not possess recognized, commercially traded color morphs in this context, dictating that prompt engineers should strictly focus on natural, soil-derived camouflage and standard biological pigmentation rather than searching for rare genetic variants.46
+Works cited
+1. African buffalo - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/African_buffalo
+2. Syncerus caffer (African buffalo) | INFORMATION | Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Syncerus_caffer/
+3. What's the Difference Between Bison and Buffalo? - Britannica, accessed April 20, 2026, https://www.britannica.com/story/whats-the-difference-between-buffalo-and-bison
+4. Sequencing and assembly of the Egyptian buffalo genome - PMC - NIH, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC7437910/
+5. Cape buffalo | Weight, Size, Description, Bull, Diet, African Savanna Mammal, & Facts, accessed April 20, 2026, https://www.britannica.com/animal/Cape-buffalo
+6. “Bison” versus “Buffalo”, accessed April 20, 2026, https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/documents/prairiebisonvsbuffalo.pdf
+7. Animals by Species | African Field Sports, accessed April 20, 2026, https://africanfieldsports.co.za/animals-by-species/
+8. Hunting: the colour game is over - Africa Geographic, accessed April 20, 2026, https://africageographic.com/stories/hunting-colour-game/
+9. Trophy Hunting South Africa, accessed April 20, 2026, https://bowkerafricanhunts.com/trophy-hunting-south-africa
+10. South Africa's Buffalo Revival - Safari Club, accessed April 20, 2026, https://safariclub.org/south-africas-buffalo-revival/
+11. Which AI tool is best to generate Realistic Images with Proper Text?? - Reddit, accessed April 20, 2026, https://www.reddit.com/r/generativeAI/comments/1qjqlj4/which_ai_tool_is_best_to_generate_realistic/
+12. AI Image Fails: Funniest AI-Generated Picture Mistakes - Christopher Queen Consulting, accessed April 20, 2026, https://christopherqueenconsulting.com/ai-image-fails-funniest-ai-generated-picture-mistakes/
+13. Bison vs Buffalo Whats the Difference - Africa Safaris, accessed April 20, 2026, https://www.africa-safaris.com/bison-vs-buffalo
+14. Buffalo vs. Wildebeest: What Are The 5 Major Differences? - A-Z Animals, accessed April 20, 2026, https://a-z-animals.com/animals/comparison/buffalo-vs-wildebeest/
+15. African (Cape) Buffalo Syncerus caffer caffer (Sparrman ... - AWS, accessed April 20, 2026, https://natshoot.s3.amazonaws.com/uploads/00-21-NEW/SUCo-SA/Species-Ecoogy/1648281017873-Species%209%20-%20Buffalo.pdf
+16. Cape Buffalo (Syncerus caffer) Dimensions & Drawings, accessed April 20, 2026, https://www.dimensions.com/element/cape-buffalo-syncerus-caffer
+17. Cape Buffalo Syncerus caffer Head Ornaments - Both males and females have impressive horns that spread outward then down around - Denver Zoo, accessed April 20, 2026, https://denverzoo.org/wp-content/uploads/2018/09/Cape-Buffalo.pdf
+18. African buffaloSyncerus caffer(Sparrman, 1779), accessed April 20, 2026, http://www.sadieryan.net/uploads/1/3/4/4/13440807/african_buffalo_ecology_evolution_and_behaviour_of_wild_cattle.pdf
+19. How to Track Cape Buffalo - Londolozi Blog, accessed April 20, 2026, https://blog.londolozi.com/2012/07/16/how-to-track-cape-buffalo/
+20. American Bison or Buffalo - The Nature Conservancy, accessed April 20, 2026, https://www.nature.org/en-us/get-involved/how-to-help/animals-we-protect/american-bison/
+21. Buffalo vs. Bison: What's the Difference? - Yankee Farmer's Market, accessed April 20, 2026, https://yankeefarmersmarket.com/pages/differences-between-buffalo-and-bison
+22. Anatomy and imaging features of the dew claws of the water buffalo and cow | Request PDF, accessed April 20, 2026, https://www.researchgate.net/publication/318110564_Anatomy_and_imaging_features_of_the_dew_claws_of_the_water_buffalo_and_cow
+23. Africa's Toughest Antelope - Sports Afield, accessed April 20, 2026, https://sportsafield.com/2025/africas-toughest-antelope/
+24. Species pricelist | EBC Bowhunting Safar, accessed April 20, 2026, https://www.ebcbowhuntingsafaris.com/species-pricelist
+25. Specie - Game 4 Africa, accessed April 20, 2026, https://game4africa.co.za/species/
+26. Cape Buffalo vs Rhino: When Two Powers Collide #animaldocumentary | Savage Kingdoms, accessed April 20, 2026, https://www.youtube.com/watch?v=nKU_x26m4Lw
+27. Mind-blowing facts about the Big Five of Africa - Follow Alice, accessed April 20, 2026, https://followalice.com/knowledge/the-big-five
+28. African buffalo (Syncerus caffer) - Detailed information, accessed April 20, 2026, https://www.ultimateungulate.com/Artiodactyla/Syncerus_cafferFull.html
+29. Buffalo Animal Facts - Syncerus caffer - A-Z Animals, accessed April 20, 2026, https://a-z-animals.com/animals/buffalo/
+30. Comparisons of various "photorealism" prompt : r/StableDiffusion - Reddit, accessed April 20, 2026, https://www.reddit.com/r/StableDiffusion/comments/1adgcf3/comparisons_of_various_photorealism_prompt/
+31. Buffalo Eye - Oval Pupil with Brown Iris and black lines (UMB) - Basileia Eyes, accessed April 20, 2026, https://basileiaeyes.com/products/buffalo-eye-oval-pupil-with-brown-iris-and-black-veins-umb
+32. Different pupil shapes in animals, accessed April 20, 2026, https://www.sabisabi.com/discover/topics/different-pupil-shapes-in-animals
+33. Van Dyke's Eyes - Cape Buffalo - McKenzie Taxidermy Supply, accessed April 20, 2026, https://www.mckenzietaxidermy.com/Van-Dykes-Eyes-Cape-Buffalo-C2923.aspx
+34. What Do African Buffalo Eat? - South Africa Online, accessed April 20, 2026, https://southafrica.co.za/what-do-african-buffalo-eat.html
+35. Normal Hoof Angles and Other Parameters of Selected African Ungulates - IAAAM_Archive, accessed April 20, 2026, https://www.vin.com/apputil/content/defaultadv1.aspx?pId=11257&meta=Generic&catId=32414&id=3864638
+36. Sand cracks, horizontal fissures, and other conditions affecting the wall of the bovine claw - PubMed, accessed April 20, 2026, https://pubmed.ncbi.nlm.nih.gov/11320701/
+37. Description of the six hair whorl patterns (HW): (a) A normal middle HW... - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/figure/Description-of-the-six-hair-whorl-patterns-HW-a-A-normal-middle-HW-with-a-clear_fig2_276495633
+38. The African Buffalo: Everything You Need to Know, accessed April 20, 2026, https://africanbushcamps.com/african-buffalo/
+39. Combining artificial intelligence and local ecological knowledge to document the largest ever-counted Cape buffalo mega-herd - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/publication/398066607_Combining_artificial_intelligence_and_local_ecological_knowledge_to_document_the_largest_ever-counted_Cape_buffalo_mega-herd
+40. South Africa's Bushveld Vegetation: An Introduction, accessed April 20, 2026, https://botanicalsociety.org.za/south-africas-bushveld-vegetation-an-introduction/
+41. Combretum imberbe - Useful Tropical Plants, accessed April 20, 2026, https://tropical.theferns.info/viewtropical.php?id=Combretum+imberbe
+42. Mopane Tree - Southern African Trees - Kruger National Park, accessed April 20, 2026, https://www.krugerpark.co.za/africa_mopane.html
+43. African (Cape) Buffalo Syncerus caffer caffer (Sparrman, 1779) UPDATED - SUCo-SA, accessed April 20, 2026, https://suco-sa.org.za/african-cape-buffalo-syncerus-caffer-caffer-sparrman-1779-updated/
+44. Mpala Live! Field Guide: Warthog | MpalaLive, accessed April 20, 2026, https://www.mpalalive.org/field_guide/view/warthog
+45. Common warthog - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Common_warthog
+46. Phacochoerus africanus – Common Warthog - Endangered Wildlife ..., accessed April 20, 2026, https://ewt.org/wp-content/uploads/2022/11/20.-Common-Warthog-Phacochoerus-africanus_LC.pdf
+47. Warthog (Animal) – Study Guide | StudyGuides.com, accessed April 20, 2026, https://studyguides.com/study-methods/study-guide/cmmsa1s2qnnef01aahqwcqupv
+48. Feral Hog Vs. Warthog - FishGame, accessed April 20, 2026, https://fishgame.com/2018/10/feral-hog-vs-warthog/
+49. What Is The Difference Between Boars and Warthogs? - YouTube, accessed April 20, 2026, https://www.youtube.com/watch?v=BQWF2oa5GQg
+50. The erasure of intensive livestock farming in text-to-image generative AI - arXiv, accessed April 20, 2026, https://arxiv.org/html/2502.19771v1
+51. Phacochoerus africanus (common warthog) | INFORMATION - Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Phacochoerus_africanus/
+52. Differences Between Bush Pigs & Warthogs - Kariega Game Reserve, accessed April 20, 2026, https://www.kariega.co.za/blog/south-african-wild-pigs-bush-pigs
+53. A Tale of Two Hogs | Columbus Zoo and Aquarium, accessed April 20, 2026, https://www.columbuszoo.org/blog/tale-two-hogs
+54. Brave Warthog vs Buffalo, Zebra And Wildebeest - YouTube, accessed April 20, 2026, https://www.youtube.com/watch?v=OB-4N1JSdeU
+55. Warthog - African Wildlife Foundation, accessed April 20, 2026, https://www.awf.org/wildlife-conservation/warthog
+56. Warthogs Of South Africa: Nature's Resilient Survivors - Lehigh Regional Veterinary Surgical Specialty, accessed April 20, 2026, https://lrvss.com/warthogs-of-south-africa-natures-resilient-survivors/
+57. New Warthog Species Spotted at Loisaba Conservancy - Elewana Collection, accessed April 20, 2026, https://www.elewanacollection.com/news-information/newsletters/may-2021/new-warthog-species-spotted-at-loisaba-conservancy
+58. Warthog | San Diego Zoo Animals & Plants, accessed April 20, 2026, https://animals.sandiegozoo.org/animals/warthog
+59. Rhinarium - Definition and Examples - Biology Online Dictionary, accessed April 20, 2026, https://www.biologyonline.com/dictionary/rhinarium
+60. Warthog - Southland Eye Associates, accessed April 20, 2026, https://southlandeye.com/warthog/
+61. Warthog Eye - Round pupil with medium brown Iris with black inner and outer rings (VVC), accessed April 20, 2026, https://basileiaeyes.com/products/warthog-vvc
+62. The Dewclaw | PetMassage, accessed April 20, 2026, https://petmassage.com/wp-content/uploads/The-Dewclaw-by-Christina-Lemnotis-2012-10-09.pdf
+63. Claw Characteristics of Culled Sows from Three Farrow-to-Finish Greek Farms. Part 1: Claw Length Measurements, Lesion Scores and Their Association - PMC, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC8310128/
+64. Phacochoerus africanus (Warthog) - Tsammalex -, accessed April 20, 2026, https://tsammalex.clld.org/parameters/phacochoerusafricanus
+65. Rhinarium - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Rhinarium
+66. Comparison of rhinarium digging by warthog and bushpig. Observations... | Download Table - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/figure/Comparison-of-rhinarium-digging-by-warthog-and-bushpig-Observations-made-on-tame-free_tbl5_280556106
+67. warthog - Kids | Britannica Kids | Homework Help, accessed April 20, 2026, https://kids.britannica.com/kids/article/warthog/602313
+68. Warthog Genomes Resolve an Evolutionary Conundrum and Reveal Introgression of Disease Resistance Genes - PMC, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC9250280/
+69. Uncovering Evolutionary Adaptations in Common Warthogs through Genomic Analyses, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC10888464/
+70. DENTITION AND AGE DETERMINATION OF THE WARTHOG Phacochoerus aethiopicus IN ZULULAND, SOUTH AFRICA - Original Wisdom, accessed April 20, 2026, https://www.originalwisdom.com/wp-content/uploads/bsk-pdf-manager/2019/04/Mason_1984_dentition-and-age-determination-of-warthog.pdf

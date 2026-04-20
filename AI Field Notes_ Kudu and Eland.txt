@@ -1,0 +1,376 @@
+﻿Reference-Grade Field Notes for AI Image Generation: African Antelope Morphology
+================================================================================ SPECIES A — GREATER KUDU (Tragelaphus strepsiceros)
+Working name for the file: Greater_Kudu_AI_Field_Notes.txt
+A1) Taxonomy and scope
+The Greater Kudu, scientifically designated as Tragelaphus strepsiceros, is a large, woodland-dwelling antelope belonging to the Bovidae family, the Bovinae subfamily, and the Tragelaphini tribe, commonly referred to as the spiral-horned antelopes.1 When generating hyper-realistic wildlife imagery localized to South African private reserves and hunting estates—specifically within the Waterberg bushveld and mopane belts—the relevant taxonomic classification is the Southern African subspecies, Tragelaphus strepsiceros strepsiceros.3 This particular subspecies represents the archetypal "Grey Ghost" of the African savanna, highly adapted to dense brush and broken, rocky terrain where it relies on its exceptional camouflage and acute sensory perception to evade predation.4
+In the realm of artificial intelligence image generation, diffusion models possess latent spaces heavily contaminated by semantic blending. Generic prompts such as "kudu" or "African antelope" frequently result in chimeric generations that inappropriate mix traits from the Lesser Kudu (Tragelaphus imberbis), the Nyala (Tragelaphus angasii), and the Bongo (Tragelaphus eurycerus).3 To strictly enforce accurate morphological boundaries, generative prompts must invariably anchor the subject using the full binomial nomenclature, Tragelaphus strepsiceros. Prompt engineers must explicitly separate the Greater Kudu from its smaller East African cousin, the Lesser Kudu, by heavily weighting tokens that emphasize the Greater Kudu's larger stature, restricted stripe count, and distinct ventral throat mane—a feature entirely absent in the Lesser Kudu.8 Furthermore, because AI models inherently struggle with the rich biodiversity of African fauna, disambiguation requires pairing the binomial name with highly specific, non-negotiable anatomical descriptors to override the algorithm's bias toward generic North American deer or hybrid fantasy creatures.7
+A2) Confusion matrix
+The accurate rendering of the Greater Kudu requires a precise understanding of its divergence from overlapping species. Generative models frequently hallucinate characteristics of the following species onto the Greater Kudu framework, necessitating rigorous negative prompting based on the definitive morphological cues outlined in the matrix below.
+
+
+Row Species
+	Coat Pattern and Tone
+	Flank Stripes (Presence, Count, Width)
+	Belly Fringe
+	Throat Mane / Dewlap
+	Ear Size and Shape
+	Horn Spiral Handedness and Tightness
+	Tail
+	Legs and Socks
+	Body Depth and Backline
+	Gait
+	Greater Kudu
+	Tan-grey to blue-grey, sleek 11
+	6–10 thin, crisp white vertical stripes 11
+	Absent; clean underbelly
+	Long ventral throat mane extending to chest (males) 9
+	Disproportionately large, wide, rounded, pink inner 11
+	2.5 to 3 full open twists, wide divergence, slanting back 8
+	Bushy, black tip, distinct white underside 12
+	Tawny-grey, distinctive dark garters above knees 11
+	High shoulder, distinct dorsal crest, athletic depth 8
+	Graceful, deliberate walk; bounding leaps with raised tail 11
+	Lesser Kudu
+	Rust-brown to dark greyish-brown 8
+	11–15 prominent vertical white stripes 8
+	Absent
+	Absent; features distinct white neck patches instead 8
+	Large, but proportionally narrower than Greater Kudu
+	Tighter spiral, smaller overall length, fewer turns 8
+	Shorter, bushy, white underneath
+	Clean tawny legs, lacking dark garters
+	Level backline, slighter, more delicate build
+	Skittish, rapid bounding, high agility
+	Nyala (Male)
+	Dark charcoal grey to dark brown 6
+	Up to 14 faint, broken white stripes or spots 13
+	Prominent, long, shaggy dark fringe 13
+	Shaggy hair along the entire ventral neck 13
+	Medium-sized, oval, typical antelope shape
+	1.5 to 2 twists, ivory tips, narrower spread 13
+	Very bushy, white underside 13
+	Striking bright yellow/orange lower legs, white spots 13
+	Deep-chested, sloping backline, forest-antelope model 14
+	Stealthy, low-slung, deliberate pacing
+	Eland (Common)
+	Fawn to tawny grey or blue-grey 15
+	Faint to entirely absent vertical stripes 16
+	Absent
+	Massive, pendulous skin dewlap with a dark tuft 15
+	Small, pointed, heavily bovine appearance
+	Straight trajectory, 2 tight twists, very thick base 15
+	Long, thin, bovine tail with black tufted brush 15
+	Heavy, solid color, sometimes with dark rear bands 17
+	Massive ox-like depth, pronounced shoulder hump 18
+	Heavy, sustained, energy-efficient trot 15
+	Bushbuck
+	Reddish-brown to dark chestnut 13
+	Spots and faint, broken stripes, highly variable 13
+	Absent
+	Absent; distinct white throat collar or "necklace" 13
+	Medium, rounded, broad
+	Nearly straight, only a single subtle twist (10-22 inches) 14
+	Short, bushy, white underneath 13
+	Darker shins, distinct white spots above the hooves 13
+	Rounded back, hindquarters higher than forequarters 14
+	Skulking, rapid dashing through thickets
+	Impala
+	Bright rufous fawn, pale lower flanks 19
+	Absent; distinct black vertical stripe on the rump
+	Absent
+	Absent
+	Medium, slender, distinct black tips
+	Lyre-shaped, heavily ridged, entirely lacking spirals
+	White with a prominent black dorsal stripe
+	Slender, light, featuring black scent gland tufts on hind fetlocks
+	Level back, highly athletic, light framework
+	Enormous, floating leaps covering massive distances
+	Waterbuck
+	Coarse, shaggy, grey-brown coat 18
+	Absent; features a distinct white ring on the rump 20
+	Absent
+	Shaggy, coarse neck hair
+	Short, rounded, heavily furred
+	Long, sweeping forward curve, heavily ringed, no spiral 20
+	Short, relatively thin
+	Dark legs, distinct white band immediately above hooves
+	Extremely deep-chested, robust, heavy build
+	Heavy, deliberate, confident stride
+	Roan
+	Strawberry roan to grey-brown 19
+	Absent
+	Absent
+	Short, stiff, erect dorsal mane
+	Extremely long, narrow, with tufted tips
+	Sweeping scimitar-like backward curve, heavy ridges 20
+	Medium length, tufted
+	Dark brown to black, contrasting with the body
+	Very deep chest, high withers, robust
+	Proud, head-held-high trot
+	Sable
+	Glossy pitch black (mature males) 21
+	Absent
+	Absent
+	Stiff, prominent dorsal mane
+	Long, pointed, starkly contrasting white inner
+	Massive scimitar-like backward curve, extreme length 21
+	Long, tufted brush
+	Black, sharply contrasting with a pure white belly
+	Robust, high withers, powerful neck
+	Galloping, aggressive, domineering posture
+	Gemsbok
+	Pale fawn/grey, distinct bold black lateral lines
+	Absent
+	Absent
+	Absent
+	Medium length, pointed
+	Extremely long, perfectly straight, spear-like profiles 19
+	Long, black, highly horse-like
+	Distinct black markings on upper legs, striking white socks
+	Thick-necked, level backline, desert-adapted build
+	Fast, enduring, steady trot
+	To effectively isolate the Greater Kudu in an AI generation, the prompt must explicitly combine the traits of "large round ears," "6 to 10 white vertical flank stripes," "blue-grey coat," and "throat mane" while aggressively utilizing negative tokens to banish the traits of the nyala and eland. If an AI generates bright orange lower legs or a shaggy belly, it has collapsed into the nyala latent space; if it generates a pendulous skin dewlap or a shoulder hump, it has collapsed into the eland space.
+A3) Sexual dimorphism
+The Greater Kudu exhibits extreme, undeniable sexual dimorphism that fundamentally alters the anatomical requirements of the generated subject. Generative models routinely fail by applying male traits to female subjects or softening the robust nature of the males.22
+In terms of cranial adornment, horns are exclusively present in the males.9 The horns of a mature bull grow in spectacular genetic growth pulses, resulting in a wide, sweeping corkscrew shape that completes two and a half to three full turns.8 They are deeply annulated (ridged) at the thick basal mass and gradually smooth out to polished keratin at the tips, typically measuring 100 to 140 centimeters (40 to 56 inches) from base to tip.11 Females (cows) must be rendered as strictly polled, displaying a completely smooth, elegant cranial profile devoid of any horn buds or stumps.9
+Body mass and structural depth also vary significantly between the sexes. Mature Greater Kudu bulls are formidable, carrying a shoulder height ranging from 130 to 150 centimeters (51 to 59 inches) and an impressive body mass of 190 to 270 kilograms (418 to 595 pounds), with exceptional, healthy individuals reaching up to 315 kilograms (694 pounds).6 This mass must be depicted as athletic and deep-chested, not bloated. Females are noticeably slighter and more delicately framed, possessing a lower shoulder height and a mass ranging strictly between 120 and 210 kilograms (264 to 463 pounds).8
+The coat and pelage present another vital layer of dimorphism. While both sexes possess the defining 6 to 10 vertical white stripes on their flanks and the white facial chevron between the eyes 5, age and sex dramatically alter the base coat tone and hair length. Mature males darken from a juvenile tan to a striking, dusty blue-grey hue.12 Furthermore, males develop a distinctive, long fringe of hair along the ventral throat, forming a mane that extends down the neck, coupled with an erectile dorsal crest along the spine.11 Females retain a lighter, tawny-brown or reddish-grey coat throughout their lives, providing optimal camouflage in the dense bush, and they possess a completely clean, slender neck entirely devoid of any throat mane or beard.12
+A4) Shot-by-shot morphology guide (C1–C13)
+The following parameters are engineered to guide diffusion models away from their inherent biases. For each shot, specific anatomical imperatives and negative prompt tokens are defined to ensure reference-grade realism.
+C1 Full body (broadside reference)
+The broadside composition must explicitly capture the elegant, high-shouldered geometry of the Greater Kudu. The must-show anatomy includes a backline that is slightly higher at the withers than the rump, supported by long, slender, yet powerful legs. The flanks must clearly display between 6 and 10 crisp, white vertical stripes.11 On the forelegs, distinct dark bands or "garters" must be visible just above the carpal joint (the front knee).11 The generation must avoid adding excessive, ox-like muscular bulk, as the kudu is an agile browser, not a grazer. AI models frequently fail by blending the nyala's coat, generating excessive, messy stripes, or coloring the lower legs a bright, unnatural yellow.13 They may also improperly shorten the neck, giving the animal a deer-like silhouette. Explicit Negative Tokens: nyala, bongo, yellow legs, orange socks, shaggy underbelly, thick neck, domestic cattle, whitetail deer proportions, more than ten stripes, horizontal stripes, spots on flanks.
+C2 Eyes (macro)
+This close-up demands absolute biological accuracy of the ungulate eye. The must-show elements include the lateral placement of the eyes on the skull, typical of prey species requiring a wide field of view. The pupil must be a distinct horizontal slit or elongated rectangle, framed by a dark brown or amber iris. The eyelids feature thick, pale eyelashes that point downward to protect against the savanna sun and thorny brush.8 A natural, subtle ocular sheen should reflect the dry, dusty environment, lacking any hyper-glossy or robotic perfection.27 Must-avoid errors involve the generation of forward-facing predator eyes or circular, human-like pupils, which destroy the realism of the herbivore. AI failure modes consistently involve hallucinating vertical cat-like slits or generating mutated, double irises due to an over-reliance on domestic pet datasets. Explicit Negative Tokens: round pupil, vertical pupil, forward-facing eyes, human eye, cat eye, double iris, mutated pupil, deformed eyelids, robotic eye, glassy eye, human sclera.
+C3 Horns (both sexes as applicable)
+For the male Greater Kudu, the horns are the defining morphological feature. The must-show anatomy dictates that the horns insert closely together just above the brow, slanting backward and diverging outward in a wide, elegant corkscrew spiral that completes 2.5 to 3 full turns.8 The lower sections must exhibit heavy, rugged annulations (ridges) that naturally catch dust and mud, transitioning into smooth, solid keratin at the blunted, worn tips. Females must be shown with a completely smooth skull. The generative process must avoid creating horns that curve forward, tight eland-like spirals, or anything resembling the branched antlers of cervids. AI failure modes are notorious here; models frequently hallucinate "horned cows," asymmetric horn lengths, or merge the two bases into a central, unicorn-like structure.22 Explicit Negative Tokens: branched horns, deer antlers, forward curve, single horn, unicorn, uneven horns, female with horns, polled male, tight spiral, floating horns.
+C4 Female
+The female portrait must emphasize the delicate, hyper-alert nature of the cow. Must-show features include a completely hornless, smooth cranial profile. The ears are of paramount importance; they must be disproportionately large, rounded, highly vascularized (showing a pale, pinkish inner texture), and rimmed with white hair.11 The coat must be rendered in a tawny-grey or reddish-brown hue. The neck must be long, slender, and entirely free of any mane or beard.12 Must-avoid errors include adding any semblance of a throat mane, thick neck muscling, or a blue-grey male coat. AI models frequently fail by forcing small "spike" horns onto the heads of female antelopes or giving them the heavy dewlap of a domestic cow.22 Explicit Negative Tokens: horns, spikes, horn buds, throat mane, beard, dewlap, blue-grey coat, thick neck, masculine build, cow udder, small ears.
+C5 Male
+The male portrait requires conveying the majestic, silent power of the "Grey Ghost." Must-show anatomy encompasses the massive, sweeping spiral horns, a remarkably thick neck supporting an erectile dorsal crest, and a prominent, flowing ventral throat mane.11 The coat should exhibit the dusty, textured blue-grey hue indicative of a mature bull.12 The must-avoid error here is the inclusion of a shaggy belly fringe; while the kudu has a throat mane, its underbelly remains relatively clean, unlike the nyala. AI failure modes often include over-exaggerating the mane until it resembles a lion's ruff, or dropping the backline into an unnatural, sloping posture. Explicit Negative Tokens: shaggy belly, lion mane, bison hump, yellow legs, small ears, delicate neck, clean throat, female build, red-brown coat.
+C6 Eating (ruminant mouth)
+Capturing the Greater Kudu browsing requires exact dental accuracy. The must-show anatomy features prehensile lips delicately grasping the leaves of Combretum or Vachellia trees. If the mouth is open, the internal anatomy must reveal the hard, fibrous dental pad on the upper maxillary arcade, completely devoid of front teeth, interacting with the sharp, shovel-shaped incisors on the lower mandible.30 A wide, toothless gap, known as the diastema, separates the front of the mouth from the rear grinding molars.30 Must-avoid errors are any depiction of upper front teeth or carnivorous canine fangs. AI models are overwhelmingly trained on human and predator faces and will aggressively hallucinate upper front teeth for herbivores, completely ruining the biological realism.22 Explicit Negative Tokens: upper front teeth, top incisors, canine teeth, fangs, carnivore jaw, human teeth, predator mouth, full set of teeth, dog mouth.
+C7 Drinking
+The drinking posture of a large antelope is biomechanically unique. Must-show anatomy requires a splayed foreleg stance; the kudu must spread its front legs widely or bend deeply from the shoulder to allow its mouth to reach the water level. The neck is extended downward, while the large ears remain swiveled laterally or backward, perpetually scanning for predators. The interaction with the water should feature realistic ripple physics and an accurate, undistorted reflection.34 The generation must avoid showing the animal kneeling on its front carpal joints (knees) to drink, as this is inaccurate. AI failure modes frequently include morphing the reflection into a different animal, disconnecting the neck from the torso, or breaking the skeletal geometry by bending the front knees backward like a bird's leg.28 Explicit Negative Tokens: kneeling on knees, broken legs, backward knees, disconnected neck, distorted reflection, mismatched reflection, wrong animal in water, floating head.
+C8 Hooves
+Detailed renders of the lower limbs must focus on the substrate interaction. The must-show anatomy dictates cloven hooves, split distinctly into two robust toes adapted for the rocky, uneven ground of the Waterberg bushveld. Positioned slightly higher up on the rear of the pastern are two small, distinct dewclaws.35 The must-avoid errors include generating single, solid, horse-like hooves or feet that resemble a canine's paw. AI generators profoundly struggle with distal limb anatomy, frequently hallucinating the number of toes, blending the toes into a single block, or allowing the texture of the hoof to melt indistinguishably into the surrounding dust or mud.33 Explicit Negative Tokens: single hoof, horse hoof, three toes, five toes, human feet, claws, paws, mutated hooves, melted feet, missing dewclaws, soft feet.
+C9 Barely visible (heavy bush occlusion)
+This shot demands the sophisticated rendering of the kudu's natural camouflage. Must-show elements include the striking white facial chevron and the large, radar-like ears peering out from behind dense, out-of-focus Combretum foliage. The light must play across the vertical white flank stripes, effectively breaking up the animal's solid mass within the dappled shadows of the bush. Must-avoid errors involve leaves or branches passing through the solid geometry of the animal's body, or a failure to anchor the head to a visible neck. AI failure modes often result in "texture merging," where the kudu's grey fur begins to sprout leaves, or the generation of a disembodied, floating head hovering in the branches.22 Explicit Negative Tokens: floating head, transparent animal, leaves inside eyes, melted textures, merged background, impossible geometry, optical illusion, 2D cutout, disconnected body.
+C10 Coat
+A macro shot of the pelage must convey organic, wild realism. The must-show texture is a short, sleek coat with the hair follicles flowing naturally from the anterior to the posterior. The white flank stripes must be crisp but organically integrated into the hair, not painted on top like a decal. A subtle dusting of red, iron-rich savanna soil should coat the lower legs and flanks. For ultra-realism, optional, discrete tick loads (such as Rhipicephalus species) may be sparsely visible inside the ear pinnae. The generation must avoid wet, hyper-glossy, or metallic renders that make the animal look like plastic. AI failure modes frequently over-smooth the coat, resulting in a synthetic, CGI sheen, or conversely, generate overly long, wolf-like fur.33 Explicit Negative Tokens: plastic sheen, metallic, wet fur, long fur, shaggy coat, synthetic texture, cartoon rendering, over-saturated, CGI, painted stripes, smooth plastic.
+C11 Front half from side
+This specific crop requires strict anatomical discipline regarding joint articulation. The must-show anatomy includes a deep, powerful chest, the prominent ventral throat mane in males, and the dark garters circling the legs just above the carpal joint. Crucially, the front knee (carpal joint) must be shown capable of bending forward, biomechanically identical to a human wrist.36 Must-avoid errors include joints bending in the wrong direction. AI failure modes frequently reverse the articulation of the forelimbs to mimic the hind legs, resulting in a horrifying, multi-jointed, alien-like limb structure.28 Explicit Negative Tokens: backward front knee, broken joints, extra joints, mutated limbs, missing leg, extra front leg, malformed anatomy, bird legs.
+C12 Back half from side
+The posterior anatomy requires careful attention to the slope and anchor points. Must-show elements include the slope of the rump leading down to the sharp angle of the hock (calcaneus), which bends backward. The tail must be appropriately bushy, featuring a dark tip and a pure white underside, and it must be anchored naturally at the exact base of the spine.11 Must-avoid errors include a severed or magically floating tail, or flank patterns that devolve into meaningless, unnatural grids. AI frequently fails by generating three hind legs, placing the tail off-center on the hip, or generating a horse-like flank.33 Explicit Negative Tokens: three hind legs, extra limbs, misplaced tail, floating tail, missing tail, grid pattern, horse rump, mutated hock, dismembered, centered tail.
+C13 Half face close-up
+This intimate portrait relies on precise facial topography. Must-show details include the stark white chevron running between the eyes and the three distinct white spots located on the cheek.5 Positioned just in front of the medial canthus of the eye is the preorbital gland—this must be rendered as a small, subtle, dark, trench-like slit, surrounded by nearly bare skin.37 The rhinarium (nose pad) should be broad, dark, moist, and textured like heavy leather. Must-avoid errors include rendering the preorbital gland as an open, bloody laceration, or generating perfectly symmetrical facial markings (as biological reality is always slightly asymmetrical). AI failure modes turn the preorbital slit into a secondary eye or a gaping wound, and frequently replace the bovine rhinarium with a wet, canine-like dog nose.34 Explicit Negative Tokens: open wound, bloody slit, third eye, dog nose, perfectly symmetrical face, mutated eye, malformed snout, text overlay, signature.
+A5) Colour, light, texture
+Lighting is the cornerstone of photorealism in African wildlife generation. The South African bushveld light is entirely distinct from studio lighting. During the harsh midday hours, the light is intensely bright, creating high-contrast, razor-sharp shadows cast directly downward, often washing out the coat's color and making the dust suspended in the air highly visible. Conversely, the "golden hour" at dawn and dusk utilizes Rayleigh scattering to bathe the savanna in rich, warm, amber light. This low-angle light interacts heavily with the dust resting on the kudu's grey-brown coat, causing the microscopic white hairs of the flank stripes to catch ambient occlusion and cast tiny local shadows, grounding the stripes in reality rather than looking like painted lines.
+The texture of the kudu's keratinous horns must be handled with care. The horns are organic, deeply grooved, and naturally matte. They feature prominent growth rings that trap dry mud and soil. Only the very tips of the horns, worn down by years of rubbing against trees and brush, should display a subtle, polished satin sheen. Generative models biased toward fantasy aesthetics will attempt to render the horns as highly reflective, metallic, or crystalline structures, which instantly shatters the illusion of a wild, healthy animal.
+A6) Background discipline (anonymity-first)
+The environment must exclusively reflect the rugged, untamed nature of the Waterberg biome in South Africa. The background should be composed of out-of-focus, natural bokeh representations of the local flora. Key species to imply in the background include Vachellia robusta (sturdy, flat-topped thorn trees), Combretum apiculatum (red bushwillow with rounded, drooping leaves), and Colophospermum mopane (distinctive butterfly-shaped foliage).38 The terrain should feature rocky, iron-rich red soil overlaid with a moderately developed grass layer of tall, dry, golden-brown winter grasses.39
+Absolute background discipline is paramount: realism demands anonymity. The designer must enforce a global AI site rule banning all traces of human intervention. The AI must not generate readable fences, artificial water troughs, safari vehicles, concrete buildings, tire tracks, geometric livestock kraals, named landmarks, or powerlines. Furthermore, standard AI artifacts such as generated text, watermarks, or artist signatures must be ruthlessly scrubbed via negative prompting.22
+A7) Cheat sheet (numbered one-liners, max 20 lines)
+1. Subject: Tragelaphus strepsiceros, Greater Kudu, Southern African subspecies.
+2. Dimorphism: Males 190-270kg with horns/mane; Females 120-210kg, completely hornless, clean neck.
+3. Horns: Males only, 100-140cm long, wide 3-turn spiral, matte keratin, slanting backwards.
+4. Ears: Disproportionately large, wide, rounded, highly vascular (pink inner lining).
+5. Face: Prominent white chevron between eyes, 3 white cheek spots, subtle preorbital slit.
+6. Coat: 6-10 vertical white stripes, dusty blue-grey (males) or tawny-tan (females).
+7. Neck: Males feature a long, prominent throat mane extending down the ventral neck.
+8. Legs: Distinct dark garters above the front knees; hooves are cloven with rear dewclaws.
+9. Tail: Bushy, black-tipped, with a highly visible white underside.
+10. Mouth: Tough dental pad on top, incisors on bottom; ABSOLUTELY NO upper front teeth.
+11. Eyes: Horizontal ungulate pupil, dark iris, pale downward-pointing eyelashes.
+12. Posture: High shoulder, slightly crested back, elegant athletic build, deep chest.
+13. Tie-breaker token vs Nyala: "no shaggy belly, large round ears, blue-grey coat."
+14. Background: Waterberg bushveld (Combretum, Vachellia, Mopane), rocky soil, dry golden grass.
+15. Lighting: Harsh midday contrast or dusty golden hour; matte fur, no plastic CGI sheen.
+16. AI Fail 1 (Horns): Do not generate horns on females or multi-branched deer antlers.
+17. AI Fail 2 (Teeth): Do not generate upper front incisors, human teeth, or carnivore fangs.
+18. AI Fail 3 (Legs): Ensure front knees bend forward like wrists, hind hocks bend backward.
+19. AI Fail 4 (Environment): Strict ban on fences, vehicles, text, or any human infrastructure.
+20. Overall vibe: Healthy, ordinary, wild, camouflaged, hyper-realistic reference-grade subject.
+A8) Works cited (URLs or citations the designer can trust)
+The anatomical and ecological parameters established in this field guide are derived from verified conservation, zoological, and hunting estate data to ensure absolute fidelity to the natural world. Data concerning the Greater Kudu's taxonomy, exact mass, and stripe counts are anchored in the assessments provided by the Endangered Wildlife Trust (EWT) and the African Wildlife Foundation (AWF).3 The precise geometry of the spiral horns, including the 100–140 cm length and spiraling plane, alongside the specific behavioral fleeing postures and tail mechanics, are corroborated by the Ultimate Ungulate database.11 Details regarding the ungulate horizontal pupil, dental pad anatomy, and the preorbital gland function are grounded in veterinary pathology and mammalian anatomy standards.30 To ensure the environmental background strictly adheres to the Waterberg biome, vegetation data featuring Combretum and Vachellia is sourced from the South African National Biodiversity Institute (SANBI) and regional ecological surveys.38
+================================================================================ SPECIES B — LIVINGSTONE’S ELAND (Taurotragus oryx livingstonii)
+Working name for the file: Livingstone_Eland_AI_Field_Notes.txt
+B1) Taxonomy and scope
+The eland holds the undisputed title as the heaviest and largest antelope species in the world.44 Within the context of South African private hunting estates, the focus falls squarely upon Livingstone's Eland, scientifically designated as Taurotragus oryx livingstonii.17 While the Common (or Cape) Eland (T. o. oryx) is indigenous to the southern extremes of the continent, the physically larger, more strikingly marked Livingstone's subspecies—originally native to the miombo woodlands further north—has been extensively translocated and is now a highly prized, self-sustaining population on South African game ranches.16
+When engineering prompts for this species, designers must grapple with the sheer, ox-like mass of the animal. An adult male Livingstone's Eland is an absolute titan, standing up to 180 centimeters (71 inches) at the shoulder and possessing a mass that easily reaches 1000 kilograms (2204 pounds), directly rivaling the size of a Cape Buffalo.15 AI diffusion models, largely trained on generic Northern Hemisphere wildlife, possess an inherent bias that attempts to render all antelopes with the slender, delicate frame of a whitetail deer. To successfully generate the Livingstone's Eland, the prompt must act aggressively to break this semantic bias by anchoring the full binomial name, Taurotragus oryx livingstonii, accompanied by heavily weighted tokens demanding "massive bovine build," "ox-like depth," and "heavy muscular shoulder hump".16
+B2) Confusion matrix
+The Livingstone's Eland shares latent space characteristics with several massive bovids, and AI models frequently default to domestic cattle or strip the animal of its identifying subspecies markings to produce a generic Cape Eland. The matrix below delineates the critical boundaries.
+
+
+Row Species
+	Dewlap & Neck
+	Shoulder Hump
+	Coat Tone & Vertical Torso Stripes
+	Horn Thickness & Tight Spiral vs Kudu
+	Ears
+	Tail Brush
+	Legs
+	Livingstone's Eland
+	Massive, pendulous, black-tufted (mature males) 15
+	Pronounced, heavy muscular hump 18
+	Fawn/brown to blue-grey; 6–10 bold, distinct white stripes 16
+	Extremely thick bases, straight trajectory, 2 tight twists 15
+	Small, pointed, distinctly bovine
+	Long, bovine tail ending in a black tuft 15
+	Dark brown band on rear foreleg above knee, whitish rear pasterns 17
+	Cape Eland (Common)
+	Large, pendulous, tufted
+	Moderate muscular hump
+	Tawny grey; stripes very faint or completely absent 16
+	Thick bases, generally shorter than Livingstone's 16
+	Small, pointed
+	Long, black tufted
+	Solid tawny grey, lacking the distinct dark leg bands 16
+	Greater Kudu
+	Ventral throat mane; lacks true skin dewlap 11
+	High withers, but lacks a true hump
+	Tan to blue-grey; 6–10 crisp stripes 11
+	Wide, sweeping 3-turn open spiral 11
+	Disproportionately large, round, pink inner 11
+	Bushy, black-tipped, white underside 11
+	Slender, light grey/tan, dark garters above knees 11
+	Roan Antelope
+	Clean throat, entirely lacking a dewlap
+	High withers
+	Strawberry roan to grey-brown
+	Sweeping backward curve, heavily ridged, lacking spirals 20
+	Long, prominent tufts at the tips
+	Medium length, tufted
+	Dark brown to black
+	Gemsbok
+	Clean throat
+	No shoulder hump
+	Pale fawn, heavy black lateral lines
+	Extremely long, perfectly straight, spear-like profiles 19
+	Medium, pointed
+	Long, black, horse-like
+	Distinct black upper legs, striking white socks
+	Blue Wildebeest
+	Features a dark beard, but no hanging skin dewlap
+	Strongly sloping backline, high shoulder
+	Silvery-blue to dark grey, dark vertical brindle stripes 21
+	Smooth, unspiraled cow-like curves, projecting sideways 21
+	Horizontal, bovine
+	Long, black, horse-like
+	Slender, dark
+	Domestic Cattle (Brahman)
+	Enormous, exaggerated skin dewlap
+	Extreme, highly localized dorsal hump
+	Variable solid colors, often pristine white or grey
+	Short, curving laterally or forward, no spirals
+	Exceptionally large, drooping, pendulous
+	Thin, ending in a tuft
+	Heavy, thick, solid uniform color
+	The tie-breaker logic to separate the Livingstone's Eland from the Cape Eland requires explicit emphasis on the "6 to 10 distinct white vertical stripes" and the "dark brown leg bands," as the Cape Eland's stripes fade to obscurity. To prevent the AI from bleeding into the domestic Brahman cattle latent space, prompts must enforce "straight tight-spiral horns" and aggressively use negative tokens against "drooping ears" and "domestic cow."
+B3) Sexual dimorphism
+Unlike the Greater Kudu, the manifestation of sexual dimorphism in the Livingstone's Eland is uniquely complex because both sexes possess horns, presenting a significant hurdle for AI models that assume female antelopes are exclusively hornless.24
+Horn morphology is distinctly sex-linked. While both sexes feature straight horns characterized by two tight, distinct twists, the female's horns are remarkably longer (reaching up to 68 cm) and thinner, often splaying outward slightly at the tips.15 Conversely, the male's horns are slightly shorter (up to 65 cm) but possess massively thick, heavy bases, deeply pronounced spiral ridges, and tips that are frequently blunted and worn down from heavy combat and horning the earth.15 A critical failure mode in generative models is the production of a "polled" (hornless) cow; designers must explicitly prompt for female horns.
+Beyond the horns, the sheer physical mass dictates the dimorphism. Mature bulls undergo profound morphological changes, developing an enormous, bulging neck and a massive, pendulous dewlap—a loose fold of skin hanging from the lower throat—which terminates in a tuft of black hair.16 Older bulls also grow a highly characteristic, coarse, chocolate-brown mat or "rug" of hair squarely on their foreheads.15 Their coats transition from fawn to a dark, dusty blue-grey tinge.15 Cows, by contrast, possess a much lighter build (weighing strictly between 300 and 600 kilograms), feature a vastly reduced dewlap, completely lack the dark forehead brush, and retain their warm tan or light brown coloration throughout their entire lives.16
+B4) Shot-by-shot morphology guide (C1–C13)
+C1 Full body (broadside reference)
+The broadside composition must convey the colossal, ox-like power of the world's largest antelope. The must-show anatomy requires a heavy, deep chest, a pronounced muscular shoulder hump, and a level backline. The coat must be brown or blue-grey, marked clearly by 6 to 10 narrow, white vertical stripes across the flanks.15 The legs are thick and sturdy to support the immense weight, featuring a dark brown band on the rear of the forelegs just above the knee.17 The generation must absolutely avoid rendering the animal with the slender, delicate legs of a deer or gazelle, or generating stripes that are thick and bold like a zebra. AI failure modes commonly involve the model defaulting to domestic Brahman cattle due to the dewlap and hump, resulting in floppy, drooping ears and a lack of stripes. Explicit Negative Tokens: Brahman cattle, drooping ears, domestic cow, slender deer, spotless coat, mutated hump, overly white zebra stripes, thin delicate legs, whitetail deer.
+C2 Eyes (macro)
+The ungulate eye must be rendered with anatomical precision. Must-show details include lateral eye placement, a distinctly horizontal, rectangular pupil, and a very dark brown iris. The skin surrounding the orbit is thick, and mature bulls often display sparse, coarse hair around the eye socket. Must-avoid errors involve generating too much white sclera, which humanizes the eye, or rendering vertical predator slits. AI failure modes frequently strip the eye of its organic depth, generating a highly reflective, perfectly symmetrical robotic sphere.47 Explicit Negative Tokens: human eyes, visible sclera, vertical pupil, forward-facing, glassy, robotic eyes, double pupils, cat eye, predator eye, perfectly round pupil.
+C3 Horns (both sexes as applicable)
+The horns of the eland define its silhouette and are a major area of AI confusion. Must-show anatomy dictates that the horns grow essentially straight backward, in line with the slope of the face, featuring two prominent, tight twists situated near the heavy base.15 The bases must be exceptionally thick and deeply ridged, particularly in males, while the tips should appear blunted and worn. Must-avoid errors involve generating the wide, open, sweeping spirals of a kudu, or the sideways, forward-hooking curves of a wildebeest. The primary AI failure mode is applying generic, curved cow horns or generating a female eland completely devoid of horns.22 Explicit Negative Tokens: hornless, polled, female without horns, wide spiral, kudu horns, curved cow horns, forward facing horns, wildebeest horns, branched antlers.
+C4 Female
+The portrait of the female eland must balance massive scale with a cleaner profile. Must-show features include a lighter fawn or tan coat. The horns must be present, long, relatively thin, and tightly spiraled, diverging slightly outward at the tips.16 The neck, while strong, is clean and slender relative to the body mass, and the dewlap is drastically smaller than that of a bull.16 Must-avoid errors include generating the massive, hanging dewlap or the dark forehead hair mat characteristic of the male. AI models frequently fail by attempting to attach large, pink, domestic dairy udders to female antelopes; the eland's udder is small, dark, and tightly tucked between the hind legs. Explicit Negative Tokens: large pink udder, domestic dairy cow, thick bulging neck, forehead brush, massive pendulous dewlap, missing horns, polled cow, blue-grey coat.
+C5 Male
+The male portrait is a study in raw, overwhelming mass. Must-show anatomy includes an extraordinarily thick, bulging neck that seamlessly merges into the shoulder hump. A massive, pendulous skin dewlap hangs from the throat, adorned with a black hair tuft.16 The forehead must proudly display a coarse, chocolate-brown mat or "rug" of hair.17 The base of the horns must be tremendously thick. The coat should possess an aged, dusty blue-grey tint.15 Must-avoid errors include clean foreheads, thin, spindly horn bases, or delicate facial structures. AI failure modes often over-exaggerate the neck until the head appears swallowed, or confuse the forehead mat with the shaggy, whole-head covering of a North American bison. Explicit Negative Tokens: bison head, clean forehead, thin horn bases, small neck, slender build, female traits, delicate deer face, missing dewlap.
+C6 Eating (ruminant mouth)
+Browsing accuracy requires strict adherence to bovine dental anatomy. Must-show elements include thick, prehensile lips wrapping around foliage. If the interior of the mouth is visible, the AI must render the hard, fibrous upper dental pad directly interacting with the lower incisors; a wide diastema must separate the front from the grinding molars.30 Must-avoid errors encompass the generation of any upper front incisors or carnivorous teeth. AI models overwhelmingly fail by grafting a full set of human or dog teeth into the open mouth of herbivores.33 Explicit Negative Tokens: upper front teeth, top incisors, fangs, canine teeth, human teeth, carnivore mouth, full set of teeth, dog mouth, jagged teeth.
+C7 Drinking
+The biomechanics of a massive animal drinking are highly specific. Because the eland possesses extremely long forelegs and a relatively short, thick neck, the must-show anatomy requires a profoundly splayed stance—the front legs must be spread wide apart, or the knees bent slightly forward, to allow the muzzle to reach the water. The heavy, loose skin of the dewlap hangs vertically toward the surface. Must-avoid errors include rendering the animal stretching its neck like a giraffe without adjusting its leg stance. AI failure modes frequently break the geometry of the splayed legs, resulting in severed, floating hooves, backward-bending knees, or generating five-legged monstrosities.28 Explicit Negative Tokens: straight legs drinking, disconnected legs, floating hooves, extra legs, mutated joints, distorted reflection, backward front knee, giraffe neck.
+C8 Hooves
+The substrate interaction must reflect the immense weight being supported. Must-show anatomy features large, heavy, cloven hooves (two prominent toes) equipped with rear dewclaws. A unique identifier for the Livingstone's subspecies is that the backs of the pasterns (the area immediately above the hoof) are notably whitish.17 Must-avoid errors include generating small, delicate, gazelle-like hooves or solid, single horse hooves. AI failure modes routinely blend the split toes into a single block of keratin or hallucinate the toes sinking into an undefined, mushy grey texture.33 Explicit Negative Tokens: single hoof, horse hoof, tiny delicate hooves, mushy feet, merged toes, human toes, missing dewclaws, soft feet, paw pads.
+C9 Barely visible (heavy bush occlusion)
+This composition tests the model's handling of shadow, mass, and texture. Must-show elements involve the massive, grey-brown bulk of the eland melting into the deep shadows of a woodland thicket, with the straight, tightly spiraled horns piercing upward through the canopy. Must-avoid errors include rendering the animal as a flat, two-dimensional cardboard cutout placed arbitrarily behind the leaves. AI failure modes frequently cause the algorithm to drop the faint white vertical stripes entirely when rendering in shadow, reducing the animal to a generic brown blob, or worse, physically merging the texture of the horns into the surrounding tree branches.22 Explicit Negative Tokens: 2D cutout, flat lighting, generic brown blob, horns merged with trees, floating head, texture bleed, leaves inside eyes, transparent body.
+C10 Coat
+The macro texture of the eland's hide requires restraint. Must-show texture is an extremely short, fine, smooth pelage. The 6 to 10 white vertical stripes must be rendered faintly but distinctly, integrated into the flow of the hair follicles. The mature male's coat should carry subtle blue-grey undertones, heavily dusted with dry savanna soil. Must-avoid errors include the generation of shaggy, woolly, or long fur. AI models frequently fail by either generating a woolly coat resembling a high-altitude yak or applying a high-gloss, metallic, synthetic shine that entirely destroys organic realism.33 Explicit Negative Tokens: long fur, shaggy, woolly, yak coat, metallic hide, plastic sheen, wet fur, overly saturated colors, CGI smoothing, painted stripes.
+C11 Front half from side
+This crop isolates the massive power of the forequarters. Must-show anatomy requires capturing the incredibly deep, heavy chest, the prominent, hanging dewlap, and the dark brown band encircling the leg above the carpal joint (knee).17 The heavy muscular shoulder hump must transition smoothly and organically into the thick neck. Must-avoid errors include a concave, weak chest or a neck that lacks heavy, loose folds of skin. AI failure modes notoriously involve attaching the front legs incorrectly, causing the carpal joint to bend backward as if it were a hind leg's hock.28 Explicit Negative Tokens: backward front knee, concave chest, weak chest, thin neck, extra front leg, missing dewlap, malformed shoulder hump, flat neck.
+C12 Back half from side
+The posterior view anchors the animal's weight. Must-show anatomy features a heavy, solid, bovine rump. The tail is distinctly long, reaching down to the hocks, and ends in a prominent, black tufted brush.15 The hindquarters are tremendously powerful but sit noticeably lower than the front shoulder hump. Must-avoid errors include generating a short, bushy deer tail or a docked tail. AI failure modes frequently result in a flowing, horse-like tail, or placing the hock at a biomechanically impossible angle.33 Explicit Negative Tokens: horse tail, bushy deer tail, docked tail, short tail, broken hock, extra hind legs, anatomically impossible joints, leveled backline.
+C13 Half face close-up
+The facial profile is dominated by specialized male traits and bovine architecture. Must-show elements include the striking, coarse, chocolate-brown hair mat resting squarely on the forehead of the bull.17 The ears are small, pointed, and distinctly bovine, completely unlike the radar-dish ears of the kudu. The rhinarium (nose) is broad, black, and perpetually moist. The horns must be shown inserting closely together at the base, initiating their tight spiral immediately. Optional but highly accurate: white streaks directly below the eyes.17 Must-avoid errors include a clean, sleek forehead on a mature male, or large kudu-like ears. AI failure modes notoriously render the forehead mat as an artificial toupee or, bizarrely, as an open wound, and frequently substitute the bovine nose for a wet, canine snout.34 Explicit Negative Tokens: large round ears, dog nose, clean forehead on male, widely separated horn bases, mutated hair mat, toupee, open wound, text, signature.
+B5) Colour, light, texture
+The interaction between the Livingstone's Eland's coat and the harsh African sun dictates its photorealism. The pale fawn to dusty blue-grey hide absorbs and reflects light very differently than darker antelopes. Under the unforgiving, high-angle midday sun, the eland's massive coat can appear almost washed out, with the airborne dust actively settling on its broad back to create a matte, highly diffuse surface. During the golden hour, the low-angle light saturates the tan hues, intensifying the warmth of the image.
+The visibility of the eland's 6 to 10 vertical white stripes is heavily dependent on the lighting angle. Because these stripes consist of slightly different hair textures, side-lighting (grazing light) is required to highlight them naturally; they should never look like high-contrast zebra paint. The texture of the eland's keratinous horns must be rendered as exceptionally thick, rough, and deeply grooved at the base. This matte, rugged texture is invariably caked with dry mud and earth from the bull's habit of "horning" bushes and the ground to display dominance, standing in stark contrast to the smoother, darker, polished tips.
+B6) Background discipline (anonymity-first)
+While highly adaptable, the massive eland thrives on the edges of habitats, specifically where woodland glades meet tall grass and open sandy pans. The background must feature the quintessential, out-of-focus elements of the Waterberg savanna: tall, golden Hyparrhenia grasses, the expansive canopy of Burkea africana (wild syringa), and the dense, scrubby edges of mopane woodland.38
+The paramount rule of background generation is maintaining anonymity to preserve the illusion of the wild. Realism absolutely demands untouched veld. The designer must strictly enforce negative prompts to ban all readable fences, artificial water troughs, safari vehicles, concrete outbuildings, tire tracks, and named landmarks. The generative output must be purged of any latent artifacts such as AI-generated text, overlapping watermarks, or artist signatures that instantly betray the image's synthetic origin.22
+B7) Cheat sheet (max 20 lines)
+1. Subject: Taurotragus oryx livingstonii, Livingstone's Eland, massive bovine antelope.
+2. Dimorphism: Both sexes possess horns; males reach 1000kg, females 300-600kg.
+3. Horns: Straight backward trajectory, exceptionally thick bases, 2 tight twists.
+4. Horn Dimorphism: Males are shorter and thicker; Females are longer and thinner.
+5. Ears: Small, pointed, heavily bovine-like, completely unlike a kudu.
+6. Head (Male): Prominent, coarse, chocolate-brown hair mat/rug on the forehead.
+7. Neck (Male): Massive, bulging neck featuring a large pendulous black-tufted dewlap.
+8. Coat: Fawn/tan to dusty blue-grey (old bulls); 6-10 distinct vertical white stripes.
+9. Legs: Dark brown band above front knees; distinctive whitish rear pasterns.
+10. Tail: Long, bovine-like, ending in a prominent black tufted brush.
+11. Mouth: Hard dental pad upper, incisors lower; ABSOLUTELY NO upper front teeth.
+12. Build: Gigantic, ox-like depth, pronounced muscular shoulder hump, level backline.
+13. Eyes: Horizontal ungulate pupil, dark iris, thick protective skin around the orbit.
+14. Tie-breaker token vs Brahman: "no extreme dorsal hump, straight tight-spiral horns."
+15. Background: Waterberg woodland glades, tall golden grass, Mopane woodland edge.
+16. Lighting: Washed-out midday dust or warm golden hour; matte coat, zero plastic sheen.
+17. AI Fail 1 (Horns): Do not generate hornless (polled) cows; ALL elands have horns.
+18. AI Fail 2 (Mouth): Prevent generation of upper incisors, human teeth, or predator fangs.
+19. AI Fail 3 (Legs): Ensure a wide, splayed stance for drinking; no backward front knees.
+20. AI Fail 4 (Environment): Strictly no human infrastructure, fences, text, or watermarks.
+B8) Works cited
+The biological constraints and morphological data defining the Livingstone's Eland in this prompt guide have been synthesized from authoritative zoological and trophy hunting databases to guarantee hyper-realism. Data delineating the specific subspecies traits of Taurotragus oryx livingstonii—including the critical presence of the 6 to 10 vertical white stripes, the distinct dark foreleg bands, and the chocolate-brown forehead mat—are drawn directly from the taxonomic classifications utilized by the Safari Club International (SCI) Record Book and regional hunting databases.16 Information regarding the extraordinary physical weight (up to 1000 kg), the pendulous dewlap, and the sexually dimorphic horn structure (where both sexes are horned) is anchored in data provided by the African Wildlife Foundation (AWF) and the Ultimate Ungulate species accounts.15 The unique behavioral traits, such as the splayed drinking stance and the heavy, energy-efficient trot capable of reaching 40 km/h, are derived from savanna biome ecological observations.15 Environmental constraints detailing the Waterberg habitat rely on structural vegetation descriptions from the South African National Biodiversity Institute (SANBI).38
+Works cited
+1. Tragelaphini - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Spiral-horned_antelope
+2. Hunting in africa , Spiral horned antelope, accessed April 20, 2026, https://www.huntinginafrica.website/single-post/spiral-horned-antelope-article
+3. Greater Kudu - Tragelaphus strepsiceros - Endangered Wildlife Trust, accessed April 20, 2026, https://ewt.org/wp-content/uploads/2022/11/32.-Greater-Kudu-Tragelaphus-strepsiceros_LC.pdf
+4. Tragelaphus strepsiceros P S Pallas, 1766 - SANBI, accessed April 20, 2026, https://speciesstatus.sanbi.org/assessment/last-assessment/2253/
+5. Greater Kudu - El Paso Zoo, accessed April 20, 2026, https://www.elpasozoo.org/animals/africa/greater-kudu/
+6. Kudu vs Nyala: Which Antelope Should You Hunt in Namibia?, accessed April 20, 2026, https://otjandauehuntingsafaris.com/kudu-vs-nyala-which-antelope-should-you-hunt-in-namibia/
+7. Why oh why can Dall-E not create images of African animals properly? : r/dalle2 - Reddit, accessed April 20, 2026, https://www.reddit.com/r/dalle2/comments/1cr1onf/why_oh_why_can_dalle_not_create_images_of_african/
+8. Kudu | African Wildlife Foundation, accessed April 20, 2026, https://www.awf.org/wildlife-conservation/kudu
+9. Greater Kudu Facts and Information | United Parks & Resorts - SeaWorld.org, accessed April 20, 2026, https://seaworld.org/animals/facts/mammals/greater-kudu/
+10. AI beats people at identifying ancient and modern antelope remains - Futurity, accessed April 20, 2026, https://www.futurity.org/artificial-intelligence-antelope-remains-3008182/
+11. Greater kudu - Ultimate Ungulate, accessed April 20, 2026, https://www.ultimateungulate.com/Artiodactyla/Tragelaphus_strepsiceros.html
+12. Tragelaphus strepsiceros (greater kudu) | INFORMATION - Animal Diversity Web, accessed April 20, 2026, https://animaldiversity.org/accounts/Tragelaphus_strepsiceros/
+13. South Africa: Elands, Kudus, Nyalas and Bushbucks » Talk - Zooniverse, accessed April 20, 2026, https://www.zooniverse.org/talk/1971/762093
+14. Spiral-horned Antelope of Southern Africa - African Hunting Safaris, accessed April 20, 2026, https://www.africanskyhunting.co.za/blog/spiral-horned-antelope.html
+15. Common eland - Ultimate Ungulate, accessed April 20, 2026, https://www.ultimateungulate.com/Artiodactyla/Taurotragus_oryx.html
+16. Eland Hunting - Shakari Connection, accessed April 20, 2026, https://www.shakariconnection.com/eland-hunting.html
+17. Livingstone Eland | Big Game Hunting Records, accessed April 20, 2026, http://www.scirecordbook.org/livingstone-eland/
+18. Antelope Guide - Grazers & Browsers - Kruger Park Antelopes, accessed April 20, 2026, https://www.krugerpark.co.za/Kruger_National_Park_Wildlife-travel/explore-kruger-park-buck-and-antelope.html
+19. Game Species - Sandy Creek Safaris, accessed April 20, 2026, https://www.sandycreeksafaris.com/game-species
+20. It's All in the Curve | Sports Afield, accessed April 20, 2026, https://sportsafield.com/2021/its-all-in-the-curve/
+21. Game Species | Rockwood Conservation, accessed April 20, 2026, https://rockwoodconservation.com/conservation/game-species/
+22. What Common Errors Should I Look Out for in Image Generation? - Help Center, accessed April 20, 2026, https://help.trypencil.com/en/articles/11359154-what-common-errors-should-i-look-out-for-in-image-generation
+23. The Greater Kudu | Wildlife Guide - Travel Butlers, accessed April 20, 2026, https://www.travelbutlers.com/safari/wildlife-guide/greater-kudu.asp
+24. Spiral-horned Antelope | San Diego Zoo Animals & Plants, accessed April 20, 2026, https://animals.sandiegozoo.org/animals/spiral-horned-antelope
+25. Top 16 Most Elegant Antelope Species in Africa | by Michael Theys - Medium, accessed April 20, 2026, https://africafreak.medium.com/elegant-african-antelope-3dfb49fc207a
+26. Greater Kudu - Comparative Placentation, accessed April 20, 2026, https://placentation.ucsd.edu/grkudufs.htm
+27. Advanced visual components inspired by animal eyes - PMC - NIH, accessed April 20, 2026, https://pmc.ncbi.nlm.nih.gov/articles/PMC11501362/
+28. what have you found to be the best negative prompts? what have you all been using? : r/StableDiffusion - Reddit, accessed April 20, 2026, https://www.reddit.com/r/StableDiffusion/comments/y2s0fi/what_have_you_found_to_be_the_best_negative/
+29. My Favourite Antelope: The Kudu - Londolozi Blog, accessed April 20, 2026, https://blog.londolozi.com/2023/03/02/my-favourite-antelope-the-kudu/
+30. Dental Anatomy of Ruminants, accessed April 20, 2026, https://vivo.colostate.edu/hbooks/pathphys/digestion/pregastric/cowpage.html
+31. Dental pad - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Dental_pad
+32. Understanding the Ruminant Animal Digestive System | Mississippi State University Extension Service, accessed April 20, 2026, https://extension.msstate.edu/publications/understanding-the-ruminant-animal-digestive-system
+33. A Huge List of Negative Prompts - Skool, accessed April 20, 2026, https://www.skool.com/promptmonkey-4168/a-huge-list-of-negative-prompts
+34. Negative Prompts for Perfect AI Image Generation | Medium, accessed April 20, 2026, https://medium.com/@johnnythedeveloper/negative-prompts-for-perfect-ai-image-generation-4b45744363c7
+35. Antelope | HUNTINGsmart! - Campfire Collective, accessed April 20, 2026, https://www.thecampfirecollective.com/knowledge-base/us/huntingsmart/10/05/
+36. Animal Locomotion and Track Patterns, accessed April 20, 2026, https://www.fishwildlife.org/application/files/7815/2952/5274/Animal_Locomotion_and_Track_Patterns.pdf
+37. Preorbital gland - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Preorbital_gland
+38. Central Bushveld | One Earth, accessed April 20, 2026, https://www.oneearth.org/ecoregions/central-bushveld/
+39. Environmental Management Framework for the Waterberg District Status Quo Report 1 - DFFE, accessed April 20, 2026, https://www.dffe.gov.za/sites/default/files/docs/waterberg_statusquo_finalreport.pdf
+40. The Invisible Mistakes Ruining Your AI Art and How to Fix Them in Seconds - CNET, accessed April 20, 2026, https://www.cnet.com/tech/services-and-software/fix-ai-image-errors-and-hallucinations-with-these-expert-approved-tips/
+41. The Digestive System of Beef Cattle - Management and Nutrition - Merck Veterinary Manual, accessed April 20, 2026, https://www.merckvetmanual.com/management-and-nutrition/nutrition-beef-cattle/the-digestive-system-of-beef-cattle
+42. Savanna Biome - ResearchGate, accessed April 20, 2026, https://www.researchgate.net/profile/Leslie-Powrie/publication/236982063_Savanna_Biome/links/00b49527785fac55ae000000/Savanna-Biome.pdf
+43. Dominant trees and shrubs found in each of the seven - vegetation types represented in the Waterberg, accessed April 20, 2026, http://www.waterberg-bioquest.co.za/Waterberg%20Vegetation%20Types.pdf
+44. Eland | African Wildlife Foundation, accessed April 20, 2026, https://www.awf.org/wildlife-conservation/eland
+45. Hunt eland in Africa - AHG, accessed April 20, 2026, https://africanhuntinggazette.com/hunt-eland-in-africa/
+46. Common eland - Wikipedia, accessed April 20, 2026, https://en.wikipedia.org/wiki/Common_eland
+47. Development and validation of an AI algorithm to generate realistic and meaningful counterfactuals for retinal imaging based on diffusion models | PLOS Digital Health, accessed April 20, 2026, https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000853
