@@ -4,6 +4,7 @@ import { monoSeeds } from "../seeds";
 
 export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
     heroTitle: "The rooibok rhythm at the waterline",
     heroLead:
       "Impala are the metronome of southern African savanna bush. They are everywhere until they are not, and that flip from common to absent is often your first clue that a leopard has switched the room to silent mode.",
@@ -141,10 +142,33 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
       ["Horns", "Lyrate, strongly ridged, length varies sharply by age and soil"],
     ],
     imageSeeds: monoSeeds(s, true, {
-      panorama: "impala-intro-panorama",
+      heroLocalBase: "/images/species/impala",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/impala",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/impala",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/impala",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/impala",
+      formSecondaryLocalExt: "jpg",
       panoramaLocalBase: "/images/species/impala",
       panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/impala",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/impala",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/impala",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/impala",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/impala",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/impala",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/impala",
+      rifleLocalExt: "jpg",
     }),
-    introPanoramaCaption: "Impala estate field reference below intro copy.",
+    introPanoramaCaption: "Thicket edge: impala almost lost in dappled scrub.",
   };
 }

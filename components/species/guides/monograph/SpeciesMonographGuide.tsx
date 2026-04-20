@@ -248,7 +248,21 @@ const SpeciesMonographGuide = ({
             {c.formBlockquote}
           </blockquote>
 
-          {hideFormBlockquoteFigures ? null : (
+          {hideFormBlockquoteFigures ? (
+            c.imageSeeds.hornsLocalBase ? (
+              <div className="mt-12 md:ml-auto md:max-w-md">
+                <MonographFig
+                  seed={`${s.id}-horns`}
+                  layout="matchText"
+                  className="h-full"
+                  localBase={c.imageSeeds.hornsLocalBase}
+                  localExt={
+                    c.imageSeeds.hornsLocalBase ? (c.imageSeeds.hornsLocalExt ?? "jpg") : undefined
+                  }
+                />
+              </div>
+            ) : null
+          ) : (
             <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
               <MonographFig
                 layout="matchText"
@@ -361,7 +375,21 @@ const SpeciesMonographGuide = ({
             })}
           </div>
           <p className="mt-10 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.rutParagraph}</p>
-          {hideRutFigures ? null : (
+          {hideRutFigures ? (
+            c.imageSeeds.rutLeftLocalBase ? (
+              <div className="mt-10 md:max-w-md">
+                <MonographFig
+                  seed={c.imageSeeds.rutLeft}
+                  layout="matchText"
+                  className="h-full"
+                  localBase={c.imageSeeds.rutLeftLocalBase}
+                  localExt={
+                    c.imageSeeds.rutLeftLocalBase ? (c.imageSeeds.rutLeftLocalExt ?? "jpg") : undefined
+                  }
+                />
+              </div>
+            ) : null
+          ) : (
             <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
               <MonographFig
                 seed={c.imageSeeds.rutLeft}
