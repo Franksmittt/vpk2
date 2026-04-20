@@ -35,7 +35,6 @@ export function capeBuffaloMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Boss, hook, and the barrel chest",
-    formEyebrow: "Mass that punishes arrogance",
     formPrimaryTitle: "The mature bull",
     formPrimaryBody:
       "Mature bulls carry massive bosses that can close across the forehead with age. Horns widen, hook, and carry battle scars. Body mass runs in the heavy hundreds of kilograms with chests like wine barrels. Eyes are small but ears and nose map your mistakes.",
@@ -45,7 +44,12 @@ export function capeBuffaloMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "Cows and calves",
     formSecondaryBody:
-      "Cow herds defend young collectively. Lions still win sometimes. Hunters do not shoot cows on typical trophy safaris unless cull plans exist. Quota language matters.",
+      "Cow herds are defensive machines built around calves, babysitting rotations, and shared ears that map lions long before a client finishes adjusting a bipod. Calves learn mud, wallow etiquette, and the difference between a grazing loop and a drink run that predators already bookmarked. Typical trophy safaris do not target cows, yet every buffalo encounter still demands respect: a cow herd in alarm is not scenery, and misread identity or backdrop in thick cover is how follow-up stories start. Where cull or problem-animal plans exist, quota language, veterinary context, and PH judgement still own the last word, not bravado.",
+    formSecondaryBullets: [
+      "Assume calves tight to the screen until a PH clears the line; dust and reeds hide depth.",
+      "Lions still win sometimes; human hunters must not add chaos to nursery geometry.",
+      "When management calls for female harvest, paperwork and briefing trump enthusiasm every time.",
+    ],
     formBlockquote:
       "The first shot is yours. The responsibility chain belongs to the whole team.",
     ecologyTitle: "Grass, wallow, and the herd mind",

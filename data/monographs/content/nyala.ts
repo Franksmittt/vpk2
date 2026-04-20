@@ -35,7 +35,6 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Mane, horns, and the striped ewe",
-    formEyebrow: "Dimorphism on display",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Mature rams carry horns that flare outward then inward with length often quoted past 60 cm in excellent animals. Shoulder height near 110 cm class with mass commonly 90 to 125 kg depending on soil. The dorsal mane and yellow stockings are honest age cues alongside horn mass.",
@@ -45,7 +44,12 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
-      "Ewes are hornless with orange-brown coats and vertical white stripes: one of Africa’s most beautiful pelages. Nursery herds move like smoke through thicket; identify before the safety moves.",
+      "Ewes are hornless with orange-brown coats and vertical white stripes: one of Africa’s most beautiful pelages, tuned for dappled light where cheek flashes and throat geometry break outline long before a client finishes a range guess. Nursery herds move like smoke through thicket, trading babysitting while calves learn which fruiting edges are worth risk and which leopard trails demand stillness. Young hornless rams can still resemble large ewes in bad light, so professional hunters insist on sex and age confirmation before anyone squeezes—misread identity in a cow-heavy string is both an ethics problem and a quota mistake.",
+    formSecondaryBullets: [
+      "Stripes read softer on ewes than on dark rams; use body depth and gait, not romance.",
+      "Calves hide in the worst pockets of cover; assume one is tucked until a PH clears the picture.",
+      "Leopard pressure rewards freeze behaviour; your next step is louder than you think.",
+    ],
     formBlockquote:
       "If you see the whole nyala, it likely catalogued you first.",
     ecologyTitle: "Edges, fruit, and the leopard clock",

@@ -37,7 +37,6 @@ export function goldenWildebeestMonograph(s: QuarrySpecies): MonographDefinition
       },
     ],
     formTitle: base.formTitle,
-    formEyebrow: base.formEyebrow,
     formPrimaryTitle: base.formPrimaryTitle,
     formPrimaryBody:
       "Bulls still carry sideways-sweeping horns that trophy judges read for width and mass. Pale coats can glare in midday sun and complicate rangefinding composure. Judge boss development, facial wear, and herd status the same way you would on a classic brindled bull.",

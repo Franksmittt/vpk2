@@ -33,7 +33,6 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Horns in both sexes, mass in the bull",
-    formEyebrow: "Hippotragus equinus",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls often exceed 250 kg with shoulder height near 130 to 140 cm class. Horns are long, strongly ridged, and curve backward with tips that sharpen in fights. Facial stripes and mane read age alongside horn bases.",
@@ -43,7 +42,12 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows carry horns and mass enough to gore. Sex ID uses body depth and horn thickness. Never guess at last light.",
+      "Cows carry horns and mass enough to gore, yet their bodies read slighter through the barrel, with thinner horn bases and less of the bull’s front-end slab when you compare animals side by side in good light. They anchor nursery herds on open lawns and walk water lines on schedules lions learn, which means calves trade babysitting while adults rotate watch across the heat of the day. Trophy plans usually target bulls, but cows still punish sloppy approach angles and fence panic; misread sex at ethical range and the story becomes legal, veterinary, and personal in the same breath.",
+    formSecondaryBullets: [
+      "Sex ID at last light leans on body depth, horn thickness, and gait, not a single glance at tips.",
+      "A cow with calves tight to her flank is already carrying a verdict on your wind.",
+      "Open ground lies about distance; a cow herd lying still can hide a second line you never glassed.",
+    ],
     formBlockquote:
       "Open ground lies about distance; roan lie about how fast they cover it when wounded.",
     ecologyTitle: "Coarse grass, open timber, water honesty",

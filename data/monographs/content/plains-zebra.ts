@@ -33,7 +33,6 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Teeth, hooves, and the stallion edge",
-    formEyebrow: "Equid truth",
     formPrimaryTitle: "The stallion",
     formPrimaryBody:
       "Mature plains zebra commonly run 300 kg class and upward with shoulder height near 120 to 140 cm depending on region. Neck crest, scars, and teeth tell age better than stripe width. Kicks kill. Never treat a down animal casually.",
@@ -43,7 +42,12 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "Mares and foals",
     formSecondaryBody:
-      "Nursery logic runs on shared ears. Foals stick tight; shooting through running herds is never ethical default.",
+      "Harem life is not a static postcard. Mares trade babysitting while foals learn the herd’s drink timetable, the lion’s patience, and the way stripes break outline at a gallop. Foals stick tight enough to vanish behind a single mare’s flank until they are old enough to rehearse kicks and spacing with bachelor bands watching from the middle distance. That nursery geometry means ethical shots are taken on confirmed individuals with a calm backdrop, not through the dust of a panic string where a foal line you never saw can absorb a mistake.",
+    formSecondaryBullets: [
+      "Shared ears lift in sequence; when the herd goes still, assume the wind already failed somewhere upstream.",
+      "Stallion politics can hide behind mares; glass for scars, crest, and spacing before the bolt closes.",
+      "Shooting through running herds is never the ethical default, whatever the hide price says in the brochure.",
+    ],
     formBlockquote:
       "The herd already voted on your wind before you lifted the rifle.",
     ecologyTitle: "Grass, water, and the wildebeest dialogue",

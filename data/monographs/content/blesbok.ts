@@ -35,7 +35,6 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Blaze, horns, and the alcelaphine stride",
-    formEyebrow: "Proud head, honest grass eater",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Rams stand near mid-nineties centimetres at the shoulder in many field references, with mass around 70 kg and up depending on range condition. Horns sweep up and in with strong rings. The blaze catches light like a flag. In rut the neck thickens and posture stiffens.",
@@ -45,7 +44,12 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
-      "Ewes carry horns too, slimmer. They run the herd calendar. Body condition on ewes is your early drought signal.",
+      "Ewes carry horns too, slimmer and finer through the shaft, with bodies that run the herd calendar: oestrus timing, lambing windows, and the quiet negotiation between grass height, water walks, and fence corners where predators learn patience. They are not anonymous extras behind ram trophies; condition on ewes is your early drought letter and your carrying-capacity truth before the accountant calls. On small camps, nursery strings can look chaotic while still carrying information—ears, spacing, and the way lambs trade hiding behind adults—so field discipline stays the same whether the hunt brief says ram or management ewe.",
+    formSecondaryBullets: [
+      "Glass horn base and body depth in the same herd before you trust a single silhouette on open veld.",
+      "Lambs vanish behind flanks until movement opens the line; never assume a clean backdrop from one angle.",
+      "When purity or density plans call for ewe harvest, estate rules and PH briefing still own the trigger, not habit.",
+    ],
     formBlockquote:
       "If you cannot explain why blesbok and bontebok should stay apart on your farm, you should not sell purity.",
     ecologyTitle: "Grass height, fire, and winter honesty",

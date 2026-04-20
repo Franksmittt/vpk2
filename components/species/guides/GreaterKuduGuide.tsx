@@ -313,14 +313,9 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
       {/* Morphology */}
       <section className="border-t border-white/[0.07] bg-[#080808] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
-              Size, coat, and the spiral
-            </h2>
-            <p className="max-w-md font-sans text-sm text-white/65">
-              Sexual dimorphism here is strategy, not decoration.
-            </p>
-          </div>
+          <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+            Size, coat, and the spiral
+          </h2>
 
           <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="space-y-6 lg:py-0.5">
@@ -365,14 +360,28 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
               <p className="font-sans text-base leading-[1.75] text-white/70">
                 Cows run about 100 to 125 cm at the shoulder and 120 to 210 kg. No horns, less beard,
                 often a softer face. Those ears are not cosmetic: they track the snap that gives a
-                leopard away.
+                leopard away. Maternal herds share babysitting while calves learn which thicket pockets
+                swallow outline and which fence corners panic when wind fails; misread sex or age in
+                that string and the follow-up is legal, ethical, and veterinary at once.
               </p>
+              <ul className="space-y-3 font-sans text-sm text-white/70">
+                <li className="flex gap-3 border-l-2 border-burnished-copper/40 pl-4">
+                  Calves lie tight to the screen; glass for a second line before you trust a single
+                  gap in the brush.
+                </li>
+                <li className="flex gap-3 border-l-2 border-white/10 pl-4">
+                  Cows read tension faster than lone bulls; spacing and wind matter before another
+                  step earns sound.
+                </li>
+              </ul>
               <h3 className="pt-4 font-sans text-lg font-medium text-white/90">Stripes and shadow</h3>
               <p className="font-sans text-base leading-[1.75] text-white/70">
                 Six to ten vertical white lines break the outline in dappled thicket. In open sun the
                 pattern looks loud. In broken shade it erases mass. Add cheek spots, a chevron, and an
                 erectile dorsal mane for threat display, and you understand why animals “appear” after
-                minutes of staring.
+                minutes of staring. Trophy plans usually target mature bulls, yet the same stripe
+                language that flatters a photograph still punishes rushed silhouette calls when heat
+                shimmer stacks on thorn.
               </p>
             </div>
           </div>

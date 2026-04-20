@@ -35,7 +35,6 @@ export function sableAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Scimitar, mane, and the cow’s temper",
-    formEyebrow: "Hippotragus truth",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls commonly run 220 to 270 kg class with shoulder height near 120 to 140 cm depending on soil. Horns sweep back in long curves with length often quoted past a metre in exceptional animals. The neck mane and facial mask read age alongside horn chips.",
@@ -45,7 +44,12 @@ export function sableAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows carry horns and attitude. Never assume ‘smaller means safe’ inside a boma or capture pen.",
+      "Cows carry the same scimitar architecture as bulls, but on a shallower frame with finer horn shafts, less neck armour, and a herd role built around calves, babysitting, and shared vigilance in woodland openings. They are not background animals in a capture crush: horn length can still cross a ribcage, and a cow with a calf at heel reads stress faster than a lone bull on a lawn. Trophy language on many estates targets mature bulls, yet every encounter with cows still demands clean sex and age confirmation, because a rushed silhouette call in broken light is how quotas and reputations both bleed.",
+    formSecondaryBullets: [
+      "Nursery strings often park with heads on different bearings; use that geometry before you assume a single safe backdrop.",
+      "In boma work or dense timber, treat horn sweep as a radius problem, not a size joke.",
+      "When census calls for female reduction, PH and paperwork still own the veto, not enthusiasm.",
+    ],
     formBlockquote:
       "A sable that turns broadside at forty metres still owns forty metres of kill radius if you botch the first shot.",
     ecologyTitle: "Woodland glades and the grass beneath",

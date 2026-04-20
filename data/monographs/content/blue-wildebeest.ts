@@ -33,7 +33,6 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Beard, hump, and horn width",
-    formEyebrow: "Sexual signals in a running animal",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls are slab-sided and front-heavy, often running near 250 kg in good range condition with shoulder height around 120 to 150 cm depending on nutrition. The beard is not decoration. It frames scent and status. Horns spread sideways from a heavy boss-like base and curve inward. Trophy talk often centres on width and mass, not only length, because the animal presents horns like handlebars in the field.",
@@ -43,7 +42,12 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The cow and the calf crop",
     formSecondaryBody:
-      "Cows are lighter, finer in the neck, and run the nursery logic of the herd. Calves drop in sync with grass peaks where seasonal breeding still matters. On intensive properties breeding can look more year-round. Either way, calf survival is the silent metric that decides future trophy density.",
+      "Cows are lighter, finer in the neck, and run the nursery logic of the herd: calves drop in sync with grass peaks where seasonal breeding still matters, while intensive properties sometimes see a softer year-round pulse behind wire. Either way, calf survival is the silent metric that decides future trophy density long before horn width shows up in a brochure. Cows teach drink timetables lions learn, zebra tension at pans, and the herd panic geometry that punishes sloppy wind—so the gnu story is never only about the bull with the widest boss.",
+    formSecondaryBullets: [
+      "Nursery strings move as nervous networks; assume depth behind the first line of animals you glass.",
+      "Shooting through running herds is never the ethical default, whatever the quota spreadsheet says.",
+      "When female or calf harvest sits in a management plan, PH and paperwork still finish the sentence.",
+    ],
     formBlockquote:
       "On open ground the gnu does not need to be pretty. It needs to be gone. Your first job is to stop treating the herd like a static target.",
     ecologyTitle: "Grass, rain, and fence psychology",

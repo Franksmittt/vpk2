@@ -33,7 +33,6 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Spots, horns, and the riverine walk",
-    formEyebrow: "Camouflage is behaviour",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Rams carry horns with a strong spiral, often quoted around half a metre in big animals. Shoulder height near 90 cm class with mass from 45 toward 80 kg depending on region. White spots and throat patches break outline in dappled light. Facial glands mark routes.",
@@ -44,6 +43,11 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
       "Ewes are clearly smaller and more gracile than mature rams, with no horn pedicles at all. Their coat stays in the warm russet-to-chestnut range, and the white throat band, flank spots, and leg flashes read softer and less graphic than on a dark ram, which helps them melt into dry leaf litter and shaded understory. In poor light or at a sharp angle, a young hornless ram can still resemble an ewe, so professional hunters insist on sex and age confirmation before anyone squeezes. Nursing cows carry calves hidden in the thickest pockets of cover; their behaviour is secretive, and misreading sex in that context is both an ethics problem and a quota mistake.",
+    formSecondaryBullets: [
+      "Listen for the soft cough and hoof click on gravel; ears forward in cover mean you are already in the trial.",
+      "Assume a calf line behind the first ewe until a PH clears depth; riverine geometry hides mass.",
+      "Leopard pressure rewards stillness; your next step costs more than your last glance through glass.",
+    ],
     formBlockquote:
       "If you can see the whole bushbuck, it already saw you first.",
     ecologyTitle: "Thickets, fruit, and the leopard clock",

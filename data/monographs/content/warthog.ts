@@ -33,7 +33,6 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Tusks, warts, and the kneeling grazer",
-    formEyebrow: "Sexual armour, not jokes",
     formPrimaryTitle: "The boar",
     formPrimaryBody:
       "Boars carry two pairs of warts and impressive upper canines that curve like scimitars. Lower canines hone on uppers every time the mouth opens. Shoulder height often lands near 63 to 85 cm with mass from 60 kg toward 150 kg in big coastal or lush animals. The tail stands like an antenna when they trot.",
@@ -43,7 +42,12 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The sow and piglets",
     formSecondaryBody:
-      "Sows run sounders with stripy piglets. A sow with young is a different legal and ethical conversation than a lone boar. She will fight dogs and humans with commitment.",
+      "Sows run sounders with stripy piglets, teaching waterhole timing, wallow etiquette, and the difference between a calm graze and a bolt when something with teeth tests the edge. A sow with young is a different legal and ethical conversation than a lone boar: she will fight dogs and humans with commitment, and piglets vanish into holes, long grass, and the blind side of a termite mound faster than a client can reset composure. On estates, sounder density stacks against crops, dogs, and road edges; field discipline stays veterinary and welfare first, whatever the trophy story says about tusks.",
+    formSecondaryBullets: [
+      "Never assume a sounder is shallow; piglets rewrite backdrop and safe angles in seconds.",
+      "Sows at a den or burrow deserve extra distance and PH direction before anyone talks about a shot.",
+      "When management calls for sounder work, paperwork and humane tools still own the plan, not excitement.",
+    ],
     formBlockquote:
       "Never crawl toward a hole mouth-first. Warthogs designed that mistake for hyenas, not photographers.",
     ecologyTitle: "Grass, roots, and the waterhole social club",

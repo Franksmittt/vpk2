@@ -33,7 +33,6 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Ossicones, neck, and the bull slab",
-    formEyebrow: "Mass at height",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls carry heavy ossicones often bald on top from combat, thick necks, and masses that can exceed a ton in big animals. Cows are lighter with finer tufted ossicones. Sexing at distance uses silhouette and behaviour. Never guess from neck alone in bad light.",
@@ -43,7 +42,12 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "Cows and calves",
     formSecondaryBody:
-      "Nursery groups move with coordinated heads. Calves are vulnerable to lions; human hunters must not add chaos to nursery strings.",
+      "Nursery herds are loose clouds of animals that read as one nervous system: heads lift in sequence, browse arcs drift, and calves trade babysitting between adults while the tallest eyes scan for lions. Newborns spend their first week mostly flat in cover, long-legged and speckled, while cows feed in shifts so someone is always carrying the horizon. That calm choreography is easy to admire from a distance and dangerous to rush: a string of necks can hide a second calf line, a bull satellite, or a fence panic you did not budget for. On estates, harvest conversations around cows and young are quota and welfare first, because the wrong trigger press in a nursery group is not a story you want on the fire.",
+    formSecondaryBullets: [
+      "Calves lie out like folded tripods; assume one is tucked behind the nearest thicket edge until a PH clears the picture.",
+      "Hyena and lion pressure trains nursery spacing: when heads go still, something already changed upwind.",
+      "Never treat a cow-heavy group as background scenery; misread identity here and the follow-up is legal, ethical, and veterinary at once.",
+    ],
     formBlockquote:
       "If you treat height like a gimmick, the first shot will teach you otherwise.",
     ecologyTitle: "Canopy, thorns, and the water paradox",

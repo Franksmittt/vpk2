@@ -34,7 +34,6 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Lyre horns, glands, and the perfect leap",
-    formEyebrow: "Dimorphism with a purpose",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Rams carry long lyrate horns with strong ridges, often quoted in the 45 to 90 cm range for big mature animals. Shoulder height commonly lands near 75 to 92 cm with mass from mid-fifties to mid-seventies kilograms in good condition. The neck thickens in rut. Facial glands and black metatarsal tufts are not trivia. They are messaging hardware.",
@@ -44,7 +43,12 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe and nursery herds",
     formSecondaryBody:
-      "Ewes are hornless, lighter, and run the social fabric. Female herds can look chaotic but they are information networks. Calves lie hidden, then merge. That strategy fails when cover is bulldozed or dogs hunt in packs through the middle of the group.",
+      "Ewes are hornless, lighter, and run the social fabric: female herds can look chaotic but they are information networks where babysitting, allomothering, and shared ears map leopard arcs long before a client finishes a wind check. Calves lie hidden in cover, then merge into the string on a rhythm only the herd fully reads—which is why bulldozed edges, loose dogs, and fence panic break recruitment faster than any horn measurement fixes. Trophy talk loves rams, yet every encounter with ewes still demands clean sex and age confirmation, because a young hornless ram can still resemble an ewe in bad light until bodies tell the truth.",
+    formSecondaryBullets: [
+      "Glass body depth, flank line, and gait before you trust a head-on silhouette at last light.",
+      "Assume calves tucked behind the nearest thicket pocket until a PH clears the line.",
+      "When density plans include ewes, estate rules and briefing still finish the sentence, not habit.",
+    ],
     formBlockquote:
       "If you only look for the ram with the widest horns, you will sometimes shoot the wrong decade. Learn bodies, not egos.",
     ecologyTitle: "Edges, water, and mixed feeding",

@@ -86,7 +86,6 @@ export type MonographDefinition = {
   taxonomyIntro: string;
   taxonomyCards: MonographTaxonomyCard[];
   formTitle: string;
-  formEyebrow: string;
   formPrimaryTitle: string;
   formPrimaryBody: string;
   formPrimaryBullets: string[];

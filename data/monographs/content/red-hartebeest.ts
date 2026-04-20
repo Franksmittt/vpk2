@@ -35,7 +35,6 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Horns, withers, and the high backline",
-    formEyebrow: "Sexual honesty in profile",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls carry heavily ridged horns that rise, then hook forward with character that tape measures alone miss. Shoulder height commonly lands near 120 to 140 cm with mass often quoted from about 120 to 160 kg depending on range condition. The withers peak above the rump: that silhouette is your rangefinder trap.",
@@ -45,7 +44,12 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows are horned, lighter, and run nursery herds. Trophy plans usually target bulls. Glass for sex before the safety moves.",
+      "Cows carry the same lyre-shaped horn architecture as bulls, but on a lighter frame with finer necks, less boss mass through the face, and herd logic built around calves, babysitting, and shared vigilance on short-grass lawns. Nursery groups string out between water and the best remaining swards behind wire, which makes drink times honest for glassing and dangerous for rushed shots. Trophy plans usually target bulls, yet cows still deserve the same field discipline: wrong sex or age class is an own goal that quota, camp culture, and export paperwork all remember.",
+    formSecondaryBullets: [
+      "Compare horn thickness and body depth in the same herd before you trust a silhouette at heat shimmer.",
+      "Calves tuck into the herd screen; never treat running strings as a shooting gallery.",
+      "When cull plans include females, PH sign-off and estate rules still finish the sentence, not excitement.",
+    ],
     formBlockquote:
       "If you trust the first range guess on a hartebeest, you are volunteering for a story you will not like.",
     ecologyTitle: "Grass, fire, and fence loops",

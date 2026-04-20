@@ -35,7 +35,6 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Horns, flash marks, and heat economy",
-    formEyebrow: "Small bodies, big signal",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Rams carry lyrate horns with strong annuli, often quoted well past 30 cm for good trophies with mass that matters as much as length. Shoulder height is modest, commonly near 75 to 88 cm with mass from mid-twenties to mid-thirties kilograms in lean range conditions. The white face and rump flash are not vanity. They are semaphore for herds running at speed.",
@@ -45,7 +44,12 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
-      "Ewes carry horns too, usually slighter. Trophy language on many estates targets rams. Confirm sex and quota with your PH before the rifle settles.",
+      "Ewes carry horns too, usually slighter and more gracile through the face, with herd logic built around lambs, babysitting, and the same arid grass mathematics rams advertise on open ground. Trophy language on many estates targets rams, yet ewes still set the calendar for recruitment, drought honesty, and the way nursery strings fold behind a single animal when a jackal or caracal tests the edge. Heat shimmer and coat glare make sex calls expensive; the animals earn the same wind discipline whether you are after a slam ram or a management ewe under quota.",
+    formSecondaryBullets: [
+      "Compare horn thickness and body line in the same group before the safety moves.",
+      "Lambs tight to the screen can hide behind a single ewe until the herd shifts; glass for depth.",
+      "Confirm sex and quota with your PH every day; open ground forgives nobody’s assumptions.",
+    ],
     formBlockquote:
       "On open ground the springbok does not owe you a standing shot. It owes you honesty about wind.",
     ecologyTitle: "Arid grass, browse, and water discipline",

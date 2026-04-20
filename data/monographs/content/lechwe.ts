@@ -35,7 +35,6 @@ export function lechweMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Horns, coat, and mud-country legs",
-    formEyebrow: "Sexual signals in colour",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Mature rams carry long, ridged horns that sweep up and out with trophy judges looking at length, mass, and curve integrity. Body mass commonly lands in a medium antelope bracket with rams heavier than ewes. Hindquarters look powerful next to a red lechwe’s saturated coat tones where that form occurs.",
@@ -45,7 +44,12 @@ export function lechweMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe",
     formSecondaryBody:
-      "Ewes run nursery herds and often show lighter or differently patterned coats depending on taxon. Confirm sex and estate rules before closing the bolt.",
+      "Ewes run nursery herds and often show lighter or differently patterned coats depending on taxon, with bodies tuned to wet edges where calves learn mud footing, reed geometry, and the sound of water pumps that replace natural flood pulses on estates. Shared vigilance is not decorative: heads lift in sequence, babysitting rotates through the heat of the day, and a single alarm cough can collapse the whole string into cover you cannot glass honestly from one angle. Confirm sex and estate rules before closing the bolt, because shimmer, mud sheen, and fence panic all buy mistakes cheaper than a range card.",
+    formSecondaryBullets: [
+      "Compare coat tone and body line in the same herd before you trust a silhouette at distance.",
+      "Assume calves behind the first reed wall until a PH clears depth and backdrop.",
+      "Hybrid or colour-morph conversations do not replace quota language on the day.",
+    ],
     formBlockquote:
       "Mud is not a backdrop. It is a sound engine, a scent engine, and sometimes a wall you cannot cross quietly.",
     ecologyTitle: "Water, grass, and estate engineering",

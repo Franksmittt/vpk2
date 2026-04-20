@@ -35,7 +35,6 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Neck, horn, and the unicorn illusion",
-    formEyebrow: "Mass and heat on hoof",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls commonly run from roughly 180 up toward 240 kg in heavy Kalahari animals, with shoulder height near 1.1 to 1.2 m. The neck is horse-thick for a reason: it supports horn torque in fights and carries vascular radiators under the skin. Horns grow straight to backward with heavy basal rings.",
@@ -45,7 +44,12 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows are lighter but not small. Their horns can outlength bulls in trophy talk. They defend calves with commitment. Do not assume cow means safe.",
+      "Cows are lighter but not small: their horns can outlength bulls in trophy talk, with longer, cleaner shafts that judges love until someone confuses sex at the worst moment. They defend calves with commitment, run nursery herds across red sand and scrub introductions alike, and carry the same desert kidneys and heat math that make gemsbok durable where fancier species fade. Do not assume cow means safe in a capture crush, at a water trough, or on follow-up when a wounded animal circles back with argument in the horn line.",
+    formSecondaryBullets: [
+      "Side-on, one horn can still hide behind the other; compare animals in the same herd when possible.",
+      "Calves and babysitting adults change spacing fast; glass for a second line before you commit.",
+      "Trophy plans often target bulls, yet sex ID and estate rules still own every squeeze.",
+    ],
     formBlockquote:
       "Side-on, one horn can hide behind the other. That is how gemsbok earn the unicorn nickname and how hunters earn embarrassment.",
     ecologyTitle: "Arid scrub, grass, and the water lie",

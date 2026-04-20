@@ -37,7 +37,6 @@ export function dappleImpalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: base.formTitle,
-    formEyebrow: base.formEyebrow,
     formPrimaryTitle: base.formPrimaryTitle,
     formPrimaryBody:
       "Rams still carry lyrate horns with strong ridges. Dapple coats can make horn bases harder to read in dappled light, which is irony you do not need on a stalk. Judge mass, neck thickness, and combat scars the same way you would on a classic rooibok.",

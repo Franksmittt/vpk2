@@ -35,7 +35,6 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: "Horns, ring, and the wet-season body",
-    formEyebrow: "Mass is the message",
     formPrimaryTitle: "The ram",
     formPrimaryBody:
       "Mature rams commonly run from roughly 230 kg upward in good range with shoulder height near 120 to 135 cm class depending on nutrition. Horns sweep forward and up with strong annuli; length and basal mass matter more than height alone. The neck hump thickens with age. Coat greases in rain. Do not mistake shine for condition.",
@@ -45,7 +44,12 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     ],
     formSecondaryTitle: "The ewe and nursery herds",
     formSecondaryBody:
-      "Ewes are hornless and run nursery logic with shared vigilance. Sex ID is usually obvious at ethical ranges; still confirm in reed shimmer before the bolt closes.",
+      "Ewes are hornless and run nursery logic with shared vigilance: ears map wind, reeds hide calves, and the white ring on the rump reads like a semaphore when lions or humans push the edge. Sex ID is usually obvious at ethical ranges, yet reed shimmer, heat, and the way animals quarter through stems still earn a second glass before the bolt closes. On estates, waterbuck density stacks against carrying capacity fast; body condition on ewes is your early letter on grass quality, water hygiene, and whether your rotation still tells the truth.",
+    formSecondaryBullets: [
+      "Confirm sex in broken light; shimmer turns outlines into guesses faster than clients admit.",
+      "Calves trade hiding behind adults along fence lines and seeps; never assume a single-file string is shallow.",
+      "When management targets ewes, quota language and PH briefing still own the last word.",
+    ],
     formBlockquote:
       "If you ignore the wind at water, the white ring will be the last thing you see leaving.",
     ecologyTitle: "Grass, drink, and reed geometry",

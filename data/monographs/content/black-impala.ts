@@ -37,7 +37,6 @@ export function blackImpalaMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: base.formTitle,
-    formEyebrow: base.formEyebrow,
     formPrimaryTitle: base.formPrimaryTitle,
     formPrimaryBody:
       "Rams carry lyrate horns with strong annuli. Dark coats can hide neck seams in shadow; spend extra seconds confirming sex and age against the sun angle. Mass and rut swelling still read like any impala once you force the glass to slow down.",

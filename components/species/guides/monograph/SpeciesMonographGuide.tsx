@@ -188,10 +188,7 @@ const SpeciesMonographGuide = ({
         <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-x-16">
             <div className="order-1 flex min-h-0 flex-col lg:py-0.5">
-              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.formTitle}</h2>
-                <p className="max-w-md font-sans text-sm text-white/65">{c.formEyebrow}</p>
-              </div>
+              <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.formTitle}</h2>
               <div className="mt-12 flex flex-col space-y-6">
                 <h3 className="font-sans text-lg font-medium text-white/90">{c.formPrimaryTitle}</h3>
                 <p className="font-sans text-base leading-[1.75] text-white/70">{c.formPrimaryBody}</p>

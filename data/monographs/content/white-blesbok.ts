@@ -37,7 +37,6 @@ export function whiteBlesbokMonograph(s: QuarrySpecies): MonographDefinition {
       },
     ],
     formTitle: base.formTitle,
-    formEyebrow: base.formEyebrow,
     formPrimaryTitle: base.formPrimaryTitle,
     formPrimaryBody:
       "Rams carry lyrate horns with strong rings; ewes carry lighter horns. White pelage can wash out shoulder definition in photos. Judge mass and belly depth through the scope, not through phone zoom after the fact.",

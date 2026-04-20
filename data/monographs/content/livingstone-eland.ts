@@ -33,7 +33,6 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
       },
     ],
     formTitle: "Spirals, dewlap, and the silent vanish",
-    formEyebrow: "Mass that rewrites distance",
     formPrimaryTitle: "The bull",
     formPrimaryBody:
       "Mature bulls carry thick horns that spiral with age, often quoted past 60 cm for serious trophies with basal mass that judges love. Live mass can exceed half a tonne in exceptional farm condition with shoulder height commonly near 150 to 180 cm in well-fed animals. The dewlap is not decoration. It is thermoregulation and dominance hardware.",
