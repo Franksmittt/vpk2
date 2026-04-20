@@ -19,7 +19,7 @@ type FigLayout = "banner" | "tall" | "matchText";
 /** Files live in public/images/species/greater-kudu/: see WHERE-TO-PUT-IMAGES.txt */
 export const GREATER_KUDU_LOCAL_IMAGE_BASE = "/images/species/greater-kudu";
 /** Local assets in public/images/species/greater-kudu/ */
-export const GREATER_KUDU_LOCAL_IMAGE_EXT = "png";
+export const GREATER_KUDU_LOCAL_IMAGE_EXT = "jpg";
 
 export const GREATER_KUDU_DIAGRAMS_BASE = `${GREATER_KUDU_LOCAL_IMAGE_BASE}/diagrams`;
 
@@ -165,13 +165,13 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
       {/* Hero */}
       <header className="relative min-h-[min(88svh,820px)] overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={speciesImageUrl("kuduheroiron", 1920, 1200)}
+          <GuideFigureImg
+            localSrc={`${GREATER_KUDU_LOCAL_IMAGE_BASE}/kudumonohero.${GREATER_KUDU_LOCAL_IMAGE_EXT}`}
+            fallbackSrc={speciesImageUrl("kuduheroiron", 1920, 1200)}
             alt="Greater kudu bull in iron-stone Waterberg thicket, monograph hero at Vaalpenskraal"
-            fill
-            priority
             sizes="100vw"
             className="object-cover"
+            priority
           />
         </div>
         <div className="pointer-events-none absolute inset-0 bg-black/22" aria-hidden />
@@ -254,7 +254,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           </div>
           <div className="flex min-h-0 flex-col">
             <KuduFig
-              seed="kuduintro"
+              seed="kudumonintro"
               layout="matchText"
               className="h-full min-h-[min(13.75rem,48dvh)]"
             />
@@ -263,7 +263,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
       </section>
 
       <KuduFig
-        seed="kudupanorama"
+        seed="kudumonopan"
         className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12"
       />
 
@@ -345,7 +345,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             </div>
             <div className="flex min-h-0 flex-col">
               <KuduFig
-                seed="kudubullportrait"
+                seed="kudumonoforma"
                 layout="matchText"
                 className="h-full"
               />
@@ -355,7 +355,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           <div className="mt-16 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="order-2 flex min-h-0 flex-col lg:order-1">
               <KuduFig
-                seed="kuducowears"
+                seed="kudumonoformb"
                 layout="matchText"
                 className="h-full"
               />
@@ -415,7 +415,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           </div>
           <div className="flex min-h-0 flex-col lg:col-span-5">
             <KuduFig
-              seed="kuduwaterhole"
+              seed="kudumonopred"
               layout="matchText"
               className="h-full"
             />
@@ -442,7 +442,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
         </div>
 
         <KuduFig
-          seed="kudubrowseacacia"
+          seed="kudumonofeed"
           className="mt-12"
         />
       </section>
@@ -536,7 +536,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           </div>
           <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
             <KuduFig
-              seed="kudustalkridge"
+              seed="kudumonohunt"
               layout="matchText"
               className="h-full"
             />
@@ -566,7 +566,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           and athletic. Your PH carries the final say against the quota and the condition of the habitat.
         </p>
         <KuduFig
-          seed="kudutrophycompare"
+          seed="kudumonotrophy"
           className="mt-10"
         />
       </section>
@@ -647,7 +647,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           </div>
 
           <KuduFig
-            seed="kuduhunterrifle"
+            seed="kudumonorifle"
             className="mt-12"
           />
         </div>

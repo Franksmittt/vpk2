@@ -10,6 +10,8 @@ type Props = {
   className?: string;
   /** Passed to `next/image` for responsive layout */
   sizes?: string;
+  /** When true, prefer loading the local image early (e.g. hero). */
+  priority?: boolean;
 };
 
 /**
@@ -21,6 +23,7 @@ export function GuideFigureImg({
   alt = "",
   className = "",
   sizes = "100vw",
+  priority = false,
 }: Props) {
   const [useFallback, setUseFallback] = useState(false);
   const src = useFallback ? fallbackSrc : localSrc;
@@ -31,6 +34,7 @@ export function GuideFigureImg({
       fill
       sizes={sizes}
       className={className}
+      priority={priority}
       onError={() => setUseFallback(true)}
     />
   );
