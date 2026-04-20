@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "The Highveld blaze that came back from the edge",
     heroLead:
       "Blesbok are a South African endemic story: nearly erased, then rebuilt by reserves and private wildlife economics. The white face blaze is not makeup. It is identity you can read at four hundred metres on a frosty morning.",
@@ -140,10 +142,33 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Habitat", "Highveld grassland and derived pastures"],
     ],
     imageSeeds: monoSeeds(s, false, {
-      panorama: "blesbok-intro-panorama",
+      heroLocalBase: "/images/species/blesbok",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/blesbok",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/blesbok",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/blesbok",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/blesbok",
+      formSecondaryLocalExt: "jpg",
       panoramaLocalBase: "/images/species/blesbok",
       panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/blesbok",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/blesbok",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/blesbok",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/blesbok",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/blesbok",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/blesbok",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/blesbok",
+      rifleLocalExt: "jpg",
     }),
-    introPanoramaCaption: "Blesbok estate field reference below intro copy.",
+    introPanoramaCaption: "Gold grass or a wall of thicket, all anonymous in the bokeh.",
   };
 }
