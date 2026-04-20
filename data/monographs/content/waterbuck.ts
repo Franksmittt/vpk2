@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "The white ring and the water oath",
     heroLead:
       "Waterbuck are Kobus ellipsiprymnus: heavy-shouldered grazers that advertise water dependence with a pale rump halo. They are not marsh trivia. On the Iron Mountain they are a serious kob: thick coat, strong bone, and enough mass to punish soft bullets.",
@@ -139,6 +141,34 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
       ["ID cue", "White rump ring (ellipsiprymnus)"],
       ["Mass", "Large rams often 230+ kg in good range"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      heroLocalBase: "/images/species/waterbuck",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/waterbuck",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/waterbuck",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/waterbuck",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/waterbuck",
+      formSecondaryLocalExt: "jpg",
+      panoramaLocalBase: "/images/species/waterbuck",
+      panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/waterbuck",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/waterbuck",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/waterbuck",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/waterbuck",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/waterbuck",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/waterbuck",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/waterbuck",
+      rifleLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Tracks, mud bank, or tall grass at the waterbuck edge.",
   };
 }
