@@ -88,6 +88,11 @@ export function waterbuckMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the ring at the waterline",
     huntIntro:
       "Glass, wind, and patience beat sprint attitudes. Most ethical shots are not marathon stalks across open pans without cover.",
+    huntIntroParagraphs: [
+      "Waterbuck tie routines to water and reeds. The white ring reads like a target until brush owns the foreground. Stalk edges, read mirage, and refuse shots that only exist in your hurry.",
+      "Your professional hunter still owns angle, sex ID, and when the herd is too hot. Fence lines and dry-season crowding belong in the plan before the rifle settles.",
+      "On the Iron Mountain we match waterbuck hunts to census and cover. Trophy is horn and age on the right bull after wind and distance told the truth.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

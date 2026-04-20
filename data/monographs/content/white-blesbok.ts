@@ -62,6 +62,11 @@ export function whiteBlesbokMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the pale alcelaphine",
     huntIntro:
       "Spot-and-stalk and ambush at water still dominate. Magnify patience, not calibre.",
+    huntIntroParagraphs: [
+      "Pale animals glow in frost and wash out in glare. Plan glassing so shoulder depth and horn mass read true, not only coat contrast against the veld.",
+      "Wind on open ground still decides the day. Your PH still refuses brush shots, fence panic, and the wrong animal in a tight bunch. Morph honesty does not buy sloppy fieldcraft.",
+      "On the Iron Mountain we match white blesbok harvest to census and breeding disclosure. Compare rams in the herd before you fixate on colour alone.",
+    ],
     huntMethods: base.huntMethods,
     trophyTitle: "Trophy sense on white pelage",
     trophyParagraphs: [

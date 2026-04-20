@@ -87,6 +87,11 @@ export function impalaMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the edge runner",
     huntIntro:
       "Impala reward quiet feet and good wind more than magnum rifles. Most shots are inside comfortable stalk ranges if you stop rushing.",
+    huntIntroParagraphs: [
+      "Edges are where impala economy lives: thicket one step left, lawn one step right. The herd reads your silhouette against sky before you read their chest. Glass from cover, move on a metronome, and let the wind be the boss you cannot negotiate with.",
+      "Your professional hunter earns veto rights on angle, brush, and which ram is actually legal. Rut noise is not permission to rush. When the white tail flash is the only clear read, reset and breathe.",
+      "On the Iron Mountain we match rooibok hunts to census and cover. Trophy is age and horn on the right animal, not a sprint across open ground because the light looked good on camera.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

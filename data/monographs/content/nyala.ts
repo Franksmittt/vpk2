@@ -88,6 +88,11 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Still-hunting the striped spiral",
     huntIntro:
       "Most ethical shots are inside comfortable stalk ranges if you stop rushing. If you need a 400-metre zero, you are often in the wrong thicket.",
+    huntIntroParagraphs: [
+      "Nyala reward the hunter who treats riverine cover as architecture, not wallpaper. Stripes break outline in dapple; the spiral reads late. Glass upstream of your boots, then move on a clock that assumes a leopard already drew the same map.",
+      "Wind in a draw is not negotiable. Your professional hunter lives for the veto when angle, twigs, or a ewe behind the ram make the shot a lecture instead of a harvest. Thicket ethics are short-range ethics.",
+      "On the Iron Mountain we match nyala hunts to census and cover, not to bravado. When the spiral fills the ocular and the chest clears at last light, that is the moment patience bought. Until then, silence is the only calibre that matters.",
+    ],
     huntMethods: [
       {
         title: "Still-hunt",

@@ -92,6 +92,8 @@ export type MonographDefinition = {
   formPrimaryBullets: string[];
   formSecondaryTitle: string;
   formSecondaryBody: string;
+  /** Optional bullets under the secondary form column (same styling as form primary). */
+  formSecondaryBullets?: string[];
   formBlockquote: string;
   ecologyTitle: string;
   ecologyParagraphs: string[];
@@ -107,6 +109,8 @@ export type MonographDefinition = {
   predationBody: string;
   huntTitle: string;
   huntIntro: string;
+  /** Optional extra paragraphs under `huntIntro` in the hunt section text column (same row as hunt figure). */
+  huntIntroParagraphs?: string[];
   huntMethods: MonographHuntMethod[];
   trophyTitle: string;
   trophyParagraphs: string[];

@@ -88,6 +88,11 @@ export function capeBuffaloMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Dangerous-game hunting culture",
     huntIntro:
       "Buffalo hunts are short-range ethics: wind, silence, shooting sticks, and a PH who has seen ego die before.",
+    huntIntroParagraphs: [
+      "Dangerous game means legal calibre floors, follow-up plans, and zero tolerance for bravado on wounded animals. The first shot is yours; the responsibility chain belongs to the whole team.",
+      "Thicket and river lines forgive no careless noise. Your PH owns angle, backing shots, and when the dagga boy is simply the wrong lecture for the day.",
+      "On the Iron Mountain we match buffalo hunts to quota, law, and census. Trophy is age and boss on the right bull after discipline bought a true shot window.",
+    ],
     huntMethods: [
       {
         title: "Tracking",

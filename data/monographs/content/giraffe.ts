@@ -86,6 +86,11 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting with welfare first",
     huntIntro:
       "Only proceed under PH direction with confirmed target identity and a rifle–bullet pair matched to the brief. This is not a backstop for under-gunned guests.",
+    huntIntroParagraphs: [
+      "Giraffe hunts are veterinary and welfare conversations first, fieldcraft second. Target identity, bullet construction, and follow-up logistics must be settled before anyone talks about hero angles.",
+      "Neck length and brush change the geometry most guests imagine. Your PH owns the veto when presentation, backdrop, or animal condition fails the brief. No social media clock drives the shot.",
+      "On the Iron Mountain we align giraffe harvest with law, welfare, and census. The rifle and bullet pair on the day must match paperwork and professional judgement, not curiosity.",
+    ],
     huntMethods: [
       {
         title: "Stalk to position",

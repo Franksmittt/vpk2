@@ -86,6 +86,11 @@ export function roanAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the masked giant",
     huntIntro:
       "Tripods, wind, and refusal to chase hero shots across mirage pans.",
+    huntIntroParagraphs: [
+      "Roan read open ground like accountants. Heat shimmer lies about distance; a heavy body punishes poor bullets. Glass the mask, the horn curve, and the legs before you love the skyline shot.",
+      "Your professional hunter still picks one animal and one window. Herd confusion and mirage are not excuses for fence stress or a running string.",
+      "On the Iron Mountain we match roan hunts to census and wind truth. Trophy is length and mass on the right animal after patience bought a real broadside.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

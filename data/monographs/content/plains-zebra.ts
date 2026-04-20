@@ -86,6 +86,11 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting stripes on open ground",
     huntIntro:
       "Wind and glass beat horsepower. Plan paths that use folds and anthills; refuse running shots unless PH and training say yes.",
+    huntIntroParagraphs: [
+      "Stripes break outline until the herd turns as one and sky lines you. Zebra hunts are herd discipline: pick one animal, hold for still presentation, refuse fence panic.",
+      "Your professional hunter still owns target ID, angle, and when the string is too hot. Pans and firebreaks punish sprint attitudes faster than ego recovers.",
+      "On the Iron Mountain we match zebra hunts to census and range ethics. Trophy is stallion age and striping truth on the right animal after patience earned the shot.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

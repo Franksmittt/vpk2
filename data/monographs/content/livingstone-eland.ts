@@ -43,7 +43,12 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
     ],
     formSecondaryTitle: "The cow",
     formSecondaryBody:
-      "Cows are horned, lighter, and run the herd fabric. Trophy plans usually target bulls. Glass for sex, age, and quota before the rifle settles.",
+      "Cows carry the same spiral horn architecture as bulls, but on a slighter frame with thinner shafts, smaller basal mass, and less of the bull’s front-end armour through the neck and dewlap. They anchor nursery herds, set the daily rhythm between shade and feed, and teach calves where water and cover line up on your property. Trophy plans usually target bulls, yet cows still deserve the same field discipline: wrong sex or age class is an own goal that quota and reputation pay for.",
+    formSecondaryBullets: [
+      "Sex ID at distance uses body depth, horn thickness, and gait. Never bet the farm on a single silhouette in heat shimmer.",
+      "A cow with calves reads tension faster than lone bulls. Wind and line matter before you squeeze another step.",
+      "When census calls for female harvest, paperwork and PH sign-off still own the last word, not enthusiasm.",
+    ],
     formBlockquote:
       "The eland you saw at two hundred metres is not the same animal after it steps into thicket. Believe the cover, not your pride.",
     ecologyTitle: "Lawns, pods, and browse ladders",
@@ -86,6 +91,11 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
     huntTitle: "Hunting the spiral giant",
     huntIntro:
       "Eland hunts are wind, glass, and shot discipline. You are not punching paper. You are placing a bullet through heavy muscle and bone on an animal that can run far when pushed.",
+    huntIntroParagraphs: [
+      "They look slow until a wrong wind turns a thicket edge into a corridor. Your professional hunter is not scenery. Listen when distance, angle, and backdrop are vetoed, especially once blood is on the menu and follow-up is a team contract.",
+      "Sticks, packs, and a cold bore you actually zeroed matter more than catalogue bravado. Eland forgive little when shot placement is lazy: plan recovery routes, manpower, and meat chain steps before the rifle comes off safe.",
+      "On the Iron Mountain we align stalks with census, season, and heat. The spiral in your binoculars is not a target dot. It is a reminder that heavy antelope deserve humility, premium construction, and the patience to wait for a true broadside.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

@@ -88,6 +88,11 @@ export function springbokMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the white flash",
     huntIntro:
       "Springbok reward glass, wind discipline, and rifles you can actually hold steady on sticks. Magnification without tripod thinking is how open ground humbles people.",
+    huntIntroParagraphs: [
+      "The white rump flash is semaphore: calm, then gone. Stalk for body depth and horn annuli, not only the flicker. Heat shimmer lies about distance on short grass.",
+      "Your professional hunter still picks one ram and refuses running shots and herd spray. Open veld belongs to tripods and honest wind, not to horsepower.",
+      "On the Iron Mountain we match springbok hunts to census and season. Trophy is horn and age on the right animal after the white flash stopped in a true window.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

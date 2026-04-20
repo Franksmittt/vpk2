@@ -62,6 +62,11 @@ export function dappleImpalaMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the patterned rooibok",
     huntIntro:
       "Stalk as you would any impala: quiet feet, obsessive wind, and refusal to treat a pretty coat like an easy target.",
+    huntIntroParagraphs: [
+      "Dappled light on a dappled hide is a cruel joke. Glass the horn line and neck seam, not the spot map. Pretty coats do not widen ethical shot windows.",
+      "Wind and herd geometry still decide the day. Your PH still vetoes brush, fence panic, and the wrong ram in a string. Pattern morphs do not buy extra metres.",
+      "On the Iron Mountain we match variant hunts to census and honest guest briefings. Trophy is horn and age on the right animal, with paperwork that matches what you advertised.",
+    ],
     huntMethods: base.huntMethods,
     trophyTitle: "Trophy sense and morph honesty",
     trophyParagraphs: [

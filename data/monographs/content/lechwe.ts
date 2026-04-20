@@ -88,6 +88,11 @@ export function lechweMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the waterline",
     huntIntro:
       "Lechwe hunts blend open-ground glassing with wetland stalking. Mud noise, wind on water, and reeds that tangle feet are the exam.",
+    huntIntroParagraphs: [
+      "Red lechwe read saturn horns against reeds until legs and chest tell the truth. Wetland acoustics punish rushed feet; wind on water maps your mistake before the animal does.",
+      "Your professional hunter still owns angle, sex ID, and when the herd is too deep in mud politics. Dog and fence context belong in the briefing, not in a guess.",
+      "On the Iron Mountain we match lechwe hunts to census and wetland ethics. Trophy is horn and age on the right ram after glass and patience bought a clean shot.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

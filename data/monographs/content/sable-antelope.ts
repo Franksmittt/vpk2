@@ -88,6 +88,11 @@ export function sableAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the scimitar in cover",
     huntIntro:
       "Glass, wind, and shot windows beat rushing for hero photos. If you cannot see legs, you do not have a shot.",
+    huntIntroParagraphs: [
+      "Sable love timber rims and attitude. Black bulls vanish into shadow until horn curve and chest depth read true. Thicket and temper demand premium bullets and calm sticks.",
+      "Your PH still owns angle, brush, and which bull is actually legal in the string. Rut theatre is not permission to spray steel into a moving arc.",
+      "On the Iron Mountain we match sable hunts to census and cover. Trophy is scimitar integrity on the right bull after wind and distance earned the shot.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

@@ -86,6 +86,11 @@ export function warthogMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the kneeling razor",
     huntIntro:
       "Warthog hunting rewards patience and close ranges. This is not a 400-metre culture unless you are paper punching. Stalking short grass and still-hunting water is the soul of it.",
+    huntIntroParagraphs: [
+      "Kneeling grazers read smaller than they are until tusks fill the lens. Wind on short sward still maps your mistake before the pig does. Refuse rushed shots at holes, fence corners, or sounder chaos.",
+      "Your PH still owns target ID, dog context, and follow-up when tusks and burrows rewrite the recovery plan. Close range is ethics range.",
+      "On the Iron Mountain we match warthog hunts to census and safety briefings. Trophy and meat both belong to the same discipline: identify, judge, then shoot once.",
+    ],
     huntMethods: [
       {
         title: "Still-hunt",

@@ -86,6 +86,11 @@ export function blueWildebeestMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the brindled line",
     huntIntro:
       "Most wildebeest hunts are wind, glass, and distance management. You are not sneaking through thicket. You are using folds, anthills, and the one bush that is not actually too small.",
+    huntIntroParagraphs: [
+      "Herds string out on short grass then bunch at water. Mirage and heat shimmer lie about distance. Tripods and honest wind checks earn the shot; hero sprints earn fence stress and wounded animals.",
+      "Your professional hunter reads panic arcs and keeps rifles pointed at one identified bull. Gnu country punishes spray-and-pray thinking faster than ego recovers.",
+      "On the Iron Mountain we match wildebeest hunts to census and open-ground ethics. When the brindled line finally stops broadside, that is the dividend patience paid.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

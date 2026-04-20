@@ -88,6 +88,11 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the open scrub lance",
     huntIntro:
       "Gemsbok hunts are wind, distance, and bullet honesty. You will walk more than you think. The reward is a trophy that looks like it was forged, not grown.",
+    huntIntroParagraphs: [
+      "Open scrub and red dust punish hollow magnum talk. Mirage and heat waves lie about horns and shoulders. Tripods, rangefinder discipline, and premium construction earn the day.",
+      "Your professional hunter still picks one bull, one angle, and one moment. Herd strings and fence lines belong in the briefing before the shot breaks the calm.",
+      "On the Iron Mountain we match gemsbok hunts to census and range condition. Trophy is lance length and mass on the right animal after wind and distance told the truth.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

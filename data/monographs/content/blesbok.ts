@@ -88,6 +88,11 @@ export function blesbokMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the open blaze",
     huntIntro:
       "Blesbok hunts are wind, sticks, and distance discipline. There is nowhere to hide except the lie you tell yourself about being invisible on a kopje.",
+    huntIntroParagraphs: [
+      "Short grass and sky behind you are honest critics. Use dead ground and anthill breaks, then freeze when the herd’s heads rise as one. Open Highveld rewards the hunter who stops first.",
+      "Your professional hunter still picks one ram, one angle, and one moment. Fence lines and neighbour etiquette belong in the briefing, not in a rushed shot.",
+      "On the Iron Mountain we match blesbok hunts to grass height and quota. Trophy is horn and age on the right animal after wind and distance told the truth.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

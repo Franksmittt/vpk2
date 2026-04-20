@@ -86,6 +86,11 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Still-hunting the spiral ghost",
     huntIntro:
       "Bushbuck hunting is slow feet, low optics, and wind drilled into habit. If you need a 300-metre zero, you are probably in the wrong thicket.",
+    huntIntroParagraphs: [
+      "Rams read as shadow until the white throat flash or horn keel catches sun. The spiral is easy to romanticise and hard to range honestly when twigs own the foreground. Glass from stillness, then move as if the next step is the one a leopard will hear.",
+      "Your professional hunter earns veto rights on angle, ewe behind ram, and fence panic. Bushbuck ethics are metres and inches, not bravado. When the shot is not there, the thicket already gave its answer.",
+      "On the Iron Mountain we match bushbuck hunts to census and cover. Stripes and riverine edges are not a stage for rushed rifles. Wait for the chest to clear, then let premium construction and patience finish the story.",
+    ],
     huntMethods: [
       {
         title: "Still-hunt",

@@ -62,6 +62,11 @@ export function blackImpalaMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the melanistic edge runner",
     huntIntro:
       "Same quiet feet, same wind obsession. Refuse the shortcut of chasing a dark shape without horn confirmation.",
+    huntIntroParagraphs: [
+      "Melanistic coats flatten outline in side light. Spend extra seconds on horn keel, tail flash, and gait before the safety moves. A dark blob in the thicket is not a sex or age decision.",
+      "Your PH still owns angle, backdrop, and herd confusion when ewes or young rams sit behind the target ram. Morph marketing does not relax field standards.",
+      "On the Iron Mountain we align black impala harvest with census and disclosure. The story at the skinning rack should match the genetics on paper and the patience you showed on the stalk.",
+    ],
     huntMethods: base.huntMethods,
     trophyTitle: "Trophy sense and morph honesty",
     trophyParagraphs: [

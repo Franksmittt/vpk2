@@ -62,6 +62,11 @@ export function goldenWildebeestMonograph(s: QuarrySpecies): MonographDefinition
     huntTitle: "Hunting the pale gnu",
     huntIntro:
       "Stalk as you would any wildebeest: glass, wind, distance management, and refusal to sprint the herd into fence stress.",
+    huntIntroParagraphs: [
+      "Pale coats flare in low sun and can silhouette earlier than brindled animals. Adjust approach timing and background contrast before you adjust calibre. The horn story is still a gnu story.",
+      "Mirage and herd nerves do not care about colour marketing. Your PH still owns target ID, angle, and when the herd is too hot to push.",
+      "On the Iron Mountain we match golden gnu harvest to census and transparent morph records. The field standard is blue wildebeest discipline in different light.",
+    ],
     huntMethods: base.huntMethods,
     trophyTitle: "Trophy sense beyond colour",
     trophyParagraphs: [

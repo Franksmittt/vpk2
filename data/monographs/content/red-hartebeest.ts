@@ -88,6 +88,11 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
     huntTitle: "Hunting the long face",
     huntIntro:
       "Most hartebeest hunts are glass, wind, and honest distance. Tripods and bipods earn their keep on open ground.",
+    huntIntroParagraphs: [
+      "High shoulders and steep backlines read strange in mirage until legs tell the truth. Hartebeest punish lazy wind checks across pans and firebreaks.",
+      "Your professional hunter still picks one animal and refuses running strings and fence panic. Alcelaphine herds bunch fast when one wrong foot shows.",
+      "On the Iron Mountain we match hartebeest hunts to census and open-ground ethics. Trophy is horn length and age on the right bull after distance was verified honestly.",
+    ],
     huntMethods: [
       {
         title: "Spot and stalk",

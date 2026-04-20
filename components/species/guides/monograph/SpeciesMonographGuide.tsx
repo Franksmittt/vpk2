@@ -186,27 +186,28 @@ const SpeciesMonographGuide = ({
 
       <section className="border-t border-white/[0.07] bg-[#080808] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.formTitle}</h2>
-            <p className="max-w-md font-sans text-sm text-white/65">{c.formEyebrow}</p>
-          </div>
-
-          <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="flex h-full min-h-0 flex-col space-y-6 lg:py-0.5">
-              <h3 className="font-sans text-lg font-medium text-white/90">{c.formPrimaryTitle}</h3>
-              <p className="font-sans text-base leading-[1.75] text-white/70">{c.formPrimaryBody}</p>
-              <ul className="space-y-3 font-sans text-sm text-white/70">
-                {c.formPrimaryBullets.map((li, i) => (
-                  <li
-                    key={i}
-                    className={`flex gap-3 border-l-2 pl-4 ${i === 0 ? "border-burnished-copper/40" : "border-white/10"}`}
-                  >
-                    {li}
-                  </li>
-                ))}
-              </ul>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-x-16">
+            <div className="order-1 flex min-h-0 flex-col lg:py-0.5">
+              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.formTitle}</h2>
+                <p className="max-w-md font-sans text-sm text-white/65">{c.formEyebrow}</p>
+              </div>
+              <div className="mt-12 flex flex-col space-y-6">
+                <h3 className="font-sans text-lg font-medium text-white/90">{c.formPrimaryTitle}</h3>
+                <p className="font-sans text-base leading-[1.75] text-white/70">{c.formPrimaryBody}</p>
+                <ul className="space-y-3 font-sans text-sm text-white/70">
+                  {c.formPrimaryBullets.map((li, i) => (
+                    <li
+                      key={i}
+                      className={`flex gap-3 border-l-2 pl-4 ${i === 0 ? "border-burnished-copper/40" : "border-white/10"}`}
+                    >
+                      {li}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="flex h-full min-h-0 flex-col">
+            <div className="order-2 flex h-full min-h-0 flex-col">
               <MonographFig
                 seed={c.imageSeeds.formPrimary}
                 layout="matchText"
@@ -221,8 +222,8 @@ const SpeciesMonographGuide = ({
             </div>
           </div>
 
-          <div className="mt-16 grid items-stretch gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="order-2 flex h-full min-h-0 flex-col lg:order-1">
+          <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-x-16">
+            <div className="order-4 flex h-full min-h-0 flex-col lg:col-start-1 lg:row-start-1">
               <MonographFig
                 seed={c.imageSeeds.formSecondary}
                 layout="matchText"
@@ -235,9 +236,21 @@ const SpeciesMonographGuide = ({
                 }
               />
             </div>
-            <div className="order-1 flex h-full min-h-0 flex-col space-y-6 lg:order-2 lg:py-0.5">
+            <div className="order-3 flex min-h-0 flex-col space-y-6 lg:col-start-2 lg:row-start-1 lg:py-0.5">
               <h3 className="font-sans text-lg font-medium text-white/90">{c.formSecondaryTitle}</h3>
               <p className="font-sans text-base leading-[1.75] text-white/70">{c.formSecondaryBody}</p>
+              {c.formSecondaryBullets?.length ? (
+                <ul className="space-y-3 font-sans text-sm text-white/70">
+                  {c.formSecondaryBullets.map((li, i) => (
+                    <li
+                      key={i}
+                      className={`flex gap-3 border-l-2 pl-4 ${i === 0 ? "border-burnished-copper/40" : "border-white/10"}`}
+                    >
+                      {li}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </div>
 
@@ -412,23 +425,32 @@ const SpeciesMonographGuide = ({
             id="hunt"
             className="mt-14 scroll-mt-36 border-t border-white/[0.08] pt-14 md:mt-20 md:scroll-mt-40 md:pt-20"
           >
-            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{huntEyebrow}</h2>
-            <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.huntIntro}</p>
-            <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-              <MonographFig
-                seed={c.imageSeeds.hunt}
-                layout="matchText"
-                className="h-full"
-                localBase={c.imageSeeds.huntLocalBase}
-                localExt={
-                  c.imageSeeds.huntLocalBase ? (c.imageSeeds.huntLocalExt ?? "jpg") : undefined
-                }
-              />
-              <MonographFig
-                layout="matchText"
-                className="h-full"
-                placeholder="Spoor comparison: this species alongside common Waterberg quarry for scale."
-              />
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-x-10">
+              <div className="order-1 flex min-h-0 flex-col lg:max-w-none lg:py-0.5">
+                <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{huntEyebrow}</h2>
+                <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52 lg:max-w-none">
+                  {c.huntIntro}
+                </p>
+                {c.huntIntroParagraphs?.map((p, i) => (
+                  <p
+                    key={`hunt-intro-${i}`}
+                    className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52 lg:max-w-none"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+              <div className="order-2 flex h-full min-h-0 flex-col">
+                <MonographFig
+                  seed={c.imageSeeds.hunt}
+                  layout="matchText"
+                  className="h-full"
+                  localBase={c.imageSeeds.huntLocalBase}
+                  localExt={
+                    c.imageSeeds.huntLocalBase ? (c.imageSeeds.huntLocalExt ?? "jpg") : undefined
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
