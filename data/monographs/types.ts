@@ -125,13 +125,13 @@ export type MonographDefinition = {
   introPanoramaCaption?: string;
   huntSectionEyebrow?: string;
   showTrophySection?: boolean;
-  /** Omit the two-column figure row directly under the form blockquote (e.g. shot reference + horns). */
+  /** Omit the two-column figure row under the form blockquote. Default: hidden (set `false` to show). */
   hideFormBlockquoteFigures?: boolean;
-  /** Omit the two-column figure row under the rut paragraph in the social section. */
+  /** Omit the two-column figure row under the rut paragraph. Default: hidden (set `false` to show). */
   hideRutFigures?: boolean;
-  /** Omit the two-column figure row under the meat copy columns. */
+  /** Omit the two-column figure row under the meat columns. Default: hidden (set `false` to show). */
   hideMeatFigures?: boolean;
-  /** Omit the predation heading, copy, and wide banner figure. */
+  /** Omit the predation section. Default: hidden (set `false` to show). */
   hidePredationSection?: boolean;
 };
 

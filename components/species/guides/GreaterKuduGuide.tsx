@@ -249,8 +249,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             <p>
               This page is built for people who want more than a trophy photo. We walk through
               taxonomy, morphology, diet tricks (including how kudu beat tannin warfare), social structure,
-              predation, fieldcraft, rifles, shot placement, meat, and the folklore that still travels
-              around the fire.
+              fieldcraft, rifles, shot placement, meat, and the folklore that still travels around the fire.
             </p>
           </div>
           <div className="flex min-h-0 flex-col">
@@ -385,19 +384,6 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             Hunters learn quickly: the first defense is not running. It is standing still until you
             doubt your own eyes.
           </blockquote>
-
-          <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
-            <Fig
-              diagramSrc={`${GREATER_KUDU_DIAGRAMS_BASE}/shot-card-vitals.png`}
-              layout="matchText"
-              className="h-full"
-            />
-            <KuduFig
-              seed="kuduhornssilhouette"
-              layout="matchText"
-              className="h-full"
-            />
-          </div>
         </div>
       </section>
 
@@ -505,36 +491,7 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             death lock. African camp stories still carry paired skeletons as a warning about pride
             without exit.
           </p>
-          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <KuduFig
-              seed="kudurutdust"
-              layout="matchText"
-              className="h-full"
-            />
-            <Fig
-              diagramSrc={`${GREATER_KUDU_DIAGRAMS_BASE}/spectrogram.png`}
-              layout="matchText"
-              className="h-full"
-            />
-          </div>
         </div>
-      </section>
-
-      {/* Predation */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
-        <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
-          Predators and the freeze
-        </h2>
-        <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">
-          Lions, hyenas, and wild dogs all take kudu when odds line up. Against dogs, a bull may ram
-          hindquarters into a thorn tangle and present horns, protecting hamstrings. Against rifles, the
-          first move is often freeze and blend, then a flagged white tail on exit for the herd to
-          follow in bad light.
-        </p>
-        <KuduFig
-          seed="kudupredatoraware"
-          className="mt-10"
-        />
       </section>
 
       <div id="hunt" className="scroll-mt-36 md:scroll-mt-40" />
@@ -722,18 +679,6 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
               comes with it.
             </p>
           </div>
-        </div>
-        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
-          <KuduFig
-            seed="kudugrillfire"
-            layout="matchText"
-            className="h-full"
-          />
-          <Fig
-            diagramSrc={`${GREATER_KUDU_DIAGRAMS_BASE}/biltong-drying.png`}
-            layout="matchText"
-            className="h-full"
-          />
         </div>
       </section>
 

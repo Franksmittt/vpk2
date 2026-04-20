@@ -139,10 +139,6 @@ export function bushbuckMonograph(s: QuarrySpecies): MonographDefinition {
       ["Habitat", "Riverine thickets, forest edges, dense bush"],
       ["Predators", "Leopard primary where cats persist"],
     ],
-    hideFormBlockquoteFigures: true,
-    hideRutFigures: true,
-    hideMeatFigures: true,
-    hidePredationSection: true,
     imageSeeds: monoSeeds(s, false, {
       hero: "bushbuck-monograph-hero",
       heroLocalBase: "/images/species/bushbuck",

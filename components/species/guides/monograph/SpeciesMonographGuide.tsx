@@ -45,6 +45,11 @@ const SpeciesMonographGuide = ({
   content: MonographDefinition;
 }) => {
   const showTrophy = c.showTrophySection !== false;
+  /** Bushbuck-style layout: omit placeholder-heavy rows and standalone predation unless a monograph opts in with `false`. */
+  const hideFormBlockquoteFigures = c.hideFormBlockquoteFigures !== false;
+  const hideRutFigures = c.hideRutFigures !== false;
+  const hideMeatFigures = c.hideMeatFigures !== false;
+  const hidePredationSection = c.hidePredationSection !== false;
   const huntEyebrow = c.huntSectionEyebrow ?? c.huntTitle;
   const heroSrc = c.imageSeeds.heroLocalBase
     ? `${c.imageSeeds.heroLocalBase}/${c.imageSeeds.hero}.${c.imageSeeds.heroLocalExt ?? "jpg"}`
@@ -243,7 +248,7 @@ const SpeciesMonographGuide = ({
             {c.formBlockquote}
           </blockquote>
 
-          {c.hideFormBlockquoteFigures ? null : (
+          {hideFormBlockquoteFigures ? null : (
             <div className="mt-12 grid items-stretch gap-8 md:grid-cols-2 md:gap-10">
               <MonographFig
                 layout="matchText"
@@ -309,7 +314,7 @@ const SpeciesMonographGuide = ({
         />
       </section>
 
-      {c.hidePredationSection ? null : (
+      {hidePredationSection ? null : (
         <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
           <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.predationTitle}</h2>
           <p className="mt-5 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.predationBody}</p>
@@ -356,7 +361,7 @@ const SpeciesMonographGuide = ({
             })}
           </div>
           <p className="mt-10 max-w-3xl font-sans text-base leading-[1.75] text-white/52">{c.rutParagraph}</p>
-          {c.hideRutFigures ? null : (
+          {hideRutFigures ? null : (
             <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
               <MonographFig
                 seed={c.imageSeeds.rutLeft}
@@ -496,7 +501,7 @@ const SpeciesMonographGuide = ({
             ))}
           </div>
         </div>
-        {c.hideMeatFigures ? null : (
+        {hideMeatFigures ? null : (
           <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
             <MonographFig
               seed={c.imageSeeds.meat}
