@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "The Kalahari lance in living hide",
     heroLead:
       "Gemsbok are oryx built for heat, distance, and argument. Both sexes carry horns that can kill a careless hunter. They are the animal that makes you respect open ground again.",
@@ -141,10 +143,35 @@ export function gemsbokMonograph(s: QuarrySpecies): MonographDefinition {
       ["Range in SA", "Native arid belt plus widespread introductions"],
     ],
     imageSeeds: monoSeeds(s, true, {
-      panorama: "gemsbok-intro-panorama",
+      heroLocalBase: "/images/species/gemsbok",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/gemsbok",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/gemsbok",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/gemsbok",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/gemsbok",
+      formSecondaryLocalExt: "jpg",
       panoramaLocalBase: "/images/species/gemsbok",
       panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/gemsbok",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/gemsbok",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/gemsbok",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/gemsbok",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/gemsbok",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/gemsbok",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/gemsbok",
+      rifleLocalExt: "jpg",
+      meatLocalBase: "/images/species/gemsbok",
+      meatLocalExt: "jpg",
     }),
-    introPanoramaCaption: "Gemsbok estate field reference below intro copy.",
+    introPanoramaCaption: "Open scrub: heat shimmer, grass line, or horn tips above the veld.",
   };
 }
