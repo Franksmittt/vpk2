@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "The red rocket with a preacher’s face",
     heroLead:
       "Red hartebeest are Alcelaphus buselaphus caama, the long-faced alcelaphine that runs like gravity owed it money. On open plains they are a test of range estimation, wind, and the moment you admit your first guess was wrong.",
@@ -141,10 +143,33 @@ export function redHartebeestMonograph(s: QuarrySpecies): MonographDefinition {
       ["Silhouette", "High withers, sloping back: mind range estimation"],
     ],
     imageSeeds: monoSeeds(s, false, {
-      panorama: "red-hartebeest-intro-panorama",
+      heroLocalBase: "/images/species/red-hartebeest",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/red-hartebeest",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/red-hartebeest",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/red-hartebeest",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/red-hartebeest",
+      formSecondaryLocalExt: "jpg",
       panoramaLocalBase: "/images/species/red-hartebeest",
       panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/red-hartebeest",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/red-hartebeest",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/red-hartebeest",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/red-hartebeest",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/red-hartebeest",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/red-hartebeest",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/red-hartebeest",
+      rifleLocalExt: "jpg",
     }),
-    introPanoramaCaption: "Red hartebeest estate reference below intro copy.",
+    introPanoramaCaption: "Open veld: grass line, heat shimmer, or horn tips above the sward.",
   };
 }
