@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "Shale stripes and the spiral shy",
     heroLead:
       "Nyala are Tragelaphus angasii, the striped spiral-horned bridge between bushbuck density and kudu height. Rams carry yellow legs, manes, and horns that hook outward; ewes wear rusty coats with crisp stripes and no horns. They haunt ecotones where browse meets cover.",
@@ -139,6 +141,36 @@ export function nyalaMonograph(s: QuarrySpecies): MonographDefinition {
       ["Pelage", "Ewes striped; rams gain mane and tan legs"],
       ["Habitat", "Thicket edges, riverine, mixed bush"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      heroLocalBase: "/images/species/nyala",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/nyala",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/nyala",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/nyala",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/nyala",
+      formSecondaryLocalExt: "jpg",
+      panoramaLocalBase: "/images/species/nyala",
+      panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/nyala",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/nyala",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/nyala",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/nyala",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/nyala",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/nyala",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/nyala",
+      rifleLocalExt: "jpg",
+      meatLocalBase: "/images/species/nyala",
+      meatLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Hooves and sandy substrate, shallow depth of field.",
   };
 }
