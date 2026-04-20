@@ -4,6 +4,8 @@ import { monoSeeds } from "../seeds";
 
 export function sableAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
   return {
+    hidePredationSection: false,
+    hideMeatFigures: false,
     heroTitle: "Black cape, scimitar, iron nerve",
     heroLead:
       "Sable are Hippotragus niger: one of Africa’s most beautiful antelope and one of the most dangerous at close quarters. Rams carry backward-sweeping scimitar horns with razor attitude; cows carry slimmer horns and serious temper when cornered.",
@@ -138,6 +140,34 @@ export function sableAntelopeMonograph(s: QuarrySpecies): MonographDefinition {
       ["Danger", "Close-quarters goring risk. PH discipline"],
       ["Calibre", ".300 Mag+ common; .375 welcomed"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      heroLocalBase: "/images/species/sable-antelope",
+      heroLocalExt: "jpg",
+      introLocalBase: "/images/species/sable-antelope",
+      introLocalExt: "jpg",
+      hornsLocalBase: "/images/species/sable-antelope",
+      hornsLocalExt: "jpg",
+      formPrimaryLocalBase: "/images/species/sable-antelope",
+      formPrimaryLocalExt: "jpg",
+      formSecondaryLocalBase: "/images/species/sable-antelope",
+      formSecondaryLocalExt: "jpg",
+      panoramaLocalBase: "/images/species/sable-antelope",
+      panoramaLocalExt: "jpg",
+      feedWideLocalBase: "/images/species/sable-antelope",
+      feedWideLocalExt: "jpg",
+      ecologyLocalBase: "/images/species/sable-antelope",
+      ecologyLocalExt: "jpg",
+      predationLocalBase: "/images/species/sable-antelope",
+      predationLocalExt: "jpg",
+      rutLeftLocalBase: "/images/species/sable-antelope",
+      rutLeftLocalExt: "jpg",
+      huntLocalBase: "/images/species/sable-antelope",
+      huntLocalExt: "jpg",
+      trophyLocalBase: "/images/species/sable-antelope",
+      trophyLocalExt: "jpg",
+      rifleLocalBase: "/images/species/sable-antelope",
+      rifleLocalExt: "jpg",
+    }),
+    introPanoramaCaption: "Thicket edge, horn curve, or white mask flash in the bokeh.",
   };
 }
