@@ -56,7 +56,7 @@ function Fig({
   if (layout === "matchText") {
     return (
       <figure className={`flex h-full min-h-0 flex-col ${className}`}>
-        <div className="relative min-h-[min(13.75rem,50dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(16rem,52dvh)] lg:min-h-0">
+        <div className="relative min-h-[min(16rem,52dvh)] w-full flex-1 overflow-hidden rounded-2xl ring-1 ring-white/[0.08] sm:min-h-[min(18rem,56dvh)] lg:h-full lg:min-h-full">
           {diagramSrc ? (
             <Image
               src={diagramSrc}
@@ -67,7 +67,7 @@ function Fig({
             />
           ) : placeholder ? (
             <div className="flex h-full min-h-[min(12rem,42dvh)] items-center justify-center rounded-2xl border border-dashed border-white/20 bg-gradient-to-br from-white/[0.04] to-transparent px-6 py-6 text-center">
-              <span className="font-sans text-xs leading-relaxed text-white/65">{placeholder}</span>
+              <span className="font-sans text-xs leading-relaxed text-white/70">{placeholder}</span>
             </div>
           ) : localBase ? (
             <GuideFigureImg
@@ -626,69 +626,59 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
             </table>
           </div>
 
-          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/70 lg:py-0.5">
-              <p>
-                <span className="font-medium text-white/75">Glass:</span> 10x42 is the African default.
-                Buy transmission you trust in shadow, not just magnification on the box.
-              </p>
-              <p>
-                <span className="font-medium text-white/75">Scope:</span> Low end for close thicket
-                encounters, top end for judging curl across a valley.
-              </p>
-              <p>
-                <span className="font-medium text-white/75">Broadside:</span> Up the back leg, about a
-                third up the body, through heart and lungs. “Behind the shoulder” deer habits can slide
-                you into liver if the angle lies.
-              </p>
-              <p>
-                <span className="font-medium text-white/75">Quartering away:</span> Drive through on the
-                near side, exit opposite shoulder if you can picture the line.
-              </p>
+          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-12 lg:gap-10">
+            <div className="space-y-3 font-sans text-sm leading-relaxed text-white/70 lg:col-span-5 lg:py-0.5">
+              <ul className="space-y-3">
+                {[
+                  {
+                    label: "Glass:",
+                    body: "10x42 is the African default. Buy transmission you trust in shadow, not just magnification on the box.",
+                  },
+                  {
+                    label: "Scope:",
+                    body: "Low end for close thicket encounters, top end for judging curl across a valley.",
+                  },
+                  {
+                    label: "Broadside:",
+                    body: "Up the back leg, about a third up the body, through heart and lungs. “Behind the shoulder” deer habits can slide you into liver if the angle lies.",
+                  },
+                  {
+                    label: "Quartering away:",
+                    body: "Drive through on the near side, exit opposite shoulder if you can picture the line.",
+                  },
+                  {
+                    label: "Follow-up:",
+                    body: "Mark exit, expect short blood then dense browse — kudu fold fast if the line held. Radios and a calm grid search beat hero sprints.",
+                  },
+                  {
+                    label: "Wind:",
+                    body: "Thicket eddies lie. Reset when the string goes still before you take another step; bulls often vote on wind before you finish dialling magnification.",
+                  },
+                ].map((t, i) => (
+                  <li
+                    key={t.label}
+                    className={`flex gap-3 border-l-2 pl-4 ${i === 0 ? "border-burnished-copper/40" : "border-white/10"}`}
+                  >
+                    <span>
+                      <span className="font-medium text-white/75">{t.label}</span> {t.body}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex min-h-0 flex-col">
+            <div className="flex min-h-0 flex-col lg:col-span-7">
               <Fig
-                diagramSrc={`${GREATER_KUDU_DIAGRAMS_BASE}/anatomical-overlay.png`}
                 layout="matchText"
                 className="h-full"
+                placeholder="Placeholder: vertical briefing figure for shot placement will go here once the final asset is ready."
               />
             </div>
           </div>
-
-          <KuduFig
-            seed="kudumonorifle"
-            className="mt-12"
-          />
         </div>
       </section>
 
-      {/* Meat + culture */}
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
-        <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
-          Meat, fire, and story
-        </h2>
-        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
-            <p>
-              Kudu venison is dark, lean, and closer to fine beef than to musky impala if you treat it
-              with respect. No intramuscular fat means rare to medium-rare or you cook leather.
-            </p>
-            <p>
-              Backstrap over coals with salt and coriander. Schnitzel from leg cuts for the kids. Neck
-              and shin in a slow pot, low heat, with wine, onion, and dried apricot for sweetness against
-              the iron in the meat. Air-dried cured strips from the long muscle groups: ideal travel
-              protein for the drive home.
-            </p>
-          </div>
-          <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
-            <p>
-              Horns have been trumpets and ritual tools for generations. Tswana clans carry kudu as
-              totem for some lines. Zulu teaching stories use locked horns as a metaphor for stubborn war
-              that kills both sides. Dream folklore ties the animal to rising status and the weight that
-              comes with it.
-            </p>
-          </div>
-        </div>
+        <KuduFig seed="kudumonorifle" className="mt-0" />
       </section>
 
       <div id="table" className="scroll-mt-36 md:scroll-mt-40" />

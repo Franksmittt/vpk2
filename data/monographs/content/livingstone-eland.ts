@@ -127,20 +127,34 @@ export function livingstoneElandMonograph(s: QuarrySpecies): MonographDefinition
       ["Classic", ".338 Win Mag", "Where recoil discipline and punch already live in your hands."],
     ],
     rifleTips: [
-      { label: "Broadside:", body: "Heart-lung or shoulder-breaking lines per PH brief." },
-      { label: "Angle:", body: "Long spirals hide presentation. Wait for truth." },
-      { label: "Follow-up:", body: "Mark land. Heavy animals leave sign if you look calmly." },
-      { label: "Recovery:", body: "Plan meat logistics before the shot. Respect the animal’s weight." },
+      {
+        label: "Broadside:",
+        body: "Heart-lung or shoulder-breaking lines per PH brief. On eland the chest sits deep and the brisket carries mass your deer intuition will underestimate; let the PH translate ‘third up’ into your reticle language, then hold for a true vertical instead of chasing horn tips that drift in parallax.",
+      },
+      {
+        label: "Angle:",
+        body: "Long spirals hide presentation. Wait for truth. Quartering shots that look generous beside kudu often fail here because spiral mass and gut bulk steal margin; if the spiral cheats the shoulder line or the near leg hides the brisket, the honest answer is still no shot.",
+      },
+      {
+        label: "Follow-up:",
+        body: "Mark land. Heavy animals leave sign if you look calmly. Eland can leave a deceptive grace note of blood, then fold into thicket while you are still congratulating the recoil; treat every follow-up like a team contract with radios, water, and manpower already named before the bullet leaves.",
+      },
+      {
+        label: "Recovery:",
+        body: "Plan meat logistics before the shot. Respect the animal’s weight. Winch points, gutting space, and chiller capacity scale with half-tonne reality; trophy and meat stories only align when the chain from bush to cold room is brief, legal, and staffed.",
+      },
+      {
+        label: "Rest:",
+        body: "Sticks, bipod, or vehicle rest per estate rules. Off-hand bravado on a tired shoulder is how spirals become excuses; cold bore honesty beats catalogue numbers when the sun is high and the animal is still.",
+      },
+      {
+        label: "Wind:",
+        body: "Thermals on open woodland edges move earlier than you want. Reset when the string goes still; eland often vote on wind before you finish adjusting magnification.",
+      },
     ],
-    meatTitle: "Meat, community, and field care",
-    meatLeft: [
-      "Eland venison feeds many mouths when entered legally into the meat chain. It is lean, dark, and honest in slow cooks.",
-      "Backstrap rewards respect. Overcooking insults the animal twice.",
-    ],
-    meatRight: [
-      "Gut fast, chill fast, keep hair out of the meat. Volume magnifies mistakes.",
-      "Trophy and meat narratives can coexist when law and ethics align.",
-    ],
+    meatTitle: "",
+    meatLeft: [],
+    meatRight: [],
     closingTitle: "Ready for the giant?",
     closingBody:
       "Bring a rifle you can place cold from sticks. Bring patience for animals that disappear behind one false thicket. We match hunts to census and carrying capacity, not to brochure ghosts.",

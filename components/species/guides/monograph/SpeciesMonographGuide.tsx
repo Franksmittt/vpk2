@@ -418,10 +418,7 @@ const SpeciesMonographGuide = ({
             </div>
           )}
 
-          <div
-            id="hunt"
-            className="mt-14 scroll-mt-36 border-t border-white/[0.08] pt-14 md:mt-20 md:scroll-mt-40 md:pt-20"
-          >
+          <div id="hunt" className="mt-14 scroll-mt-36 md:mt-20 md:scroll-mt-40">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-x-10">
               <div className="order-1 flex min-h-0 flex-col lg:max-w-none lg:py-0.5">
                 <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{huntEyebrow}</h2>
@@ -506,48 +503,90 @@ const SpeciesMonographGuide = ({
             </table>
           </div>
 
-          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
-            <div className="space-y-4 font-sans text-sm leading-relaxed text-white/70 lg:py-0.5">
-              {c.rifleTips.map((t) => (
-                <p key={t.label}>
-                  <span className="font-medium text-white/75">{t.label}</span> {t.body}
-                </p>
-              ))}
+          <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-12 lg:gap-10">
+            <div className="space-y-3 font-sans text-sm leading-relaxed text-white/70 lg:col-span-5 lg:py-0.5">
+              <ul className="space-y-3">
+                {c.rifleTips.map((t, i) => (
+                  <li
+                    key={t.label}
+                    className={`flex gap-3 border-l-2 pl-4 ${i === 0 ? "border-burnished-copper/40" : "border-white/10"}`}
+                  >
+                    <span>
+                      <span className="font-medium text-white/75">{t.label}</span> {t.body}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex min-h-0 flex-col">
-              <MonographFig
-                layout="matchText"
-                className="h-full"
-                placeholder="Anatomical overlay and ethical shot window for this species (field briefing card)."
-              />
+            <div className="flex min-h-0 flex-col lg:col-span-7">
+              {c.imageSeeds.rifleTipsFigureLocalBase && c.imageSeeds.rifleTipsFigure ? (
+                <MonographFig
+                  seed={c.imageSeeds.rifleTipsFigure}
+                  layout="matchText"
+                  className="h-full"
+                  localBase={c.imageSeeds.rifleTipsFigureLocalBase}
+                  localExt={
+                    c.imageSeeds.rifleTipsFigureLocalBase
+                      ? (c.imageSeeds.rifleTipsFigureLocalExt ?? "jpg")
+                      : undefined
+                  }
+                />
+              ) : (
+                <MonographFig
+                  layout="matchText"
+                  className="h-full"
+                  placeholder={
+                    c.rifleTipsPlaceholder ??
+                    "Anatomical overlay and ethical shot window for this species (field briefing card)."
+                  }
+                />
+              )}
             </div>
           </div>
 
-          <MonographFig
-            seed={c.imageSeeds.rifle}
-            className="mt-12"
-            localBase={c.imageSeeds.rifleLocalBase}
-            localExt={
-              c.imageSeeds.rifleLocalBase ? (c.imageSeeds.rifleLocalExt ?? "jpg") : undefined
-            }
-          />
+          {c.omitRifleSectionBanner ? null : (
+            <MonographFig
+              seed={c.imageSeeds.rifle}
+              className="mt-12"
+              localBase={c.imageSeeds.rifleLocalBase}
+              localExt={
+                c.imageSeeds.rifleLocalBase ? (c.imageSeeds.rifleLocalExt ?? "jpg") : undefined
+              }
+            />
+          )}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:px-12 md:py-24">
-        <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.meatTitle}</h2>
-        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
-            {c.meatLeft.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-          <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
-            {c.meatRight.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </div>
+        {c.omitMeatSectionCopy ? null : (
+          <>
+            <h2 className="font-sans text-2xl font-semibold tracking-[-0.03em] md:text-3xl">{c.meatTitle}</h2>
+            <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
+              <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
+                {c.meatLeft.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <div className="space-y-5 font-sans text-base leading-[1.75] text-white/52">
+                {c.meatRight.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+        {c.imageSeeds.meatSectionBannerSeed ? (
+          <MonographFig
+            seed={c.imageSeeds.meatSectionBannerSeed}
+            className={c.omitMeatSectionCopy ? "mt-0" : "mt-10"}
+            localBase={c.imageSeeds.meatSectionBannerLocalBase}
+            localExt={
+              c.imageSeeds.meatSectionBannerLocalBase
+                ? (c.imageSeeds.meatSectionBannerLocalExt ?? "jpg")
+                : undefined
+            }
+          />
+        ) : null}
         {hideMeatFigures ? null : (
           <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
             <MonographFig

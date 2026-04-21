@@ -1,4 +1,5 @@
 import type { QuarrySpecies } from "@/data/species";
+import { applySharedMonographLayout } from "./applySharedMonographLayout";
 import type { MonographBuilder, MonographDefinition } from "./types";
 import { blueWildebeestMonograph } from "./content/blue-wildebeest";
 import { impalaMonograph } from "./content/impala";
@@ -52,5 +53,6 @@ export function hasSpeciesMonograph(id: string): boolean {
 
 export function getMonographContent(species: QuarrySpecies): MonographDefinition | null {
   const build = MONOGRAPH_BUILDERS[species.id];
-  return build ? build(species) : null;
+  if (!build) return null;
+  return applySharedMonographLayout(species, build(species));
 }

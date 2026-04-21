@@ -67,10 +67,18 @@ export type MonographImageSeeds = {
   /** When set with `rifle` as filename stem, rifle-section banner loads `/public` asset first. */
   rifleLocalBase?: string;
   rifleLocalExt?: string;
+  /** Optional vertical figure beside rifle tips (`matchText`). Filename stem is `{rifleTipsFigure}.{rifleTipsFigureLocalExt}` under `rifleTipsFigureLocalBase`. */
+  rifleTipsFigure?: string;
+  rifleTipsFigureLocalBase?: string;
+  rifleTipsFigureLocalExt?: string;
   meat: string;
   /** When set with `meat` as filename stem, meat-section figure loads `/public` asset first. */
   meatLocalBase?: string;
   meatLocalExt?: string;
+  /** Optional wide banner under meat copy (`{meatSectionBannerSeed}.{ext}` under `meatSectionBannerLocalBase`); same layout as trophy banner. */
+  meatSectionBannerSeed?: string;
+  meatSectionBannerLocalBase?: string;
+  meatSectionBannerLocalExt?: string;
   /** When set with `panorama` as filename stem, intro-wide banner loads `/public` asset first (see MonographFig localBase). */
   panoramaLocalBase?: string;
   panoramaLocalExt?: string;
@@ -120,6 +128,8 @@ export type MonographDefinition = {
   meatTitle: string;
   meatLeft: string[];
   meatRight: string[];
+  /** When true, the meat heading and body copy are omitted (banner / figures rows unchanged). */
+  omitMeatSectionCopy?: boolean;
   closingTitle: string;
   closingBody: string;
   quickFactExtraRows: [string, string][];
@@ -136,6 +146,10 @@ export type MonographDefinition = {
   hideMeatFigures?: boolean;
   /** Omit the predation section. Default: hidden (set `false` to show). */
   hidePredationSection?: boolean;
+  /** Omit the wide rifle banner under the tips row (e.g. when tips use a tall local figure). */
+  omitRifleSectionBanner?: boolean;
+  /** Replaces default copy in the rifle-tips column when no `rifleTipsFigure` image is configured. */
+  rifleTipsPlaceholder?: string;
 };
 
 export type MonographBuilder = (species: import("@/data/species").QuarrySpecies) => MonographDefinition;
