@@ -1,0 +1,67 @@
+Bushveld atmosphere gallery assets (Iron Mountain / Vaalpenskraal web repo)
+============================================================================
+Generated for reuse in marketing, print, and future gallery edits. Prompt
+brief: docs/ai-image-brief-bushveld-atmosphere-microscenes.md
+
+These fifteen JPEGs live next to the legacy hunt-week grid under:
+  public/images/gallery/
+
+They are merged into /gallery in a FIXED pseudo-random order (see
+data/gallery-images.ts, GALLERY_MERGE_SEED). Change that seed if you want
+a different scatter without renaming files.
+
+----------------------------------------------------------------------------
+File name                         Web path
+----------------------------------------------------------------------------
+atmo-01-dung-beetle.jpg           /images/gallery/atmo-01-dung-beetle.jpg
+  Brief 01. Dung beetle on red Limpopo sand, dung ball or pad work.
+
+atmo-02-termite-mound.jpg         /images/gallery/atmo-02-termite-mound.jpg
+  Brief 02. Mature termite mound, eroded crust, thornveld context.
+
+atmo-03-cape-fox-distance.jpg     /images/gallery/atmo-03-cape-fox-distance.jpg
+  Brief 03. Cape fox (Vulpes chama) small in frame, telephoto distance.
+
+atmo-04-wet-ground-after-rain.jpg /images/gallery/atmo-04-wet-ground-after-rain.jpg
+  Brief 04. Wet iron sand, shallow hoofprint or puddle after rain.
+
+atmo-05-masked-weaver-nest.jpg   /images/gallery/atmo-05-masked-weaver-nest.jpg
+  Brief 05. Southern Masked Weaver (Ploceus velatus) at grass nest.
+
+atmo-06-quelea-flock.jpg          /images/gallery/atmo-06-quelea-flock.jpg
+  Brief 06. Red-billed Quelea (Quelea quelea) flock passage.
+
+atmo-07-sparrow-weaver-nest.jpg  /images/gallery/atmo-07-sparrow-weaver-nest.jpg
+  Brief 07. White-browed Sparrow-Weaver (Plocepasser mahali) nest in fork.
+
+atmo-08-orb-weaver-web.jpg        /images/gallery/atmo-08-orb-weaver-web.jpg
+  Brief 08. Orb web between thorn twigs, day light on silk.
+
+atmo-09-waterhole-ripples.jpg     /images/gallery/atmo-09-waterhole-ripples.jpg
+  Brief 09. Anonymous pan surface, ripples, subtle subsurface hint.
+
+atmo-10-waxbill-finches-flock.jpg /images/gallery/atmo-10-waxbill-finches-flock.jpg
+  Brief 10. Mixed small finches / waxbills at grass seed, scrub edge.
+
+atmo-11-plover-pan-edge.jpg       /images/gallery/atmo-11-plover-pan-edge.jpg
+  Brief 11. Small plover at muddy pan edge (e.g. three-banded type).
+
+atmo-12-hadeda.jpg                /images/gallery/atmo-12-hadeda.jpg
+  Brief 12. Hadeda ibis (Bostrychia hagedash) on grass or veld edge.
+
+atmo-13-flap-neck-chameleon.jpg   /images/gallery/atmo-13-flap-neck-chameleon.jpg
+  Brief 13. Flap-necked chameleon (Chamaeleo dilepis) on branch.
+
+atmo-14-ant-column.jpg            /images/gallery/atmo-14-ant-column.jpg
+  Brief 14. Ant column on red sand, believable density.
+
+atmo-15-cumulus-thornveld.jpg     /images/gallery/atmo-15-cumulus-thornveld.jpg
+  Brief 15. Cumulus over acacia canopy, honest sky.
+
+----------------------------------------------------------------------------
+Legacy grid (unchanged file names): vpk-gallery-001.jpg through
+vpk-gallery-052.jpg in the same folder. Total gallery count after merge:
+67 images (see data/gallery-images.ts).
+
+Alt text for atmosphere frames is defined next to each src in
+data/gallery-images.ts for accessibility.
