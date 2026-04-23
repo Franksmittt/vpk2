@@ -585,42 +585,44 @@ const SpeciesPageContent = ({ species = QUARRY_SPECIES }: SpeciesPageContentProp
         />
 
         <div className="editorial-container relative z-10 flex min-h-[min(100svh,920px)] flex-col justify-end pb-16 pt-28 md:pb-24 md:pt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-gradient-to-r from-black/85 via-black/75 to-black/80 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/85 backdrop-blur-md ring-1 ring-black/40">
-              <Mountain className="h-4 w-4 text-burnished-copper" aria-hidden />
-              Iron Mountain quarry
-            </div>
-            <h1 className="hero-readable-title font-sans text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-              Primary species of the Iron Mountain
-            </h1>
-            <p className="hero-readable-body mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
-              We do not sell animals. We manage an ecosystem. The availability of specific quarry is
-              dictated strictly by our annual ecological census, weather, and what the land can carry
-              without flinching.
-            </p>
-            <div className="mt-10 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch">
-              <button
-                type="button"
-                onClick={startComparePick}
-                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
-              >
-                <GitCompare className="h-4 w-4 shrink-0" aria-hidden />
-                Compare species side by side
-              </button>
-              <a
-                href="#species-directory"
-                className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 py-3 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:text-white sm:w-auto sm:py-4"
-              >
-                <span className="hero-readable-ghost">Browse the quarry</span>
-                <ChevronRight className="hero-readable-ui h-4 w-4" aria-hidden />
-              </a>
-            </div>
-          </motion.div>
+          <div className="w-2/3 min-w-0 max-w-full pr-1 sm:pr-2">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl"
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-gradient-to-r from-black/85 via-black/75 to-black/80 px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/85 backdrop-blur-md ring-1 ring-black/40">
+                <Mountain className="h-4 w-4 text-burnished-copper" aria-hidden />
+                Iron Mountain quarry
+              </div>
+              <h1 className="hero-readable-title font-sans text-[clamp(2.25rem,6vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+                Primary species of the Iron Mountain
+              </h1>
+              <p className="hero-readable-body mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
+                We do not sell animals. We manage an ecosystem. The availability of specific quarry is
+                dictated strictly by our annual ecological census, weather, and what the land can carry
+                without flinching.
+              </p>
+              <div className="mt-10 flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch">
+                <button
+                  type="button"
+                  onClick={startComparePick}
+                  className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-center font-sans text-sm font-semibold text-black transition-transform hover:scale-[1.02] hover:bg-white/90 sm:w-auto sm:px-8 sm:py-4"
+                >
+                  <GitCompare className="h-4 w-4 shrink-0" aria-hidden />
+                  Compare species side by side
+                </button>
+                <a
+                  href="#species-directory"
+                  className="focus-ring-invert inline-flex w-full min-w-0 items-center justify-center gap-2 py-3 text-center font-sans text-sm font-medium text-white/85 transition-colors hover:text-white sm:w-auto sm:py-4"
+                >
+                  <span className="hero-readable-ghost">Browse the quarry</span>
+                  <ChevronRight className="hero-readable-ui h-4 w-4" aria-hidden />
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

@@ -180,34 +180,36 @@ const GreaterKuduGuide = ({ species: s }: { species: QuarrySpecies }) => {
           aria-hidden
         />
         <div className="relative mx-auto flex min-h-[min(88svh,820px)] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 md:px-12 md:pb-24">
-          <div className="hero-readable-eyebrow mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
-            <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />
-            Species monograph
-          </div>
-          <h1 className="hero-readable-title max-w-4xl font-sans text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-            The Grey Ghost of the thickets
-          </h1>
-          <p className="mt-4 max-w-2xl font-serif text-lg italic text-burnished-copper/90 md:text-xl">
-            Greater Kudu · {s.scientific}
-          </p>
-          <p className="hero-readable-body mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
-            Few African animals earn the quiet reverence of a mature kudu bull. Spiral horns, disruptive
-            stripes, and a freeze that breaks your nerve: this is the graduate course in bush stillness.
-          </p>
-          <div className="mt-10 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row">
-            <Link
-              href="/reserve"
-              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
-            >
-              Book a kudu hunt
-              <ChevronRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#hunt"
-              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
-            >
-              Fieldcraft
-            </a>
+          <div className="w-2/3 min-w-0 max-w-full pr-1 sm:pr-2">
+            <div className="hero-readable-eyebrow mb-5 inline-flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-white/70">
+              <Crosshair className="h-3.5 w-3.5 text-burnished-copper" />
+              Species monograph
+            </div>
+            <h1 className="hero-readable-title max-w-4xl font-sans text-[clamp(2.25rem,5.5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+              The Grey Ghost of the thickets
+            </h1>
+            <p className="mt-4 max-w-2xl font-serif text-lg italic text-burnished-copper/90 md:text-xl">
+              Greater Kudu · {s.scientific}
+            </p>
+            <p className="hero-readable-body mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">
+              Few African animals earn the quiet reverence of a mature kudu bull. Spiral horns, disruptive
+              stripes, and a freeze that breaks your nerve: this is the graduate course in bush stillness.
+            </p>
+            <div className="mt-10 flex min-w-0 flex-col flex-wrap gap-3 sm:flex-row">
+              <Link
+                href="/reserve"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-center font-sans text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:w-auto"
+              >
+                Book a kudu hunt
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="#hunt"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-center font-sans text-sm font-medium text-white/70 transition-colors hover:border-white/35 hover:text-white sm:w-auto"
+              >
+                Fieldcraft
+              </a>
+            </div>
           </div>
         </div>
       </header>

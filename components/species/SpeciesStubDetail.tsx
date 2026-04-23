@@ -24,29 +24,31 @@ const SpeciesStubDetail = ({ species: s }: { species: QuarrySpecies }) => {
           aria-hidden
         />
         <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:px-12 md:py-28">
-          <p className="hero-readable-eyebrow font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
-            {s.epithet}
-          </p>
-          <h1 className="hero-readable-title mt-4 font-sans text-4xl font-semibold tracking-[-0.04em] md:text-5xl lg:text-6xl">
-            {s.name}
-          </h1>
-          <p className="mt-3 font-serif text-lg italic text-white/70">{s.scientific}</p>
-          <dl className="mt-10 grid gap-6 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">Caliber</dt>
-              <dd className="mt-2 font-sans text-sm text-white/85">{s.caliber}</dd>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">
-                Rowland Ward
-              </dt>
-              <dd className="mt-2 font-sans text-sm text-white/85">{s.rowlandWard}</dd>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">Terrain</dt>
-              <dd className="mt-2 font-sans text-sm text-white/85">{s.terrain}</dd>
-            </div>
-          </dl>
+          <div className="w-2/3 min-w-0 max-w-full pr-1 sm:pr-2">
+            <p className="hero-readable-eyebrow font-sans text-[11px] font-medium uppercase tracking-[0.3em] text-burnished-copper/85">
+              {s.epithet}
+            </p>
+            <h1 className="hero-readable-title mt-4 font-sans text-4xl font-semibold tracking-[-0.04em] md:text-5xl lg:text-6xl">
+              {s.name}
+            </h1>
+            <p className="mt-3 font-serif text-lg italic text-white/70">{s.scientific}</p>
+            <dl className="mt-10 grid gap-6 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
+                <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">Caliber</dt>
+                <dd className="mt-2 font-sans text-sm text-white/85">{s.caliber}</dd>
+              </div>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
+                <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">
+                  Rowland Ward
+                </dt>
+                <dd className="mt-2 font-sans text-sm text-white/85">{s.rowlandWard}</dd>
+              </div>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
+                <dt className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/65">Terrain</dt>
+                <dd className="mt-2 font-sans text-sm text-white/85">{s.terrain}</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </header>
 
