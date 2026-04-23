@@ -151,6 +151,9 @@ export function lechweMonograph(s: QuarrySpecies): MonographDefinition {
       ["South Africa", "Often estate populations; verify permits and story"],
       ["Horns", "Long, ridged horns on mature rams"],
     ],
-    imageSeeds: monoSeeds(s, false),
+    imageSeeds: monoSeeds(s, false, {
+      heroLocalBase: "/images/species/lechwe",
+      heroLocalExt: "jpg",
+    }),
   };
 }

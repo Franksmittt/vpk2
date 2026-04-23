@@ -147,6 +147,9 @@ export function plainsZebraMonograph(s: QuarrySpecies): MonographDefinition {
       ["Mass", "Often 300+ kg for mature animals"],
       ["Shot", "Forward heart-lung preferred on equids"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      heroLocalBase: "/images/species/plains-zebra",
+      heroLocalExt: "jpg",
+    }),
   };
 }

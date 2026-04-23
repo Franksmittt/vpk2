@@ -147,6 +147,9 @@ export function giraffeMonograph(s: QuarrySpecies): MonographDefinition {
       ["Calibre", "Typically .375+ per estate brief"],
       ["Ethics", "First-shot placement is everything"],
     ],
-    imageSeeds: monoSeeds(s, true),
+    imageSeeds: monoSeeds(s, true, {
+      heroLocalBase: "/images/species/giraffe",
+      heroLocalExt: "jpg",
+    }),
   };
 }
