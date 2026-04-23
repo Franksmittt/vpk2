@@ -18,7 +18,8 @@ const MEAT_BANNER_LOCAL_BASE_BY_ID: Partial<Record<string, string>> = {
 const MEAT_BANNER_STEM_BY_ID: Partial<Record<string, string>> = {
   bushbuck: "bushbuckmonotrophy",
   "golden-wildebeest": "golden-wildebeest-harvest",
-  "white-blesbok": "blesbokmonorifle",
+  /** White morph assets live alongside brown blesbok; avoid hijacking shared `blesbokmonorifle.jpg`. */
+  "white-blesbok": "blesbokwhitemonorifle",
 };
 
 function stripRifleTipsFigure(seeds: MonographImageSeeds): MonographImageSeeds {
