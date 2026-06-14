@@ -12,6 +12,8 @@ Business facts are governed by `client-business-truth.json`. New public claims a
 
 The website is implemented as a mostly static, editorial marketing site. It is ready for local build and static export work, while live production hosting, DNS, and any post-deploy rich-results checks remain outside the repository.
 
+Current validation on 2026-06-14: `npm run lint` and `npm run build` pass after installing dependencies from the lockfile with `npm ci`. The build generated 39 static pages, including 22 species detail routes.
+
 ### Stack
 
 - Framework: Next.js 16 App Router.
@@ -72,7 +74,7 @@ The visible copy correctly frames submitted dates as enquiry requests, not confi
 
 ## Known follow-ups
 
-- Run `npm run lint` and `npm run build` after any code or content changes. The last recorded green checks before this summary were on 2026-04-15.
+- Run `npm run lint` and `npm run build` after any code or content changes.
 - Connect production hosting and DNS for `https://www.vaalpenskraal.com`.
 - Smoke test `/`, `/species/greater-kudu`, `/reserve`, `/sitemap.xml`, and `/robots.txt` after deployment.
 - Validate JSON-LD for `/reserve` and a representative `/species/[slug]` page after deployment.
