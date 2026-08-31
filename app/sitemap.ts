@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { QUARRY_SPECIES } from "@/data/species";
-import { siteMetadataBase } from "@/lib/site";
+import { SITE_AVAILABLE, siteMetadataBase } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -23,6 +23,10 @@ const STATIC_PATHS = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteMetadataBase.origin;
   const lastModified = new Date();
+
+  if (!SITE_AVAILABLE) {
+    return [];
+  }
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
     url: `${base}${path === "/" ? "" : path}`,
